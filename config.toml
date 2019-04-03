@@ -1,8 +1,9 @@
-baseURL      = "https://lalabuy948.github.io/blog/"
+baseURL      = ""
 languageCode = "en-us"
 title        = "Another blog"
 theme        = "basics"
 publishDir   = "docs"
+relativeurls = true
 
 PygmentsCodeFences = true
 PygmentsStyle      = "autumn"
