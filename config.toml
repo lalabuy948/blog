@@ -1,0 +1,12 @@
+baseURL      = "http://example.org/"
+languageCode = "en-us"
+title        = "Another blog"
+theme        = "basics"
+publishDir   = "docs"
+
+PygmentsCodeFences = true
+PygmentsStyle      = "autumn"
+
+[params]
+    author = "Daniil Popov"
+    github = "lalabuy948"
