@@ -20,15 +20,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>Hello</title>
-      <link>/post/hello/</link>
-      <pubDate>Wed, 03 Apr 2019 12:37:16 +0200</pubDate>
-      
-      <guid>/post/hello/</guid>
-      <description> Insert Lead paragraph here.
-New Cool Posts &amp;lt;?php $groupAttributes = array_map( function ($expr, $alias) { return sprintf(&amp;#39;%s AS %s&amp;#39;, $expr, $alias); }, $this-&amp;gt;attributeGroups[$attributeGroup], array_keys($this-&amp;gt;attributeGroups[$attributeGroup]) ); </description>
-    </item>
-    
   </channel>
 </rss>

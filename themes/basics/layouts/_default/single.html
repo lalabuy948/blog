@@ -9,7 +9,13 @@
   </div>
 </div>
 
-{{ if eq $.Site.BaseURL "localhost" }} <p>BLYA</p> {{ end }}
+{{ if .NextInSection }}
+  <a href="{{.NextInSection.Permalink}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go here</a>
+{{ end }}
+
+{{ if .PrevInSection }}
+  <a href="{{.PrevInSection.Permalink}}">Go there <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+{{ end }}
 
 <script src="https://utteranc.es/client.js"
         repo="lalabuy948/blog"
