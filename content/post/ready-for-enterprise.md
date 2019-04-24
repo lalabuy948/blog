@@ -1,7 +1,7 @@
 ---
 title: "Ready for Enterprise"
 date: 2019-04-04T16:00:00+02:00
-draft: false
+draft: true
 ---
 
 So, I joined a really good tech company a few months ago. I thought that this kind of companies doesn't exist, but no. And I would like to share minimal requirements for people who would like to work in. This is philosophical requirements, you will not see tech specs here such a Postgres or php 7.2, this is more about your behavior.
