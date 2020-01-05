@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Procrastinator notes</title>
-    <link>/</link>
-    <description>Recent content on Procrastinator notes</description>
+    <title>Posts on Procrastinator notes</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Procrastinator notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 05 Jan 2020 13:41:56 +0100</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,15 +17,6 @@
       <pubDate>Sun, 05 Jan 2020 13:41:56 +0100</pubDate>
       
       <guid>/posts/apple-watch-standalone-game/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
       <description></description>
     </item>
     
