@@ -3,7 +3,7 @@ languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5
 publishDir = "docs"
-relativeurls = true
+relativeurls = false
 
 [params]
   # dir name of your blog content (default is `content/posts`)
