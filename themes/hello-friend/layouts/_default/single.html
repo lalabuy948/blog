@@ -63,22 +63,10 @@
 
     </div>
 
+    {{ if not (eq .Params.Comments "false") }}
+      {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
+        {{ partial "comments.html" . }}
+      {{ end }}
+    {{ end }}
 
-    <script src="https://utteranc.es/client.js"
-        repo="lalabuy948/blog"
-        issue-term="pathname"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous">
-    </script>
-    <script>
-      if (document.body.classList.length > 0) {
-        const message = {
-          type: 'set-theme',
-          theme: 'github-dark'
-        };
-        var utterances = document.querySelector('iframe');
-        utterances.contentWindow.postMessage(message, 'https://utteranc.es');
-      }
-    </script>
 {{ end }}

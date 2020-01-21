@@ -13,7 +13,7 @@ relativeurls = true
   # if you set this to 0, only submenu trigger will be visible
   showMenuItems = 2
   # Show reading time in minutes for posts
-  showReadingTime = false
+  showReadingTime = true
 
 [languages]
   [languages.en]
@@ -25,9 +25,9 @@ relativeurls = true
     writtenBy = "Written by"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
+    newerPosts = "<- Here"
+    olderPosts = "There ->"
+    minuteReadingTime = "☕️"
     dateFormatSingle = "2006-01-02"
     dateFormatList = "2006-01-02"
 
