@@ -20,6 +20,15 @@ fields:
 - type: boolean
   name: comments
   label: comments
+- name: text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Text
 pages:
 - content/posts/cod-vs-pubg/index.md
 - content/posts/test.md
