@@ -20,3 +20,5 @@ fields:
 - type: boolean
   name: comments
   label: comments
+pages:
+- content/posts/cod-vs-pubg/index.md
