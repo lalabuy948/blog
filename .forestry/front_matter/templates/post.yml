@@ -1,0 +1,13 @@
+---
+label: Post
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: title
+- type: datetime
+  name: date
+  label: date
+- type: boolean
+  name: comments
+  label: comments
