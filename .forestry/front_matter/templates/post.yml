@@ -8,6 +8,15 @@ fields:
 - type: datetime
   name: date
   label: date
+- name: draft
+  type: boolean
+  label: Draft
+  hidden: false
+- name: cover
+  type: file
+  config:
+    maxSize: 250
+  label: Preview image
 - type: boolean
   name: comments
   label: comments
