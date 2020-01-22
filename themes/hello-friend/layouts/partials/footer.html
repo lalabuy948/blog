@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="footer__inner">
     {{ if $.Site.Copyright }}
-      <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
+      <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }} © {{ now.Year }}</div>
     {{else}}
       {{ partial "logo.html" . }}
       <div class="copyright">

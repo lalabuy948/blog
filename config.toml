@@ -6,13 +6,9 @@ publishDir = "docs"
 relativeurls = true
 
 [params]
-  # dir name of your blog content (default is `content/posts`)
   contentTypeName = "posts"
-  # "light" or "dark"
   defaultTheme = "light"
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
-  # Show reading time in minutes for posts
+  showMenuItems = 1
   showReadingTime = true
 
 [languages]
@@ -20,7 +16,7 @@ relativeurls = true
     title = "Procrastinator notes"
     subtitle = "A simple theme for Hugo"
     keywords = ""
-    copyright = ""
+    copyright = "Daniil Popov"
     menuMore = "Show more"
     writtenBy = "Written by"
     readMore = "Read more"
@@ -48,3 +44,11 @@ relativeurls = true
         identifier = "showcase"
         name = "Showcase"
         url = "/showcase"
+      [[languages.en.menu.main]]
+        identifier = "github"
+        name = "Me on github"
+        url = "https://github.com/lalabuy948"
+      [[languages.en.menu.main]]
+        identifier = "pexels"
+        name = "Me on pexels"
+        url = "https://www.pexels.com/@daniil-popov-1864765"
