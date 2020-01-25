@@ -5,6 +5,7 @@
       <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
     {{ end }}
     {{ partial "head.html" . }}
+    {{ partial "analytics.html" . }}
   </head>
   <body class="{{ if ne $.Site.Params.defaultTheme "light" -}} dark-theme {{- end -}}">
     <div class="container">
@@ -20,8 +21,5 @@
       {{ end }}
     </div>
 
-    {{ if $.Site.GoogleAnalytics }}
-      {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
   </body>
 </html>
