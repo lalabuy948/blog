@@ -2,7 +2,9 @@
 author: "DP"
 date: ""
 title: "About"
-
+# cover: "https://avatars0.githubusercontent.com/u/24271777?s=460&v=4"
+# tags:
+#  - go
 ---
 
 Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. 

@@ -46,7 +46,7 @@ relativeurls = true
       #   url = "/showcase"
       [[languages.en.menu.main]]
         identifier = "linkedin"
-        name = "Me on Linkedin"
+        name = "Me on linkedin"
         url = "https://www.linkedin.com/in/daniil-popov-2b672315a/"
       [[languages.en.menu.main]]
         identifier = "github"
