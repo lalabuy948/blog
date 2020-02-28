@@ -13,8 +13,8 @@ relativeurls = true
 
 [languages]
   [languages.en]
-    title = "Procrastinator notes"
-    subtitle = "A simple theme for Hugo"
+    title = "Mr. Popov"
+    subtitle = "Senior Procrastinator"
     keywords = ""
     copyright = "Daniil Popov"
     menuMore = "Show more"
@@ -28,7 +28,7 @@ relativeurls = true
     dateFormatList = "2006-01-02"
 
     [languages.en.params.logo]
-      logoText = "Procrastinator notes"
+      logoText = "Mr. Popov"
       logoHomeLink = "/"
     # or
     #
@@ -40,10 +40,14 @@ relativeurls = true
         identifier = "about"
         name = "About"
         url = "/about"
+      # [[languages.en.menu.main]]
+      #   identifier = "showcase"
+      #   name = "Showcase"
+      #   url = "/showcase"
       [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+        identifier = "linkedin"
+        name = "Me on Linkedin"
+        url = "https://www.linkedin.com/in/daniil-popov-2b672315a/"
       [[languages.en.menu.main]]
         identifier = "github"
         name = "Me on github"

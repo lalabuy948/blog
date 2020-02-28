@@ -5,8 +5,23 @@ title: "About"
 
 ---
 
-Im young but well experienced web engineer with passion in high load. I used to work as research agent for some time, I was freelancing and I've started few startups. I used to work on quiet a few web projects with different size and complexity.  
+Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. 
+In the past I used to work as research agent, freelancing and I've started few startups. 
+I used to work on quite a few web projects with primary focus on backend, architecture and data storages.
+I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem. 
 
-[Me on Github](https://github.com/lalabuy948)
+Why procrastinator? Im struggling with logically connecting things in chaos - entropy. 
+Thats why I think Im procrastinating.
 
-[Me on Pexels](https://www.pexels.com/@daniil-popov-1864765)
+
+## Projects to which I contribute
+
+### [BBB - Basic Building Blocks](https://basicbb.com)
+
+<!-- [![](https://basicbb.com/images/renders/v2/bb20/BB20_01.jpg)](https://basicbb.com) -->
+
+### [Antimuseum](http://www.antimuseum.org/en)
+
+<!-- [![](https://popov.si/assets/img/antimuseum.jpg)](http://www.antimuseum.org/en) -->
+
+### [Business of Fashion](https://www.businessoffashion.com/)
