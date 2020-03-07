@@ -10,6 +10,7 @@ relativeurls = true
   defaultTheme = "light"
   showMenuItems = 1
   showReadingTime = true
+  summary_length = 50
 
 [languages]
   [languages.en]
@@ -30,20 +31,12 @@ relativeurls = true
     [languages.en.params.logo]
       logoText = "Mr. Popov"
       logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
         url = "/about"
-      # [[languages.en.menu.main]]
-      #   identifier = "showcase"
-      #   name = "Showcase"
-      #   url = "/showcase"
       [[languages.en.menu.main]]
         identifier = "linkedin"
         name = "Me on linkedin"

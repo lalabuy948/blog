@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Flexible Env in Go :: Mr. Popov — Senior Procrastinator</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Flexible Env in Golang Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but sucks at backend. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
+Problem I prefer using ."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="../../posts/flexible-env-in-go/" />
+
+
+
+
+
+<link rel="stylesheet" href="../../assets/style.css">
+
+
+<link rel="stylesheet" href="../../style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="../../img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flexible Env in Go"/>
+<meta name="twitter:description" content="Flexible Env in Golang Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but sucks at backend. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
+Problem I prefer using ."/>
+
+
+
+<meta property="og:title" content="Flexible Env in Go" />
+<meta property="og:description" content="Flexible Env in Golang Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but sucks at backend. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
+Problem I prefer using ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/flexible-env-in-go/" />
+<meta property="article:published_time" content="2020-03-07T09:00:59+01:00" />
+<meta property="article:modified_time" content="2020-03-07T09:00:59+01:00" /><meta property="og:site_name" content="Mr. Popov" />
+
+
+
+
+
+
+    
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(57146182, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="../../" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="../../about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/daniil-popov-2b672315a/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="../../about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/daniil-popov-2b672315a/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="../../posts/flexible-env-in-go/">Flexible Env in Go</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2020-03-07
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">— 2 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="../../tags/go/">go</a>&nbsp;
+        
+          #<a href="../../tags/env/">env</a>&nbsp;
+        
+          #<a href="../../tags/docker/">docker</a>&nbsp;
+        
+          #<a href="../../tags/tools/">tools</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        <img src="../../img/DockerGopher.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <h1 id="flexible-env-in-golang">Flexible Env in Golang</h1>
+<h2 id="forewords">Forewords</h2>
+<p>I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
+I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but sucks at backend.
+Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.</p>
+<h2 id="problem">Problem</h2>
+<p>I prefer using <code>.env</code> instead of typing stuff to cli. I found out really elegant solution. You can still use <code>.env</code> and parse it easily with
+<code>github.com/caarlos0/env/v6</code>, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes <code>github.com/joho/godotenv</code>, if you provide environment variables via dockerfile or docker-compose it will override
+constants in your <code>.env</code>.</p>
+<h2 id="solution">Solution</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">config</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;log&#34;</span>
+
+	<span style="color:#e6db74">&#34;github.com/caarlos0/env/v6&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/joho/godotenv&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Env</span>        <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;ENVIRONMENT&#34; envDefault:&#34;dev&#34;</span><span style="color:#e6db74">`</span>
+	<span style="color:#a6e22e">ServerPort</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;SERVER_PORT&#34; envDefault:&#34;8080&#34;</span><span style="color:#e6db74">`</span>
+
+	<span style="color:#a6e22e">DbHost</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_HOST&#34;</span><span style="color:#e6db74">`</span>
+	<span style="color:#a6e22e">DbPort</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_PORT&#34;</span><span style="color:#e6db74">`</span>
+	<span style="color:#a6e22e">DbUser</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_USER&#34;</span><span style="color:#e6db74">`</span>
+	<span style="color:#a6e22e">DbPassword</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_PASSWORD&#34;</span><span style="color:#e6db74">`</span>
+	<span style="color:#a6e22e">DbDialect</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_DIALECT&#34; envDefault:&#34;sqlite3&#34;</span><span style="color:#e6db74">`</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ParseEnv</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">godotenv</span>.<span style="color:#a6e22e">Load</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Error loading .env file&#34;</span>)
+	}
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cfg</span> <span style="color:#a6e22e">Config</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">Parse</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfg</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Error parsing .env file&#34;</span>)
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfg</span>
+}
+
+</code></pre></div><p>Not sure if it will be useful to anyone, but i decided to share it.</p>
+<p>Cover from <a href="https://github.com/ashleymcnamara/gophers">github.com/ashleymcnamara/gophers</a>.</p>
+
+    </div>
+    
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Daniil Popov © 2020</div>
+    
+  </div>
+</footer>
+
+<script src="../../assets/main.js"></script>
+<script src="../../assets/prism.js"></script>
+
+
+      
+    </div>
+
+  </body>
+</html>

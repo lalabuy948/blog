@@ -16,7 +16,7 @@ Why procrastinator? Im struggling with logically connecting things in chaos - en
 Thats why I think Im procrastinating.
 
 
-## Projects to which I contribute
+## To projects / companies I contribute to
 
 ### [BBB - Basic Building Blocks](https://basicbb.com)
 
@@ -25,5 +25,9 @@ Thats why I think Im procrastinating.
 ### [Antimuseum](http://www.antimuseum.org/en)
 
 <!-- [![](https://popov.si/assets/img/antimuseum.jpg)](http://www.antimuseum.org/en) -->
+
+### [GH Kolinska](https://ghkolinska.si/)
+
+### [d.labs](https://www.dlabs.io/)
 
 ### [Business of Fashion](https://www.businessoffashion.com/)
