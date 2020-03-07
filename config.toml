@@ -49,3 +49,7 @@ relativeurls = true
         identifier = "pexels"
         name = "Me on pexels"
         url = "https://www.pexels.com/@daniil-popov-1864765"
+      [[languages.en.menu.main]]
+        identifier = "contact"
+        name = "Contact me"
+        url = "https://t.me/lalabuy"
