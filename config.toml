@@ -8,7 +8,7 @@ relativeurls = true
 [params]
   contentTypeName = "posts"
   defaultTheme = "light"
-  showMenuItems = 1
+  showMenuItems = 2
   showReadingTime = true
   summary_length = 50
 
