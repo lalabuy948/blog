@@ -16,7 +16,7 @@ Why procrastinator? Im struggling with logically connecting things in chaos - en
 Thats why I think Im procrastinating.
 
 
-### To projects / companies I contribute to
+### Projects / companies I contribute to
 
 #### [BBB - Basic Building Blocks](https://basicbb.com)
 

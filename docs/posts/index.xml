@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sat, 07 Mar 2020 09:00:59 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2020 19:23:14 +0100</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Testing Mailer in Go</title>
+      <link>/posts/testing-mailer-in-go/</link>
+      <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
+      
+      <guid>/posts/testing-mailer-in-go/</guid>
+      <description>Testing Mailer in Go Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
+I was looking on few popular tools across the Internet:
+ https://mailtrap.</description>
+    </item>
     
     <item>
       <title>Flexible Env in Go</title>

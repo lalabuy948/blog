@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sat, 07 Mar 2020 09:00:59 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2020 19:23:14 +0100</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,27 @@
     <item>
       <title>docker</title>
       <link>/tags/docker/</link>
-      <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
+      <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
       
       <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>/tags/go/</link>
+      <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
+      
+      <guid>/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
+      
+      <guid>/tags/tools/</guid>
       <description></description>
     </item>
     
@@ -27,24 +45,6 @@
       <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
       
       <guid>/tags/env/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>/tags/go/</link>
-      <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
-      
-      <guid>/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>/tags/tools/</link>
-      <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
-      
-      <guid>/tags/tools/</guid>
       <description></description>
     </item>
     

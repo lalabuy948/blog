@@ -13,7 +13,6 @@ tags:
 
 # Flexible Env in Golang
 
-
 ## Forewords
 
 I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
