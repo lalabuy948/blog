@@ -40,16 +40,16 @@ relativeurls = true
       [[languages.en.menu.main]]
         identifier = "linkedin"
         name = "Me on linkedin"
-        url = "https://www.linkedin.com/in/daniil-popov-2b672315a/"
+        url = "https://kutt.it/dQN1wF"
       [[languages.en.menu.main]]
         identifier = "github"
         name = "Me on github"
-        url = "https://github.com/lalabuy948"
+        url = "https://kutt.it/4Tobhg"
       [[languages.en.menu.main]]
         identifier = "pexels"
         name = "Me on pexels"
-        url = "https://www.pexels.com/@daniil-popov-1864765"
+        url = "https://kutt.it/J7aNUE"
       [[languages.en.menu.main]]
         identifier = "contact"
         name = "Contact me"
-        url = "https://t.me/lalabuy"
+        url = "https://kutt.it/TSEZho"
