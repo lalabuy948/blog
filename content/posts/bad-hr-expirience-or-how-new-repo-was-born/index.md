@@ -1,7 +1,7 @@
 ---
 title: "Bad HR expirience or How new repo was born"
 date: 2020-03-28T16:03:07+01:00
-draft: false
+draft: true
 comments: false
 cover: "img/abstract-art-blur-bright.jpg"
 tags:
