@@ -7,6 +7,7 @@ title: "About"
 #  - go
 ---
 
+Originally from Saint-Petersburg, living in Slovenia. 
 Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. 
 In the past I used to work as research agent, freelancing and I've started few startups. 
 I used to work on quite a few web projects with primary focus on backend, architecture and data storages.
@@ -15,6 +16,7 @@ I dont have prefered technology, In my opinion you have to choose language or sp
 Why procrastinator? Im struggling with logically connecting things in chaos - entropy. 
 Thats why I think Im procrastinating.
 
+If you find typo/mistake in my posts please write to me directly about it, I'm not a native speaker and would appreciate such a gesture from you. 
 
 ### Projects / companies I contribute to
 

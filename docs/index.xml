@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 08 Mar 2020 19:23:14 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 16:03:07 +0100</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bad HR expirience or How new repo was born</title>
+      <link>/posts/bad-hr-expirience-or-how-new-repo-was-born/</link>
+      <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
+      
+      <guid>/posts/bad-hr-expirience-or-how-new-repo-was-born/</guid>
+      <description>Logektor ⚡️ Forewords This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.
+But after few days I received tests assignment from them.</description>
+    </item>
     
     <item>
       <title>Testing Mailer in Go</title>
@@ -39,7 +49,7 @@ Problem I prefer using .</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. In the past I used to work as research agent, freelancing and I&#39;ve started few startups. I used to work on quite a few web projects with primary focus on backend, architecture and data storages. I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem.</description>
+      <description>Originally from Saint-Petersburg, living in Slovenia. Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. In the past I used to work as research agent, freelancing and I&#39;ve started few startups. I used to work on quite a few web projects with primary focus on backend, architecture and data storages. I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem.</description>
     </item>
     
     <item>

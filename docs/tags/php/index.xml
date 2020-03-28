@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on Mr. Popov</title>
+    <link>/tags/php/</link>
+    <description>Recent content in php on Mr. Popov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Daniil Popov</copyright>
+    <lastBuildDate>Sun, 08 Mar 2020 20:15:45 +0100</lastBuildDate>
+    
+	<atom:link href="/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Symfony 5, Nginx and Php-Fpm in Docker Without Pain</title>
+      <link>/posts/symfony-5-nginx-and-php-fpm-without-pain/</link>
+      <pubDate>Sun, 08 Mar 2020 20:15:45 +0100</pubDate>
+      
+      <guid>/posts/symfony-5-nginx-and-php-fpm-without-pain/</guid>
+      <description>Symfony 5, Nginx and Php-Fpm in Docker Without Pain </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -15,10 +15,10 @@ relativeurls = true
 [languages]
   [languages.en]
     title = "Mr. Popov"
-    subtitle = "Daniil Popov <- Senior procrastinator who struggle with entropy. You will not fing anything useful here, coz Im writting about me and my thoughts."
+    subtitle = ""
     keywords = ""
     copyright = "Daniil Popov"
-    menuMore = "Show more"
+    menuMore = "👇"
     writtenBy = "Written by"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
