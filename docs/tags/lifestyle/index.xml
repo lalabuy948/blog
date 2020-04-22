@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lifestyle on Mr. Popov</title>
+    <link>/tags/lifestyle/</link>
+    <description>Recent content in lifestyle on Mr. Popov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Daniil Popov</copyright>
+    <lastBuildDate>Tue, 21 Apr 2020 10:51:42 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/lifestyle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iPad - Do You Need It?</title>
+      <link>/posts/ipad-do-you-need-it/</link>
+      <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
+      
+      <guid>/posts/ipad-do-you-need-it/</guid>
+      <description>iPad - Do you need it? I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.
+Zoom, right? MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings.</description>
+    </item>
+    
+  </channel>
+</rss>

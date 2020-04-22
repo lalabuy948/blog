@@ -238,11 +238,11 @@ I was looking on few popular tools across the Internet:
 <h2 id="setup">Setup</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.dev.yml</span>
 ...
-  mailhog:
-    image: mailhog/mailhog
-    container_name: mailhog
-    restart: always
-    ports:
+  <span style="color:#66d9ef">mailhog</span>:
+    <span style="color:#66d9ef">image</span>: mailhog/mailhog
+    <span style="color:#66d9ef">container_name</span>: mailhog
+    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#66d9ef">ports</span>:
       - <span style="color:#e6db74">&#39;8025:8025&#39;</span>
       - <span style="color:#e6db74">&#39;1025:1025&#39;</span>
 ...
@@ -294,6 +294,13 @@ I was looking on few popular tools across the Internet:
             <hr />
           </div>
           <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="../../posts/ipad-do-you-need-it/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">iPad - Do You Need It?</span>
+                </a>
+              </span>
             
             
               <span class="button next">

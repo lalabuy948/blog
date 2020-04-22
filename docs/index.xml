@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 08 Mar 2020 19:23:14 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 10:51:42 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iPad - Do You Need It?</title>
+      <link>/posts/ipad-do-you-need-it/</link>
+      <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
+      
+      <guid>/posts/ipad-do-you-need-it/</guid>
+      <description>iPad - Do you need it? I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.
+Zoom, right? MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings.</description>
+    </item>
     
     <item>
       <title>Testing Mailer in Go</title>
@@ -39,7 +49,17 @@ Problem I prefer using .</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Originally from Saint-Petersburg, living in Slovenia. Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. In the past I used to work as research agent, freelancing and I&#39;ve started few startups. I used to work on quite a few web projects with primary focus on backend, architecture and data storages. I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem.</description>
+      <description>Originally from Saint-Petersburg, living in Slovenia. Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. In the past I used to work as research agent, freelancing and I&amp;rsquo;ve started few startups. I used to work on quite a few web projects with primary focus on backend, architecture and data storages. I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem.</description>
+    </item>
+    
+    <item>
+      <title>Cookie Policy</title>
+      <link>/cookie-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cookie-policy/</guid>
+      <description>Cookie Policy for Mr Popov This is the Cookie Policy for Mr Popov, accessible from mrpopov.com
+What Are Cookies As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or &amp;lsquo;break&amp;rsquo; certain elements of the sites functionality.</description>
     </item>
     
     <item>

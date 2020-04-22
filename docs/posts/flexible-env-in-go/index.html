@@ -241,14 +241,14 @@ constants in your <code>.env</code>.</p>
 )
 
 <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#66d9ef">struct</span> {
-	<span style="color:#a6e22e">Env</span>        <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;ENVIRONMENT&#34; envDefault:&#34;dev&#34;</span><span style="color:#e6db74">`</span>
-	<span style="color:#a6e22e">ServerPort</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;SERVER_PORT&#34; envDefault:&#34;8080&#34;</span><span style="color:#e6db74">`</span>
+	<span style="color:#a6e22e">Env</span>        <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;ENVIRONMENT&#34; envDefault:&#34;dev&#34;`</span>
+	<span style="color:#a6e22e">ServerPort</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;SERVER_PORT&#34; envDefault:&#34;8080&#34;`</span>
 
-	<span style="color:#a6e22e">DbHost</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_HOST&#34;</span><span style="color:#e6db74">`</span>
-	<span style="color:#a6e22e">DbPort</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_PORT&#34;</span><span style="color:#e6db74">`</span>
-	<span style="color:#a6e22e">DbUser</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_USER&#34;</span><span style="color:#e6db74">`</span>
-	<span style="color:#a6e22e">DbPassword</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_PASSWORD&#34;</span><span style="color:#e6db74">`</span>
-	<span style="color:#a6e22e">DbDialect</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">env:&#34;DB_DIALECT&#34; envDefault:&#34;sqlite3&#34;</span><span style="color:#e6db74">`</span>
+	<span style="color:#a6e22e">DbHost</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_HOST&#34;`</span>
+	<span style="color:#a6e22e">DbPort</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_PORT&#34;`</span>
+	<span style="color:#a6e22e">DbUser</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_USER&#34;`</span>
+	<span style="color:#a6e22e">DbPassword</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_PASSWORD&#34;`</span>
+	<span style="color:#a6e22e">DbDialect</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_DIALECT&#34; envDefault:&#34;sqlite3&#34;`</span>
 }
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ParseEnv</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {

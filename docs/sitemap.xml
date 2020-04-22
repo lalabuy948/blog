@@ -3,27 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/devices/</loc>
+    <lastmod>2020-04-21T10:51:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/ipad-do-you-need-it/</loc>
+    <lastmod>2020-04-21T10:51:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/lifestyle/</loc>
+    <lastmod>2020-04-21T10:51:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-21T10:51:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-04-21T10:51:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-21T10:51:42+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/work/</loc>
+    <lastmod>2020-04-21T10:51:42+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/docker/</loc>
     <lastmod>2020-03-08T19:23:14+01:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/go/</loc>
-    <lastmod>2020-03-08T19:23:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-03-08T19:23:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-03-08T19:23:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-03-08T19:23:14+01:00</lastmod>
   </url>
   
@@ -53,6 +73,10 @@
   
   <url>
     <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/cookie-policy/</loc>
   </url>
   
   <url>

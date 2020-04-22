@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 08 Mar 2020 19:23:14 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2020 10:51:42 +0200</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>devices</title>
+      <link>/tags/devices/</link>
+      <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
+      
+      <guid>/tags/devices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lifestyle</title>
+      <link>/tags/lifestyle/</link>
+      <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
+      
+      <guid>/tags/lifestyle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>work</title>
+      <link>/tags/work/</link>
+      <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
+      
+      <guid>/tags/work/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
