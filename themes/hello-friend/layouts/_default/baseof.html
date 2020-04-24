@@ -2,7 +2,7 @@
 <html lang="{{ $.Site.Language }}">
   <head>
     {{ block "title" . }}
-      <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} :: {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
+      <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ $.Site.Title }} :: {{ .Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
     {{ end }}
     {{ partial "head.html" . }}
     {{ partial "analytics.html" . }}
@@ -20,6 +20,8 @@
         {{ partial "footer.html" . }}
       {{ end }}
     </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?tracking=1&scrolling=1&remember=365&privacyPage=https%3A%2F%2Fmrpopov.com%2Fcookie-policy"></script>
 
   </body>
 </html>
