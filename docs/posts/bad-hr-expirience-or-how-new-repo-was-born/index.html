@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>Bad HR expirience or How new repo was born :: Mr. Popov</title>
+      <title>Mr. Popov :: Bad HR expirience or How new repo was born</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -105,7 +105,7 @@ But after few days I received tests assignment from them." />
         
       
         
-          <li><a href="https://kutt.it/TSEZho">Contact me</a></li>
+          <li><a href="https://t.me/lalabuy">Contact me</a></li>
         
       
       
@@ -121,15 +121,15 @@ But after few days I received tests assignment from them." />
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://kutt.it/4Tobhg">Me on github</a></li>
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
-                <li><a href="https://kutt.it/dQN1wF">Me on linkedin</a></li>
+                <li><a href="https://www.linkedin.com/in/daniil-popov-2b672315a/">Me on linkedin</a></li>
               
             
               
-                <li><a href="https://kutt.it/J7aNUE">Me on pexels</a></li>
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
               
             
           </ul>
@@ -145,19 +145,19 @@ But after few days I received tests assignment from them." />
       
     
       
-        <li><a href="https://kutt.it/TSEZho">Contact me</a></li>
+        <li><a href="https://t.me/lalabuy">Contact me</a></li>
       
     
       
-        <li><a href="https://kutt.it/4Tobhg">Me on github</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
-        <li><a href="https://kutt.it/dQN1wF">Me on linkedin</a></li>
+        <li><a href="https://www.linkedin.com/in/daniil-popov-2b672315a/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://kutt.it/J7aNUE">Me on pexels</a></li>
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
       
     
   </ul>
@@ -212,7 +212,7 @@ But after few days I received tests assignment from them." />
 
     
       
-        <img src="../../img/abstract-art-blur-bright.jpg" class="post-cover" />
+        <img src="../../img/bad-hr-expirience-or-how-new-repo-was-born/nice-desktop.jpg" class="post-cover" />
       
     
 
@@ -220,17 +220,17 @@ But after few days I received tests assignment from them." />
       <h1 id="logektor-httpsgithubcomlalabuy948logektor"><a href="https://github.com/lalabuy948/logektor">Logektor ⚡️</a></h1>
 <h2 id="forewords">Forewords</h2>
 <p>This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.</p>
-<p>But after few days I received tests assignment from them. I was a bit confused, coz for that kind of positions there is no test assignment usually. I was busy and working 24/7 in other company and had a business trip for 3 days (two of the days was weekend) that week and I told them about it.</p>
-<p>After a that week I got an email where they were saying thanks for your effort but you failed tests assignment. Since I even didn't touch it. I was super disappointed.. Company even didn't try to look into the situation.</p>
+<p>But after few days I received tests assignment from them. I was a bit confused, because for that kind of positions there is no test assignment usually. I was busy and working 24/7 in another company and had a business trip for 3 days (two days of the trip were weekend) that week and I told them about it.</p>
+<p>After a that I got an email where they were saying thanks for your effort but you failed tests assignment. Since I even didn&rsquo;t touch it. I was super disappointed&hellip; Company even didn&rsquo;t try to look into the situation.</p>
 <p>I do not remember all requirements. But basically they asked to build high-loaded system to store tracking events. Few days ago I had an insomnia and build it within one night.</p>
-<h2 id="system-architecture">System architecture</h2>
-<p>Let me tell about architecture. Since you need to track events from the website and after that show some reports, I decided to use kinda cqrs as global patter for this. We need high event throughput, that's why client in go (fasthttp) + Kafka. Workers which are storing that events in db are written in python, but it really doesn't matter, because I wanted to show that this architecture allows you to use polyglot approach. For database I used postgres to simplify the solution, but I would recommend something like clickhouse or redshift. Essentially column oriented databases. Each component of the system is designed in a way to be scaled and replaceable in the future. Need to change worker? Sure. Need to change warehouse? Go for that, replace it with Hadoop or whatever. I didn't create dashboard app, but maybe I will ask some frontend friend to help we with that in the future. I just wanted to show the principle and architecture.</p>
+<h2 id="few-words-about-app-architecture">Few words about app architecture</h2>
+<p>Let me tell about architecture to prove you that I know what I&rsquo;m talking about. Since you need to track events from the website and after that show some reports, I decided to use kinda cqrs as global patter for this. We need high event throughput, that&rsquo;s why client in go (fasthttp) + Kafka. Workers which are storing that events in db are written in python, but it really doesn&rsquo;t matter, because I wanted to show that this architecture allows you to use polyglot approach. For database I used postgres to simplify the solution, but I would recommend something like clickhouse or redshift. Essentially column oriented databases. Each component of the system is designed in a way to be scaled and replaceable in the future. Need to change worker? Sure. Need to change warehouse? Go for that, replace it with Hadoop or whatever. I didn&rsquo;t create dashboard app, but maybe I will ask some frontend friend to help we with that in the future. I just wanted to show the principle and architecture.</p>
 <p><a href="https://github.com/lalabuy948/logektor/blob/master/github/EventTrackingSA.svg">Logektor diagram</a></p>
 <p><a href="https://github.com/lalabuy948/logektor">Logektor repo</a></p>
-<p>Why I decided to write this article? To show to HR or other
-lead people who in charge of hiring how you can lose a great future employee. Im not saying that I'm a great future employee, just showing my own experience. Might it's correct to follow some company's corporate laws and such but we are all people, unique people with diffirent situations in life</p>
+<h2 id="why-i-decided-to-share-this">Why I decided to share this?</h2>
+<p>To show to other HR and lead people who in charge of hiring how you can lose a great future employee. Im not saying that I&rsquo;m a great future employee, I would not recommend myself :), just talking about my own experience. Might it&rsquo;s correct to follow some company&rsquo;s corporate laws and such but we are all people, unique people with diffirent situations in life and ffs for such positions you have to make an exceptions.</p>
 <p>Not sure if it will be useful to anyone, but i decided to share it.</p>
-<p>Cover from <a href="http://www.pexels.com">www.pexels.com</a> by @pixabay.</p>
+<p>Cover from <a href="https://www.pexels.com/@pixabay">pexels.com by @pixabay</a>.</p>
 
     </div>
     
@@ -241,6 +241,13 @@ lead people who in charge of hiring how you can lose a great future employee. Im
             <hr />
           </div>
           <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="../../posts/ipad-do-you-need-it/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">iPad - Do You Need It?</span>
+                </a>
+              </span>
             
             
               <span class="button next">
@@ -315,6 +322,8 @@ lead people who in charge of hiring how you can lose a great future employee. Im
 
       
     </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?tracking=1&scrolling=1&remember=365&privacyPage=https%3A%2F%2Fmrpopov.com%2Fcookie-policy"></script>
 
   </body>
 </html>
