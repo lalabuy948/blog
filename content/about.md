@@ -8,8 +8,8 @@ title: "About"
 ---
 
 Originally from Saint-Petersburg, living in Slovenia. 
-Im web engineer with passion in scalable and high-loaded systems. Currently I have title of Technical Team Lead. 
-In the past I used to work as research agent, freelancing and I've started few startups. 
+Im web engineer with passion for scalable and high-loaded systems. Currently I have title of Technical Team Lead on big media project. 
+In the past I used to work as research agent, freelancing and started few startups. 
 I used to work on quite a few web projects with primary focus on backend, architecture and data storages.
 I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem. 
 
