@@ -7,6 +7,7 @@ cover: "img/bad-hr-expirience-or-how-new-repo-was-born/nice-desktop.jpg"
 tags:
   - people
   - work
+  - lifestyle
 ---
 
 # [Logektor ⚡️](https://github.com/lalabuy948/logektor)
