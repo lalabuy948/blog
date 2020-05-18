@@ -40,7 +40,7 @@ relativeurls = true
       [[languages.en.menu.main]]
         identifier = "linkedin"
         name = "Me on linkedin"
-        url = "https://www.linkedin.com/in/daniil-popov-2b672315a/"
+        url = "https://www.linkedin.com/in/mrpopov/"
       [[languages.en.menu.main]]
         identifier = "github"
         name = "Me on github"
@@ -52,4 +52,4 @@ relativeurls = true
       [[languages.en.menu.main]]
         identifier = "contact"
         name = "Contact me"
-        url = "https://t.me/lalabuy"
+        url = "https://mssg.me/lalabuy"

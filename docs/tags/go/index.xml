@@ -18,9 +18,9 @@
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
       
       <guid>/posts/testing-mailer-in-go/</guid>
-      <description>Testing Mailer in Go Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
+      <description>Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
 I was looking on few popular tools across the Internet:
- https://mailtrap.</description>
+ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/  What I found My requirements were: run in docker, easy to config, basic functionality to render email.</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@ I was looking on few popular tools across the Internet:
       <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
       
       <guid>/posts/flexible-env-in-go/</guid>
-      <description>Flexible Env in Golang Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but sucks at backend. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
+      <description>Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
 Problem I prefer using .</description>
     </item>
     

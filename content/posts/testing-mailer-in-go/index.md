@@ -7,10 +7,8 @@ cover: "img/LazyGopher.png"
 tags:
   - go
   - docker
-  - tools
+  - code
 ---
-
-# Testing Mailer in Go
 
 ## Forewords
 

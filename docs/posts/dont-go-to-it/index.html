@@ -2,15 +2,14 @@
 <html lang="en">
   <head>
     
-      <title>Mr. Popov :: Flexible Env in Go</title>
+      <title>Mr. Popov :: Don’t go to IT or even go out from IT</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
-Problem I prefer using ."/>
+<meta name="description" content="During massive panic around the world I got stuck at home same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?"/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="../../posts/flexible-env-in-go/" />
+<link rel="canonical" href="../../posts/dont-go-to-it/" />
 
 
 
@@ -44,19 +43,17 @@ Problem I prefer using ."/>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Flexible Env in Go"/>
-<meta name="twitter:description" content="Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
-Problem I prefer using ."/>
+<meta name="twitter:title" content="Don’t go to IT or even go out from IT"/>
+<meta name="twitter:description" content="During massive panic around the world I got stuck at home same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?"/>
 
 
 
-<meta property="og:title" content="Flexible Env in Go" />
-<meta property="og:description" content="Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
-Problem I prefer using ." />
+<meta property="og:title" content="Don’t go to IT or even go out from IT" />
+<meta property="og:description" content="During massive panic around the world I got stuck at home same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/flexible-env-in-go/" />
-<meta property="article:published_time" content="2020-03-07T09:00:59+01:00" />
-<meta property="article:modified_time" content="2020-03-07T09:00:59+01:00" /><meta property="og:site_name" content="Mr. Popov" />
+<meta property="og:url" content="/posts/dont-go-to-it/" />
+<meta property="article:published_time" content="2020-05-14T16:58:31+02:00" />
+<meta property="article:modified_time" content="2020-05-14T16:58:31+02:00" /><meta property="og:site_name" content="Mr. Popov" />
 
 
 
@@ -116,7 +113,7 @@ Problem I prefer using ." />
         
       
         
-          <li><a href="https://mssg.me/lalabuy">Contact me</a></li>
+          <li><a href="https://t.me/lalabuy">Contact me</a></li>
         
       
       
@@ -156,7 +153,7 @@ Problem I prefer using ." />
       
     
       
-        <li><a href="https://mssg.me/lalabuy">Contact me</a></li>
+        <li><a href="https://t.me/lalabuy">Contact me</a></li>
       
     
       
@@ -197,84 +194,53 @@ Problem I prefer using ." />
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="../../posts/flexible-env-in-go/">Flexible Env in Go</a></h2>
+    <h2 class="post-title"><a href="../../posts/dont-go-to-it/">Don’t go to IT or even go out from IT</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
-            2020-03-07
+            2020-05-14
         </span>
       
       
 
       
-        <span class="post-read-time">— 2 ☕️</span>
+        <span class="post-read-time">— 4 ☕️</span>
       
     </div>
 
     
       <span class="post-tags">
         
-          #<a href="../../tags/go/">go</a>&nbsp;
+          #<a href="../../tags/people/">people</a>&nbsp;
         
-          #<a href="../../tags/env/">env</a>&nbsp;
-        
-          #<a href="../../tags/docker/">docker</a>&nbsp;
-        
-          #<a href="../../tags/code/">code</a>&nbsp;
+          #<a href="../../tags/work/">work</a>&nbsp;
         
       </span>
     
 
     
       
-        <img src="../../img/DockerGopher.png" class="post-cover" />
+        <img src="../../img/dont-go-to-it/aaron-blanco-tejedor-VBe9zj-JHBs-unsplash.jpg" class="post-cover" />
       
     
 
     <div class="post-content">
-      <h2 id="forewords">Forewords</h2>
-<p>I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
-I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part.
-Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.</p>
-<h2 id="problem">Problem</h2>
-<p>I prefer using <code>.env</code> instead of typing stuff to cli. I found out really elegant solution. You can still use <code>.env</code> and parse it easily with
-<code>github.com/caarlos0/env/v6</code>, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes <code>github.com/joho/godotenv</code>, if you provide environment variables via dockerfile or docker-compose it will override constants in your <code>.env</code>.</p>
-<h2 id="solution">Solution</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">config</span>
-
-<span style="color:#f92672">import</span> (
-	<span style="color:#e6db74">&#34;log&#34;</span>
-
-	<span style="color:#e6db74">&#34;github.com/caarlos0/env/v6&#34;</span>
-	<span style="color:#e6db74">&#34;github.com/joho/godotenv&#34;</span>
-)
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#66d9ef">struct</span> {
-	<span style="color:#a6e22e">Env</span>        <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;ENVIRONMENT&#34; envDefault:&#34;dev&#34;`</span>
-	<span style="color:#a6e22e">ServerPort</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;SERVER_PORT&#34; envDefault:&#34;8080&#34;`</span>
-
-	<span style="color:#a6e22e">DbHost</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_HOST&#34;`</span>
-	<span style="color:#a6e22e">DbPort</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_PORT&#34;`</span>
-	<span style="color:#a6e22e">DbUser</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_USER&#34;`</span>
-	<span style="color:#a6e22e">DbPassword</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_PASSWORD&#34;`</span>
-	<span style="color:#a6e22e">DbDialect</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_DIALECT&#34; envDefault:&#34;sqlite3&#34;`</span>
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ParseEnv</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">godotenv</span>.<span style="color:#a6e22e">Load</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Error loading .env file&#34;</span>)
-	}
-
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cfg</span> <span style="color:#a6e22e">Config</span>
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">Parse</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfg</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Error parsing .env file&#34;</span>)
-	}
-
-	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfg</span>
-}
-
-</code></pre></div><p>Not sure if it will be useful to anyone, but i decided to share it.</p>
-<p>Cover from <a href="https://github.com/ashleymcnamara/gophers">github.com/ashleymcnamara/gophers</a>.</p>
+      <p>During massive panic around the world I got stuck at home same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?</p>
+<p>My answer and position is next - if you are going to do something just because it seems profitable don’t do it. And what I’m saying to newcomers in IT don’t go in this direction. It’s already overpopulated with people who have no clue what and why they are doing it. They became coders because it sounds like a dream - sit on the couch, drink coffee and type something on the latest MacBook. But it&rsquo;s far from the truth. To become a good developer you have to struggle for 10k hours and only after that you will start progressing. And during free time you have to learn 10 million of other tools, languages and so on if you would like to be that fancy guy on the couch.</p>
+<p>Now let me tell a few stories after which I was disappointed by the IT people and the community. And hope you will understand why I do not recommend people to go into IT.</p>
+<h2 id="mentoring">Mentoring</h2>
+<p>I posted in our dev slack channel something like: - “Hey, I would like to arrange a course of lectures to learn new backend language - go. And after that, we will build our internal project together”. Out of around 40 dev people I got barely 6 attendees. I was a bit disappointed by the amount but I still felt that I’m doing something useful and improving the culture in our company. Then we started and only 5 folks left. And I should say that exactly that 5 people were excited about this course. They listen carefully ask good questions and I have a feeling that I don’t talk somewhere to the space.</p>
+<p>But FFS! Just 5 people from 40 of the target audience&hellip; I might sound rude, but we got stuck with ruby and PHP in our company, this is a great opportunity to improve our toolset. What are you doing in IT if you are not interested in learning new tools, technologies and just improving your self?</p>
+<h2 id="github-contributions">Github contributions</h2>
+<p>I would like to touch this sneaky topic as well. I had a fruitful shout about this with my friend who is way more experienced developer. And what he was saying about GitHub repositories that its useless piece of portfolio which does not represent development skills. And he added that he is writing code during working hours and for money only. In his free time, he prefers to invest time in his hobbies. And I understand this point of view. Or let&rsquo;s say you have a family. And do not understand me wrong, friend of mine is a great engineer, I’m not judging his professional skills.</p>
+<p>But if you have been working for 10+ years in IT and were writing code every day, don’t you have anything to show or share with people? How it possible? What’s kind of useless scripts you were writing?</p>
+<p>What about your pet projects? Might be you have an amazing pet project? Still no. Why do you still writing code? If you don’t have a passion for what you are doing please start doing something else and it seems like development Is not for you.</p>
+<h2 id="process">Process</h2>
+<p>Yes, now we are all remote - great. Working from home sit in your underwear, sweet not sweat. And managers are saying that slack and zoom our best friends. But managers are the same pathetic people as devs which came for money only. Slack and zoom just a tool which helps you to transfer your thoughts. But if you don’t know that requirement which you write to the ticket should be necessary, implementation free and at least repeatable - find another job. And this will dismorale you as a developer each time you get a new task.</p>
+<p>If you have feeling that creating software is your calling than I wish you luck to find a great community that will not kill your desire.</p>
+<p>If you are willing to struggle in this non-initiative world, then sure, come and sit for 8 hours for your piece of bread. But then you will never become that smart engineer who sits on the couch and gets 400k salary.</p>
+<p>That&rsquo;s my thoughts and how I see this situation. Not sure if it will be useful to anyone, but i decided to share it.</p>
+<p>Cover from <a href="https://unsplash.com">unsplash</a> by <a href="https://unsplash.com/@healing_photographer">@healing_photographer</a></p>
 
     </div>
     
@@ -286,13 +252,13 @@ Then I realized that my friend does not want to struggle with database setup and
           </div>
           <div class="pagination__buttons">
             
-              <span class="button previous">
-                <a href="../../posts/testing-mailer-in-go/">
-                  <span class="button__icon">←</span>
-                  <span class="button__text">Testing Mailer in Go</span>
+            
+              <span class="button next">
+                <a href="../../posts/ipad-do-you-need-it/">
+                  <span class="button__text">iPad - Do You Need It?</span>
+                  <span class="button__icon">→</span>
                 </a>
               </span>
-            
             
           </div>
         </div>
@@ -361,6 +327,6 @@ Then I realized that my friend does not want to struggle with database setup and
     </div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?tracking=1&scrolling=1&remember=365&privacyPage=https%3A%2F%2Fmrpopov.com%2Fcookie-policy"></script>
-    <script src="https://mssg.me/widget/5c157343409b90000ab98cd6" async></script>
+
   </body>
 </html>

@@ -8,22 +8,19 @@ tags:
   - go
   - env
   - docker
-  - tools
+  - code
 ---
-
-# Flexible Env in Golang
 
 ## Forewords
 
 I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
-I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but sucks at backend.
+I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part.
 Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
 
 ## Problem
 
 I prefer using `.env` instead of typing stuff to cli. I found out really elegant solution. You can still use `.env` and parse it easily with
-`github.com/caarlos0/env/v6`, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes `github.com/joho/godotenv`, if you provide environment variables via dockerfile or docker-compose it will override
-constants in your `.env`.
+`github.com/caarlos0/env/v6`, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes `github.com/joho/godotenv`, if you provide environment variables via dockerfile or docker-compose it will override constants in your `.env`.
 
 ## Solution
 
