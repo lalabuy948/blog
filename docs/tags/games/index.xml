@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>games on Mr. Popov</title>
+    <link>/tags/games/</link>
+    <description>Recent content in games on Mr. Popov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Daniil Popov</copyright>
+    <lastBuildDate>Tue, 19 May 2020 14:55:36 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/games/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Must Play iOS Games</title>
+      <link>/posts/must-play-ios-games/</link>
+      <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
+      
+      <guid>/posts/must-play-ios-games/</guid>
+      <description>After I started working from home I got a bit more time to play games and would like to share my favorite ones. There are a few criteria by which I was compiling these lists. First of all, games should be optimized for the iPhone and iPad, games shouldn&amp;rsquo;t have bugs or unstable performance. And of course, keep in mind that it&amp;rsquo;s my taste and I would love to discover new projects - drop your favorite in comments below.</description>
+    </item>
+    
+  </channel>
+</rss>
