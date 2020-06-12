@@ -46,6 +46,10 @@ relativeurls = true
         name = "Me on github"
         url = "https://github.com/lalabuy948"
       [[languages.en.menu.main]]
+        identifier = "instagram"
+        name = "Me on instagram"
+        url = "https://www.instagram.com/lalabuy_official/"
+      [[languages.en.menu.main]]
         identifier = "pexels"
         name = "Me on pexels"
         url = "https://www.pexels.com/@daniil-popov-1864765"
