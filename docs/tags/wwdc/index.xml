@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wwdc on Mr. Popov</title>
+    <link>/tags/wwdc/</link>
+    <description>Recent content in wwdc on Mr. Popov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Daniil Popov</copyright>
+    <lastBuildDate>Fri, 12 Jun 2020 17:01:27 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/wwdc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WWDC Memoji With Laptop</title>
+      <link>/posts/wwdc-memoji-with-laptop/</link>
+      <pubDate>Fri, 12 Jun 2020 17:01:27 +0200</pubDate>
+      
+      <guid>/posts/wwdc-memoji-with-laptop/</guid>
+      <description>How to make WWDC Memoji with laptop?    Go to imessage app and open conversation with yourself Navigate to memoji tab and find memoji with laptop Take a screenshot and crop it Open blank page in keynotes and paste your screenshot Change background using color picker in color section Add stickers to your memoji laptop Geek avatar - Done!  Not sure if it useful to anyone, but i decided to share it.</description>
+    </item>
+    
+  </channel>
+</rss>
