@@ -3,7 +3,7 @@ title: "WWDC Memoji With Laptop"
 date: 2020-06-12T17:01:27+02:00
 draft: false
 comments: true
-cover: "img/wwdc-memoji-with-laptop/me_sticker.jpeg"
+cover: "img/wwdc-memoji-with-laptop/me_sticker_black.jpeg"
 tags:
   - iOS
   - lifestyle
