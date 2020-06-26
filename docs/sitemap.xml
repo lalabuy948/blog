@@ -3,27 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/code/</loc>
+    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/env/</loc>
+    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/hashicorp-vault-as-environment-manager/</loc>
+    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tools/</loc>
+    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/ios/</loc>
     <lastmod>2020-06-12T17:01:27+02:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/lifestyle/</loc>
-    <lastmod>2020-06-12T17:01:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-06-12T17:01:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-06-12T17:01:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-06-12T17:01:27+02:00</lastmod>
   </url>
   
@@ -83,11 +103,6 @@
   </url>
   
   <url>
-    <loc>/tags/code/</loc>
-    <lastmod>2020-03-08T19:23:14+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/docker/</loc>
     <lastmod>2020-03-08T19:23:14+01:00</lastmod>
   </url>
@@ -100,11 +115,6 @@
   <url>
     <loc>/posts/testing-mailer-in-go/</loc>
     <lastmod>2020-03-08T19:23:14+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/env/</loc>
-    <lastmod>2020-03-07T09:00:59+01:00</lastmod>
   </url>
   
   <url>

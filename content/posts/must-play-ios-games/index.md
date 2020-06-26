@@ -10,7 +10,7 @@ tags:
   - apple
 
 seo:
-  [bla, bla]
+  [ios, ipad, top, games, appstore]
 ---
 
 After I started working from home I got a bit more time to play games and would like to share my favorite ones. There are a few criteria by which I was compiling these lists. First of all, games should be optimized for the iPhone and iPad, games shouldn't have bugs or unstable performance. And of course, keep in mind that it's my taste and I would love to discover new projects - drop your favorite in comments below. 

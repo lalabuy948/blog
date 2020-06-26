@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Fri, 12 Jun 2020 17:01:27 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2020 20:09:43 +0200</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>code</title>
+      <link>/tags/code/</link>
+      <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
+      
+      <guid>/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>env</title>
+      <link>/tags/env/</link>
+      <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
+      
+      <guid>/tags/env/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
+      
+      <guid>/tags/tools/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>iOS</title>
@@ -85,15 +112,6 @@
     </item>
     
     <item>
-      <title>code</title>
-      <link>/tags/code/</link>
-      <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
-      
-      <guid>/tags/code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>docker</title>
       <link>/tags/docker/</link>
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
@@ -108,15 +126,6 @@
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
       
       <guid>/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>env</title>
-      <link>/tags/env/</link>
-      <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
-      
-      <guid>/tags/env/</guid>
       <description></description>
     </item>
     
