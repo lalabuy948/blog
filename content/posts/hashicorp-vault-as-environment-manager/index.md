@@ -34,7 +34,7 @@ In my case I will name it service. After you added your Key Value engine, you sh
 
 ## #2 Add secrets (json files)
 
-In my case I created development, staging and production. This files will store actual jey value pairs, which in our case dot environment pairs.
+In my case I created development, staging and production. This files will store actual key value pairs, which in our case dot environment pairs.
 
 ![Create new secret engine](/img/hashicorp-vault-as-environment-manager/vault-screenshot-1.png)
 

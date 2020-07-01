@@ -2,16 +2,13 @@
 author: "DP"
 date: ""
 title: "About"
-# cover: "https://avatars0.githubusercontent.com/u/24271777?s=460&v=4"
-# tags:
-#  - go
 ---
 
 Originally from Saint-Petersburg, living in Slovenia. 
 Im web engineer with passion for scalable and high-loaded systems. Currently I have title of Technical Team Lead on big media project. 
 In the past I used to work as research agent, freelancing and started few startups. 
 I used to work on quite a few web projects with primary focus on backend, architecture and data storages.
-I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem. 
+I don't have preferred technology, In my opinion you have to choose language or specific technology based on your problem. 
 
 Why procrastinator? Im struggling with logically connecting things in chaos - entropy. 
 Thats why I think Im procrastinating.
