@@ -20,7 +20,7 @@ This works for family or friends video calls as well. It's way way better than M
 
 ## Chatting, emails and other irritants.
 
-Once you are trying to focus on your important document or code and build best solution in the world you have quite a few notifications which divert you off from reaching your nirvana. I stopped opening slack on my laptop, so while I'm focusing nothing is disturbing me. Once you need to do a mind break, you just stray in your comfy chair and read slack channels, read some emails or even check [GitHub notification](https://github.com/notifications/beta) (which I really like, but majority of my friends didn't agree with me).
+Once you are trying to focus on your important document or code and build best solution in the world you have quite a few notifications which divert you off from reaching your nirvana. I stopped opening slack on my laptop, so while I'm focusing nothing is disturbing me. Once you need to do a mind break, you just stray in your comfy chair and read slack channels, read some emails or even check [GitHub notification](https://github.com/notifications/beta) (which I really like, but majority of my friends don't agree with me).
 
 ## Battery life over performance.
 
@@ -28,7 +28,7 @@ I have quite powerful laptop for my needs, MBP 15 with 6 cores to compile projec
 
 ## Ergonomics.
 
-During the lunch or in the evening I would like to watch some news or a series. Bring laptop, unplug all devices such as dangles, keyboard, power adapter etc quite uncomfortable or it even might be without a battery. I started using iPad for that needs. No coolers noise, its not overheating and screen seems to be a bit better. Yes, screen is smaller but if you watch it alone who cares. 
+During the lunch or in the evening I would like to watch some news or a series. Bring laptop, unplug all devices such as dongles, keyboard, power adapter etc quite uncomfortable or it even might be without a battery. I started using iPad for that needs. No coolers noise, its not overheating and screen seems to be a bit better. Yes, screen is smaller but if you watch it alone who cares. 
 
 Another interesting use case which works for me - watch youtube during doing some routine job - filling some nums to excel or stuff like that, you understood me.. Basically iPad works here as external screen. I even saw app as I remember `duet`, which can transform your iPad to external screen. 
 

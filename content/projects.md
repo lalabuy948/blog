@@ -4,5 +4,5 @@ date: ""
 title: "Projects"
 ---
 
-## Page about my projects
+## Projects
 

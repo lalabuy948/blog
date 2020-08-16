@@ -3,7 +3,7 @@ title: "Hashicorp Vault as Environment Manager"
 date: 2020-06-20T20:09:43+02:00
 draft: false
 comments: true
-cover: "/img/hashicorp-vault-as-environment-manager/vault.png"
+cover: "img/hashicorp-vault-as-environment-manager/vault.png"
 tags:
   - tools
   - code
