@@ -96,7 +96,7 @@ Problem I prefer using .</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Originally from Saint-Petersburg, living in Slovenia. Im web engineer with passion for scalable and high-loaded systems. Currently I have title of Technical Team Lead on big media project. In the past I used to work as research agent, freelancing and started few startups. I used to work on quite a few web projects with primary focus on backend, architecture and data storages. I dont have prefered technology, In my opinion you have to choose language or specific technology based on your problem.</description>
+      <description>Originally from Saint-Petersburg, living in Slovenia. Im web engineer with passion for scalable and high-loaded systems. Currently I have title of Technical Team Lead on big media project. In the past I used to work as research agent, freelancer, fullstack developer and project manager. I used to work on quite a few web projects with primary focus on backend, architecture and data storages. I don&amp;rsquo;t have preferred technology, In my opinion you have to choose language or specific technology based on your problem.</description>
     </item>
     
     <item>
@@ -107,6 +107,15 @@ Problem I prefer using .</description>
       <guid>/cookie-policy/</guid>
       <description>Cookie Policy for Mr Popov This is the Cookie Policy for Mr Popov, accessible from mrpopov.com
 What Are Cookies As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or &amp;lsquo;break&amp;rsquo; certain elements of the sites functionality.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>Projects </description>
     </item>
     
     <item>
