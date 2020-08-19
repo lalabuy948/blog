@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/devops/</loc>
+    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/docker/</loc>
+    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/redis/</loc>
+    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/redis-cluster-in-docker-compose/</loc>
+    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/code/</loc>
     <lastmod>2020-06-20T20:09:43+02:00</lastmod>
   </url>
@@ -14,21 +49,6 @@
   
   <url>
     <loc>/posts/hashicorp-vault-as-environment-manager/</loc>
-    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-06-20T20:09:43+02:00</lastmod>
   </url>
   
@@ -100,11 +120,6 @@
   <url>
     <loc>/posts/bad-hr-experience-or-how-new-repo-was-born/</loc>
     <lastmod>2020-03-28T16:03:07+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/docker/</loc>
-    <lastmod>2020-03-08T19:23:14+01:00</lastmod>
   </url>
   
   <url>

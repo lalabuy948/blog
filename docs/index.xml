@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sat, 20 Jun 2020 20:09:43 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2020 16:37:03 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Redis Cluster in Docker Compose</title>
+      <link>/posts/redis-cluster-in-docker-compose/</link>
+      <pubDate>Sun, 16 Aug 2020 16:37:03 +0200</pubDate>
+      
+      <guid>/posts/redis-cluster-in-docker-compose/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;x: Why would you do this?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;y: Because one not enough?&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
     
     <item>
       <title>Hashicorp Vault as Environment Manager</title>
