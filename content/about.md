@@ -11,7 +11,7 @@ I used to work on quite a few web projects with primary focus on backend, archit
 I don't have preferred technology, In my opinion you have to choose language or specific technology based on your problem. 
 
 Why procrastinator? Im struggling with logically connecting things in chaos - entropy. 
-Thats why I think Im procrastinating.
+That's why I think Im procrastinating.
 
 If you find typo/mistake in my posts please write to me directly about it, I'm not a native speaker and would appreciate such a gesture from you. 
 

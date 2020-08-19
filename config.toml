@@ -16,7 +16,7 @@ relativeurls = true
   [languages.en]
     title = "Mr. Popov"
     description = "Daniil Popov - Senior procrastinator who struggle with entropy. You will not find anything useful here, because I'm writing about me and my thoughts."
-    keywords = "mr, popov, com, daniil, daniil popov, senior, procrastinator"
+    keywords = "daniil popov, popov com, daniil, mr popov, senior, procrastinator"
     copyright = "Daniil Popov"
     menuMore = "More 👇"
     writtenBy = "Written by"
