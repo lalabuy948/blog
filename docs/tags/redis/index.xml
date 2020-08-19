@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on Mr. Popov</title>
+    <link>/tags/redis/</link>
+    <description>Recent content in redis on Mr. Popov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Daniil Popov</copyright>
+    <lastBuildDate>Sun, 16 Aug 2020 16:37:03 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis Cluster in Docker Compose</title>
+      <link>/posts/redis-cluster-in-docker-compose/</link>
+      <pubDate>Sun, 16 Aug 2020 16:37:03 +0200</pubDate>
+      
+      <guid>/posts/redis-cluster-in-docker-compose/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;x: Why would you do this?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;y: Because one not enough?&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
