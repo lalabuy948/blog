@@ -16,6 +16,8 @@ seo:
 
 > y: Because one not enough? 
 
+<!--more-->
+
 Initially your `redis` docker-compose setup would look like this:
 
 ```yml
