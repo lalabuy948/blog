@@ -3,22 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/code/</loc>
+    <lastmod>2020-08-21T13:19:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/typ.life/</loc>
+    <lastmod>2020-08-21T13:19:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/lifestyle/</loc>
+    <lastmod>2020-08-21T13:19:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-08-21T13:19:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-08-21T13:19:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-08-21T13:19:54+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/devops/</loc>
     <lastmod>2020-08-16T16:37:03+02:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/docker/</loc>
-    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
     <lastmod>2020-08-16T16:37:03+02:00</lastmod>
   </url>
   
@@ -30,16 +50,6 @@
   <url>
     <loc>/posts/redis-cluster-in-docker-compose/</loc>
     <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/code/</loc>
-    <lastmod>2020-06-20T20:09:43+02:00</lastmod>
   </url>
   
   <url>
@@ -59,11 +69,6 @@
   
   <url>
     <loc>/tags/ios/</loc>
-    <lastmod>2020-06-12T17:01:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/lifestyle/</loc>
     <lastmod>2020-06-12T17:01:27+02:00</lastmod>
   </url>
   
