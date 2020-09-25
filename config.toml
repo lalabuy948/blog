@@ -5,6 +5,11 @@ paginate = 5
 publishDir = "docs"
 relativeurls = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   contentTypeName = "posts"
   defaultTheme = "light"

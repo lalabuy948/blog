@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Fri, 21 Aug 2020 13:19:54 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2020 10:07:13 +0200</lastBuildDate>
     
 	<atom:link href="/tags/code/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flexible Env in Go V2</title>
+      <link>/posts/flexible-env-in-go-v2/</link>
+      <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
+      
+      <guid>/posts/flexible-env-in-go-v2/</guid>
+      <description>lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
+After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; github.</description>
+    </item>
     
     <item>
       <title>https://typ.life</title>

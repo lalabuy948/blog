@@ -2,19 +2,20 @@
 <html lang="en">
   <head>
     
-      <title>Mr. Popov :: https://typ.life</title>
+      <title>Mr. Popov :: Flexible Env in Go V2</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="../../posts/typ.life/" />
+<link rel="canonical" href="../../posts/flexible-env-in-go-v2/" />
 
-<meta name="description" content="r/mk Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&amp;rsquo;t open the fridge every five minutes&amp;hellip; So, I had to suffer&amp;hellip; And I decided to adapt my small cabinet to trick my brain that I&amp;rsquo;m sitting in the office."/>
+<meta name="description" content="lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
+After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; github."/>
 <meta name="keywords" content="daniil popov, popov com, daniil, mr popov, senior, procrastinator"/>
 
 
     
-        <meta name="keywords" content="typing works, typings.gg, typ.life, mechanical keyboard, typing application, " />
+        <meta name="keywords" content="dotenv, open source, golang, github actions, " />
     
 
 
@@ -51,17 +52,19 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="https://typ.life"/>
-<meta name="twitter:description" content="r/mk Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&rsquo;t open the fridge every five minutes&hellip; So, I had to suffer&hellip; And I decided to adapt my small cabinet to trick my brain that I&rsquo;m sitting in the office."/>
+<meta name="twitter:title" content="Flexible Env in Go V2"/>
+<meta name="twitter:description" content="lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
+After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; github."/>
 
 
 
-<meta property="og:title" content="https://typ.life" />
-<meta property="og:description" content="r/mk Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&rsquo;t open the fridge every five minutes&hellip; So, I had to suffer&hellip; And I decided to adapt my small cabinet to trick my brain that I&rsquo;m sitting in the office." />
+<meta property="og:title" content="Flexible Env in Go V2" />
+<meta property="og:description" content="lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
+After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; github." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/typ.life/" />
-<meta property="article:published_time" content="2020-08-21T13:19:54+02:00" />
-<meta property="article:modified_time" content="2020-08-21T13:19:54+02:00" /><meta property="og:site_name" content="Mr. Popov" />
+<meta property="og:url" content="/posts/flexible-env-in-go-v2/" />
+<meta property="article:published_time" content="2020-09-25T10:07:13+02:00" />
+<meta property="article:modified_time" content="2020-09-25T10:07:13+02:00" /><meta property="og:site_name" content="Mr. Popov" />
 
 
 
@@ -218,11 +221,11 @@
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="../../posts/typ.life/"><a href="https://typ.life">https://typ.life</a></a></h2>
+    <h2 class="post-title"><a href="../../posts/flexible-env-in-go-v2/">Flexible Env in Go V2</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
-            2020-08-21
+            2020-09-25
         </span>
       
       
@@ -235,26 +238,36 @@
     
       <span class="post-tags">
         
-          #<a href="../../tags/lifestyle/">lifestyle</a>&nbsp;
+          #<a href="../../tags/tools/">tools</a>&nbsp;
         
           #<a href="../../tags/code/">code</a>&nbsp;
+        
+          #<a href="../../tags/env/">env</a>&nbsp;
         
       </span>
     
 
     
       
-        <img src="../../img/typ.life/screenshot-typ.life.jpg" class="post-cover" />
+        <img src="../../img/flexible-env-in-go-v2/Unicorn_Gopher.png" class="post-cover" />
       
     
 
     <div class="post-content">
-      <h2 id="rmkhttpswwwredditcomrmechanicalkeyboards"><a href="https://www.reddit.com/r/MechanicalKeyboards/">r/mk</a></h2>
-<p>Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&rsquo;t open the fridge every five minutes&hellip; So, I had to suffer&hellip; And I decided to adapt my small cabinet to trick my brain that I&rsquo;m sitting in the office. I got a monitor, mouse, and vertical laptop holder to save someplace. Keyboard right? That&rsquo;s how I found <code>r/mk</code>&hellip; I got hooked into that within my head.</p>
-<h2 id="typlifehttpstyplife"><a href="https://typ.life">typ.life</a></h2>
-<p>After I started playing with all kinds of mechanical keyboards I wanted to contribute and create small typing applications with real-world examples. Such as quotes? I didn&rsquo;t find anything smarter due to my imagination. Plus I wanted to focus on one dot and type as fast as possible to train your fingers. That&rsquo;s why delete functionality is missing.</p>
-<h2 id="githubhttpsgithubcomlalabuy948typing"><a href="https://github.com/lalabuy948/typing">github</a></h2>
-<p>Of course, this is an open-source project, mono repo with simple backend which loads quotes into memory and serves random one on API call. Fronted is react, nothing special. And infra folder with webhook handler and Nginx config. You are more than welcome to open PR or publish an issue :)</p>
+      <h1 id="lalabuy948genvutilshttpsgithubcomlalabuy948genvutils"><a href="https://github.com/lalabuy948/genvutils">lalabuy948/genvutils</a></h1>
+<h2 id="motivation">Motivation</h2>
+<p>As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it <a href="../../posts/flexible-env-in-go/">there</a></p>
+<p>After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; <a href="https://github.com/lalabuy948/genvutils">github.com/lalabuy948/genvutils</a></p>
+<p>I wanted to have control of the dependency which I use in quite a few personal projects. Adding features when I need them and share a piece of mine with others, which makes me super happy and feel useful for the golang community. In the first week, GitHub insights were showing that I had over 1k downloads.</p>
+<h2 id="functionality">Functionality</h2>
+<p>As simple as possible. The main feature is loading dot environment file by priority and if exists. Dumping your environment variables into a typed structure. And this is it.</p>
+<script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Flalabuy948%2Fgenvutils%2Fblob%2Fmaster%2Fexamples%2Fsimple.go&style=github"></script>
+<h2 id="github-actions">Github Actions</h2>
+<p>I would like to mention <a href="https://github.com/features/actions">Github Actions</a> here as well. If you didn&rsquo;t use it I recommend you to try it! It&rsquo;s simple cozy and fast. For such a small library that I&rsquo;ve done I automated laterally everything with a small YAML file. Which contains: linter, tests and hash sum update for <a href="https://pkg.go.dev">pkg.go.dev</a>.</p>
+<script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Flalabuy948%2Fgenvutils%2Fblob%2Fmaster%2F.github%2Fworkflows%2Fci.yml&style=github"></script>
+<p>Btw I&rsquo;m really proud of my bash skill to do the last thing in one line 😂</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl https://sum.golang.org/lookup/github.com/lalabuy948/genvutils@<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>git describe --tags <span style="color:#e6db74">`</span>git rev-list --tags --max-count<span style="color:#f92672">=</span>1<span style="color:#e6db74">`</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>Gopher on the cover by <a href="https://github.com/ashleymcnamara/gophers">ashleymcnamara</a> 💙</p>
 
     </div>
     
@@ -266,17 +279,10 @@
           </div>
           <div class="pagination__buttons">
             
-              <span class="button previous">
-                <a href="../../posts/flexible-env-in-go-v2/">
-                  <span class="button__icon">←</span>
-                  <span class="button__text">Flexible Env in Go V2</span>
-                </a>
-              </span>
-            
             
               <span class="button next">
-                <a href="../../posts/redis-cluster-in-docker-compose/">
-                  <span class="button__text">Redis Cluster in Docker Compose</span>
+                <a href="../../posts/typ.life/">
+                  <span class="button__text">https://typ.life</span>
                   <span class="button__icon">→</span>
                 </a>
               </span>
