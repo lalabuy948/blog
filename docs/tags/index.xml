@@ -147,5 +147,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>companies</title>
+      <link>/tags/companies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/companies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech-scaling</title>
+      <link>/tags/tech-scaling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tech-scaling/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

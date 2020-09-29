@@ -156,6 +156,10 @@
   </url>
   
   <url>
+    <loc>/tags/companies/</loc>
+  </url>
+  
+  <url>
     <loc>/cookie-policy/</loc>
   </url>
   
@@ -169,6 +173,10 @@
   
   <url>
     <loc>/tech-scaling/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/tech-scaling/</loc>
   </url>
   
 </urlset>

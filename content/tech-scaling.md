@@ -4,12 +4,11 @@ date: ""
 title: "Tech Scaling - Companies collaboration"
 cover: "img/tech-scaling/service-oriented.png"
 tags:
-  - tools
-  - code
-  - env
+  - tech-scaling
+  - companies
 
 seo:
-  [dotenv, open source, golang, github actions]
+  [tech-scaling, startups, service, cto as a service]
 ---
 
 ## TechScaling - Service provided by [d.labs](https://dlabs.io) to other technology companies in pure collaboration mode.
