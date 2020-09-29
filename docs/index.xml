@@ -151,14 +151,13 @@ What Are Cookies As is common practice with almost all professional websites thi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/</guid>
-      <description>Projects typ.life Open-source full stack application stored as monorepo for happy click-clacking :)
+      <description>Projects Tech Scaling 
+ Service provided by d.labs to other technology companies in pure collaboration mode.
+  Not being ready for millions users at time or having tech debt after the MVP stage - not condemnation. Let’s find the right way to handle this together!
+ typ.life Open-source full stack application stored as monorepo for happy click-clacking :)
 
 read more
-Games for WatchOS That&amp;rsquo;s my favorite two projects, it&amp;rsquo;s small it&amp;rsquo;s simple but super fun.
-Space Invaders for WatchOS 
-Flappy Bird for WatchOS 
-Go pkgs genvutils Go environment utilities (genvutils) - provides useful environment operations
-webprev Golang package provides easy extraction of website previews. Generic, Facebook and Twitter cards.</description>
+Games for WatchOS That&amp;rsquo;s my favorite two projects, it&amp;rsquo;s small it&amp;rsquo;s simple but super fun.</description>
     </item>
     
     <item>
@@ -176,7 +175,8 @@ webprev Golang package provides easy extraction of website previews. Generic, Fa
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tech-scaling/</guid>
-      <description></description>
+      <description>TechScaling - Service provided by d.labs to other technology companies in pure collaboration mode.  Not being ready for millions users at time or having tech debt after the MVP stage - not condemnation. Let’s find the right way to handle this together!
+  Our tech scaling department will work with your team back to back to find the most optimal solution for process, architecture, technology stack migration and development department restructure which suits best for your business.</description>
     </item>
     
   </channel>

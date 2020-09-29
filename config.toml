@@ -43,6 +43,10 @@ relativeurls = true
         name = "Projects"
         url = "/projects"
       [[languages.en.menu.main]]
+        identifier = "scaling"
+        name = "Tech Scaling"
+        url = "/tech-scaling"
+      [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
         url = "/about"
