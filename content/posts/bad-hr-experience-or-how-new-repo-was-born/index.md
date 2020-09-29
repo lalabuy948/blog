@@ -26,7 +26,9 @@ I do not remember all requirements. But basically they asked to build high-loade
 
 Let me tell about architecture to prove you that I know what I'm talking about. Since you need to track events from the website and after that show some reports, I decided to use kinda cqrs as global patter for this. We need high event throughput, that's why client in go (fasthttp) + Kafka. Workers which are storing that events in db are written in python, but it really doesn't matter, because I wanted to show that this architecture allows you to use polyglot approach. For database I used postgres to simplify the solution, but I would recommend something like clickhouse or redshift. Essentially column oriented databases. Each component of the system is designed in a way to be scaled and replaceable in the future. Need to change worker? Sure. Need to change warehouse? Go for that, replace it with Hadoop or whatever. I didn't create dashboard app, but maybe I will ask some frontend friend to help we with that in the future. I just wanted to show the principle and architecture.
 
-<img src="https://raw.githubusercontent.com/lalabuy948/logektor/master/github/EventTrackingSA.svg">
+<a href="https://raw.githubusercontent.com/lalabuy948/logektor/master/github/EventTrackingSA.svg" target="_blank">
+  <img src="https://raw.githubusercontent.com/lalabuy948/logektor/master/github/EventTrackingSA.svg">
+</a>
 
 [Logektor source code](https://github.com/lalabuy948/logektor)
 
