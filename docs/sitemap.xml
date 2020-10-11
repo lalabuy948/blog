@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/posts/basicbb/</loc>
+    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/lifestyle/</loc>
+    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/people/</loc>
+    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/startup/</loc>
+    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/code/</loc>
     <lastmod>2020-09-25T10:07:13+02:00</lastmod>
   </url>
@@ -18,32 +53,12 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-09-25T10:07:13+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-09-25T10:07:13+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-09-25T10:07:13+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/tools/</loc>
     <lastmod>2020-09-25T10:07:13+02:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/typ.life/</loc>
-    <lastmod>2020-08-21T13:19:54+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/lifestyle/</loc>
     <lastmod>2020-08-21T13:19:54+02:00</lastmod>
   </url>
   
@@ -104,11 +119,6 @@
   
   <url>
     <loc>/posts/dont-go-to-it-or-even-go-out/</loc>
-    <lastmod>2020-05-14T16:58:31+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/people/</loc>
     <lastmod>2020-05-14T16:58:31+02:00</lastmod>
   </url>
   

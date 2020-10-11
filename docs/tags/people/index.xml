@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 14 May 2020 16:58:31 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2020 19:40:59 +0200</lastBuildDate>
     
 	<atom:link href="/tags/people/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Basicbb</title>
+      <link>/posts/basicbb/</link>
+      <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
+      
+      <guid>/posts/basicbb/</guid>
+      <description>Basic Building Blocks My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.
+That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called basicbb - Basic Building Blocks.</description>
+    </item>
     
     <item>
       <title>Don’t go to IT or even go out</title>

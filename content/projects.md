@@ -4,15 +4,7 @@ date: ""
 title: "Projects"
 ---
 
-## Projects
-
-## [Tech Scaling](/tech-scaling)
-
-[![parallel-execution](/img/tech-scaling/parallel-execution.png)](/tech-scaling)
-
-> Service provided by [d.labs](https://dlabs.io) to other technology companies in pure collaboration mode.
-
-> Not being ready for millions users at time or having tech debt after the MVP stage - not condemnation. Let’s find the right way to handle this together!
+## Pet Projects
 
 ## [typ.life](https://typ.life)
 
