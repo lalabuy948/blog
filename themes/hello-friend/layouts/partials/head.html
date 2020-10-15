@@ -6,11 +6,12 @@
 <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}"/>
 <meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}"/>
 
-{{if isset .Params "keywords"}}
-    <meta name="keywords" content="{{ delimit .Keywords ", " }}, " />
+
+{{if isset .Params "seo"}}
+    <meta name="keywords" content="{{ delimit .Params.Seo ", " }}, " />
 {{else}}
-    {{if isset .Params "seo"}}
-        <meta name="keywords" content="{{ delimit .Params.Seo ", " }}, " />
+    {{if isset .Params "keywords"}}
+        <meta name="keywords" content="{{ delimit .Keywords ", " }}, " />
     {{else}}
          <meta name="keywords" content="" />
     {{end}}
