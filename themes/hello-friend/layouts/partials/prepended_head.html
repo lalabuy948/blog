@@ -1,26 +1,26 @@
 
 {{if (isset .Params "cover")}}
-    {{ printf `<meta property="og:image" content="%s">` .Params.Cover | safeHTML }}
-    {{ printf `<meta property="twitter:image" content="%s">` .Params.Cover | safeHTML }}
+    <meta property="og:image" content="./{{.Params.Cover | safeHTML}}">
+    <meta property="twitter:image" content="./{{.Params.Cover | safeHTML}}">
 {{else}}
     <meta property="og:image" content="./img/lalabuy.jpg">
     <meta property="twitter:image" content="./img/lalabuy.jpg">
 {{end}}
 
 {{if isset .Params "title"}}
-    {{ printf `<meta property="og:title" content="Mr Popov :: %s">` .Params.Title | safeHTML }}
-    {{ printf `<meta property="twitter:title" content="Mr Popov :: %s">` .Params.Title  | safeHTML }}
+    <meta property="og:title" content="Mr.Popov :: {{.Params.Title | safeHTML }}">
+    <meta property="twitter:title" content="Mr.Popov :: {{.Params.Title | safeHTML }}">
 {{else}}
-    <meta property="og:title" content="Mr Popov">
-    <meta property="twitter:title" content="Mr Popov">
+    <meta property="og:title" content="Mr.Popov">
+    <meta property="twitter:title" content="Mr.Popov">
 {{end}}
 
 {{if isset .Params "description"}}
-    {{ printf `<meta property="twitter:description" content="Mr Popov :: %s">` .Params.Description | safeHTML }}
-    {{ printf `<meta property="twitter:description" content="Mr Popov :: %s">` .Params.Description | safeHTML }}
+    <meta property="og:description" content="Mr.Popov :: {{.Params.Description | safeHTML}}">
+    <meta property="twitter:description" content="Mr.Popov :: {{.Params.Description | safeHTML}}">
 {{else}}
-    <meta property="twitter:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
     <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+    <meta property="twitter:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
 {{end}}
 
 <!-- Open Graph / Facebook -->

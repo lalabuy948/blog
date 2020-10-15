@@ -1,5 +1,5 @@
 ---
-title: "Basicbb"
+title: "BasicBB"
 date: 2020-10-11T19:40:59+02:00
 draft: false
 comments: true

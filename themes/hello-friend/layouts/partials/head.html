@@ -4,8 +4,6 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 
 <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}"/>
-<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}"/>
-
 
 {{if isset .Params "seo"}}
     <meta name="keywords" content="{{ delimit .Params.Seo ", " }}, " />
@@ -32,10 +30,10 @@
 <link rel="shortcut icon" href="{{ "img/favicon.png" | absURL }}">
 
 <!-- Twitter Card -->
-{{ template "_internal/twitter_cards.html" . }}
+<!-- {{ template "_internal/twitter_cards.html" . }} -->
 
 <!-- OG data -->
-{{ template "_internal/opengraph.html" . }}
+<!-- {{ template "_internal/opengraph.html" . }} -->
 
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
