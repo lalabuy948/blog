@@ -1,10 +1,10 @@
 
 {{if (isset .Params "cover")}}
-    <meta property="og:image" content="./{{.Params.Cover | safeHTML}}">
-    <meta property="twitter:image" content="./{{.Params.Cover | safeHTML}}">
+    <meta property="og:image" content="/{{.Params.Cover | safeHTML}}">
+    <meta property="twitter:image" content="/{{.Params.Cover | safeHTML}}">
 {{else}}
-    <meta property="og:image" content="./img/lalabuy.jpg">
-    <meta property="twitter:image" content="./img/lalabuy.jpg">
+    <meta property="og:image" content="/img/lalabuy.jpg">
+    <meta property="twitter:image" content="/img/lalabuy.jpg">
 {{end}}
 
 {{if isset .Params "title"}}
