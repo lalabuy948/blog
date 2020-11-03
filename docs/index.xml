@@ -66,15 +66,6 @@ Pre Requirements  Installed vault Finish setup instructions  You can find nicely
     </item>
     
     <item>
-      <title>WWDC Memoji With Laptop</title>
-      <link>/posts/wwdc-memoji-with-laptop/</link>
-      <pubDate>Fri, 12 Jun 2020 17:01:27 +0200</pubDate>
-      
-      <guid>/posts/wwdc-memoji-with-laptop/</guid>
-      <description>How to make WWDC Memoji with laptop?    Go to imessage app and open conversation with yourself Navigate to memoji tab and find memoji with laptop Take a screenshot and crop it Open blank page in keynotes and paste your screenshot Change background using color picker in color section Add stickers to your memoji laptop Geek avatar - Done!  Not sure if it useful to anyone, but i decided to share it.</description>
-    </item>
-    
-    <item>
       <title>Must Play iOS Games</title>
       <link>/posts/must-play-ios-games/</link>
       <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
@@ -161,14 +152,15 @@ What Are Cookies As is common practice with almost all professional websites thi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/</guid>
-      <description>Pet Projects typ.life Open-source full stack application stored as monorepo for happy click-clacking :)
+      <description>Startups BasicBB Basic Building Blocks - unleash your freedom in modern and nature friendly environment.
+
+Antimuseum Ordinary museums take their visitors back in time, the AntiMuseum ushers you into the future of science and technology.
+
+Pet Projects typ.life Open-source full stack application stored as monorepo for happy click-clacking :)
 
 read more
 Games for WatchOS That&amp;rsquo;s my favorite two projects, it&amp;rsquo;s small it&amp;rsquo;s simple but super fun.
-Space Invaders for WatchOS 
-Flappy Bird for WatchOS 
-Go pkgs genvutils Go environment utilities (genvutils) - provides useful environment operations
-webprev Golang package provides easy extraction of website previews. Generic, Facebook and Twitter cards.</description>
+Space Invaders for WatchOS</description>
     </item>
     
     <item>

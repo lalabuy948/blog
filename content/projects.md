@@ -4,6 +4,20 @@ date: ""
 title: "Projects"
 ---
 
+## Startups
+
+## [BasicBB](https://basicbb.com)
+
+Basic Building Blocks - unleash your freedom in modern and nature friendly environment. 
+
+[![exterior.jpg](/img/basicbb/exterior.jpg)](https://basicbb.com)
+
+## [Antimuseum](http://www.antimuseum.org/en)
+
+Ordinary museums take their visitors back in time, the AntiMuseum ushers you into the future of science and technology.
+
+[![antimuseum.jpg](/img/antimuseum.jpg)](http://www.antimuseum.org/en)
+
 ## Pet Projects
 
 ## [typ.life](https://typ.life)
