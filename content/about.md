@@ -4,19 +4,22 @@ date: ""
 title: "About"
 ---
 
-Octopus in IT and startup worlds from the Russian ocean. Known as lalabuy948
+Samurai warrior in IT and Startup whirlpools from the Russian ocean. Known as lalabuy948
 
 - https://github.com/lalabuy948
 - https://www.linkedin.com/in/mrpopov/
 
-Originally from Saint-Petersburg, living in Slovenia. Business runner and ruiner. I’m software engineer with passion for scalable and high-loaded systems. 
+Originally from Saint-Petersburg, living in Slovenia. Business runner and ruiner. I’m software engineer with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture, renaissance paintings and my muse of course.
 
-Helping other companies to grow. 📈 #TechScaling In a meanwhile I have title of Technical Team Lead on big media project. 
+Currently helping other companies and individuals to find balance between business and engineering. Technical stacks, technical debts, processes optimization and establishing, migration strategies and more. Book me for consultation or personal mentoring session.
 
-In the past I used to work as research agent, fullstack engineer, project manager and business runner. I worked on quite a few IT projects with primary focus on business logic, architecture, system scaling, data flows and data storages. As every casual entrepreneur I have bunch of failed startups 🤷🏻‍♂️. 
+- https://calendly.com/mrpopov
+
+In the past I used to work as research agent, full-stack engineer, technical team lead, project manager and business runner. I worked on quite a few IT projects with primary focus on business logic, architecture, system scaling, data flows and data storages. As every casual entrepreneur I have bunch of failed startups 🤷🏻‍♂️.
 
 I don’t have preferred technology, In my opinion you have to choose language or specific technology based on your problem.
 
+Do it best or don’t do it at all. Don't forget to procrastinate well. 
 Why procrastinator? Im struggling with logically connecting things in chaos - entropy. 
 That's why I think Im procrastinating.
 
@@ -27,6 +30,8 @@ If you find typo/mistake in my posts please write to me directly about it, I'm n
 #### [BBB - Basic Building Blocks](https://basicbb.com)
 
 #### [Antimuseum](http://www.antimuseum.org/en)
+
+#### [Sci-Park](https://sci-park.org)
 
 #### [GH Kolinska](https://ghkolinska.si/)
 
