@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Fri, 25 Sep 2020 10:07:13 +0200</lastBuildDate><atom:link href="/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Feb 2021 21:19:26 +0200</lastBuildDate><atom:link href="/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recursive blog post or Github Codespaces</title>
+      <link>/posts/recursive-blog-post-codespaces/</link>
+      <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
+      
+      <guid>/posts/recursive-blog-post-codespaces/</guid>
+      <description>I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to codespaces I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&amp;rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&amp;rsquo;s just Hugo.</description>
+    </item>
+    
     <item>
       <title>Flexible Env in Go V2</title>
       <link>/posts/flexible-env-in-go-v2/</link>

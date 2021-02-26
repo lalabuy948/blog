@@ -7,13 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 11 Oct 2020 19:40:59 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Feb 2021 21:19:26 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>code</title>
+      <link>/tags/code/</link>
+      <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
+      
+      <guid>/tags/code/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>lifestyle</title>
       <link>/tags/lifestyle/</link>
-      <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
+      <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
       
       <guid>/tags/lifestyle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
+      
+      <guid>/tags/tools/</guid>
       <description></description>
     </item>
     
@@ -36,29 +54,11 @@
     </item>
     
     <item>
-      <title>code</title>
-      <link>/tags/code/</link>
-      <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
-      
-      <guid>/tags/code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>env</title>
       <link>/tags/env/</link>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       
       <guid>/tags/env/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>/tags/tools/</link>
-      <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
-      
-      <guid>/tags/tools/</guid>
       <description></description>
     </item>
     
