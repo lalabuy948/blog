@@ -2,153 +2,153 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Mr. Popov</title>
-    <link>mrpopov.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="mrpopov.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>code</title>
-      <link>mrpopov.com/tags/code/</link>
+      <link>/tags/code/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
-      <guid>mrpopov.com/tags/code/</guid>
+      <guid>/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lifestyle</title>
-      <link>mrpopov.com/tags/lifestyle/</link>
+      <link>/tags/lifestyle/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
-      <guid>mrpopov.com/tags/lifestyle/</guid>
+      <guid>/tags/lifestyle/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tools</title>
-      <link>mrpopov.com/tags/tools/</link>
+      <link>/tags/tools/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
-      <guid>mrpopov.com/tags/tools/</guid>
+      <guid>/tags/tools/</guid>
       <description></description>
     </item>
     
     <item>
       <title>people</title>
-      <link>mrpopov.com/tags/people/</link>
+      <link>/tags/people/</link>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/people/</guid>
+      <guid>/tags/people/</guid>
       <description></description>
     </item>
     
     <item>
       <title>startup</title>
-      <link>mrpopov.com/tags/startup/</link>
+      <link>/tags/startup/</link>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/startup/</guid>
+      <guid>/tags/startup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>env</title>
-      <link>mrpopov.com/tags/env/</link>
+      <link>/tags/env/</link>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/env/</guid>
+      <guid>/tags/env/</guid>
       <description></description>
     </item>
     
     <item>
       <title>devops</title>
-      <link>mrpopov.com/tags/devops/</link>
+      <link>/tags/devops/</link>
       <pubDate>Sun, 16 Aug 2020 16:37:03 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/devops/</guid>
+      <guid>/tags/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>mrpopov.com/tags/docker/</link>
+      <link>/tags/docker/</link>
       <pubDate>Sun, 16 Aug 2020 16:37:03 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/docker/</guid>
+      <guid>/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>redis</title>
-      <link>mrpopov.com/tags/redis/</link>
+      <link>/tags/redis/</link>
       <pubDate>Sun, 16 Aug 2020 16:37:03 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/redis/</guid>
+      <guid>/tags/redis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>apple</title>
-      <link>mrpopov.com/tags/apple/</link>
+      <link>/tags/apple/</link>
       <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/apple/</guid>
+      <guid>/tags/apple/</guid>
       <description></description>
     </item>
     
     <item>
       <title>games</title>
-      <link>mrpopov.com/tags/games/</link>
+      <link>/tags/games/</link>
       <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/games/</guid>
+      <guid>/tags/games/</guid>
       <description></description>
     </item>
     
     <item>
       <title>work</title>
-      <link>mrpopov.com/tags/work/</link>
+      <link>/tags/work/</link>
       <pubDate>Thu, 14 May 2020 16:58:31 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/work/</guid>
+      <guid>/tags/work/</guid>
       <description></description>
     </item>
     
     <item>
       <title>devices</title>
-      <link>mrpopov.com/tags/devices/</link>
+      <link>/tags/devices/</link>
       <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
       
-      <guid>mrpopov.com/tags/devices/</guid>
+      <guid>/tags/devices/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>mrpopov.com/tags/go/</link>
+      <link>/tags/go/</link>
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
       
-      <guid>mrpopov.com/tags/go/</guid>
+      <guid>/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>companies</title>
-      <link>mrpopov.com/tags/companies/</link>
+      <link>/tags/companies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>mrpopov.com/tags/companies/</guid>
+      <guid>/tags/companies/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech-scaling</title>
-      <link>mrpopov.com/tags/tech-scaling/</link>
+      <link>/tags/tech-scaling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>mrpopov.com/tags/tech-scaling/</guid>
+      <guid>/tags/tech-scaling/</guid>
       <description></description>
     </item>
     

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Mr. Popov</title>
-    <link>mrpopov.com/posts/</link>
+    <link>/posts/</link>
     <description>Recent content in Posts on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notion Github Backup</title>
-      <link>mrpopov.com/posts/notion-github-backup/</link>
+      <link>/posts/notion-github-backup/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
-      <guid>mrpopov.com/posts/notion-github-backup/</guid>
+      <guid>/posts/notion-github-backup/</guid>
       <description>Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
 Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
 Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
@@ -21,48 +21,48 @@ Backup  Create a private github repo  Go to actions tab and click on set up a wo
     
     <item>
       <title>Recursive blog post or Github Codespaces</title>
-      <link>mrpopov.com/posts/recursive-blog-post-codespaces/</link>
+      <link>/posts/recursive-blog-post-codespaces/</link>
       <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/recursive-blog-post-codespaces/</guid>
+      <guid>/posts/recursive-blog-post-codespaces/</guid>
       <description>I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to codespaces I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&amp;rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&amp;rsquo;s just Hugo.</description>
     </item>
     
     <item>
       <title>BasicBB</title>
-      <link>mrpopov.com/posts/basicbb/</link>
+      <link>/posts/basicbb/</link>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/basicbb/</guid>
+      <guid>/posts/basicbb/</guid>
       <description>Basic Building Blocks My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.
 That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called basicbb - Basic Building Blocks.</description>
     </item>
     
     <item>
       <title>Flexible Env in Go V2</title>
-      <link>mrpopov.com/posts/flexible-env-in-go-v2/</link>
+      <link>/posts/flexible-env-in-go-v2/</link>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/flexible-env-in-go-v2/</guid>
+      <guid>/posts/flexible-env-in-go-v2/</guid>
       <description>lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
 After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; github.</description>
     </item>
     
     <item>
       <title>https://typ.life</title>
-      <link>mrpopov.com/posts/typ.life/</link>
+      <link>/posts/typ.life/</link>
       <pubDate>Fri, 21 Aug 2020 13:19:54 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/typ.life/</guid>
+      <guid>/posts/typ.life/</guid>
       <description>r/mk Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&amp;rsquo;t open the fridge every five minutes&amp;hellip; So, I had to suffer&amp;hellip; And I decided to adapt my small cabinet to trick my brain that I&amp;rsquo;m sitting in the office.</description>
     </item>
     
     <item>
       <title>Redis Cluster in Docker Compose</title>
-      <link>mrpopov.com/posts/redis-cluster-in-docker-compose/</link>
+      <link>/posts/redis-cluster-in-docker-compose/</link>
       <pubDate>Sun, 16 Aug 2020 16:37:03 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/redis-cluster-in-docker-compose/</guid>
+      <guid>/posts/redis-cluster-in-docker-compose/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;x: Why would you do this?&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -73,58 +73,58 @@ After some time I decided to create another open-source library for the world an
     
     <item>
       <title>Hashicorp Vault as Environment Manager</title>
-      <link>mrpopov.com/posts/hashicorp-vault-as-environment-manager/</link>
+      <link>/posts/hashicorp-vault-as-environment-manager/</link>
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
+      <guid>/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
 Pre Requirements  Installed vault Finish setup instructions  You can find nicely described steps here: Getting started</description>
     </item>
     
     <item>
       <title>Must Play iOS Games</title>
-      <link>mrpopov.com/posts/must-play-ios-games/</link>
+      <link>/posts/must-play-ios-games/</link>
       <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/must-play-ios-games/</guid>
+      <guid>/posts/must-play-ios-games/</guid>
       <description>After I started working from home I got a bit more time to play games and would like to share my favorite ones. There are a few criteria by which I was compiling these lists. First of all, games should be optimized for the iPhone and iPad, games shouldn&amp;rsquo;t have bugs or unstable performance. And of course, keep in mind that it&amp;rsquo;s my taste and I would love to discover new projects - drop your favorite in comments below.</description>
     </item>
     
     <item>
       <title>Don’t go to IT or even go out</title>
-      <link>mrpopov.com/posts/dont-go-to-it-or-even-go-out/</link>
+      <link>/posts/dont-go-to-it-or-even-go-out/</link>
       <pubDate>Thu, 14 May 2020 16:58:31 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/dont-go-to-it-or-even-go-out/</guid>
+      <guid>/posts/dont-go-to-it-or-even-go-out/</guid>
       <description>During massive panic around the world I got stuck at home the same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?</description>
     </item>
     
     <item>
       <title>iPad - Do You Need It?</title>
-      <link>mrpopov.com/posts/ipad-do-you-need-it/</link>
+      <link>/posts/ipad-do-you-need-it/</link>
       <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/ipad-do-you-need-it/</guid>
+      <guid>/posts/ipad-do-you-need-it/</guid>
       <description>I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.
 Zoom, right? MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings.</description>
     </item>
     
     <item>
       <title>Bad HR experience or How new repo was born</title>
-      <link>mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</link>
+      <link>/posts/bad-hr-experience-or-how-new-repo-was-born/</link>
       <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
       
-      <guid>mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
+      <guid>/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
       <description>Logektor ⚡️ Forewords This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.
 But after few days I received tests assignment from them.</description>
     </item>
     
     <item>
       <title>Testing Mailer in Go</title>
-      <link>mrpopov.com/posts/testing-mailer-in-go/</link>
+      <link>/posts/testing-mailer-in-go/</link>
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
       
-      <guid>mrpopov.com/posts/testing-mailer-in-go/</guid>
+      <guid>/posts/testing-mailer-in-go/</guid>
       <description>Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
 I was looking on few popular tools across the Internet:
  https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/  What I found My requirements were: run in docker, easy to config, basic functionality to render email.</description>
@@ -132,10 +132,10 @@ I was looking on few popular tools across the Internet:
     
     <item>
       <title>Flexible Env in Go</title>
-      <link>mrpopov.com/posts/flexible-env-in-go/</link>
+      <link>/posts/flexible-env-in-go/</link>
       <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
       
-      <guid>mrpopov.com/posts/flexible-env-in-go/</guid>
+      <guid>/posts/flexible-env-in-go/</guid>
       <description>Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
 Problem I prefer using .</description>
     </item>

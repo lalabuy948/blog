@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lifestyle on Mr. Popov</title>
-    <link>mrpopov.com/tags/lifestyle/</link>
+    <link>/tags/lifestyle/</link>
     <description>Recent content in lifestyle on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="mrpopov.com/tags/lifestyle/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="/tags/lifestyle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notion Github Backup</title>
-      <link>mrpopov.com/posts/notion-github-backup/</link>
+      <link>/posts/notion-github-backup/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
-      <guid>mrpopov.com/posts/notion-github-backup/</guid>
+      <guid>/posts/notion-github-backup/</guid>
       <description>Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
 Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
 Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
@@ -21,66 +21,66 @@ Backup  Create a private github repo  Go to actions tab and click on set up a wo
     
     <item>
       <title>Recursive blog post or Github Codespaces</title>
-      <link>mrpopov.com/posts/recursive-blog-post-codespaces/</link>
+      <link>/posts/recursive-blog-post-codespaces/</link>
       <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/recursive-blog-post-codespaces/</guid>
+      <guid>/posts/recursive-blog-post-codespaces/</guid>
       <description>I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to codespaces I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&amp;rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&amp;rsquo;s just Hugo.</description>
     </item>
     
     <item>
       <title>BasicBB</title>
-      <link>mrpopov.com/posts/basicbb/</link>
+      <link>/posts/basicbb/</link>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/basicbb/</guid>
+      <guid>/posts/basicbb/</guid>
       <description>Basic Building Blocks My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.
 That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called basicbb - Basic Building Blocks.</description>
     </item>
     
     <item>
       <title>https://typ.life</title>
-      <link>mrpopov.com/posts/typ.life/</link>
+      <link>/posts/typ.life/</link>
       <pubDate>Fri, 21 Aug 2020 13:19:54 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/typ.life/</guid>
+      <guid>/posts/typ.life/</guid>
       <description>r/mk Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&amp;rsquo;t open the fridge every five minutes&amp;hellip; So, I had to suffer&amp;hellip; And I decided to adapt my small cabinet to trick my brain that I&amp;rsquo;m sitting in the office.</description>
     </item>
     
     <item>
       <title>Must Play iOS Games</title>
-      <link>mrpopov.com/posts/must-play-ios-games/</link>
+      <link>/posts/must-play-ios-games/</link>
       <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/must-play-ios-games/</guid>
+      <guid>/posts/must-play-ios-games/</guid>
       <description>After I started working from home I got a bit more time to play games and would like to share my favorite ones. There are a few criteria by which I was compiling these lists. First of all, games should be optimized for the iPhone and iPad, games shouldn&amp;rsquo;t have bugs or unstable performance. And of course, keep in mind that it&amp;rsquo;s my taste and I would love to discover new projects - drop your favorite in comments below.</description>
     </item>
     
     <item>
       <title>Don’t go to IT or even go out</title>
-      <link>mrpopov.com/posts/dont-go-to-it-or-even-go-out/</link>
+      <link>/posts/dont-go-to-it-or-even-go-out/</link>
       <pubDate>Thu, 14 May 2020 16:58:31 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/dont-go-to-it-or-even-go-out/</guid>
+      <guid>/posts/dont-go-to-it-or-even-go-out/</guid>
       <description>During massive panic around the world I got stuck at home the same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?</description>
     </item>
     
     <item>
       <title>iPad - Do You Need It?</title>
-      <link>mrpopov.com/posts/ipad-do-you-need-it/</link>
+      <link>/posts/ipad-do-you-need-it/</link>
       <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/ipad-do-you-need-it/</guid>
+      <guid>/posts/ipad-do-you-need-it/</guid>
       <description>I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.
 Zoom, right? MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings.</description>
     </item>
     
     <item>
       <title>Bad HR experience or How new repo was born</title>
-      <link>mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</link>
+      <link>/posts/bad-hr-experience-or-how-new-repo-was-born/</link>
       <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
       
-      <guid>mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
+      <guid>/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
       <description>Logektor ⚡️ Forewords This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.
 But after few days I received tests assignment from them.</description>
     </item>

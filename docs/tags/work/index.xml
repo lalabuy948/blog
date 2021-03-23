@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>work on Mr. Popov</title>
-    <link>mrpopov.com/tags/work/</link>
+    <link>/tags/work/</link>
     <description>Recent content in work on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 14 May 2020 16:58:31 +0200</lastBuildDate><atom:link href="mrpopov.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 May 2020 16:58:31 +0200</lastBuildDate><atom:link href="/tags/work/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Don’t go to IT or even go out</title>
-      <link>mrpopov.com/posts/dont-go-to-it-or-even-go-out/</link>
+      <link>/posts/dont-go-to-it-or-even-go-out/</link>
       <pubDate>Thu, 14 May 2020 16:58:31 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/dont-go-to-it-or-even-go-out/</guid>
+      <guid>/posts/dont-go-to-it-or-even-go-out/</guid>
       <description>During massive panic around the world I got stuck at home the same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?</description>
     </item>
     
     <item>
       <title>iPad - Do You Need It?</title>
-      <link>mrpopov.com/posts/ipad-do-you-need-it/</link>
+      <link>/posts/ipad-do-you-need-it/</link>
       <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
       
-      <guid>mrpopov.com/posts/ipad-do-you-need-it/</guid>
+      <guid>/posts/ipad-do-you-need-it/</guid>
       <description>I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.
 Zoom, right? MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings.</description>
     </item>
     
     <item>
       <title>Bad HR experience or How new repo was born</title>
-      <link>mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</link>
+      <link>/posts/bad-hr-experience-or-how-new-repo-was-born/</link>
       <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
       
-      <guid>mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
+      <guid>/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
       <description>Logektor ⚡️ Forewords This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.
 But after few days I received tests assignment from them.</description>
     </item>
