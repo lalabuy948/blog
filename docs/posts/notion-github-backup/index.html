@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Mr. Popov :: Notion Github Backup</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="../../posts/notion-github-backup/" />
+
+<meta name="description" content="Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
+Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets."/>
+
+
+    <meta name="keywords" content="notion, github, action, backup, " />
+
+
+
+
+
+    <meta property="og:image" content="/img/notion-github-backup/notion&#43;github.png">
+    <meta property="twitter:image" content="/img/notion-github-backup/notion&#43;github.png">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Notion Github Backup">
+    <meta property="twitter:title" content="Mr.Popov :: Notion Github Backup">
+
+
+
+    <meta property="og:description" content="Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
+Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.">
+    <meta property="twitter:description" content="Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
+Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="/posts/notion-github-backup/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="/posts/notion-github-backup/">
+
+
+
+<link rel="stylesheet" href="../../assets/style.css">
+
+
+<link rel="stylesheet" href="../../style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="../../img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(57146182, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-99667265-12"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-99667265-12');
+</script>
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="../../" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="../../about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+              
+                <li><a href="../../projects">Projects</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="../../about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+      
+        <li><a href="../../projects">Projects</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="../../posts/notion-github-backup/">Notion Github Backup</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2021-03-11
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">— 2 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="../../tags/code/">code</a>&nbsp;
+        
+          #<a href="../../tags/tools/">tools</a>&nbsp;
+        
+          #<a href="../../tags/lifestyle/">lifestyle</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        <img src="../../img/notion-github-backup/notion&#43;github.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <h2 id="data-is-expensive">Data is expensive</h2>
+<p>I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..</p>
+<p>Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?</p>
+<h2 id="backup">Backup</h2>
+<ol>
+<li>Create a private github repo</li>
+</ol>
+<p><img src="../../img/notion-github-backup/private_repo.png" alt="create private repo"></p>
+<ol start="2">
+<li>Go to actions tab and click on <code>set up a workflow yourself -&gt;</code></li>
+</ol>
+<p><img src="../../img/notion-github-backup/setup_workflow.png" alt="set up workflow"></p>
+<ol start="3">
+<li>Paste this yml file</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Notion backup&#34;</span>
+
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">main</span>
+  <span style="color:#f92672">schedule</span>:
+    -   <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#34;0 0 * * *&#34;</span>
+
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">backup</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Backup</span>
+    <span style="color:#f92672">timeout-minutes</span>: <span style="color:#ae81ff">15</span>
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-node@v2</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">node-version</span>: <span style="color:#e6db74">&#39;12&#39;</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup dependencies</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">npm install -g notion-backup</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run backup</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">notion-backup</span>
+        <span style="color:#f92672">env</span>:
+          <span style="color:#f92672">NOTION_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.NOTION_TOKEN }}</span>
+          <span style="color:#f92672">NOTION_SPACE_ID</span>: <span style="color:#ae81ff">${{ secrets.NOTION_SPACE_ID }}</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Commit changes</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">elstudio/actions-js-build/commit@v3</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">commitMessage</span>: <span style="color:#ae81ff">Automated snapshot</span>
+</code></pre></div><ol start="4">
+<li>
+<p>Get your secrets</p>
+<ol>
+<li>Go to <a href="https://www.notion.so">www.notion.so</a></li>
+<li>Go to <code>Settings &amp; Members</code></li>
+<li>Go to <code>Workspace</code> -&gt; <code>Settings</code></li>
+<li>Open inspector in your browser and navigate to network tab (set XHR filter)</li>
+<li>Click on <code>Export all workspace content</code></li>
+<li>Open any <code>getTasks</code> request</li>
+<li>Extract <code>spaceId</code> from preview and <code>token_v2</code> from headers</li>
+</ol>
+</li>
+</ol>
+<p><img src="../../img/notion-github-backup/space_id.png" alt="notion space id">
+<img src="../../img/notion-github-backup/token_v2.png" alt="notion token v2"></p>
+<ol start="5">
+<li>Add secrete keys</li>
+</ol>
+<p>where <code>NOTION_SPACE_ID</code> is your <code>spaceId</code> from step above</p>
+<p>and <code>NOTION_TOKEN</code> is your <code>token_v2</code> from step above</p>
+<p><img src="../../img/notion-github-backup/secrets.png" alt="add secrete keys"></p>
+<h2 id="here-we-go">Here we go</h2>
+<p>Now you have fully automated backup of your entire notion workspace in private github repo.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="../../posts/recursive-blog-post-codespaces/">
+                  <span class="button__text">Recursive blog post or Github Codespaces</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">Daniil Popov © 2021</div>
+      <span>daniil |at| mrpopov.com</span>
+    
+  </div>
+</footer>
+
+<script src="../../assets/main.js"></script>
+<script src="../../assets/prism.js"></script>
+
+
+      
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?tracking=1&scrolling=1&remember=365&privacyPage=https%3A%2F%2Fmrpopov.com%2Fcookie-policy"></script>
+    <script src="https://mssg.me/widget/5c157343409b90000ab98cd6" async></script>
+  </body>
+</html>

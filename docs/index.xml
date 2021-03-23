@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 25 Feb 2021 21:19:26 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notion Github Backup</title>
+      <link>/posts/notion-github-backup/</link>
+      <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
+      
+      <guid>/posts/notion-github-backup/</guid>
+      <description>Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
+Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
+    </item>
+    
     <item>
       <title>Recursive blog post or Github Codespaces</title>
       <link>/posts/recursive-blog-post-codespaces/</link>

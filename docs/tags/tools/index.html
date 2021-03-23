@@ -207,6 +207,50 @@
 
     
     <div class="post on-list">
+      <h1 class="post-title"><a href="../../posts/notion-github-backup/">Notion Github Backup</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2021-03-11
+          </span>
+        
+        
+        
+          <span class="post-read-time">— 2 ☕️</span>
+        
+      </div>
+
+      
+        <span class="post-tags">
+          
+            #<a href="../../tags/code/">code</a>&nbsp;
+          
+            #<a href="../../tags/tools/">tools</a>&nbsp;
+          
+            #<a href="../../tags/lifestyle/">lifestyle</a>&nbsp;
+          
+        </span>
+      
+
+      
+        
+          <img src="../../img/notion-github-backup/notion&#43;github.png" class="post-cover" />
+        
+      
+
+      <div class="post-content">
+        
+          
+            Data is expensive I write around 2-3 important notes a day. And don’t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don’t trust notion, trust but verify, right?
+Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&gt;  Paste this yml file  name: &quot;Notion backup&quot; on: push: branches: - main schedule: - cron: &quot;0 0 * * *&quot; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: '12' - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.
+          
+        
+      </div>
+      <div><a class="read-more button" href="../../posts/notion-github-backup/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
       <h1 class="post-title"><a href="../../posts/recursive-blog-post-codespaces/">Recursive blog post or Github Codespaces</a></h1>
       <div class="post-meta">
         
