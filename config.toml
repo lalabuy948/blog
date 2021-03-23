@@ -4,6 +4,8 @@ theme = "hello-friend"
 paginate = 5
 publishDir = "docs"
 relativeurls = true
+rssFullText = true
+rssImage = "image/url/here"
 
 [markup]
   [markup.goldmark]
