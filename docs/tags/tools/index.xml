@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tools on Mr. Popov</title>
-    <link>/tags/tools/</link>
+    <link>mrpopov.com/tags/tools/</link>
     <description>Recent content in tools on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="mrpopov.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notion Github Backup</title>
-      <link>/posts/notion-github-backup/</link>
+      <link>mrpopov.com/posts/notion-github-backup/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
-      <guid>/posts/notion-github-backup/</guid>
+      <guid>mrpopov.com/posts/notion-github-backup/</guid>
       <description>Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
 Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
 Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
@@ -21,29 +21,29 @@ Backup  Create a private github repo  Go to actions tab and click on set up a wo
     
     <item>
       <title>Recursive blog post or Github Codespaces</title>
-      <link>/posts/recursive-blog-post-codespaces/</link>
+      <link>mrpopov.com/posts/recursive-blog-post-codespaces/</link>
       <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
       
-      <guid>/posts/recursive-blog-post-codespaces/</guid>
+      <guid>mrpopov.com/posts/recursive-blog-post-codespaces/</guid>
       <description>I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to codespaces I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&amp;rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&amp;rsquo;s just Hugo.</description>
     </item>
     
     <item>
       <title>Flexible Env in Go V2</title>
-      <link>/posts/flexible-env-in-go-v2/</link>
+      <link>mrpopov.com/posts/flexible-env-in-go-v2/</link>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       
-      <guid>/posts/flexible-env-in-go-v2/</guid>
+      <guid>mrpopov.com/posts/flexible-env-in-go-v2/</guid>
       <description>lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
 After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; github.</description>
     </item>
     
     <item>
       <title>Hashicorp Vault as Environment Manager</title>
-      <link>/posts/hashicorp-vault-as-environment-manager/</link>
+      <link>mrpopov.com/posts/hashicorp-vault-as-environment-manager/</link>
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
       
-      <guid>/posts/hashicorp-vault-as-environment-manager/</guid>
+      <guid>mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
 Pre Requirements  Installed vault Finish setup instructions  You can find nicely described steps here: Getting started</description>
     </item>

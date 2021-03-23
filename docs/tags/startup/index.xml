@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>startup on Mr. Popov</title>
-    <link>/tags/startup/</link>
+    <link>mrpopov.com/tags/startup/</link>
     <description>Recent content in startup on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 11 Oct 2020 19:40:59 +0200</lastBuildDate><atom:link href="/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Oct 2020 19:40:59 +0200</lastBuildDate><atom:link href="mrpopov.com/tags/startup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BasicBB</title>
-      <link>/posts/basicbb/</link>
+      <link>mrpopov.com/posts/basicbb/</link>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       
-      <guid>/posts/basicbb/</guid>
+      <guid>mrpopov.com/posts/basicbb/</guid>
       <description>Basic Building Blocks My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.
 That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called basicbb - Basic Building Blocks.</description>
     </item>
