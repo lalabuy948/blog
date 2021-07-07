@@ -1,114 +1,192 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>/tags/code/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/lifestyle/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/notion-github-backup/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/tools/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/recursive-blog-post-codespaces/</loc>
     <lastmod>2021-02-25T21:19:26+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2020/</loc>
     <lastmod>2020-12-31T23:59:59+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/basicbb/</loc>
     <lastmod>2020-10-11T19:40:59+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/people/</loc>
     <lastmod>2020-10-11T19:40:59+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/startup/</loc>
     <lastmod>2020-10-11T19:40:59+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/env/</loc>
     <lastmod>2020-09-25T10:07:13+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/flexible-env-in-go-v2/</loc>
     <lastmod>2020-09-25T10:07:13+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/typ.life/</loc>
     <lastmod>2020-08-21T13:19:54+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/devops/</loc>
     <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/docker/</loc>
     <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/redis/</loc>
     <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/redis-cluster-in-docker-compose/</loc>
     <lastmod>2020-08-16T16:37:03+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/hashicorp-vault-as-environment-manager/</loc>
     <lastmod>2020-06-20T20:09:43+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/apple/</loc>
     <lastmod>2020-05-19T14:55:36+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/games/</loc>
     <lastmod>2020-05-19T14:55:36+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/must-play-ios-games/</loc>
     <lastmod>2020-05-19T14:55:36+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/dont-go-to-it-or-even-go-out/</loc>
     <lastmod>2020-05-14T16:58:31+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/work/</loc>
     <lastmod>2020-05-14T16:58:31+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/devices/</loc>
     <lastmod>2020-04-21T10:51:42+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/ipad-do-you-need-it/</loc>
     <lastmod>2020-04-21T10:51:42+02:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/bad-hr-experience-or-how-new-repo-was-born/</loc>
     <lastmod>2020-03-28T16:03:07+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/go/</loc>
     <lastmod>2020-03-08T19:23:14+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/testing-mailer-in-go/</loc>
     <lastmod>2020-03-08T19:23:14+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/posts/flexible-env-in-go/</loc>
     <lastmod>2020-03-07T09:00:59+01:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/companies/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/cookie-policy/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/projects/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/showcase/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tech-scaling/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/tech-scaling/</loc>
   </url>
+  
 </urlset>

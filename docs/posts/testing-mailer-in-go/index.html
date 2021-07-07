@@ -256,11 +256,11 @@ I was looking on few popular tools across the Internet:
 <h2 id="setup">Setup</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.dev.yml</span>
 ...
-  <span style="color:#f92672">mailhog</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mailhog/mailhog</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mailhog</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-    <span style="color:#f92672">ports</span>:
+  <span style="color:#66d9ef">mailhog</span>:
+    <span style="color:#66d9ef">image</span>: mailhog/mailhog
+    <span style="color:#66d9ef">container_name</span>: mailhog
+    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#66d9ef">ports</span>:
       - <span style="color:#e6db74">&#39;8025:8025&#39;</span>
       - <span style="color:#e6db74">&#39;1025:1025&#39;</span>
 ...
