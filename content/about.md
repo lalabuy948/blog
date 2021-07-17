@@ -9,7 +9,7 @@ Samurai warrior in IT and Startup whirlpools from the Russian ocean. Known as la
 - https://github.com/lalabuy948
 - https://www.linkedin.com/in/mrpopov/
 
-Originally from Saint-Petersburg, living in Slovenia. Business runner and ruiner. I’m software engineer with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture, renaissance paintings and my muse of course.
+Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. Business runner and ruiner. I’m software engineer with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture, renaissance paintings and my muse of course.
 
 Currently helping other companies and individuals to find balance between business and engineering. Technical stacks, technical debts, processes optimization and establishing, migration strategies and more. Book me for consultation or personal mentoring session.
 
