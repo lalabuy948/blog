@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 17 Jul 2021 10:28:05 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lifestyle</title>
+      <link>/tags/lifestyle/</link>
+      <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
+      
+      <guid>/tags/lifestyle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>people</title>
+      <link>/tags/people/</link>
+      <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
+      
+      <guid>/tags/people/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>work</title>
+      <link>/tags/work/</link>
+      <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
+      
+      <guid>/tags/work/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>code</title>
@@ -22,29 +49,11 @@
     </item>
     
     <item>
-      <title>lifestyle</title>
-      <link>/tags/lifestyle/</link>
-      <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
-      
-      <guid>/tags/lifestyle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>tools</title>
       <link>/tags/tools/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
       <guid>/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>people</title>
-      <link>/tags/people/</link>
-      <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
-      
-      <guid>/tags/people/</guid>
       <description></description>
     </item>
     
@@ -108,15 +117,6 @@
       <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
       
       <guid>/tags/games/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>work</title>
-      <link>/tags/work/</link>
-      <pubDate>Thu, 14 May 2020 16:58:31 +0200</pubDate>
-      
-      <guid>/tags/work/</guid>
       <description></description>
     </item>
     

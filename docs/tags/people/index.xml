@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 11 Oct 2020 19:40:59 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 17 Jul 2021 10:28:05 +0000</lastBuildDate>
     
 	<atom:link href="/tags/people/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How I Became Digital Nomad CTO</title>
+      <link>/posts/how-i-became-digital-nomad-cto/</link>
+      <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
+      
+      <guid>/posts/how-i-became-digital-nomad-cto/</guid>
+      <description>Or how I moved with one backpack and half suitcase. Foreword This story has begun on 08.06 of 2021. The CEO of our company invited me to his office. We discussed my half year review and etc, and he put an offer in front of me. I went through, and I have to admit it was a nice package. But here is a small thing, I had to move to Luxembourg.</description>
+    </item>
     
     <item>
       <title>BasicBB</title>

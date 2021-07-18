@@ -3,32 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/posts/how-i-became-digital-nomad-cto/</loc>
+    <lastmod>2021-07-17T10:28:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/lifestyle/</loc>
+    <lastmod>2021-07-17T10:28:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2021-07-17T10:28:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/people/</loc>
+    <lastmod>2021-07-17T10:28:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2021-07-17T10:28:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2021-07-17T10:28:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/work/</loc>
+    <lastmod>2021-07-17T10:28:05+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/code/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/lifestyle/</loc>
-    <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/posts/notion-github-backup/</loc>
-    <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2021-03-11T17:11:54+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2021-03-11T17:11:54+01:00</lastmod>
   </url>
   
@@ -49,11 +64,6 @@
   
   <url>
     <loc>/posts/basicbb/</loc>
-    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/people/</loc>
     <lastmod>2020-10-11T19:40:59+02:00</lastmod>
   </url>
   
@@ -119,11 +129,6 @@
   
   <url>
     <loc>/posts/dont-go-to-it-or-even-go-out/</loc>
-    <lastmod>2020-05-14T16:58:31+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/work/</loc>
     <lastmod>2020-05-14T16:58:31+02:00</lastmod>
   </url>
   
