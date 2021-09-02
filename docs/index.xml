@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sat, 17 Jul 2021 10:28:05 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 17 Jul 2021 10:28:05 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I Became Digital Nomad CTO</title>
       <link>/posts/how-i-became-digital-nomad-cto/</link>
@@ -160,6 +156,15 @@ I was looking on few popular tools across the Internet:
       <guid>/posts/flexible-env-in-go/</guid>
       <description>Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
 Problem I prefer using .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2021/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/</guid>
+      <description></description>
     </item>
     
     <item>
