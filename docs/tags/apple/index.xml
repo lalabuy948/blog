@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Tue, 19 May 2020 14:55:36 +0200</lastBuildDate><atom:link href="/tags/apple/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 May 2020 14:55:36 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/apple/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Must Play iOS Games</title>
       <link>/posts/must-play-ios-games/</link>

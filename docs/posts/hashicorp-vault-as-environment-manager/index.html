@@ -259,7 +259,7 @@ Pre Requirements  Installed vault Finish setup instructions  You can find nicely
 <p>First of all you need token. In the right corner you will see profile icon and copy token button when you toggle the first one.</p>
 <p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-3.png" alt="Create new secret engine"></p>
 <p>In my project I added this make file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#75715e"># Makefile
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#75715e"># Makefile
 </span><span style="color:#75715e"></span>
 CFLAGS<span style="color:#f92672">=</span>-g
 <span style="color:#66d9ef">export</span> CFLAGS
@@ -274,7 +274,7 @@ CFLAGS<span style="color:#f92672">=</span>-g
 	@./bin/getenv.sh production
 
 </code></pre></div><p>And in <code>bin</code> folder I have <code>getenv.sh</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 secretsJSON<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl --request GET <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --url https://VAULT.YOURDOMAIN.COM/v1/service/<span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
