@@ -1,7 +1,7 @@
 ---
 title: "How to Start Enjoying Airplanes"
 date: 2021-09-01T16:33:26+02:00
-draft: true
+draft: false
 comments: true
 cover: "img/how-to-start-enjoying-airplanes/airplane.jpg"
 tags:
@@ -51,6 +51,16 @@ Start using organizers! For cables, bathroom supplies and etc.
 > Utilise the space of your backpack or case as much as possible! 
 
 Once you come to the gate, prepare all your needed stuff and put it on top of your backpack for the same reasons as wearing the jacket for extra pockets 🙈 After all controls and lanes you just wanna sit on the plane put headphones on and go. Do things quickly without stopping anyone. 
+
+## Conclusion
+
+Once your mindset is prepared and you have your lightweight backpack with you, you almost ready to enjoy your next flight. 
+
+Always have some films and books with you, it will help you to spend time on the plain and if any delays happen. 
+
+Install all needed applications before you arrive to the destination country, such as taxi or public transport applications. 
+
+Try to do online checkin and add your boarding pass to wallet and print it out, better go with redundancy than spend time on checkin if your phone dies. 
 
 ## Useful Apps
 
