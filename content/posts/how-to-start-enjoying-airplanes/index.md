@@ -8,6 +8,9 @@ tags:
   - lifestyle
   - people
   - devices
+
+seo:
+  [how to, airplains, mindset]
 ---
 
 I used to flight quite a lot in the past, due to last year it stopped for a while, but now I’m back in-game. A lot of my colleagues and acquaintances complaining about business trips and how it’s hard to flight every second week. To be honest I disagree with the statement that flights are exhausting. I would like to share my way of doing it and what I take with me on every business trip to flight with pleasure. This is my list of tips and tricks based on my personal experience and observations, let me know in the comments below if you discover something interesting for yourself or have anything to add. 

@@ -8,6 +8,9 @@ tags:
   - work
   - lifestyle
   - people
+
+seo:
+  [CTO, startups, Luxembourg, digital nomad]
 ---
 
 # Or how I moved with one backpack and half suitcase.
