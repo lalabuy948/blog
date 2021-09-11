@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 11 Oct 2020 19:40:59 +0200</lastBuildDate><atom:link href="/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Oct 2020 19:40:59 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>BasicBB</title>
       <link>/posts/basicbb/</link>
