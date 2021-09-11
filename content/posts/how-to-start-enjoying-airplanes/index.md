@@ -33,12 +33,15 @@ Don’t try to be cheap, invest in it, a good backpack will save you a lot of ne
 
 Keep in mind, that size should easily fit on the airplane hand luggage shelf.
 
+[![backpack](https://cdn.shopify.com/s/files/1/0568/1410/8829/products/48Hr-Switch-Rum-01-1920px.jpg?v=1622106315)](https://tefors.com/collections/bags/products/48hr-switch-all-leather)
+
 In my case, it should fit: 
 - laptop 
 - iPad 
 - All my chargers and other cables 
 - 3-4 days of clothes 
 - Documents and papers
+- Clothes
 - Personal things like toothbrush and etc
 - Keys and other small stuff
 
