@@ -237,7 +237,7 @@ Then I realized that my friend does not want to struggle with database setup and
 <p>I prefer using <code>.env</code> instead of typing stuff to cli. I found out really elegant solution. You can still use <code>.env</code> and parse it easily with
 <code>github.com/caarlos0/env/v6</code>, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes <code>github.com/joho/godotenv</code>, if you provide environment variables via dockerfile or docker-compose it will override constants in your <code>.env</code>.</p>
 <h2 id="solution">Solution</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">config</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">config</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;log&#34;</span>

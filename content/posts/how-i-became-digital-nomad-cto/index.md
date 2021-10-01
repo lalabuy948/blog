@@ -37,7 +37,7 @@ And initial day of start used to be 21.07, which was in 2 weeks...
 I cancelled my apartments, moved all my unnecessary stuff to my parents and was ready to go with 
 one backpack full of my devices and one suitcase, which was half packed with corporate t-shirts for the event. 
 So, before completely moving to Luxembourg I had to make a 5 days trip to Ukraine, were we have equally big office.
-I had to pass all my daily operations and onboard my Business Analytic on Team Lead role. He is quite smart and 
+I had to pass all my daily operations and onboard my Business Analytic on a Team Lead role. He is quite smart and 
 picked up all things pretty quickly, so, at least I wouldn't be worrying about my initial team, they were in a safe hands. 
 
 Besides that I had an interesting time in Kiev, I think I finally found a person with whom I feel totally 
@@ -53,16 +53,16 @@ Next day I went to my new office, setup all the working places, brought some mis
 At this point I realized few things, Im **stateless** function. I realized that I became digital nomad. Backpack with laptop and I can go where ever I should. 
 
 Am I happy with career and work I do? 
-- Probably yes
+- Definitely yes
 
 Am I happy with quality of life I have? 
 - Probably yes, but I can not call it life
 
 Am I happy? 
-- Definitely not
+- Mixed feelings
 
 I don't have home, I don't have any long running friendship and relationship. And being totally disconnected 
-from everything makes you free, but it's morally enormously hard and depressing. 
+from everything makes you free, but it's morally enormously hard. But I have a lot to tell during the beer, that's awesome. 
 
 > Do not understand me wrong, it was my life style for the past 6 years, just sharing my thoughts and feelings about that 🙂
 

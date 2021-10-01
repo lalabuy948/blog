@@ -6,11 +6,7 @@
     <description>Recent content in tech-scaling on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Daniil Popov</copyright>
-    
-	<atom:link href="/tags/tech-scaling/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Daniil Popov</copyright><atom:link href="/tags/tech-scaling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tech Scaling - Companies collaboration</title>
       <link>/tech-scaling/</link>

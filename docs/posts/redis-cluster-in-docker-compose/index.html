@@ -235,65 +235,65 @@
 <p>y: Because one not enough?</p>
 </blockquote>
 <p>Initially your <code>redis</code> docker-compose setup would look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">redis</span>:
-    <span style="color:#66d9ef">image</span>: redis:<span style="color:#ae81ff">6.0.6</span>-alpine3<span style="color:#ae81ff">.12</span>
-    <span style="color:#66d9ef">container_name</span>: redis_master
-    <span style="color:#66d9ef">ports</span>:
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">redis</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.0.6-alpine3.12</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">redis_master</span>
+    <span style="color:#f92672">ports</span>:
       - <span style="color:#e6db74">&#34;6379&#34;</span>
-    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </code></pre></div><p>To be able to add second node slave/follower we need to change a bit our above example.</p>
 <p>This <a href="../../stuff/redis-cluster-in-docker-compose/redis.dev.conf">redis.conf</a> changing
 <code>bind 127.0.0.1</code> -&gt; <code>bind 0.0.0.0</code> configuration. Plus let&rsquo;s add network.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-<span style="color:#66d9ef">networks</span>:
-  <span style="color:#66d9ef">web-network</span>:
-    <span style="color:#66d9ef">driver</span>: bridge
+<span style="color:#f92672">networks</span>:
+  <span style="color:#f92672">web-network</span>:
+    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">bridge</span>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">redis</span>:
-    <span style="color:#66d9ef">image</span>: redis:<span style="color:#ae81ff">6.0.6</span>-alpine3<span style="color:#ae81ff">.12</span>
-    <span style="color:#66d9ef">container_name</span>: redis_master
-    <span style="color:#66d9ef">networks</span>:
-      - web-network
-    <span style="color:#66d9ef">ports</span>:
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">redis</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.0.6-alpine3.12</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">redis_master</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">web-network</span>
+    <span style="color:#f92672">ports</span>:
       - <span style="color:#e6db74">&#34;6379&#34;</span>
-    <span style="color:#66d9ef">volumes</span>:
-      - ./infra/etc/redis.dev.conf:/redis.conf
-    <span style="color:#66d9ef">command</span>: [ <span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;/redis.conf&#34;</span> ]
-    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./infra/etc/redis.dev.conf:/redis.conf</span>
+    <span style="color:#f92672">command</span>: [ <span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;/redis.conf&#34;</span> ]
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </code></pre></div><p>Finally we can add second node</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-<span style="color:#66d9ef">networks</span>:
-  <span style="color:#66d9ef">web-network</span>:
-    <span style="color:#66d9ef">driver</span>: bridge
+<span style="color:#f92672">networks</span>:
+  <span style="color:#f92672">web-network</span>:
+    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">bridge</span>
 
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">redis</span>:
-    <span style="color:#66d9ef">image</span>: redis:<span style="color:#ae81ff">6.0.6</span>-alpine3<span style="color:#ae81ff">.12</span>
-    <span style="color:#66d9ef">container_name</span>: redis_master
-    <span style="color:#66d9ef">networks</span>:
-      - web-network
-    <span style="color:#66d9ef">ports</span>:
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">redis</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.0.6-alpine3.12</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">redis_master</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">web-network</span>
+    <span style="color:#f92672">ports</span>:
       - <span style="color:#e6db74">&#34;6379&#34;</span>
-    <span style="color:#66d9ef">volumes</span>:
-      - ./infra/etc/redis.dev.conf:/redis.conf
-    <span style="color:#66d9ef">command</span>: [ <span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;/redis.conf&#34;</span> ]
-    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./infra/etc/redis.dev.conf:/redis.conf</span>
+    <span style="color:#f92672">command</span>: [ <span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;/redis.conf&#34;</span> ]
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 
-  <span style="color:#66d9ef">redis-slave</span>:
-    <span style="color:#66d9ef">image</span>: redis:<span style="color:#ae81ff">6.0.6</span>-alpine3<span style="color:#ae81ff">.12</span>
-    <span style="color:#66d9ef">container_name</span>: redis_slave
-    <span style="color:#66d9ef">networks</span>:
-      - web-network
-    <span style="color:#66d9ef">command</span>: redis-server --slaveof redis <span style="color:#ae81ff">6379</span>
-    <span style="color:#66d9ef">restart</span>: always
+  <span style="color:#f92672">redis-slave</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.0.6-alpine3.12</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">redis_slave</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">web-network</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">redis-server --slaveof redis 6379</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </code></pre></div><p>If all good you will see something like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">MASTER &lt;-&gt; REPLICA sync: Finished with success
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">MASTER &lt;-&gt; REPLICA sync: Finished with success
 </code></pre></div><p>ps
 Redis will be accessible by this url <code>redis:6379</code>.</p>
     </div>

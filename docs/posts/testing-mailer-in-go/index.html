@@ -243,13 +243,13 @@ I was looking on few popular tools across the Internet:
 <p>My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.</p>
 <p>-&gt; <a href="https://github.com/mailhog/MailHog">https://github.com/mailhog/MailHog</a> <img src="https://img.shields.io/github/stars/mailhog/MailHog?style=plastic" alt="stars"></p>
 <h2 id="setup">Setup</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.dev.yml</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># docker-compose.dev.yml</span>
 ...
-  <span style="color:#66d9ef">mailhog</span>:
-    <span style="color:#66d9ef">image</span>: mailhog/mailhog
-    <span style="color:#66d9ef">container_name</span>: mailhog
-    <span style="color:#66d9ef">restart</span>: always
-    <span style="color:#66d9ef">ports</span>:
+  <span style="color:#f92672">mailhog</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mailhog/mailhog</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mailhog</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">ports</span>:
       - <span style="color:#e6db74">&#39;8025:8025&#39;</span>
       - <span style="color:#e6db74">&#39;1025:1025&#39;</span>
 ...
@@ -259,7 +259,7 @@ I was looking on few popular tools across the Internet:
 <li><a href="https://github.com/golang/go/wiki/SendingMail">https://github.com/golang/go/wiki/SendingMail</a></li>
 <li><a href="https://golang.org/pkg/net/smtp/">https://golang.org/pkg/net/smtp/</a></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;bytes&#34;</span>
