@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Wed, 01 Sep 2021 16:33:26 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Sep 2021 16:33:26 +0200</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>How to Start Enjoying Airplanes</title>
       <link>/posts/how-to-start-enjoying-airplanes/</link>
@@ -183,7 +187,8 @@ Problem I prefer using .</description>
       
       <guid>/about/</guid>
       <description>Samurai warrior in IT and Startup whirlpools from the Russian ocean. Known as lalabuy948
- https://github.com/lalabuy948 https://www.linkedin.com/in/mrpopov/  Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. Business runner and ruiner. I’m software engineer with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture, renaissance paintings and my muse of course.
+ https://github.com/lalabuy948 https://www.linkedin.com/in/mrpopov/  Follow @lalabuy948
+Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. I’m software engineer / team lead / manager / head of IT with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture, renaissance paintings and my muse of course.
 Currently helping other companies and individuals to find balance between business and engineering.</description>
     </item>
     
