@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sat, 17 Jul 2021 10:28:05 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jun 2022 10:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/work/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Wfh Wtf</title>
+      <link>/posts/wfh-wtf/</link>
+      <pubDate>Fri, 10 Jun 2022 10:00:00 +0000</pubDate>
+      
+      <guid>/posts/wfh-wtf/</guid>
+      <description>Wfh - wtf? Working from home is post fake-pandemic trend which seems to make life of corpos even harder than paying higher taxes than others and feeding others because they became bigger and more successful than others, this is normal behavior of our undeveloped society and non-discipline minds. But what happened with small to medium bizes founded by entrepreneurs, who are real people and humans? This camp was divided into two extremes.</description>
+    </item>
     
     <item>
       <title>How I Became Digital Nomad CTO</title>
