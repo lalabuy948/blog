@@ -60,3 +60,7 @@ rssImage = "image/url/here"
         identifier = "pexels"
         name = "Me on pexels"
         url = "https://www.pexels.com/@daniil-popov-1864765"
+      [[languages.en.menu.main]]
+        identifier = "steam"
+        name = "Me on steam"
+        url = "https://steamcommunity.com/id/lalabuy"
