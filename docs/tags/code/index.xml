@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate>
-    
-	<atom:link href="/tags/code/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 11 Mar 2021 17:11:54 +0100</lastBuildDate><atom:link href="/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notion Github Backup</title>
       <link>/posts/notion-github-backup/</link>
@@ -20,7 +16,7 @@
       <guid>/posts/notion-github-backup/</guid>
       <description>Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
 Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
-Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&amp;gt; Paste this yml file name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
     </item>
     
     <item>
@@ -58,7 +54,7 @@ After some time I decided to create another open-source library for the world an
       
       <guid>/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements  Installed vault Finish setup instructions  You can find nicely described steps here: Getting started</description>
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started</description>
     </item>
     
     <item>
@@ -69,7 +65,7 @@ Pre Requirements  Installed vault Finish setup instructions  You can find nicely
       <guid>/posts/testing-mailer-in-go/</guid>
       <description>Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
 I was looking on few popular tools across the Internet:
- https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/  What I found My requirements were: run in docker, easy to config, basic functionality to render email.</description>
+https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/ What I found My requirements were: run in docker, easy to config, basic functionality to render email.</description>
     </item>
     
     <item>

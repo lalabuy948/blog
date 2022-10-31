@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Fri, 10 Jun 2022 10:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 10 Jun 2022 10:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wfh Wtf</title>
       <link>/posts/wfh-wtf/</link>
@@ -47,7 +43,7 @@
       <guid>/posts/notion-github-backup/</guid>
       <description>Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
 Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
-Backup  Create a private github repo  Go to actions tab and click on set up a workflow yourself -&amp;gt;  Paste this yml file  name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&amp;gt; Paste this yml file name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#39;12&amp;#39; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
     </item>
     
     <item>
@@ -118,7 +114,7 @@ After some time I decided to create another open-source library for the world an
       
       <guid>/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements  Installed vault Finish setup instructions  You can find nicely described steps here: Getting started</description>
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started</description>
     </item>
     
     <item>
@@ -167,7 +163,7 @@ But after few days I received tests assignment from them.</description>
       <guid>/posts/testing-mailer-in-go/</guid>
       <description>Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
 I was looking on few popular tools across the Internet:
- https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/  What I found My requirements were: run in docker, easy to config, basic functionality to render email.</description>
+https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/ What I found My requirements were: run in docker, easy to config, basic functionality to render email.</description>
     </item>
     
     <item>
@@ -196,7 +192,7 @@ Problem I prefer using .</description>
       
       <guid>/about/</guid>
       <description>Samurai warrior in IT and Startup whirlpools from the Russian ocean. Known as lalabuy948
- https://github.com/lalabuy948 https://www.linkedin.com/in/mrpopov/  Follow @lalabuy948
+https://github.com/lalabuy948 https://www.linkedin.com/in/mrpopov/ Follow @lalabuy948
 Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. I’m IT specialist with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture and digital worlds.
 Currently helping other companies and individuals to find balance between business and engineering. Technical stacks, technical debts, processes optimization and establishing, migration strategies and more.</description>
     </item>
@@ -218,14 +214,11 @@ What Are Cookies As is common practice with almost all professional websites thi
       
       <guid>/projects/</guid>
       <description>Startups BasicBB Basic Building Blocks - unleash your freedom in modern and nature friendly environment.
-
 Antimuseum Ordinary museums take their visitors back in time, the AntiMuseum ushers you into the future of science and technology.
-
 Pet Projects typ.life Open-source full stack application stored as monorepo for happy click-clacking :)
-
 read more
 Games for WatchOS That&amp;rsquo;s my favorite two projects, it&amp;rsquo;s small it&amp;rsquo;s simple but super fun.
-Space Invaders for WatchOS</description>
+Space Invaders for WatchOS Flappy Bird for WatchOS Go pkgs genvutils Go environment utilities (genvutils) - provides useful environment operations</description>
     </item>
     
     <item>
@@ -243,8 +236,8 @@ Space Invaders for WatchOS</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tech-scaling/</guid>
-      <description>TechScaling - Service provided by d.labs to other technology companies in pure collaboration mode.  Not being ready for millions users at time or having tech debt after the MVP stage - not condemnation. Let’s find the right way to handle this together!
-  Our tech scaling department will work with your team back to back to find the most optimal solution for process, architecture, technology stack migration and development department restructure which suits best for your business.</description>
+      <description>TechScaling - Service provided by d.labs to other technology companies in pure collaboration mode. Not being ready for millions users at time or having tech debt after the MVP stage - not condemnation. Let’s find the right way to handle this together!
+Our tech scaling department will work with your team back to back to find the most optimal solution for process, architecture, technology stack migration and development department restructure which suits best for your business.</description>
     </item>
     
   </channel>

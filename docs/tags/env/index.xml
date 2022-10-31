@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Fri, 25 Sep 2020 10:07:13 +0200</lastBuildDate>
-    
-	<atom:link href="/tags/env/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 25 Sep 2020 10:07:13 +0200</lastBuildDate><atom:link href="/tags/env/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flexible Env in Go V2</title>
       <link>/posts/flexible-env-in-go-v2/</link>
@@ -29,7 +25,7 @@ After some time I decided to create another open-source library for the world an
       
       <guid>/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements  Installed vault Finish setup instructions  You can find nicely described steps here: Getting started</description>
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started</description>
     </item>
     
     <item>
