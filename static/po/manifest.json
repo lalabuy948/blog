@@ -3,7 +3,7 @@
     "short_name": "PO Loader",
     "theme_color": "#f38621",
     "background_color": "#bfbfbf",
-    "display": "standalone",
+    "display": "minimal-ui",
     "orientation": "portrait",
     "scope": "/po/",
     "start_url": "/po/",
