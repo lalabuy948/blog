@@ -20,6 +20,13 @@ Ordinary museums take their visitors back in time, the AntiMuseum ushers you int
 
 ## Pet Projects
 
+## [Good Game Deals](https://t.me/ggoffers)
+
+Serverless notification sender for game discounts from Steam and EpicGames stores. 
+
+[![ggdeals.jpg](/img/projects/ggdeals.jpg)](https://t.me/ggoffers)
+
+
 ## [typ.life](https://typ.life)
 
 Open-source full stack application stored as monorepo for happy click-clacking :)
