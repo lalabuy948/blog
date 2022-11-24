@@ -3,7 +3,7 @@ title: "Flexible Env in Go"
 date: 2020-03-07T09:00:59+01:00
 draft: false
 comments: true
-cover: "img/DockerGopher.png"
+cover: "img/flexible-env-in-go/DockerGopher.png"
 tags:
   - go
   - env
