@@ -18,6 +18,7 @@ rssImage = "image/url/here"
   showMenuItems = 1
   showReadingTime = true
   summary_length = 50
+  twitter = "lalabuy948"
 
 [languages]
   [languages.en]
