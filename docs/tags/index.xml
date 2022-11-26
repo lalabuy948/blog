@@ -7,11 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Fri, 10 Jun 2022 10:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Nov 2022 19:59:00 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lifestyle</title>
+      <link>/tags/lifestyle/</link>
+      <pubDate>Sat, 26 Nov 2022 19:59:00 +0100</pubDate>
+      
+      <guid>/tags/lifestyle/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>people</title>
       <link>/tags/people/</link>
-      <pubDate>Fri, 10 Jun 2022 10:00:00 +0000</pubDate>
+      <pubDate>Sat, 26 Nov 2022 19:59:00 +0100</pubDate>
       
       <guid>/tags/people/</guid>
       <description></description>
@@ -20,7 +29,7 @@
     <item>
       <title>work</title>
       <link>/tags/work/</link>
-      <pubDate>Fri, 10 Jun 2022 10:00:00 +0000</pubDate>
+      <pubDate>Sat, 26 Nov 2022 19:59:00 +0100</pubDate>
       
       <guid>/tags/work/</guid>
       <description></description>
@@ -32,15 +41,6 @@
       <pubDate>Wed, 01 Sep 2021 16:33:26 +0200</pubDate>
       
       <guid>/tags/devices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>lifestyle</title>
-      <link>/tags/lifestyle/</link>
-      <pubDate>Wed, 01 Sep 2021 16:33:26 +0200</pubDate>
-      
-      <guid>/tags/lifestyle/</guid>
       <description></description>
     </item>
     
