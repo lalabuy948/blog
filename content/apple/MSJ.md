@@ -9,7 +9,7 @@ title: "Mini Space Journey"
 Hi here, first of all thank you for download and supporting me. 
 This app was my small experiment of what small hand-held device can do. 
 
-## Data tracking
+## Data tracking & User Privacy Policy
 
 This game has absolute zero information about you, it's doesn't track how you play or it doesn't send any data anywhere. 
 As a developer I'm only getting anonymized and aggregated metrics of RAM and CPU usage provided by Apple. 
