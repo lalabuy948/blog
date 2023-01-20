@@ -19,3 +19,12 @@ As a developer I'm only getting anonymized and aggregated metrics of RAM and CPU
 In case you have any questions or issues Im more than happy to chat with you over email: 
 
 `daniil |at| mrpopov |dot| com`
+
+
+## Tools which were used
+
+- https://developer.apple.com/xcode/
+- https://www.midjourney.com
+- https://www.remove.bg
+- https://www.appicon.co/#image-sets
+- https://www.figma.com
