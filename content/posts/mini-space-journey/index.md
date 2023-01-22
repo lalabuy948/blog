@@ -30,5 +30,3 @@ The game features stunning graphics and smooth gameplay that immerses players in
 One of the key benefits of using the Apple Watch crown to control the game is that it allows for a more intuitive and natural gameplay experience. The crown button is easy to use and provides a more tactile experience than using touch controls. Additionally, the game's use of the crown button makes it stand out among other Apple Watch games and adds a unique element of gameplay.
 
 Overall, "Mini Space Journey" is an exciting and immersive game that utilizes the unique features of the Apple Watch to deliver a thrilling gaming experience. Game is a must-have for any Apple Watch user looking for a fun and engaging gaming experience. The use of the Apple Watch crown to navigate the spaceship makes the game stand out and adds an extra layer of intuitiveness.
-
-Thank's to GPT making my thoughts more readable. 
