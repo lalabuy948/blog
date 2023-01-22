@@ -16,6 +16,10 @@
 {{end}}
 
 
+{{if isset .Params "apple" }}
+    <meta name="apple-itunes-app" content="app-id={{ .Params.apple}}" />
+{{end}}
+
 <!-- head custom -->
 {{- partial "prepended_head.html" . }}
 

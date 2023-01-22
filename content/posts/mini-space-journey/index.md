@@ -11,6 +11,8 @@ tags:
 
 seo:
   [apple watch game, mini space journey, appstore]
+
+apple: 1665989118
 ---
 
 It's finally released 🎉
