@@ -4,7 +4,7 @@ date: ""
 title: "Mini Space Journey"
 ---
 
-![Mini Space Journey - Preview](https://raw.githubusercontent.com/lalabuy948/MiniSpaceJourney/develop/github/0.1.0/preview.png)
+![Mini Space Journey - Preview](img/mini-space-journey/GameCover.png)
 
 Hi here, first of all thank you for download and supporting me. 
 This app was my small experiment of what small hand-held device can do. 
