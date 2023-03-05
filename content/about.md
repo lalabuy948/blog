@@ -14,7 +14,9 @@ Samurai warrior in IT and Startup whirlpools from the Russian ocean. Known as la
 
 Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. I’m IT specialist with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture and digital worlds.
 
-Currently helping other companies and individuals to find balance between business and engineering. Technical stacks, technical debts, processes optimization and establishing, migration strategies and more.
+Currently helping other companies and individuals to find balance between business and engineering. Technical stacks, technical debts, processes optimization and establishing, migration strategies and more. As a side hustle and hobby I'm helping other IT Managers/Leads, Companies and Teams to grow and become more efficient: 
+
+> [Consulting, coaching and training 💹](/consulting)
 
 In the past I used to work as IT manager, research agent, full-stack engineer, technical team lead, project manager and business runner. I worked on quite a few IT projects with primary focus on business logic, architecture, system scaling, data flows and data storages.
 
