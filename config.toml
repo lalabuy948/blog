@@ -6,6 +6,7 @@ publishDir = "docs"
 relativeurls = true
 rssFullText = true
 rssImage = "image/url/here"
+canonifyurls = true
 
 [markup]
   [markup.goldmark]
