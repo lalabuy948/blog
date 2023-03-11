@@ -1,8 +1,8 @@
 {{ define "main" }}
   <div class="posts">
 
+    <!-- Twitter TImeline -->
     <a class="twitter-timeline" data-lang="en" data-tweet-limit="1" href="https://twitter.com/lalabuy948?ref_src=twsrc%5Etfw">Tweets by lalabuy948</a> 
-    <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
     {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
