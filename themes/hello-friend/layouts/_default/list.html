@@ -2,7 +2,7 @@
   <div class="posts">
 
     <!-- Twitter TImeline -->
-    <a class="twitter-timeline" data-lang="en" data-tweet-limit="1" href="https://twitter.com/lalabuy948?ref_src=twsrc%5Etfw">Tweets by lalabuy948</a> 
+    <!-- <a class="twitter-timeline" data-lang="en" data-tweet-limit="1" href="https://twitter.com/lalabuy948?ref_src=twsrc%5Etfw">Tweets by lalabuy948</a>  -->
 
     {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
     {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
@@ -38,9 +38,11 @@
 
       {{ if .Params.Cover }}
         {{ if .Params.UseRelativeCover }}
-          <img alt="{{ .Title | markdownify }}" src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" class="post-cover" />
+          {{ $image := imageConfig (print "/static/" .Params.Cover) }}
+          <img alt="{{ .Title | markdownify }}" src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" width="{{$image.Width}}" height="{{$image.Height}}" class="post-cover" />
         {{ else }}
-          <img alt="{{ .Title | markdownify }}" src="{{ .Params.Cover | absURL }}" class="post-cover" />
+          {{ $image := imageConfig (print "/static/" .Params.Cover) }}
+          <img alt="{{ .Title | markdownify }}" src="{{ .Params.Cover | absURL }}" width="{{$image.Width}}" height="{{$image.Height}}" class="post-cover"  />
         {{ end }}
       {{ end }}
 

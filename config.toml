@@ -8,6 +8,8 @@ rssFullText = true
 rssImage = "image/url/here"
 canonifyurls = true
 
+staticDir = ['static']
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
