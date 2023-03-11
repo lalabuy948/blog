@@ -38,11 +38,13 @@
 
       {{ if .Params.Cover }}
         {{ if .Params.UseRelativeCover }}
-          {{ $image := imageConfig (print "/static/" .Params.Cover) }}
-          <img alt="{{ .Title | markdownify }}" src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" width="{{$image.Width}}" height="{{$image.Height}}" class="post-cover" />
+          <!-- {{ $image := imageConfig (print "/static/" .Params.Cover) }}
+          <img alt="{{ .Title | markdownify }}" src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" width="{{$image.Width}}" height="{{$image.Height}}" class="post-cover" /> -->
+          <img alt="{{ .Title | markdownify }}" src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" class="post-cover" />
         {{ else }}
-          {{ $image := imageConfig (print "/static/" .Params.Cover) }}
-          <img alt="{{ .Title | markdownify }}" src="{{ .Params.Cover | absURL }}" width="{{$image.Width}}" height="{{$image.Height}}" class="post-cover"  />
+          <!-- {{ $image := imageConfig (print "/static/" .Params.Cover) }} -->
+          <!-- <img alt="{{ .Title | markdownify }}" src="{{ .Params.Cover | absURL }}" width="{{$image.Width}}" height="{{$image.Height}}" class="post-cover"  /> -->
+          <img alt="{{ .Title | markdownify }}" src="{{ .Params.Cover | absURL }}" class="post-cover" />
         {{ end }}
       {{ end }}
 
