@@ -4,7 +4,7 @@ date: ""
 title: "Mini Space Journey"
 ---
 
-![Mini Space Journey - Preview](/img/mini-space-journey/GameCover.png)
+![Mini Space Journey - Preview](/img/mini-space-journey/GameCover.webp)
 
 Hi here, first of all thank you for download and supporting me. 
 This app was my small experiment of what small hand-held device can do. 

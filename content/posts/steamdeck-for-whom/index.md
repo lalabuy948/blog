@@ -3,7 +3,7 @@ title: "Steamdeck for Whom?"
 date: 2022-11-24T11:20:02+01:00
 draft: false
 comments: true
-cover: "img/steamdeck-for-whom/steamdeck.jpg"
+cover: "img/steamdeck-for-whom/steamdeck.webp"
 
 tags:
   - games

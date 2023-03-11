@@ -3,7 +3,7 @@ title: "https://typ.life"
 date: 2020-08-21T13:19:54+02:00
 draft: false
 comments: true
-cover: "img/typ.life/screenshot-typ.life.jpg"
+cover: "img/typ.life/screenshot-typ.life.webp"
 tags:
   - lifestyle
   - code

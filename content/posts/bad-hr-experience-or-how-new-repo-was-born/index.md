@@ -3,7 +3,7 @@ title: "Bad HR experience or How new repo was born"
 date: 2020-03-28T16:03:07+01:00
 draft: false
 comments: false
-cover: "img/bad-hr-experience-or-how-new-repo-was-born/nice-desktop.jpg"
+cover: "img/bad-hr-experience-or-how-new-repo-was-born/nice-desktop.webp"
 tags:
   - people
   - work

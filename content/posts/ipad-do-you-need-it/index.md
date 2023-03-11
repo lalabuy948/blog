@@ -3,7 +3,7 @@ title: "iPad - Do You Need It?"
 date: 2020-04-21T10:51:42+02:00
 draft: false
 comments: true
-cover: "img/ipad-do-you-need-it/kewal-ipad-l.jpg"
+cover: "img/ipad-do-you-need-it/kewal-ipad.webp"
 tags:
   - work
   - lifestyle

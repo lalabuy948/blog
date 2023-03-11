@@ -3,7 +3,7 @@ title: "Notion Github Backup"
 date: 2021-03-11T17:11:54+01:00
 draft: false
 comments: true
-cover: "img/notion-github-backup/notion+github.png"
+cover: "img/notion-github-backup/notion+github.webp"
 tags:
   - code
   - tools
@@ -22,11 +22,11 @@ Since Im heavy notion user I was looking for automated backup solution. Not that
 
 1. Create a private github repo 
 
-![create private repo](/img/notion-github-backup/private_repo.png)
+![create private repo](/img/notion-github-backup/private_repo.webp)
 
 2. Go to actions tab and click on `set up a workflow yourself ->`
 
-![set up workflow](/img/notion-github-backup/setup_workflow.png)
+![set up workflow](/img/notion-github-backup/setup_workflow.webp)
 
 3. Paste this yml file
 
@@ -75,8 +75,8 @@ jobs:
     6. Open any `getTasks` request
     7. Extract `spaceId` from preview and `token_v2` from headers
 
-![notion space id](/img/notion-github-backup/space_id.png)
-![notion token v2](/img/notion-github-backup/token_v2.png)
+![notion space id](/img/notion-github-backup/space_id.webp)
+![notion token v2](/img/notion-github-backup/token_v2.webp)
 
 5. Add secrete keys
 
@@ -84,7 +84,7 @@ where `NOTION_SPACE_ID` is your `spaceId` from step above
 
 and `NOTION_TOKEN` is your `token_v2` from step above
 
-![add secrete keys](/img/notion-github-backup/secrets.png)
+![add secrete keys](/img/notion-github-backup/secrets.webp)
 
 ## Here we go
 

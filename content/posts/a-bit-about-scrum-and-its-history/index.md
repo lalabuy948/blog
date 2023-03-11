@@ -3,7 +3,7 @@ title: "A Bit About Scrum and Its History"
 date: 2023-03-11T13:26:45+01:00
 draft: false
 comments: true
-cover: "img/a-bit-about-scrum-and-its-history/toyota.jpg"
+cover: "img/a-bit-about-scrum-and-its-history/toyota.webp"
 tags:
   - books
   - work

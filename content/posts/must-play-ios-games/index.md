@@ -3,7 +3,7 @@ title: "Must Play iOS Games"
 date: 2020-05-19T14:55:36+02:00
 draft: false
 comments: true
-cover: "img/must-play-ios-games/games.jpg"
+cover: "img/must-play-ios-games/games.webp"
 tags:
   - games
   - lifestyle

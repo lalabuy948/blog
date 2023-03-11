@@ -3,7 +3,7 @@ title: "Mini Space Journey"
 date: 2023-01-22T12:59:55+01:00
 draft: false
 comments: false
-cover: "img/mini-space-journey/GameCover.png"
+cover: "img/mini-space-journey/GameCover.webp"
 tags:
   - lifestyle
   - devices

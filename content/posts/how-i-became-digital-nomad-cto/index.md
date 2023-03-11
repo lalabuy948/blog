@@ -3,7 +3,7 @@ title: "How I Became Digital Nomad CTO"
 date: 2021-07-17T10:28:05Z
 draft: false
 comments: true
-cover: "img/how-i-became-digital-nomad-cto/luxembourg.jpeg"
+cover: "img/how-i-became-digital-nomad-cto/luxembourg.webp"
 tags:
   - work
   - lifestyle

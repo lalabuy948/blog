@@ -2,7 +2,7 @@
 author: "DP"
 date: ""
 title: "Tech Scaling - Companies collaboration"
-cover: "img/tech-scaling/service-oriented.png"
+cover: "img/tech-scaling/service-oriented.webp"
 tags:
   - tech-scaling
   - companies

@@ -3,7 +3,7 @@ title: "Best Travel Policy"
 date: 2023-03-05T12:11:49+01:00
 draft: false
 comments: true
-cover: "img/best-travel-policy/backpacking.jpg"
+cover: "img/best-travel-policy/backpacking.webp"
 tags:
   - people
   - work

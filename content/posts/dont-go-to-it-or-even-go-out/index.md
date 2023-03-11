@@ -3,7 +3,7 @@ title: "Don’t go to IT or even go out"
 date: 2020-05-14T16:58:31+02:00
 draft: false
 comments: false
-cover: "img/dont-go-to-it-or-even-go-out/aaron-blanco-tejedor-VBe9zj-JHBs-unsplash.jpg"
+cover: "img/dont-go-to-it-or-even-go-out/aaron-blanco-tejedor-VBe9zj-JHBs-unsplash.webp"
 tags:
   - people
   - work

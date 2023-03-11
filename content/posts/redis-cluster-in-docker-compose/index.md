@@ -3,7 +3,7 @@ title: "Redis Cluster in Docker Compose"
 date: 2020-08-16T16:37:03+02:00
 draft: false
 comments: true
-cover: "img/redis-cluster-in-docker-compose/redis-docker.png"
+cover: "img/redis-cluster-in-docker-compose/redis-docker.webp"
 tags:
   - redis
   - docker

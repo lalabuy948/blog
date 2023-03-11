@@ -3,7 +3,7 @@ title: "Best Opportunity of Your Life"
 date: 2022-11-26T19:59:00+01:00
 draft: false
 comments: true
-cover: "img/best-opportunity-of-your-life/money.jpg"
+cover: "img/best-opportunity-of-your-life/money.webp"
 tags:
   - people
   - work

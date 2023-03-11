@@ -4,7 +4,7 @@ date: ""
 title: "Consulting, coaching and training"
 ---
 
-![](/img/mrpopov1.png)
+![](/img/mrpopov1.webp)
 
 Modern software development is complex and its complexity has many reasons. 
 Some of them are technology, processes, people and available resources in given time period.

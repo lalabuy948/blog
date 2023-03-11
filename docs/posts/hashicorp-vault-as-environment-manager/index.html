@@ -262,19 +262,19 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
 </ul>
 <p>You can find nicely described steps here: <a href="https://learn.hashicorp.com/vault/getting-started/install">Getting started</a></p>
 <h2 id="1-lets-add-kv-engine">#1 Let&rsquo;s add KV engine</h2>
-<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot.png" alt="Create KV secret engine"></p>
+<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot.webp" alt="Create KV secret engine"></p>
 <p>In my case I will name it service. After you added your Key Value engine, you should see something like this:</p>
-<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-0.png" alt="Added KV secret engine"></p>
+<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-0.webp" alt="Added KV secret engine"></p>
 <h2 id="2-add-secrets-json-files">#2 Add secrets (json files)</h2>
 <p>In my case I created development, staging and production. This files will store actual key value pairs, which in our case dot environment pairs.</p>
-<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-1.png" alt="Create new secret engine"></p>
+<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-1.webp" alt="Create new secret engine"></p>
 <h2 id="3-add-key-value-pairs">#3 Add key value pairs</h2>
 <p>Fill your secrets (json files) with your secrets.</p>
 <p><code>db_host localhost</code> for example</p>
-<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-2.png" alt="Create new secret engine"></p>
+<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-2.webp" alt="Create new secret engine"></p>
 <h2 id="4-pull-key-value">#4 Pull key value</h2>
 <p>First of all you need token. In the right corner you will see profile icon and copy token button when you toggle the first one.</p>
-<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-3.png" alt="Create new secret engine"></p>
+<p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-3.webp" alt="Create new secret engine"></p>
 <p>In my project I added this make file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#75715e"># Makefile
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>

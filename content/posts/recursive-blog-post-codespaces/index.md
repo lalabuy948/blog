@@ -3,7 +3,7 @@ title: "Recursive blog post or Github Codespaces"
 date: 2021-02-25T21:19:26+02:00
 draft: false
 comments: true
-cover: "img/recursive-blog-post-codespaces/screen-shot.jpeg"
+cover: "img/recursive-blog-post-codespaces/screen-shot.webp"
 tags:
   - code
   - tools

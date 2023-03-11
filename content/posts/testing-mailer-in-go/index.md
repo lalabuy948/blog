@@ -3,7 +3,7 @@ title: "Testing Mailer in Go"
 date: 2020-03-08T19:23:14+01:00
 draft: false
 comments: true
-cover: "img/LazyGopher.png"
+cover: "img/testing-mailer-in-go/LazyGopher.png"
 tags:
   - go
   - docker

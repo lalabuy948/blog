@@ -10,13 +10,13 @@ title: "Projects"
 
 Basic Building Blocks - unleash your freedom in modern and nature friendly environment. 
 
-[![exterior.jpg](/img/basicbb/exterior.jpg)](https://basicbb.com)
+[![exterior.webp](/img/basicbb/exterior.webp)](https://basicbb.com)
 
 ## [Antimuseum](http://www.antimuseum.org/en)
 
 Ordinary museums take their visitors back in time, the AntiMuseum ushers you into the future of science and technology.
 
-[![antimuseum.jpg](/img/antimuseum.jpg)](http://www.antimuseum.org/en)
+[![antimuseum.webp](/img/antimuseum.webp)](http://www.antimuseum.org/en)
 
 ## Pet Projects
 
@@ -24,14 +24,14 @@ Ordinary museums take their visitors back in time, the AntiMuseum ushers you int
 
 Serverless notification sender for game discounts from Steam and EpicGames stores. 
 
-[![ggdeals.jpg](/img/projects/ggdeals.jpg)](https://t.me/ggoffers)
+[![ggdeals.webp](/img/projects/ggdeals.webp)](https://t.me/ggoffers)
 
 
 ## [typ.life](https://typ.life)
 
 Open-source full stack application stored as monorepo for happy click-clacking :)
 
-[![screenshot-typ.life](/img/typ.life/screenshot-typ.life.jpg)](https://github.com/lalabuy948/typing)
+[![screenshot-typ.life](/img/typ.life/screenshot-typ.life.webp)](https://github.com/lalabuy948/typing)
 
 [read more](/posts/typ.life/)
 

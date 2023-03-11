@@ -3,7 +3,7 @@ title: "Wfh Wtf"
 date: 2022-06-10T10:00:00Z
 draft: false
 comments: true
-cover: "img/wfh-wtf/mask.jpg"
+cover: "img/wfh-wtf/mask.webp"
 tags:
   - people
   - work
