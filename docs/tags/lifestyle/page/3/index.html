@@ -390,8 +390,21 @@ But after few days I received tests assignment from them.
 
 <script src="https://mrpopov.com/assets/main.js"></script>
 <script src="https://mrpopov.com/assets/prism.js"></script>
-<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?tracking=1&scrolling=1&remember=365&privacyPage=https%3A%2F%2Fmrpopov.com%2Fcookie-policy"></script>
 <script defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+
+         customScript: [{ type: 'custom', position: 'head', content: `console.log('my custom js');` }]
+     });
+ </script>
 
 
       
