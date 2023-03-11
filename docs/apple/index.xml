@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apples on Mr. Popov</title>
-    <link>/apple/</link>
+    <link>https://mrpopov.com/apple/</link>
     <description>Recent content in Apples on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Daniil Popov</copyright><atom:link href="/apple/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Daniil Popov</copyright><atom:link href="https://mrpopov.com/apple/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mini Space Journey</title>
-      <link>/apple/msj/</link>
+      <link>https://mrpopov.com/apple/msj/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/apple/msj/</guid>
+      <guid>https://mrpopov.com/apple/msj/</guid>
       <description>Hi here, first of all thank you for download and supporting me. This app was my small experiment of what small hand-held device can do.
 Data tracking &amp;amp; User Privacy Policy This game has absolute zero information about you, it&amp;rsquo;s doesn&amp;rsquo;t track how you play or it doesn&amp;rsquo;t send any data anywhere. As a developer I&amp;rsquo;m only getting anonymized and aggregated metrics of RAM and CPU usage provided by Apple.</description>
     </item>

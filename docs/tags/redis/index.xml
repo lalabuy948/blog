@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>redis on Mr. Popov</title>
-    <link>/tags/redis/</link>
+    <link>https://mrpopov.com/tags/redis/</link>
     <description>Recent content in redis on Mr. Popov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 16 Aug 2020 16:37:03 +0200</lastBuildDate><atom:link href="/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Aug 2020 16:37:03 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis Cluster in Docker Compose</title>
-      <link>/posts/redis-cluster-in-docker-compose/</link>
+      <link>https://mrpopov.com/posts/redis-cluster-in-docker-compose/</link>
       <pubDate>Sun, 16 Aug 2020 16:37:03 +0200</pubDate>
       
-      <guid>/posts/redis-cluster-in-docker-compose/</guid>
+      <guid>https://mrpopov.com/posts/redis-cluster-in-docker-compose/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;x: Why would you do this?&lt;/p&gt;
 &lt;/blockquote&gt;
