@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/posts/a-bit-about-scrum-and-its-history/</loc>
+    <lastmod>2023-03-11T13:26:45+01:00</lastmod>
+  </url><url>
+    <loc>/tags/books/</loc>
+    <lastmod>2023-03-11T13:26:45+01:00</lastmod>
+  </url><url>
+    <loc>/tags/management/</loc>
+    <lastmod>2023-03-11T13:26:45+01:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-03-11T13:26:45+01:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-03-11T13:26:45+01:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-03-11T13:26:45+01:00</lastmod>
+  </url><url>
+    <loc>/tags/work/</loc>
+    <lastmod>2023-03-11T13:26:45+01:00</lastmod>
+  </url><url>
     <loc>/tags/best/</loc>
     <lastmod>2023-03-05T12:11:49+01:00</lastmod>
   </url><url>
@@ -11,19 +32,7 @@
     <loc>/tags/lifestyle/</loc>
     <lastmod>2023-03-05T12:11:49+01:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2023-03-05T12:11:49+01:00</lastmod>
-  </url><url>
     <loc>/tags/people/</loc>
-    <lastmod>2023-03-05T12:11:49+01:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2023-03-05T12:11:49+01:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2023-03-05T12:11:49+01:00</lastmod>
-  </url><url>
-    <loc>/tags/work/</loc>
     <lastmod>2023-03-05T12:11:49+01:00</lastmod>
   </url><url>
     <loc>/tags/devices/</loc>
