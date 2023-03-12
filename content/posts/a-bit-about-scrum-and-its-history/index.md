@@ -23,11 +23,7 @@ I was inspired about SCRUM methodology back in 2018 when for the first time I re
 
 > That you will know in the last part of the article.
 
-"The SCRUM Field Guide" is a book authored by Mitch Lacey. This book is a comprehensive guide to implementing SCRUM methodology in software development projects. It is an essential resource for anyone who wants to learn about SCRUM, from beginners to experienced practitioners.
-
-The book covers all aspects of SCRUM, including its history and principles, the roles and responsibilities of team members, the sprint planning process, and the daily SCRUM meetings. The author also provides guidance on how to deal with common challenges that development teams encounter during SCRUM implementation.
-
-One of the book's strengths is its focus on practical advice and real-world examples. It includes case studies and anecdotes from the author's extensive experience as a SCRUM practitioner. This approach makes the book easy to read and understand, even for those who are new to SCRUM.
+["The SCRUM Field Guide"](https://www.goodreads.com/book/show/12426548-the-scrum-field-guide) is a book authored by Mitch Lacey. This book is a comprehensive guide to implementing SCRUM methodology in software development projects. It is an essential resource for anyone who wants to learn about SCRUM, from beginners to experienced practitioners. The book covers all aspects of SCRUM, including its history and principles, the roles and responsibilities of team members, the sprint planning process, and the daily SCRUM meetings. The author also provides guidance on how to deal with common challenges that development teams encounter during SCRUM implementation.
 
 ## Principles
 
