@@ -34,10 +34,10 @@
 {{- partial "prepended_head.html" . }}
 
 <!-- Theme CSS -->
-<link rel="stylesheet" href="{{ "assets/style.css" | absURL }}">
+<link rel="preload" href="{{ "assets/style.css" | absURL }}" as="style">
 
 <!-- Custom CSS to override theme properties (/static/style.css) -->
-<link rel="stylesheet" href="{{ "style.css" | absURL }}">
+<link rel="preload" href="{{ "style.css" | absURL }}" as="style">
 
 <!-- Icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ "img/apple-touch-icon-144-precomposed.png" | absURL }}">
