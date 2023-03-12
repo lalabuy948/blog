@@ -11,7 +11,10 @@ tags:
   - scrum
 
 seo:
-  [retrospective, retrospective guide, scrum, team management]
+  [IT retrospective,Agile retrospective,Scrum retrospective,Technology retrospective,Software retrospective,Development retrospective,Project retrospective,Sprint retrospective,IT team retrospective,IT retrospective best practices,IT retrospective templates,IT retrospective examples,IT retrospective agenda,IT retrospective format,IT retrospective meeting]
+
+seo_description: 
+  "Discover best practices for IT retrospectives with my comprehensive guide. Improve team collaboration and project outcomes with agile and Scrum methodologies. Get expert tips and examples now."
 ---
 
 > “Improving daily work is even more important than doing daily work.”

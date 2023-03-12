@@ -11,7 +11,10 @@ tags:
   - scrum
 
 seo:
-  [scrum guide, SCRUM Field Guide, scrum explained, Toyota SCRUM]
+  [Scrum framework,Agile project management,Scrum methodology,Scrum Master,Scrum team,Sprint planning,Sprint review,Product backlog,User stories,Agile development process,Agile best practices,Agile principles,Scrum training,Scrum certification,Scrum coaching,Agile transformation,Scrum tools,Scrum project management software,Agile methodology training,Agile software development, Toyota SCRUM]
+
+seo_description:
+  "Welcome to me Scrum guidance article, where I provide expert advice, training, and resources to help your team successfully implement Scrum methodology in your software development projects. I will guide you through the Scrum framework, including sprint planning, user stories, product backlogs, and more. With agile project management approach, your team can improve efficiency and deliver high-quality software products. Contact me for Scrum training and coaching services."
 ---
 
 I was inspired about SCRUM methodology back in 2018 when for the first time I read a book named ["The SCRUM Field Guide"](https://www.goodreads.com/book/show/12426548-the-scrum-field-guide) which written by Mitch Lacey. Back in the day I used to be an engineer and I could not realize all benefits of adapting this methodology and was blindly following what team lead was saying. Nowadays when I'm in charge of success of more than 20 people, that's where I had to come back to this book and write down all important notes which I would like to share. As well as to share how and where scrum methodology and agile principles started. 
