@@ -11,7 +11,7 @@
         {{if isset .Params "seo_description"}}
             <meta name="description" content="{{ .Params.seo_description }}"/>
         {{else}}
-            <meta name="description" content="{{ .Summary | plainify }}{"/>
+            <meta name="description" content="{{ .Summary | plainify }}"/>
         {{end}}
 {{end}}
 
