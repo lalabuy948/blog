@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://mrpopov.com/sitemap.xml
