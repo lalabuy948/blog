@@ -2,6 +2,7 @@
 author: "DP"
 date: ""
 title: "Consulting, coaching and training"
+cover: "img/mrpopov1.webp"
 ---
 
 ![](/img/mrpopov1.webp)
