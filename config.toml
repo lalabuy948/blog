@@ -26,8 +26,8 @@ staticDir = ['static']
 [languages]
   [languages.en]
     title = "Mr. Popov"
-    description = "Daniil Popov - Senior procrastinator who struggle with entropy. You will not find anything useful here, because I'm writing about me and my thoughts."
-    keywords = "daniil popov, popov com, daniil, mr popov, senior, procrastinator"
+    description = "Daniil Popov - Senior procrastinator who struggle with entropy. You will not find anything useful here, since I'm writing about IT, Management and Leadership, and it's my own thoughts."
+    keywords = "daniil popov, mrpopov, popov com, daniil, mr popov, senior, procrastinator"
     copyright = "Daniil Popov"
     menuMore = "More 👇"
     writtenBy = "Written by"
