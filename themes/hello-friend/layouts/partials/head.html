@@ -33,6 +33,11 @@
 <!-- head custom -->
 {{- partial "prepended_head.html" . }}
 
+<link rel="preload" href="{{ "assets/style.css" | absURL }}" as="style">
+<link rel="preload" href="{{ "style.css" | absURL }}" as="style">
+<link rel="preload" href="{{ "assets/main.js" | absURL }}" as="script">
+<link rel="preload" href="{{ "assets/prism.js" | absURL }}" as="script">
+
 <!-- Theme CSS -->
 <link rel="stylesheet" href="{{ "assets/style.css" | absURL }}">
 
