@@ -8,6 +8,7 @@ tags:
   - books
   - work
   - management
+  - scrum
 
 seo:
   [scrum guide, SCRUM Field Guide, scrum explained, Toyota SCRUM]
