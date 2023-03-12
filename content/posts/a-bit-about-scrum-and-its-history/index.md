@@ -1,6 +1,6 @@
 ---
 title: "A Bit About Scrum and Its History"
-date: 2023-03-11T13:26:45+01:00
+date: 2023-03-05T13:26:45+01:00
 draft: false
 comments: true
 cover: "img/a-bit-about-scrum-and-its-history/toyota.webp"
@@ -178,5 +178,7 @@ Here are some additional details on how Toyota implemented its Agile approach:
 6. Waste Reduction: Finally, Toyota focused on reducing waste in all aspects of its product development process. This meant eliminating unnecessary steps, reducing lead times, and minimizing defects and errors.
 
 Overall, Toyota's Agile approach was a key factor in its success in the automotive industry, and has inspired many other companies to adopt similar approaches to product development and project management.
+
+I hope that it was useful and you were able to find something new for yourself. If you are facing certain management, delivery or IT department/team challenges - do not hesitate to contact me I always happy to help, check out my [consultancy page](/consulting/).
 
 Photo by [@yasfeelsme](https://unsplash.com/@yasfeelsme)
