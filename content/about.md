@@ -4,15 +4,13 @@ date: ""
 title: "About"
 ---
 
-Samurai warrior in IT and Startup whirlpools from the Russian ocean. Known as lalabuy948
+Samurai warrior in IT and Startup whirlpools from the Russian ocean, currently working as Head of Information Technology. Known as lalabuy948
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lalabuy948)
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/)
 
-<a href="https://twitter.com/lalabuy948?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-lang="en" data-show-count="false">Follow @lalabuy948</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. I’m IT specialist with passion for scalable, distributed and high-loaded systems. In love with greek sculps, antique architecture and digital worlds.
+Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. I’m IT specialist with passion for scalable, distributed and high-loaded systems. On daily basis working on becoming better leader and empowering teams around me. In love with greek sculps, antique architecture and digital worlds.
 
 Currently helping other companies and individuals to find balance between business and engineering. Technical stacks, technical debts, processes optimization and establishing, migration strategies and more. As a side hustle and hobby I'm helping other IT Managers/Leads, Companies and Teams to grow and become more efficient: 
 
@@ -26,22 +24,22 @@ If you find typo/mistake in my posts please write to me directly about it, I'm n
 
 ### Projects / companies I contribute/d to
 
-## [Eurosender.com](https://www.eurosender.com)
+[Eurosender.com](https://www.eurosender.com)
 
-## [PostLu](https://www.post.lu)
+[PostLu](https://www.post.lu)
 
-### [eLOG](https://www.elog-luxembourg.com)
+[eLOG](https://www.elog-luxembourg.com)
 
-### [Business of Fashion](https://www.businessoffashion.com)
+[Business of Fashion](https://www.businessoffashion.com)
 
-#### [BBB - Basic Building Blocks](https://basicbb.com)
+[BBB - Basic Building Blocks](https://basicbb.com)
 
-#### [d.labs](https://www.dlabs.io)
+[d.labs](https://www.dlabs.io)
 
-#### [Antimuseum](http://www.antimuseum.org/en)
+[Antimuseum](http://www.antimuseum.org/en)
 
-#### [Sci-Park](https://sci-park.org)
+[Sci-Park](https://sci-park.org)
 
-#### [GH Kolinska](https://ghkolinska.si/)
+[GH Kolinska](https://ghkolinska.si/)
 
-##### [Jožef Stefan Institute](https://ijs.si/ijsw)
+[Jožef Stefan Institute](https://ijs.si/ijsw)
