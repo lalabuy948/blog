@@ -67,6 +67,8 @@ It's important to note that while each team member may have individual responsib
 
 These are just a few examples of individual responsibilities for each role in a Scrum team. It's important to note that each team may have slightly different responsibilities depending on their unique situation and project requirements.
 
+If you would like to define and agree more precisely what everyone have to be responsible for in your team or department do no hesitate to reach me out for organizing Roles workshop. 👨🏻‍💻 [My consultancy services](/consulting/).
+
 ## Sprint planning
 
 1. Part 1 - Define the Sprint Goal:
