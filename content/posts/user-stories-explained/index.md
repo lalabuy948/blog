@@ -103,6 +103,4 @@ You can check as well:
 - [Improve and Do Retrospectives Right](/posts/improve-and-do-retrospectives-right/)
 - [A Bit About Scrum and Its History](/posts/a-bit-about-scrum-and-its-history/)
 
-Or you always can reach me out for my 👨🏻‍💻 [consultancy service](/consulting/).
-
 Photo by [Stephen Leonardi](https://unsplash.com/@stephenleo1982)

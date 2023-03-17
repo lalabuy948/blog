@@ -178,8 +178,6 @@ Here are some additional details on how Toyota implemented its Agile approach:
 5. Continuous Improvement: Toyota emphasized continuous improvement as a key part of its Agile approach. The teams were encouraged to experiment and to learn from their successes and failures, and to incorporate what they learned into their future work.
 6. Waste Reduction: Finally, Toyota focused on reducing waste in all aspects of its product development process. This meant eliminating unnecessary steps, reducing lead times, and minimizing defects and errors.
 
-Overall, Toyota's Agile approach was a key factor in its success in the automotive industry, and has inspired many other companies to adopt similar approaches to product development and project management.
-
-I hope that it was useful and you were able to find something new for yourself. If you are facing certain management, delivery or IT department/team challenges - do not hesitate to contact me I always happy to help, check out my [consultancy page](/consulting/).
+Toyota's Agile approach was a key factor in its success in the automotive industry, and has inspired many other companies to adopt similar approaches to product development and project management. I hope that it was useful and you were able to find something new for yourself. If you are facing certain management, delivery or IT department/team challenges - do not hesitate to contact me I always happy to help, check out my [consultancy page](/consulting/).
 
 Photo by [@yasfeelsme](https://unsplash.com/@yasfeelsme)
