@@ -46,6 +46,8 @@ Based on the book ["User story mapping"](https://www.goodreads.com/book/show/222
 
 ## Checklist
 
+Here is a checklist which will help you to develop a process from discovery till creating a full picture. Time to time I'm quite getting tired of monitors and screens of laptops and sharing opinion with author to place all the tickets on physical stickers and place them on the wall. 
+
 1. **Define the product and its users**:
     - Conduct user research to gain a deep understanding of the problem the product solves and the users it serves.
     - Use personas or user profiles to capture the key characteristics of the users and their goals, needs, and motivations.
@@ -86,6 +88,16 @@ Based on the process described above it's really important to hold effective mee
 4. **Manage the conversation**: As the facilitator, it's important to manage the conversation and ensure that everyone has a chance to speak. This can be done by setting ground rules for the meeting, actively listening to each person's contributions, and summarizing key points as the conversation progresses.
 5. **Stay on track**: It's important to stay on track and keep the meeting focused on the agenda. This can be done by assigning time limits to each agenda item, using a timer to keep the conversation moving, and gently redirecting the conversation if it strays too far off topic.
 6. **Follow up**: After the meeting, it's important to follow up with the team to ensure that everyone understands what was discussed and what actions need to be taken. This can be done by sending a meeting summary or action plan, scheduling a follow-up meeting, or assigning tasks and deadlines to team members.
+
+But Elon Musk's rules might be applicable in some cases as well especially the last one: 
+
+1. Avoid large meetings
+2. Leave a meeting if you’re not contributing
+3. Forget the chain of command
+4. Be clear, not clever
+5. Ditch frequent meetings
+6. Use common sense
+
 
 You can check as well:
 - [Improve and Do Retrospectives Right](/posts/improve-and-do-retrospectives-right/)
