@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Sun, 12 Mar 2023 12:56:14 +0100</lastBuildDate><atom:link href="https://mrpopov.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Mar 2023 14:43:18 +0100</lastBuildDate><atom:link href="https://mrpopov.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>User Stories Explained</title>
+      <link>https://mrpopov.com/posts/user-stories-explained/</link>
+      <pubDate>Fri, 17 Mar 2023 14:43:18 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/user-stories-explained/</guid>
+      <description>Why would we even need something like user stories? Based on my view this is an intermediate state of information between long and boring business summaries and technical tickets. In my cycle of articles about IT management we spoke about SCRUM and we discussed about process, responsibilities and etc. but we didn&amp;rsquo;t discuss actual challenges which we are solving. There are users, users have needs, based on that needs certain services and products are being developed.</description>
+    </item>
+    
     <item>
       <title>Improve and Do Retrospectives Right</title>
       <link>https://mrpopov.com/posts/improve-and-do-retrospectives-right/</link>

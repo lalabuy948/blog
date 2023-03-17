@@ -51,7 +51,7 @@ But if you really interested in cookies used on this website:
 
 ### More Information
 
-Here is more information about cookies and it's fun facts: 
+Here is more information about cookies and fun facts: 
 
 - The word "cookie" comes from the Dutch word "koekje," which means "little cake."
 - The world's largest cookie weighed over 18 tons and was over 100 feet in diameter. It was created in 2003 in the town of Oostakker, Belgium.
