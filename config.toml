@@ -40,6 +40,8 @@ staticDir = ['static']
     dateFormatSingle = "02-01-2006"
     dateFormatList = "02-01-2006"
 
+    # https://withkoji.com/@lalabuy @todo Add
+
     [languages.en.params.logo]
       logoText = "Mr. Popov"
       logoHomeLink = "/"
