@@ -1,7 +1,7 @@
 ---
 author: "DP"
 date: ""
-title: "Consulting, coaching and training"
+title: "Consulting, coaching and mentoring"
 cover: "img/mrpopov1.webp"
 ---
 
