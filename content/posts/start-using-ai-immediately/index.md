@@ -52,8 +52,8 @@ If we talk about chatGPT or any other alternatives to it, this AI works as a mul
 ## Rejection
 
 [ChatGPT banned in Italy over privacy concerns](https://www.bbc.com/news/technology-65139406)
-
-![Math Teachers on Protests in 1988](/img/start-using-ai-immediatelymath_teachers.jpeg)
+]
+![Math Teachers on Protests in 1988](/img/start-using-ai-immediately/math_teachers.jpeg)
 
 Protests by some math teachers in the United States against the use of calculators in the classroom, specifically graphing calculators, in 1988.
 
