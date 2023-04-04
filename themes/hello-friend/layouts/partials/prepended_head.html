@@ -1,7 +1,7 @@
 
 {{if (isset .Params "cover")}}
-    <meta property="og:image" content="{{ .Permalink }}{{.Params.Cover | safeHTML}}">
-    <meta property="twitter:image" content="{{ .Permalink }}{{.Params.Cover | safeHTML}}">
+    <meta property="og:image" content="{{.Params.Cover | absURL }}">
+    <meta property="twitter:image" content="{{.Params.Cover | absURL }}">
 {{else}}
     <meta property="og:image" content="{{ "img/mrpopov1.webp" | absURL }}">
     <meta property="twitter:image" content="{{ "img/mrpopov1.webp" | absURL }}">
