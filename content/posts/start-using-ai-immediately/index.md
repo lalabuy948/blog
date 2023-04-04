@@ -53,6 +53,8 @@ If we talk about chatGPT or any other alternatives to it, this AI works as a mul
 
 [ChatGPT banned in Italy over privacy concerns](https://www.bbc.com/news/technology-65139406)
 
+[Math Teachers on Protests in 1988](/img/start-using-ai-immediatelymath_teachers.jpeg)
+
 Protests by some math teachers in the United States against the use of calculators in the classroom, specifically graphing calculators, in 1988.
 
 The National Council of Teachers of Mathematics had recommended the use of calculators in the classroom since the early 1970s, but some educators were concerned that relying too heavily on calculators would hinder students' ability to develop fundamental math skills. They also argued that students would become too reliant on calculators and would not learn how to perform calculations manually.
