@@ -22,7 +22,7 @@ Later, I decided to check the wallet, first of all it was used, visible scratche
 
 
 <details>
-<summary>As was said in one anecdote, hypothetically we have 2000 euros, in really...</summary>
+<summary>As was said in one anecdote, hypothetically we have 2000 euros, in reality...</summary>
 
 The son asks his father:
 - What is "real" and what is "hypothetical"?
