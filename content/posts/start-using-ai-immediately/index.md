@@ -1,5 +1,5 @@
 ---
-title: "Start Using Ai Immediately"
+title: "Start Using AI Immediately"
 date: 2023-04-04T19:30:45+02:00
 draft: false
 comments: true
