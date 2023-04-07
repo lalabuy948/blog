@@ -40,8 +40,6 @@ staticDir = ['static']
     dateFormatSingle = "02-01-2006"
     dateFormatList = "02-01-2006"
 
-    # https://withkoji.com/@lalabuy @todo Add
-
     [languages.en.params.logo]
       logoText = "Mr. Popov"
       logoHomeLink = "/"
@@ -75,3 +73,11 @@ staticDir = ['static']
         identifier = "steam"
         name = "Me on steam"
         url = "https://steamcommunity.com/id/lalabuy"
+      [[languages.en.menu.main]]
+        identifier = "discord"
+        name = "Join discord"
+        url = "https://discord.gg/nrpaSurVWV"
+      [[languages.en.menu.main]]
+        identifier = "koji"
+        name = "Me on Koji"
+        url = "https://withkoji.com/@lalabuy"
