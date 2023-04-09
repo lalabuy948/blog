@@ -9,9 +9,14 @@ Modern software development is complex and its complexity has many reasons.
 Some of them are technology, processes, people and available resources in given time period.
 From idea to startup, from startup to market supremacy or scaleup, due to my experience and background I will be able to help you on any stage.
 
+**Services**
+- SEO Audit
+- Development process and cycle audit
+- Product vision audit and strategy development
+
 **People and leadership:**
 
-- IT Manager and Team Leads coaching (especially ones coming from developer position)
+- IT Manager and Team Leads coaching (especially ones coming from development positions)
 - IT Team or Department workshops (faster delivery cycle, architecture foundation and transformation)
 - Management team workshops and Manager mentoring (strategy development, setting company goals, align team players on targets)
 
