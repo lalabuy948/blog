@@ -236,17 +236,25 @@
     width: 50px;
     height: 50px;
 }
-@media (max-width:683px){
-  .links-widget {
-    top: 70px;
-  }
-}
+ 
 </style>
 
 
       <div class="content">
         
   <div class="posts">
+
+    <link href="../../../../_pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="../../../../_pagefind/pagefind-ui.js" type="text/javascript"></script>
+
+    <div class="container" style="max-width: 750px;">
+      <div id="search"></div>
+      <script>
+          window.addEventListener('DOMContentLoaded', (event) => {
+              new PagefindUI({ element: "#search", resetStyles: false });
+          });
+      </script>
+    </div>
 
     
     
@@ -333,7 +341,7 @@
         
           
           
-          <img alt="Notion Github Backup" src="https://mrpopov.com/img/notion-github-backup/notion&#43;github.webp" class="post-cover" />
+          <img alt="Notion Github Backup" src="https://mrpopov.com/img/notion-github-backup/notion_github.webp" class="post-cover" />
         
       
 
@@ -342,7 +350,7 @@
           
             Data is expensive I write around 2-3 important notes a day. And don’t actually worry if my laptop will be stolen, but the data on it..
 Since Im heavy notion user I was looking for automated backup solution. Not that I don’t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; Paste this yml file name: &quot;Notion backup&quot; on: push: branches: - main schedule: - cron: &quot;0 0 * * *&quot; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: '12' - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; Paste this yml file name: &quot;Notion backup&quot; on: push: branches: - main schedule: - cron: &quot;0 0 * * *&quot; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &quot;12&quot; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.
           
         
       </div>
