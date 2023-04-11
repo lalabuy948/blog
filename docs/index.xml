@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Fri, 07 Apr 2023 08:41:40 +0200</lastBuildDate><atom:link href="https://mrpopov.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Apr 2023 22:27:18 +0200</lastBuildDate><atom:link href="https://mrpopov.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Speed Up Your Life</title>
       <link>https://mrpopov.com/posts/speed-up-your-life/</link>
@@ -154,15 +154,6 @@ Backup Create a private github repo Go to actions tab and click on set up a work
     </item>
     
     <item>
-      <title>2020</title>
-      <link>https://mrpopov.com/2020/</link>
-      <pubDate>Thu, 31 Dec 2020 23:59:59 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/2020/</guid>
-      <description>The year began with some optimism, I was a part of huge and important upcoming projects for the business of fashion, I had hard burnout after January due to being involved in a bunch of projects which we were trying to close from 2019. But we had a clear road map and new projects were super interesting to me, we had quite some freedom, clearly defined goals and high expertise was required to deliver them.</description>
-    </item>
-    
-    <item>
       <title>BasicBB</title>
       <link>https://mrpopov.com/posts/basicbb/</link>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
@@ -272,82 +263,6 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
       <guid>https://mrpopov.com/posts/flexible-env-in-go/</guid>
       <description>Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
 Problem I prefer using .</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://mrpopov.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/about/</guid>
-      <description>Samurai warrior in IT and Startup whirlpools from the Russian ocean, currently working as Head of Information Technology. Known as lalabuy948
-Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. I’m IT specialist with passion for scalable, distributed and high-loaded systems. On daily basis working on becoming better leader and empowering teams around me. In love with greek sculps, antique architecture and digital worlds.
-Currently helping other companies and individuals to find balance between business and engineering.</description>
-    </item>
-    
-    <item>
-      <title>Consulting, coaching and mentoring</title>
-      <link>https://mrpopov.com/consulting/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/consulting/</guid>
-      <description>Modern software development is complex and its complexity has many reasons. Some of them are technology, processes, people and available resources in given time period. From idea to startup, from startup to market supremacy or scaleup, due to my experience and background I will be able to help you on any stage.
-Services
-SEO Audit Development process and cycle audit Product vision audit and strategy development People and leadership:
-IT Manager and Team Leads coaching (especially ones coming from development positions) IT Team or Department workshops (faster delivery cycle, architecture foundation and transformation) Management team workshops and Manager mentoring (strategy development, setting company goals, align team players on targets) Technology and processes:</description>
-    </item>
-    
-    <item>
-      <title>Cookie Policy</title>
-      <link>https://mrpopov.com/cookie-policy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/cookie-policy/</guid>
-      <description>Cookie Policy for Mr Popov This is the Cookie Policy for Mr Popov, accessible from mrpopov.com
-What Are Cookies A cookie is a delicious sweet treat that you can eat. It&amp;rsquo;s a small, round, and flat baked goodie that is often made with flour, sugar, eggs, and butter. Cookies come in many different shapes, sizes, and flavors. Some cookies are crispy and crunchy, while others are soft and chewy. Some have chocolate chips, nuts, or raisins in them, while others are decorated with frosting or sprinkles.</description>
-    </item>
-    
-    <item>
-      <title>Mini Space Journey</title>
-      <link>https://mrpopov.com/apple/msj/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/apple/msj/</guid>
-      <description>Hi here, first of all thank you for download and supporting me. This app was my small experiment of what small hand-held device can do.
-Data tracking &amp;amp; User Privacy Policy This game has absolute zero information about you, it&amp;rsquo;s doesn&amp;rsquo;t track how you play or it doesn&amp;rsquo;t send any data anywhere. As a developer I&amp;rsquo;m only getting anonymized and aggregated metrics of RAM and CPU usage provided by Apple.</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://mrpopov.com/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/projects/</guid>
-      <description>Startups BasicBB Basic Building Blocks - unleash your freedom in modern and nature friendly environment.
-Antimuseum Ordinary museums take their visitors back in time, the AntiMuseum ushers you into the future of science and technology.
-Pet Projects Good Game Deals Serverless notification sender for game discounts from Steam and EpicGames stores.
-typ.life Open-source full stack application stored as monorepo for happy click-clacking :)
-read more
-Games for WatchOS That&amp;rsquo;s my favorite two projects, it&amp;rsquo;s small it&amp;rsquo;s simple but super fun.</description>
-    </item>
-    
-    <item>
-      <title>Showcase</title>
-      <link>https://mrpopov.com/showcase/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/showcase/</guid>
-      <description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.</description>
-    </item>
-    
-    <item>
-      <title>Tech Scaling - Companies collaboration</title>
-      <link>https://mrpopov.com/tech-scaling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mrpopov.com/tech-scaling/</guid>
-      <description>TechScaling - Service provided by d.labs to other technology companies in pure collaboration mode. Not being ready for millions users at time or having tech debt after the MVP stage - not condemnation. Let’s find the right way to handle this together!
-Our tech scaling department will work with your team back to back to find the most optimal solution for process, architecture, technology stack migration and development department restructure which suits best for your business.</description>
     </item>
     
   </channel>
