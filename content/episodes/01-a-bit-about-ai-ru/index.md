@@ -5,16 +5,16 @@ Date: 2023-04-10T22:27:18+02:00
 PublishDate: 2023-04-10T22:27:18+02:00
 podcast_file: "###.mp3"
 podcast_duration: ""
-podcast_bytes : ""
+podcast_bytes: ""
 episode_image: "img/episode/default.jpg"
-episode_banner : ""
+episode_banner: ""
 guests: []
 sponsors: []
 episode: ""
 subtitle: ""
 images: ["img/episode/default-social.jpg"]
 hosts: []
-aliases: ["/##"]
+aliases: []
 youtube: ""
 explicit: "no"
 truncate: ""

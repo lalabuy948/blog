@@ -24,6 +24,19 @@ staticDir = ['static']
   summary_length = 50
   twitter = "lalabuy948"
 
+  [params.feed]
+    copyright = "Copyright 203"
+    itunes_subtitle = "The best podcast ever"
+    itunes_author = "Daniil Popov"
+    itunes_summary = "Some awesome description" # Limited to 4000 characters or less, plain text, no HTML
+    itunes_owner_name = "Daniil Popov"
+    itunes_owner_email = "lalabuy9948@gmail.com"
+    itunes_image = "https://mrpopov.com/img/mrpopov1.webp"
+    itunes_top_category = "Technology"
+    itunes_first_sub_category = "Software How-To"
+    itunes_second_sub_category = "Tech News"
+    language = "en-us"
+
 [languages]
   [languages.en]
     title = "Mr. Popov"

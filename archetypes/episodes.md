@@ -14,7 +14,7 @@ episode: ""
 subtitle: ""
 images: ["img/episode/default-social.jpg"]
 hosts: []
-aliases: ["/##"]
+aliases: []
 youtube: ""
 explicit: "no"
 truncate: ""

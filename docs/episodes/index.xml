@@ -1,12 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+    >
   <channel>
-    <title>Episodes on Mr. Popov</title>
-    <link>https://mrpopov.com/episodes/</link>
-    <description>Recent content in Episodes on Mr. Popov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Mr. Popov</title>
+    <atom:link href="https://mrpopov.com/episode/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://mrpopov.com</link>
+    <description>Some awesome description</description>
+    <lastBuildDate>Mon, 10 Apr 2023 22:27:18 &#43;0200</lastBuildDate>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
     <language>en-us</language>
-    <copyright>Daniil Popov</copyright>
-    <lastBuildDate>Mon, 10 Apr 2023 22:27:18 +0200</lastBuildDate><atom:link href="https://mrpopov.com/episodes/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
+    <copyright>Copyright 203</copyright>
+    <itunes:subtitle>The best podcast ever</itunes:subtitle>
+    <itunes:author>Daniil Popov</itunes:author>
+    <itunes:type>episodic</itunes:type>
+    <googleplay:author>Daniil Popov</googleplay:author>
+    <googleplay:email>lalabuy9948@gmail.com</googleplay:email>
+    <itunes:summary>Some awesome description</itunes:summary>
+    <googleplay:description>Some awesome description</googleplay:description>
+    <itunes:owner>
+      <itunes:name>Daniil Popov</itunes:name>
+      <itunes:email>lalabuy9948@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://mrpopov.com/img/mrpopov1.webp" />
+    <googleplay:image href="https://mrpopov.com/img/mrpopov1.webp"></googleplay:image>
+    <image>
+      <url>https://mrpopov.com/img/mrpopov1.webp</url>
+      <title>Mr. Popov</title>
+      <link>https://mrpopov.com</link>
+    </image>
+    <itunes:category text="Technology">
+      <itunes:category text="Software How-To" /><itunes:category text="Tech News" /></itunes:category><generator>Hugo -- gohugo.io</generator></channel>
 </rss>
