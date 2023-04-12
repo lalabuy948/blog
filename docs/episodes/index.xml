@@ -38,7 +38,8 @@
       <link>https://mrpopov.com</link>
     </image>
     <itunes:category text="Technology">
-      <itunes:category text="Software How-To" /><itunes:category text="Tech News" /></itunes:category><generator>Hugo -- gohugo.io</generator>
+      <itunes:category text="Software How-To" /><itunes:category text="Tech News" /></itunes:category><itunes:explicit>false</itunes:explicit>
+    <googleplay:explicit>false</googleplay:explicit><generator>Hugo -- gohugo.io</generator>
         <item>
           
             <title>01 - A Bit About AI [Ru]

@@ -36,6 +36,7 @@ staticDir = ['static']
     itunes_first_sub_category = "Software How-To"
     itunes_second_sub_category = "Tech News"
     language = "en-us"
+    explicit = false
 
 [languages]
   [languages.en]
