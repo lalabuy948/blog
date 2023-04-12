@@ -1,5 +1,5 @@
 ---
-title: "01 a Bit About Ai Ru"
+title: "01 - A Bit About AI [Ru]"
 Description: ""
 Date: 2023-04-10T22:27:18+02:00
 PublishDate: 2023-04-10T22:27:18+02:00

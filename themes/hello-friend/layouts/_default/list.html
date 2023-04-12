@@ -23,7 +23,13 @@
     {{ if .IsHome }}
       {{ $PageContext = .Site }}
     {{ end }}
-    {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
+
+    {{ $paginator := . }}
+    {{ if (eq .Section "episodes") }}
+        {{ $paginator = .Paginate (where .Pages "Type" "episodes")}}
+      {{ else }}
+        {{ $paginator = .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
+    {{end}}
 
     {{ range $paginator.Pages }}
     <div class="post on-list">

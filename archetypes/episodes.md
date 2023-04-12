@@ -1,7 +1,10 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-Description: ""
-Date: {{ .Date }}
+draft: false
+comments: true
+
+description: ""
+date: {{ .Date }}
 PublishDate: {{ .Date }}
 podcast_file: "###.mp3"
 podcast_duration: ""
