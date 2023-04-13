@@ -52,7 +52,7 @@
     <googleplay:explicit>{{ .Site.Params.feed.explicit }}</googleplay:explicit>
     {{- end -}}
     <generator>Hugo -- gohugo.io</generator>
-    {{- range (where .Pages "Type" "episodes") -}}
+    {{- range (where .Pages "Type" "podcast") -}}
       {{ if isset .Params "podcast_file" }}
         <item>
           {{ if and (isset .Site.Params "disable_title_caps") (eq .Site.Params.disable_title_caps "true") }}

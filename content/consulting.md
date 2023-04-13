@@ -5,11 +5,12 @@ title: "Consulting, coaching and mentoring"
 cover: "img/mrpopov1.webp"
 ---
 
-Modern software development is complex and its complexity has many reasons. 
+Modern software development is complex and its complexity has many reasons.
 Some of them are technology, processes, people and available resources in given time period.
 From idea to startup, from startup to market supremacy or scaleup, due to my experience and background I will be able to help you on any stage.
 
 **Services**
+
 - SEO Audit
 - Development process and cycle audit
 - Product vision audit and strategy development
@@ -38,7 +39,7 @@ From idea to startup, from startup to market supremacy or scaleup, due to my exp
 - Agile process and ideology implementation company wide
 - Help with choosing right tooling, technology and processes
 
-> If you didn't find or found what you were looking for, do not hesitate to contact me let's connect and discuss potential partnership or find the way how I can be helpful. 
+> If you didn't find or found what you were looking for, do not hesitate to contact me let's connect and discuss potential partnership or find the way how I can be helpful.
 
 **Contact me:**
 

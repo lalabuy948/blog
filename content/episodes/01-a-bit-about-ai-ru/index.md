@@ -1,8 +1,10 @@
 ---
 title: "01 - A Bit About AI [Ru]"
-Description: ""
-Date: 2023-04-10T22:27:18+02:00
-PublishDate: 2023-04-10T22:27:18+02:00
+draft: true
+
+description: ""
+date: 2023-04-10T22:27:18+02:00
+publishDate: 2023-04-10T22:27:18+02:00
 podcast_file: "###.mp3"
 podcast_duration: ""
 podcast_bytes: ""
