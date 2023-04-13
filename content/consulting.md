@@ -43,6 +43,5 @@ From idea to startup, from startup to market supremacy or scaleup, due to my exp
 
 **Contact me:**
 
-- Base64: ZGFuaWlsQG1ycG9wb3YuY29t
-- [Telegram](http://t.me/lalabuy)
+- [Book an into meeting](https://tidycal.com/lalabuy/15-minute-meeting)
 - [LinkedIn](https://www.linkedin.com/in/mrpopov/)
