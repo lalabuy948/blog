@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Golden Marble Perfections</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="729e0290-c206-430d-96f6-9916787b98b3" class="page sans"><header><h1 class="page-title">Golden Marble Perfections</h1></header><div class="page-body"><div id="9a54d7d9-abec-4b79-8ba9-b8ba8207f80a" class="column-list"><div id="4ff790b6-bcc3-4044-b4cf-1ebf0905557b" style="width:68.75%" class="column"><p id="5f5ea7ae-4324-4c3c-942d-9be1725285e2" class="">Enter a world of awe and wonder as you step into a grand hall filled with the most exquisite marble sculptures of the Greek gods. These statues are not just objects of beauty; they are masterpieces of art that capture the essence of the human form with such stunning detail that it&#x27;s hard to believe they were crafted by human hands. Each sculpture tells a story, and as you take in their grandeur, you&#x27;ll feel like you&#x27;re being transported to a world where the divine meets the human.</p><p id="8eaf0b6a-ab59-4e78-8558-3bd21f954cd8" class="">The beauty of these statues is not just in their intricate details, but also in the intricate golden accents that adorn every inch of their smooth surface. The way the light plays off the gold and marble creates a mesmerizing effect that leaves you breathless.</p><p id="355d2cb9-2057-4300-8be0-a6538fcdfb95" class="">But these statues are not just beautiful, they also exude an energy that is both powerful and calming. As you stand in their presence, you&#x27;ll feel a sense of awe and reverence that is hard to describe. It&#x27;s like you&#x27;re standing in the presence of something greater than yourself.</p><p id="da3bb8ce-0641-4f35-af1c-82edc431a8b5" class="">And the temples that house these statues are just as magnificent. The towering columns and intricate carvings that adorn the walls tell stories of ancient times and add to the grandeur of the statues themselves. It&#x27;s almost as if the temples were built to honor these works of art.</p><p id="c5da3ae9-341a-49e1-8141-b27e7c4299d5" class="">So come and admire the beauty of these exquisite marble sculptures and discover a world of wonder and awe that will stay with you long after you leave.</p></div><div id="6a727bb7-0ba2-445d-b072-2b12181bc11e" style="width:31.25%" class="column"><figure id="d8b4eded-0d5a-4ad8-a36f-379c8ca0e2bd" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/GoddessPortrait.jpg"><img style="width:2704px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/GoddessPortrait.jpg"/></a><figcaption>Goddess</figcaption></figure></div></div><div id="e9130608-66d4-4acf-b82e-573d2f8b1c07" class="column-list"><div id="331c6402-b6f2-4dfd-9b2c-8223d3e545cb" style="width:68.75%" class="column"><p id="c30ec7e0-7b9b-4084-8cff-321e85038bb2" class="">In the world of Golden Marble Perfections, the humans are not just beautiful, but they are otherworldly. The main characters in this world call themselves &quot;perfections,&quot; and they are the epitome of beauty and grace.</p><p id="0e3f29b0-d8c4-41e8-85df-94bbb6fdb243" class="">At the center of this world are two gods, God Younger and God Older. They are the rulers of this world, and they are both admired and respected by all. God Older is married to the Queen, who is equally beautiful and regal. Their daughter, the Princess, is the darling of the kingdom, and she is adored by all.</p></div><div id="c57ca2b1-908f-4b8b-95bb-e7ff89db074f" style="width:31.250000000000007%" class="column"><p id="09037e5a-1ae7-459a-b827-c06f7bcaee20" class="">At the heart of this world is the Goddess, who is the sister of God Younger and God Older. She is the one who has created this world of beauty and perfection, and she continues to watch over it with care and love.</p></div></div><div id="1d1dbe26-0bce-40b2-b2e7-a9fe675b113f" class="column-list"><div id="ed3b1823-04dd-45b4-a342-76ad7acbc457" style="width:50%" class="column"><figure id="19c33ff8-283a-41d8-ac42-8f28e6105ffe" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/GodPortrait.jpg"><img style="width:2704px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/GodPortrait.jpg"/></a><figcaption>God Older</figcaption></figure><h2 id="ea687dfb-0273-4908-b167-ea82889ba2c6" class="">The Story of God Older</h2><p id="fa1d7226-db5a-497d-8d07-5499bb2c4ae0" class="">God Older grew up in the heavens, where he was born into a family of powerful gods. As a young boy, he became enamoured with the beauty and power of the mortal world. He spent countless hours watching over the humans, studying their ways, and dreaming of the day when he would be able to walk among them.</p><p id="95d3b53c-54ba-481e-8b0d-92074b018815" class="">As God Older got older, he began to work with his siblings and fellow gods to shape and guide the mortal world. He spent long hours listening to the prayers of the humans, watching over them as they lived their lives, and intervening when necessary to guide them on the right path.</p><p id="b826d3ce-d018-4db5-859e-6ce17749bee8" class="">Over time, God Older became an expert in his field, and he began to travel throughout the world, seeking out the rarest and most beautiful places on earth. He became known for his wisdom and compassion, and his reputation as a god of the people grew. He worked with some of the most talented artists and architects of his time, helping them to create works of art and architecture that would inspire generations.</p><p id="e3fffc23-0208-4927-94b5-2e12a14417b4" class="">As he got older, God Older began to think about his legacy. He decided that he wanted to leave behind something that would endure long after he was gone. That&#x27;s when he began to plan the construction of a great temple, one that would be the envy of the world.</p><p id="b7bc9851-923e-427e-b0fd-a094d6a34d5f" class="">God Older spent years designing the temple, pouring over every detail to ensure that it would be perfect. He chose the finest materials, the most skilled artisans, and the most talented architects to bring his vision to life. The temple was to be a testament to the beauty and power of the gods, a place where his legacy would be forever enshrined.</p><p id="8aef7995-4e1a-4e7f-ae4e-8e882ace3acc" class="">Finally, after years of hard work and planning, the temple was complete. It was a marvel of engineering and design, with towering columns, intricate carvings, and golden accents that sparkled in the sunlight. The temple was filled with God Older&#x27;s most beautiful works of art, including statues of the gods, intricate mosaics, and stunning murals.</p><p id="f15162c3-a480-4dea-8809-4aed1b5c68ed" class="">The temple quickly became a wonder of the world, drawing visitors from far and wide to marvel at its beauty. God Older had created something that was truly timeless, a work of art and architecture that would endure for centuries to come.</p></div><div id="f0d98f01-aa1e-4a6f-bfe1-7c7c3c9dee7d" style="width:50%" class="column"><figure id="6faa4b5d-3242-4ffa-b082-988d1d09bc4c" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/GodPortrait2.jpg"><img style="width:2704px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/GodPortrait2.jpg"/></a><figcaption>God younger</figcaption></figure><h2 id="859f78d2-e3ee-49ac-9196-c90d2500b32b" class="">The Life of God Younger</h2><p id="768041dc-04dc-41d8-9efd-8e457feb5152" class="">God Younger was born into a family of powerful gods in the heavens. As a young boy, he was fascinated by the mortal world and spent much of his time watching over humans, studying their ways, and dreaming of the day when he would be able to walk among them.</p><p id="4ec5d3a5-e635-4101-9352-1e6fd5eee61e" class="">As God Younger grew older, he became more involved in shaping and guiding the mortal world. He worked with his siblings and fellow gods to help humanity reach its full potential, intervening when necessary to guide them on the right path.</p><p id="973cf1f4-6673-4fd4-9ece-ab8c4e2a4186" class="">Over time, God Younger became known for his wisdom and compassion. He traveled throughout the world, seeking out the rarest and most beautiful places on earth. He worked with some of the most talented artists and architects of his time, helping them to create works of art and architecture that would inspire generations.</p><p id="2d454073-2739-408c-b660-485aac2afb33" class="">God Younger&#x27;s greatest challenge came when he was tasked with protecting a caravan of merchants traveling through the dangerous lands of the Silk Road. He faced bandits and thieves with his skill and quick reflexes, defending the merchants and ensuring their safe passage.</p><p id="895c39f4-2baa-4d07-abaf-d1bb136ec694" class="">Despite the danger, God Younger emerged victorious, and he returned to the heavens a hero. His reputation as a fearless protector and wise guide spread throughout the land, and he became known as one of the greatest gods of his time. He continued to work tirelessly for the betterment of humanity, always seeking out new challenges and adventures.</p><p id="ff4271a5-2372-454a-9be6-09519860e307" class="">In time, God Younger became a legend, a symbol of strength and compassion in a world filled with danger and uncertainty. He remained a guide and protector until the end of his days, always ready to help those in need and inspire others to do the same.</p><p id="55407a61-1e44-4729-ae18-99abf899d876" class="">
+</p></div></div><div id="e100b522-cba9-49d0-98fe-811f509d1be9" class="column-list"><div id="43cc0221-63b6-4ca9-8610-91ef1ca1fda1" style="width:56.25%" class="column"><figure id="bc558d16-c345-46b7-b4e3-07deed447e4c" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Perfection.jpg"><img style="width:1696px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Perfection.jpg"/></a><figcaption>Perfection</figcaption></figure></div><div id="3a71c710-6c22-40bd-8c49-2a8c18331923" style="width:43.75000000000002%" class="column"><figure id="c2d0f6b3-f92c-4381-a9b6-98fd0152d4ab" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/CountessPortrait.jpg"><img style="width:2048px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/CountessPortrait.jpg"/></a><figcaption>Countess</figcaption></figure><figure id="272e2fe4-0afb-42e0-ace8-cc7bbe359529" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/PrincessPortrait.jpg"><img style="width:2704px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/PrincessPortrait.jpg"/></a><figcaption>Princess</figcaption></figure></div></div><div id="b70aee44-8465-4b9f-8893-5a2e1f9a4530" class="column-list"><div id="6607ed64-e1d8-4a18-b811-3ba2390b30be" style="width:50%" class="column"><p id="73edd624-e531-478c-aaa3-3e2cc6348cab" class="">The Queen&#x27;s younger daughter is named Perfection, and she is as lovely as her name suggests. She is kind and gentle, and she is beloved by all who know her.</p><p id="a912a0dc-ac93-41ec-839d-de1660aab659" class="">Phoenix is one of the most revered and respected figures in the world of Golden Marble Perfections. Known throughout the kingdom for her bravery and fierce spirit, she is a warrior and a leader who inspires those around her to be their best selves. Her courage and determination have earned her the admiration and respect of all who know her, and she is considered to be one of the greatest heroes of her time. Whether she is leading troops into battle or standing up for what she believes in, Phoenix is a force to be reckoned with, and her legacy will endure for generations to come.</p></div><div id="cc826c52-0763-49a9-ab2c-beeabdb56721" style="width:50%" class="column"><p id="852e3bdf-16ee-4784-9cec-176ee38f81f0" class="">The perfections live in a world of luxury and opulence. They feast on the most delectable foods and drink the finest wines. Their homes are filled with treasures and works of art that are beyond compare. They spend their days pursuing the arts and sciences, and they are always learning and growing.</p><p id="47ae534e-91ff-4d8b-8fe1-5f615c65b23a" class="">The people of this world are stunning to behold. They have perfect features, flawless skin, and eyes that sparkle like diamonds. Their hair is like silk, and their movements are graceful and effortless. They are dressed in the finest fabrics, with intricate details and golden accents that match the beauty of the sculptures and temples.</p></div></div><figure id="cd950469-5c61-4d5e-bb3d-f3ed4f2d1214" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Phoenix.jpg"><img style="width:1696px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Phoenix.jpg"/></a><figcaption>Phoenix</figcaption></figure><div id="fa16edf6-fc19-4777-b13b-3dff92249c92" class="column-list"><div id="69eb0216-73c2-4138-b0cb-cbd91c8ae355" style="width:50%" class="column"><figure id="da520ea8-86e1-4334-82a3-94209805178e" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Default_close_portrait_of_goddess_with_sexual_model_body_90_70_1_6a720c4e-e08a-4698-88c8-b2fce8ace077_1.jpg"><img style="width:2048px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Default_close_portrait_of_goddess_with_sexual_model_body_90_70_1_6a720c4e-e08a-4698-88c8-b2fce8ace077_1.jpg"/></a></figure></div><div id="cbe8476f-8e4a-4534-a4b1-39e8513381ac" style="width:49.99999999999999%" class="column"><h2 id="454dbc74-2043-4d5e-98ff-b61ea7ab26eb" class="">The Legend of the Goddess</h2><p id="1b2d0018-2fba-49ef-9a04-ec0e92d1e078" class="">The Goddess was born into a world of beauty and perfection, where the perfections lived in luxury and opulence. She was admired and respected by all who knew her, and her beauty and grace were unmatched.</p><p id="3e86d031-f3f8-4d66-ad6a-f40db8f74195" class="">As she grew older, the Goddess became restless. She wanted to use her power and beauty to help those in need, to make the world a better place. So she set out on a quest to help those who were suffering and in need of her help.</p><p id="69a359cf-5204-4ae5-ab65-997ab23cd7c1" class="">The Goddess traveled far and wide, from the deserts of Africa to the jungles of South America. Everywhere she went, she sought out those who needed her help, healing the sick and injured, and protecting the weak and helpless. She used her power and beauty to inspire others to do the same, to make the world a better place for all.</p><p id="0cded400-94ad-4c5e-be45-d52f9ca5fe44" class="">But the Goddess&#x27;s greatest challenge came when she heard tales of a great evil that was threatening to destroy the world. Without hesitation, she set out to defeat the evil, determined to use her power and beauty to save the world from destruction.</p><p id="4a35ab9d-ff1a-4a38-a422-c80635592ab1" class="">The journey was long and treacherous, but the Goddess was undaunted. She battled the evil for days, using her power and beauty to weaken it, then striking with all her might to defeat it once and for all. In the end, she emerged victorious, having saved the world from destruction. Her reputation as a great hero spread throughout the land, and she became known as a legend in her own time.</p><p id="e319ea64-3ddf-4a9c-913a-3adf4d4b6fc5" class="">The Goddess continued to travel and help those in need, always seeking out new challenges and adventures. She became a symbol of strength and compassion, an inspiration to people everywhere. And though she eventually grew old and passed from this world, her legend lived on, inspiring generations to come.</p></div></div><div id="2185211c-188f-4698-afb3-82b16f5e7d0b" class="column-list"><div id="5ed531d9-08a2-472d-b57a-5a1ab92e0b1b" style="width:33.333333333333336%" class="column"><figure id="060f84a7-756e-4ce7-a790-c51206573a40" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Paragon.jpg"><img style="width:1280px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Paragon.jpg"/></a><figcaption>Paragon</figcaption></figure><p id="37fc9258-eed7-47ff-9844-a4b3cd8ec9b1" class="">God Younger is married to the Countess, who is also a paragon of beauty and grace. Their daughter, the Paragon, is just as stunning as her mother, and she is known for her intelligence and wit.</p></div><div id="dec2f3f5-edbc-49c0-9836-76c3bb7a204c" style="width:33.333333333333336%" class="column"><p id="f2b42a48-1582-46a1-8727-7494dd259448" class="">There are two other women in this world who are just as important as the rest. Wonder is the Queen&#x27;s sister, and she is a force to be reckoned with. She is smart and resourceful, and she is always looking for ways to improve the lives of those around her. Phoenix is the Countess&#x27;s sister, and she is just as fierce as her name suggests. She is a warrior and a leader, and she is known throughout the kingdom for her bravery.</p><figure id="c8dec8ab-4e9f-4c17-97f8-d60d3837afa0" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Wonder.jpg"><img style="width:1696px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/Wonder.jpg"/></a><figcaption>Wonder</figcaption></figure></div><div id="c107c5a6-bc89-41bf-b523-628178f84bdc" style="width:33.33333333333333%" class="column"><figure id="12d8ae22-dc49-4045-b230-a808725acd9f" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/BeauIdeal.jpg"><img style="width:1696px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/BeauIdeal.jpg"/></a><figcaption>Beau Ideal</figcaption></figure><p id="a5647f2b-79cf-4660-9496-e82a2ae3cc1b" class="">The Countess&#x27;s younger daughter is Beau Ideal, who is just as beautiful as her sister, but with a fiery spirit that sets her apart. She is bold and adventurous, and she is always up for a challenge.</p></div></div><figure id="bd05f0bd-22a8-474d-99aa-feb864d7e3f9" class="image"><a href="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/QueenPortrait.jpg"><img style="width:2048px" src="Golden%20Marble%20Perfections%20729e0290c206430d96f69916787b98b3/QueenPortrait.jpg"/></a><figcaption>Queen</figcaption></figure><p id="cd2130e1-50a8-4a43-b968-ad30b3779289" class="">But this world is not without its challenges. The perfections are constantly striving to maintain their beauty and perfection, and they are always looking for ways to improve themselves. They are also faced with outside threats, from those who seek to destroy their way of life and take their power for themselves.</p><p id="708065ee-ba89-435a-b0e2-58bc6ee048bc" class="">Despite these challenges, the perfections remain resilient and strong. They are united in their quest for beauty and perfection, and they will stop at nothing to protect their way of life.</p><p id="80fd2d5d-1124-425d-af3f-55ea741acbac" class="">So come and admire the beauty of these exquisite marble sculptures and discover a world of wonder and awe that will stay with you long after you leave.</p><p id="dd58bcf1-c30a-4c8a-8795-52d9f651ec38" class="">The story of Golden Marble Perfections continues to unfold with every passing moment, as new players enter the game and old alliances shift and crumble. Who will come out on top in this high-stakes competition? Only time will tell. Stay tuned for the next chapter in this epic tale of greed, ambition, and the pursuit of perfection.</p><p id="faacba83-6076-40f5-be60-2565e9708149" class="">As the perfections continue to strive for beauty and perfection, they are faced with new challenges that test their resolve and unity. The outside threats become more dangerous and the alliances become more fragile. The fate of Golden Marble Perfections hangs in the balance as the players make their moves and take their chances.</p><p id="98ab1d90-4ea9-4997-8a7e-6b4110124d70" class="">But amidst the chaos and uncertainty, there are glimpses of hope and redemption. The perfections realize that true beauty and perfection are not just about physical appearance, but also about inner strength and character. They begin to work together, putting aside their differences and rivalries, to protect their way of life and the world they have built.</p><p id="400f8b07-7728-4050-9795-7f32787a8d80" class="">As the story unfolds, the perfections discover that their true strength lies not in their individual beauty and power, but in their unity and resilience. They face their challenges head-on, with courage and determination, and emerge stronger and wiser for it.</p><p id="f300fb90-6951-4c0b-bc49-c7aeb3729513" class="">The future of Golden Marble Perfections is uncertain, but the perfections are ready to face whatever challenges come their way. They know that true beauty and perfection are not just about appearance, but about the strength of the human spirit. And in this world of awe and wonder, they will continue to strive for greatness, always reaching for the stars.</p></div></article></body></html>
