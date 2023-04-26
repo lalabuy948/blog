@@ -4,6 +4,10 @@ date: 2023-04-18T13:14:05+02:00
 draft: false
 comments: true
 cover: "img/the-highest-roi-asset/cover.webp"
+tags:
+  - people
+  - work
+  - self-growth
 
 seo:
   [

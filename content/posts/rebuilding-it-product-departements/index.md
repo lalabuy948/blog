@@ -1,12 +1,13 @@
 ---
 author: "DP"
-date: "2023-03-15T23:59:59+00:00"
-title: "Rebuilding IT & Product Departments"
+date: "2023-04-25T23:59:59+00:00"
+title: "Case Study: Rebuilding IT & Product Departments"
 cover: "img/case-study/CaseStudy_IT&Product.webp"
 draft: false
 tags:
   - work
   - case-study
+  - management
 
 seo:
   [
