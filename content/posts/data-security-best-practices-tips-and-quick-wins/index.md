@@ -3,7 +3,7 @@ author: "DP"
 date: "2023-04-25T23:59:59+00:00"
 title: "Case Study: Data Security - Best Practices, Tips and Quick wins"
 cover: "img/case-study/CaseStudy_DataSecurity.webp"
-draft: true
+draft: false
 tags:
   - work
   - case-study
