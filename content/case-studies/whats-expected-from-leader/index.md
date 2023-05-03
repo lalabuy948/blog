@@ -3,7 +3,7 @@ author: "DP"
 date: "2023-04-26T23:59:59+00:00"
 title: "Case Study: What’s expected from Leader, learned hard way"
 cover: "img/case-study/CaseStudy_BossLeader.webp"
-draft: false
+draft: true
 tags:
   - work
   - case-study

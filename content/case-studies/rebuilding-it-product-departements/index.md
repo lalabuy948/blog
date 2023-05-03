@@ -3,7 +3,7 @@ author: "DP"
 date: "2023-04-24T23:59:59+00:00"
 title: "Case Study: Rebuilding IT & Product Departments"
 cover: "img/case-study/CaseStudy_IT&Product.webp"
-draft: false
+draft: true
 tags:
   - work
   - case-study

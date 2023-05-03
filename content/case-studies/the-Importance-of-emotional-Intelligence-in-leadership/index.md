@@ -3,7 +3,7 @@ author: "DP"
 date: "2023-04-27T12:59:59+00:00"
 title: "Case Study: The Importance of Emotional Intelligence in Leadership: Best Practices and Tips"
 cover: "img/case-study/CaseStudy_EmotionalIntelligence.webp"
-draft: false
+draft: true
 tags:
   - work
   - case-study
