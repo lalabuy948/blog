@@ -4,11 +4,15 @@ date: ""
 title: "Projects"
 ---
 
-## Startups
+## [IT Leadership - Ultimate Bundle](https://store.mrpopov.com/l/ultimate-it-bundle)
+
+I collected all my knowledge on the path of becoming an IT department leader and manager in one place. Besides self guided content I'm available for 1-on-1 mentoring sessions.
+
+[![IT Leadership - Ultimate Bundle](https://public-files.gumroad.com/lsvtcsalfcpt3pystxgo0p6jis25)](https://store.mrpopov.com/l/ultimate-it-bundle)
 
 ## [BasicBB](https://basicbb.com)
 
-Basic Building Blocks - unleash your freedom in modern and nature friendly environment. 
+Basic Building Blocks - unleash your freedom in modern and nature friendly environment.
 
 [![exterior.webp](/img/basicbb/exterior.webp)](https://basicbb.com)
 
@@ -18,14 +22,11 @@ Ordinary museums take their visitors back in time, the AntiMuseum ushers you int
 
 [![antimuseum.webp](/img/antimuseum.webp)](http://www.antimuseum.org/en)
 
-## Pet Projects
-
 ## [Good Game Deals](https://t.me/ggoffers)
 
-Serverless notification sender for game discounts from Steam and EpicGames stores. 
+Serverless notification sender for game discounts from Steam and EpicGames stores.
 
 [![ggdeals.webp](/img/projects/ggdeals.webp)](https://t.me/ggoffers)
-
 
 ## [typ.life](https://typ.life)
 
@@ -46,7 +47,9 @@ That's my favorite two projects, it's small it's simple but super fun.
 ## Go pkgs
 
 ### [genvutils](https://pkg.go.dev/github.com/lalabuy948/genvutils?tab=overview)
+
 Go environment utilities (genvutils) - provides useful environment operations
 
 ### [webprev](https://github.com/lalabuy948/webprev)
+
 Golang package provides easy extraction of website previews. Generic, Facebook and Twitter cards.

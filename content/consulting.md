@@ -39,7 +39,15 @@ From idea to startup, from startup to market supremacy or scaleup, due to my exp
 - Agile process and ideology implementation company wide
 - Help with choosing right tooling, technology and processes
 
-> If you didn't find or found what you were looking for, do not hesitate to contact me let's connect and discuss potential partnership or find the way how I can be helpful.
+**Self guided course:**
+
+[IT Leadership - Ultimate Bundle](https://store.mrpopov.com/l/ultimate-it-bundle)
+
+I collected all my knowledge on the path of becoming an IT department leader and manager in one place. Besides self guided content I'm available for 1-on-1 mentoring sessions.
+
+[![IT Leadership - Ultimate Bundle](https://public-files.gumroad.com/lsvtcsalfcpt3pystxgo0p6jis25)](https://store.mrpopov.com/l/ultimate-it-bundle)
+
+If you didn't find or found what you were looking for, do not hesitate to contact me let's connect and discuss potential partnership or find the way how I can be helpful.
 
 **Contact me:**
 
