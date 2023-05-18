@@ -2,34 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mrpopov.com/</loc>
-    <lastmod>2023-04-18T13:14:05+02:00</lastmod>
+    <loc>https://mrpopov.com/posts/data-security-quick-wins/</loc>
+    <lastmod>2023-05-18T10:09:14+02:00</lastmod>
   </url><url>
-    <loc>https://mrpopov.com/tags/people/</loc>
-    <lastmod>2023-04-18T13:14:05+02:00</lastmod>
+    <loc>https://mrpopov.com/</loc>
+    <lastmod>2023-05-18T10:09:14+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/</loc>
+    <lastmod>2023-05-18T10:09:14+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/startup/</loc>
+    <lastmod>2023-05-18T10:09:14+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/</loc>
+    <lastmod>2023-05-18T10:09:14+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/tools/</loc>
+    <lastmod>2023-05-18T10:09:14+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/work/</loc>
+    <lastmod>2023-05-18T10:09:14+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/people/</loc>
     <lastmod>2023-04-18T13:14:05+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/self-growth/</loc>
     <lastmod>2023-04-18T13:14:05+02:00</lastmod>
   </url><url>
-    <loc>https://mrpopov.com/tags/</loc>
-    <lastmod>2023-04-18T13:14:05+02:00</lastmod>
-  </url><url>
     <loc>https://mrpopov.com/posts/the-highest-roi-asset/</loc>
-    <lastmod>2023-04-18T13:14:05+02:00</lastmod>
-  </url><url>
-    <loc>https://mrpopov.com/tags/work/</loc>
     <lastmod>2023-04-18T13:14:05+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/lifestyle/</loc>
     <lastmod>2023-04-07T08:41:40+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/speed-up-your-life/</loc>
-    <lastmod>2023-04-07T08:41:40+02:00</lastmod>
-  </url><url>
-    <loc>https://mrpopov.com/tags/tools/</loc>
     <lastmod>2023-04-07T08:41:40+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/productivity-with-adhd/</loc>
@@ -99,9 +105,6 @@
     <lastmod>2020-12-31T23:59:59+00:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/basicbb/</loc>
-    <lastmod>2020-10-11T19:40:59+02:00</lastmod>
-  </url><url>
-    <loc>https://mrpopov.com/tags/startup/</loc>
     <lastmod>2020-10-11T19:40:59+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/env/</loc>
