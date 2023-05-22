@@ -1,5 +1,5 @@
 ---
-title: "01 - A Bit About AI [Ru]"
+title: "[Pilot] - A Bit About AI [Ru]"
 draft: true
 
 description: ""
