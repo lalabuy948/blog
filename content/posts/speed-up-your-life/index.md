@@ -1,9 +1,9 @@
 ---
-title: "Speed Up Your Life"
-date: 2023-04-07T08:41:40+02:00
+title: "Speed Up Your Life [upd]"
+date: 2023-08-05T08:41:40+02:00
 draft: false
 comments: true
-cover: "/img/speed-up-your-life/progressbar_cover.webp"
+cover: "/img/speed-up-your-life/dayprogress.webp"
 tags:
   - lifestyle
   - people
@@ -50,6 +50,10 @@ If you want to eliminate procrastination install this app [Progress Bar](https:/
 ![ProgressBar screenshot](/img/speed-up-your-life/progressbar.png)
 
 Each time when you will think to spend your spare time on useless time waste like youtube, tiktok or other mind bluring things, this progress bar will remind how much left. Create external sources of income, spend time on creating them rather spending what left after salary taxes on drinks and fun. Spend time with your family, not your colleagues.
+
+Since ProgressBar was not updated to M1 processors I switched to: [Day Progress](https://sindresorhus.com/day-progress)
+
+![Day Progress screenshot](/img/speed-up-your-life/dayprogress.jpg)
 
 ## Comprehension
 
