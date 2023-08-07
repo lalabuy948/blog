@@ -4,25 +4,17 @@ date: ""
 title: "About"
 ---
 
-Samurai warrior in IT and Startup whirlpools from the Russian ocean, currently working as Head of Information Technology. Known as lalabuy948
+Result oriented fractional CTO with proven track record. Over decade of experience in technology, product building, teams management and processes establishment. I primarily was in charge of complex projects which were critical part of the entire system and require cross department coordination, as an example ERP migration or entire database migration on live environment with millions of active users without service downtime. During my leadership in one of the companies I increased engineering efficiency by more than twice in half year and decreased tech debt by 45% in 1,5 years.
 
-[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lalabuy948)
+Recognised leader with strong management skills, in-depth technology knowledge with business first approach. Goal oriented, highly creative, trustworthy, self-motivated and self-initiative.
+
+Based in Luxembourg, work remotely, happy for on-site visits.
+
+[Consulting, coaching and training 💹](/consulting)
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/)
 
-Originally from Saint-Petersburg, used to live in Slovenia, currently living in Luxembourg. I’m IT specialist with passion for scalable, distributed and high-loaded systems. On daily basis working on becoming better leader and empowering teams around me. In love with greek sculps, antique architecture and digital worlds.
-
-Currently helping other companies and individuals to find balance between business and engineering. Technical stacks, technical debts, processes optimization and establishing, migration strategies and more. As a side hustle and hobby I'm helping other IT Managers/Leads, Companies and Teams to grow and become more efficient: 
-
-> [Consulting, coaching and training 💹](/consulting)
-
-In the past I used to work as IT manager, research agent, full-stack engineer, technical team lead, project manager and business runner. I worked on quite a few IT projects with primary focus on business logic, architecture, system scaling, data flows and data storages.
-
-I don’t have preferred technology, In my opinion you have to choose language or specific technology based on your problem. Do it best or don’t do it at all. Don't forget to procrastinate well.
-
-If you find typo/mistake in my posts please write to me directly about it, I'm not a native speaker and would appreciate such a gesture from you. 
-
-### Projects / companies I contribute/d to
+### Companies I contributed to
 
 [Eurosender.com](https://www.eurosender.com)
 

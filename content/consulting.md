@@ -51,5 +51,5 @@ If you didn't find or found what you were looking for, do not hesitate to contac
 
 **Contact me:**
 
-- [Book an into meeting](https://tidycal.com/lalabuy/15-minute-meeting)
+- [Book an into meeting](https://tidycal.com/daniilpopov1703lu/intro-meeting)
 - [LinkedIn](https://www.linkedin.com/in/mrpopov/)
