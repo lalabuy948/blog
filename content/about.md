@@ -10,8 +10,6 @@ Recognised leader with strong management skills, in-depth technology knowledge w
 
 Based in Luxembourg, work remotely, happy for on-site visits.
 
-[Consulting, coaching and training 💹](/consulting)
-
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/)
 
 ### Companies I contributed to
