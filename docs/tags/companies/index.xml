@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>companies on Mr. Popov</title>
+    <title>companies on </title>
     <link>https://mrpopov.com/tags/companies/</link>
-    <description>Recent content in companies on Mr. Popov</description>
+    <description>Recent content in companies on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Daniil Popov</copyright><atom:link href="https://mrpopov.com/tags/companies/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://mrpopov.com/tags/companies/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

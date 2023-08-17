@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Apples on Mr. Popov</title>
+    <title>Apples on </title>
     <link>https://mrpopov.com/apple/</link>
-    <description>Recent content in Apples on Mr. Popov</description>
+    <description>Recent content in Apples on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Daniil Popov</copyright><atom:link href="https://mrpopov.com/apple/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://mrpopov.com/apple/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

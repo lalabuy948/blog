@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>go on Mr. Popov</title>
+    <title>go on </title>
     <link>https://mrpopov.com/tags/go/</link>
-    <description>Recent content in go on Mr. Popov</description>
+    <description>Recent content in go on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Daniil Popov</copyright>
+    <language>en</language>
     <lastBuildDate>Sun, 08 Mar 2020 19:23:14 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testing Mailer in Go</title>

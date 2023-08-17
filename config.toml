@@ -40,19 +40,20 @@ staticDir = ['static']
 
 [languages]
   [languages.en]
-    title = "Mr. Popov"
-    description = "Daniil Popov - Senior procrastinator who struggle with entropy. You will not find anything useful here, since I'm writing about IT, Management and Leadership, and it's my own thoughts."
-    keywords = "daniil popov, mrpopov, popov com, daniil, mr popov, senior, procrastinator"
-    copyright = "Daniil Popov"
-    menuMore = "More 👇"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Here"
-    olderPosts = "There"
-    minuteReadingTime = "☕️"
-    dateFormatSingle = "02-01-2006"
-    dateFormatList = "02-01-2006"
+    [languages.en.params]
+      title = "Mr. Popov"
+      description = "Daniil Popov - Senior procrastinator who struggle with entropy. You will not find anything useful here, since I'm writing about IT, Management and Leadership, and it's my own thoughts."
+      keywords = "daniil popov, mrpopov, popov com, daniil, mr popov, senior, procrastinator"
+      copyright = "Daniil Popov"
+      menuMore = "More 👇"
+      writtenBy = "Written by"
+      readMore = "Read more"
+      readOtherPosts = "Read other posts"
+      newerPosts = "Here"
+      olderPosts = "There"
+      minuteReadingTime = "☕️"
+      dateFormatSingle = "02-01-2006"
+      dateFormatList = "02-01-2006"
 
     [languages.en.params.logo]
       logoText = "Mr. Popov"
