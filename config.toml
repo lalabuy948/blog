@@ -61,13 +61,9 @@ staticDir = ['static']
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "consulting"
-        name = "Consulting"
-        url = "/consulting"
-      [[languages.en.menu.main]]
-        identifier = "projects"
-        name = "My Projects"
-        url = "/projects"
+        identifier = "1703"
+        name = "1703"
+        url = "https://1703.lu"
       [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
@@ -88,7 +84,4 @@ staticDir = ['static']
         identifier = "discord"
         name = "Join discord"
         url = "https://discord.gg/nrpaSurVWV"
-      [[languages.en.menu.main]]
-        identifier = "koji"
-        name = "Me on Koji"
-        url = "https://withkoji.com/@lalabuy"
+

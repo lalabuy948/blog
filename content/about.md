@@ -4,11 +4,11 @@ date: ""
 title: "About"
 ---
 
-Result oriented fractional CTO with proven track record. Over decade of experience in technology, product building, teams management and processes establishment. I primarily was in charge of complex projects which were critical part of the entire system and require cross department coordination, as an example ERP migration or entire database migration on live environment with millions of active users without service downtime. During my leadership in one of the companies I increased engineering efficiency by more than twice in half year and decreased tech debt by 45% in 1,5 years.
+Result oriented fractional CTO with proven track record. Over decade of experience in technology, product building, people management and processes establishment. Primarily was in charge of complex projects which were critical part of the entire system and require cross department coordination, as an example ERP migration and integration or entire feed migration on live environment with millions of active users without service downtime. During my leadership in one of the companies I increased engineering efficiency by more than twice in half year and decreased tech debt by 45% in 1,5 years.
 
-Recognised leader with strong management skills, in-depth technology knowledge with business first approach. Goal oriented, highly creative, trustworthy, self-motivated and self-initiative.
+Recognised leader with strong management skills, in-depth technology knowledge with business first approach. Goal oriented, doer, highly creative, , trustworthy, reliable, self-motivated and self-initiative.
 
-Based in Luxembourg, work remotely, happy for on-site visits.
+Based in Luxembourg, work remotely, open for on-site visits.
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/)
 
