@@ -27,7 +27,7 @@ seo_description: "This case study presents lessons learned from rebuilding IT an
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
 
-<a class="gumroad-button" href="https://lalabuy.gumroad.com/l/rebuilding-it-product-departements">Get it on</a>
+<a class="gumroad-button" href="https://1703g.gumroad.com/l/rebuilding-it-product-departements">Get it on</a>
 
 This case study provides examples of my experience in rebuilding IT and product departments.
 

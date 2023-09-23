@@ -29,7 +29,7 @@ seo_description: "This case study provides best practices, tips, and quick wins 
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
 
-<a class="gumroad-button" href="https://lalabuy.gumroad.com/l/data-security-best-practices-tips-and-quick-wins">Get it on</a>
+<a class="gumroad-button" href="https://1703g.gumroad.com/l/data-security-best-practices-tips-and-quick-wins">Get it on</a>
 
 This case study provides best practices, tips, and quick wins for ensuring data security in any digital or traditional company.
 

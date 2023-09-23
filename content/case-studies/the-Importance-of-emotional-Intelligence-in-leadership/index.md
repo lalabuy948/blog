@@ -27,7 +27,7 @@ seo_description: "Discover the significance of emotional intelligence in leaders
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
 
-<a class="gumroad-button" href="https://lalabuy.gumroad.com/l/the-Importance-of-emotional-Intelligence-in-leadership">Get it on</a>
+<a class="gumroad-button" href="https://1703g.gumroad.com/l/the-Importance-of-emotional-Intelligence-in-leadership">Get it on</a>
 
 Discover the significance of emotional intelligence in leadership and unlock the secrets to becoming a successful leader! In this case study, you'll explore real-world examples of leaders who have mastered emotional intelligence and how you can apply their best practices to your own leadership style. Learn tips for creating a positive work environment, fostering team collaboration, and driving innovation and growth.
 

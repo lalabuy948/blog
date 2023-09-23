@@ -28,7 +28,7 @@ seo_description: "Learn the differences between a boss and a good leader with re
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
 
-<a class="gumroad-button" href="https://lalabuy.gumroad.com/l/whats-expected-from-leader">Get it on</a>
+<a class="gumroad-button" href="https://1703g.gumroad.com/l/whats-expected-from-leader">Get it on</a>
 
 Explore the differences between a boss and a good leader with examples of each. By studying these differences, you'll discover what to expect from a good leader and learn how to become one yourself. Don't miss out on this opportunity to elevate your leadership skills and make a positive impact on your team.
 

@@ -42,7 +42,7 @@ Looking for more information? Check my case-study Data Security: Best Practices,
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
 
-<a class="gumroad-button" href="https://lalabuy.gumroad.com/l/data-security-best-practices-tips-and-quick-wins">Get it on</a>
+<a class="gumroad-button" href="https://1703g.gumroad.com/l/data-security-best-practices-tips-and-quick-wins">Get it on</a>
 
 👀 Let me know in comments below which measurements do you have in your organisation? 💬 Let's exchange them and protect our and clients data even stronger! 🦾
 
