@@ -12,76 +12,79 @@ enableRobotsTXT = false
 staticDir = ['static']
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
-  contentTypeName = "posts"
-  defaultTheme = "light"
-  showMenuItems = 2
-  showReadingTime = true
-  summary_length = 50
-  twitter = "lalabuy948"
+contentTypeName = "posts"
+defaultTheme = "light"
+showMenuItems = 2
+showReadingTime = true
+summary_length = 50
+twitter = "lalabuy948"
 
-  [params.feed]
-    copyright = "Copyright 203"
-    itunes_subtitle = "The best podcast ever"
-    itunes_author = "Daniil Popov"
-    itunes_summary = "Some awesome description" # Limited to 4000 characters or less, plain text, no HTML
-    itunes_owner_name = "Daniil Popov"
-    itunes_owner_email = "lalabuy9948@gmail.com"
-    itunes_image = "https://mrpopov.com/img/mrpopov1.webp"
-    itunes_top_category = "Technology"
-    itunes_first_sub_category = "Software How-To"
-    itunes_second_sub_category = "Tech News"
-    language = "en-us"
-    explicit = false
+[params.feed]
+copyright = "Copyright 203"
+itunes_subtitle = "The best podcast ever"
+itunes_author = "Daniil Popov"
+itunes_summary = "Some awesome description"            # Limited to 4000 characters or less, plain text, no HTML
+itunes_owner_name = "Daniil Popov"
+itunes_owner_email = "lalabuy9948@gmail.com"
+itunes_image = "https://mrpopov.com/img/mrpopov1.webp"
+itunes_top_category = "Technology"
+itunes_first_sub_category = "Software How-To"
+itunes_second_sub_category = "Tech News"
+language = "en-us"
+explicit = false
 
 [languages]
-  [languages.en]
-    [languages.en.params]
-      title = "MrPopov"
-      description = "Daniil Popov - Result oriented fractional CTO with proven track record. Over decade of experience in technology, product building, people management and processes establishment. Based in Luxembourg, operate remotely."
-      keywords = "daniil popov, mrpopov, popov com, daniil, mr popov, senior, procrastinator, fractional CTO, CTO as a Service"
-      copyright = "Daniil Popov"
-      menuMore = "More 👇"
-      writtenBy = "Written by"
-      readMore = "Read more"
-      readOtherPosts = "Read other posts"
-      newerPosts = "Here"
-      olderPosts = "There"
-      minuteReadingTime = "☕️"
-      dateFormatSingle = "02-01-2006"
-      dateFormatList = "02-01-2006"
+[languages.en]
+[languages.en.params]
+title = "MrPopov"
+description = "Daniil Popov - Result oriented fractional CTO with proven track record. Over decade of experience in technology, product building, people management and processes establishment. Based in Luxembourg, operate remotely."
+keywords = "daniil popov, mrpopov, popov com, daniil, mr popov, senior, procrastinator, fractional CTO, CTO as a Service"
+copyright = "Daniil Popov"
+menuMore = "More 👇"
+writtenBy = "Written by"
+readMore = "Read more"
+readOtherPosts = "Read other posts"
+newerPosts = "Here"
+olderPosts = "There"
+minuteReadingTime = "☕️"
+dateFormatSingle = "02-01-2006"
+dateFormatList = "02-01-2006"
 
-    [languages.en.params.logo]
-      logoText = "Mr. Popov"
-      logoHomeLink = "/"
+[languages.en.params.logo]
+logoText = "Mr. Popov"
+logoHomeLink = "/"
 
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "1703"
-        name = "1703"
-        url = "https://1703.lu"
-      [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
-      [[languages.en.menu.main]]
-        identifier = "linkedin"
-        name = "Me on linkedin"
-        url = "https://www.linkedin.com/in/mrpopov/"
-      [[languages.en.menu.main]]
-        identifier = "github"
-        name = "Me on github"
-        url = "https://github.com/lalabuy948"
-      [[languages.en.menu.main]]
-        identifier = "pexels"
-        name = "Me on pexels"
-        url = "https://www.pexels.com/@daniil-popov-1864765"
-      [[languages.en.menu.main]]
-        identifier = "discord"
-        name = "Join discord"
-        url = "https://discord.gg/nrpaSurVWV"
-
+[languages.en.menu]
+[[languages.en.menu.main]]
+identifier = "1703"
+name = "1703"
+url = "https://1703.lu"
+[[languages.en.menu.main]]
+identifier = "about"
+name = "About"
+url = "/about"
+[[languages.en.menu.main]]
+identifier = "cv"
+name = "CV"
+url = "https://mrpopov.notion.site/Daniil-Popov-CV-0d6f93ff9d6e40d581a0e3c68b6d99d1"
+[[languages.en.menu.main]]
+identifier = "linkedin"
+name = "Me on linkedin"
+url = "https://www.linkedin.com/in/mrpopov/"
+[[languages.en.menu.main]]
+identifier = "github"
+name = "Me on github"
+url = "https://github.com/lalabuy948"
+[[languages.en.menu.main]]
+identifier = "pexels"
+name = "Me on pexels"
+url = "https://www.pexels.com/@daniil-popov-1864765"
+[[languages.en.menu.main]]
+identifier = "discord"
+name = "Join discord"
+url = "https://discord.gg/nrpaSurVWV"
