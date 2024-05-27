@@ -35,3 +35,5 @@ Once you're employed, you are protected by labor law and when something happens 
 This year was probably the worst for me in terms of career and finances due to various reasons. I sent more than one thousand applications, but most recruiters, when they see that you have been a developer, team lead, head of department, and entrepreneur, they throw your application in the trash. If you apply for a software developer position, they would like to see a person with the exact same title for the last 15 years, the same goes for team leads and management positions.
 
 > My biggest advice to people who would like to go on their own: keep your 9-5, do your side hustle in your free time, and use your friend's company to invoice your clients. Once you hit 50k+ per year like that, safely leave your 9-5.
+
+Picture credits [@lili_popper](https://unsplash.com/@lili_popper)
