@@ -1,2 +1,4 @@
+# npx pagefind --site docs
+
 source: docs
 bundle_dir: assets/
