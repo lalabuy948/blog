@@ -1,4 +1,4 @@
 # npx pagefind --site docs
 
-source: docs
-bundle_dir: assets/
+site: docs
+output_subdir: assets/
