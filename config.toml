@@ -74,11 +74,11 @@ name = "CV"
 url = "/cv/"
 [[languages.en.menu.main]]
 identifier = "dribbble"
-name = "Me on Dribbble"
+name = "Me on dribbble"
 url = "https://dribbble.com/lalabuy"
 [[languages.en.menu.main]]
 identifier = "behance"
-name = "Me on Behance"
+name = "Me on behance"
 url = "https://www.behance.net/lalabuy"
 [[languages.en.menu.main]]
 identifier = "linkedin"
