@@ -8,6 +8,7 @@ tags:
   - tools
   - code
   - env
+  - tutorial
 
 seo:
   [hashicorp, vault, dotenv, how to]

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>MrPopov :: Single File Chat in Elixir Phoenix</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mrpopov.com/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="Learn how to create a single-file chat application in Elixir Phoenix with real-time messaging using GenServer and Phoenix.PubSub. This tutorial walks you through setting up message storage, handling updates, and integrating LiveView for seamless user experiences. Perfect for developers looking to enhance their Elixir and Phoenix skills."/>
+        
+
+
+
+    <meta name="keywords" content="Elixir, Phoenix, LiveView, Chat Application, Real-time Messaging, GenServer, Phoenix.PubSub, Web Development, LiveBook, Elixir Tutorial, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp">
+    <meta property="twitter:image" content="https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Single File Chat in Elixir Phoenix">
+    <meta property="twitter:title" content="Mr.Popov :: Single File Chat in Elixir Phoenix">
+
+
+
+    <meta property="og:description" content="Meet PhonenixPlayground I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind PhonenixPlayground made both of my wishes come true!
+If you would like jump straight into the code:
+">
+    <meta property="twitter:description" content="Meet PhonenixPlayground I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind PhonenixPlayground made both of my wishes come true!
+If you would like jump straight into the code:
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/">
+
+
+<link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/assets/main.js" as="script">
+<link rel="preload" href="https://mrpopov.com/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="../../" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    
+    <span>
+      <a href="../../episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="../../about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="../../cv/">CV</a></li>
+              
+            
+              
+                <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+              
+            
+              
+                <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+              
+            
+              
+                <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="../../about">About</a></li>
+      
+    
+      
+        <li><a href="../../cv/">CV</a></li>
+      
+    
+      
+        <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+      
+    
+      
+        <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+      
+    
+      
+        <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/">Single File Chat in Elixir Phoenix</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            12-07-2024
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">— 6 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://mrpopov.com/tags/code/">code</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/elixir/">elixir</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/tutorial/">tutorial</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="Single File Chat in Elixir Phoenix" src="https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <h2 id="meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml">Meet <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a></h2>
+<p>I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a> made both of my wishes come true!</p>
+<p>If you would like jump straight into the code:</p>
+<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/pink.svg" alt="Run in Livebook"></a></p>
+<h2 id="whats-the-plan">What&rsquo;s the plan?</h2>
+<ul>
+<li>Have chat with exchanging messages between clients in real time</li>
+<li>We will use <a href="https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html">Phoenix.LiveView</a></li>
+<li>We will have <code>MessageStorage</code> module which holds messages using <a href="https://hexdocs.pm/elixir/GenServer.html">GenServer</a></li>
+<li>We will delete old messages once in a while</li>
+<li>We will use <a href="https://hexdocs.pm/phoenix_pubsub/Phoenix.PubSub.html">Phoenix.PubSub</a> for updating clients via LiveView sockets</li>
+<li>Have all of it in a single LiveBook</li>
+</ul>
+<h2 id="lets-jump-into">Let&rsquo;s jump into</h2>
+<p>Open empty livebook and add next block to Notebook Dependencies and setup</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#a6e22e">Mix</span><span style="color:#f92672">.</span>install([
+</span></span><span style="display:flex;"><span>  {<span style="color:#e6db74">:phoenix_playground</span>, <span style="color:#e6db74">&#34;~&gt; 0.1.3&#34;</span>}
+</span></span><span style="display:flex;"><span>])
+</span></span></code></pre></div><h2 id="lets-create-logic-to-hold-our-messages">Let&rsquo;s create logic to hold our messages</h2>
+<p>First I created simple <code>MessageStorage</code> module with three key functions,</p>
+<ul>
+<li><code>init</code> defines our initial state</li>
+<li><code>add_message/1</code> I hope it&rsquo;s self explanatory</li>
+<li><code>get_messages/1</code> likewise</li>
+</ul>
+<p>Now we need to handle GenServer events:</p>
+<p><code>handle_cast/2</code> simmply add new message to the begning of our empty list which we initiated in <code>init/1</code>.</p>
+<p>and</p>
+<p><code>handle_call</code> where I used <code>Enum.reverse()</code> in order to return messages in reverse, because in the chat you read top down where old on top and newest at the bottom.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">MessageStorage</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">GenServer</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> start_link(_opts) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">GenServer</span><span style="color:#f92672">.</span>start_link(__MODULE__, [], <span style="color:#e6db74">name</span>: __MODULE__)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> init(_args) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, []}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> add_message(message) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">GenServer</span><span style="color:#f92672">.</span>cast(__MODULE__, {<span style="color:#e6db74">:add_message</span>, message})
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> get_messages() <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">GenServer</span><span style="color:#f92672">.</span>call(__MODULE__, <span style="color:#e6db74">:get_messages</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> handle_cast({<span style="color:#e6db74">:add_message</span>, message}, state) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:noreply</span>, [message <span style="color:#f92672">|</span> state]}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> handle_call(<span style="color:#e6db74">:get_messages</span>, _from, state) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:reply</span>, <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>reverse(state), state}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h2 id="lets-add-clean-up-and-updates">Let&rsquo;s add clean up and updates</h2>
+<p>We will define clean up interval and schedule clean up job every 5 seconds to delete the oldest message.</p>
+<blockquote>
+<p>⁉️ This is not optimal way to delete old messages, only for educational purposes, as proper way would be to store created time stamp next to each message and delete based on time stamps, but just for quick night dirty prototyping it will do the job.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">MessageStorage</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">GenServer</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@cleanup_interval</span> <span style="color:#ae81ff">5_000</span> <span style="color:#75715e"># 5 seconds</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> start_link(_opts) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">GenServer</span><span style="color:#f92672">.</span>start_link(__MODULE__, [], <span style="color:#e6db74">name</span>: __MODULE__)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> init(_args) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    schedule_cleanup()
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, []}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> handle_info(<span style="color:#e6db74">:cleanup</span>, state) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    new_state <span style="color:#f92672">=</span> clean_oldest_message(state)
+</span></span><span style="display:flex;"><span>    schedule_cleanup()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:noreply</span>, new_state}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> schedule_cleanup <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Process</span><span style="color:#f92672">.</span>send_after(self(), <span style="color:#e6db74">:cleanup</span>, <span style="color:#a6e22e">@cleanup_interval</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> clean_oldest_message([]), <span style="color:#e6db74">do</span>: []
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> clean_oldest_message(state) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">List</span><span style="color:#f92672">.</span>delete_at(state, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>As for the updates as prommissed we will use <a href="https://hexdocs.pm/phoenix_pubsub/Phoenix.PubSub.html">Phoenix.PubSub</a> as we will need to tell to our clients what&rsquo;s going on like new message was added to the view and old ones were deleted.</p>
+<p>To achieve that we will need two core functionalities: subscribe and broadcast.
+<code>subscribe</code> will let our clients to subscribe to our events from <code>MessageStorage</code> module</p>
+<p>and</p>
+<p><code>broadcast</code> will enable us to send new updates into phonix PubSub.</p>
+<p>Just jumping a bit further, once we will add Phoenix.PubSub to our star tree we will define name of that PubSub like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#a6e22e">Supervisor</span><span style="color:#f92672">.</span>child_spec({<span style="color:#a6e22e">Phoenix.PubSub</span>, <span style="color:#e6db74">name</span>: <span style="color:#e6db74">:demo_pub_sub</span>}, <span style="color:#e6db74">id</span>: <span style="color:#e6db74">:demo_pub_sub</span>),
+</span></span></code></pre></div><p>That&rsquo;s why here you can see that name:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#a6e22e">Phoenix.PubSub</span><span style="color:#f92672">.</span>subscribe(<span style="color:#e6db74">:demo_pub_sub</span>, <span style="color:#e6db74">&#34;message_topic&#34;</span>)
+</span></span></code></pre></div><p>and <code>message_topic</code> is just the name for our topic. Here is extended functionality of module:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">MessageStorage</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">GenServer</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> handle_info(<span style="color:#e6db74">:cleanup</span>, state) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    new_state <span style="color:#f92672">=</span> clean_oldest_message(state)
+</span></span><span style="display:flex;"><span>    schedule_cleanup()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Phoenix.PubSub</span><span style="color:#f92672">.</span>broadcast(<span style="color:#e6db74">:demo_pub_sub</span>, <span style="color:#e6db74">&#34;message_topic&#34;</span>, {<span style="color:#e6db74">:message_last_deleted</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:noreply</span>, new_state}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> subscribe, <span style="color:#e6db74">do</span>: <span style="color:#a6e22e">Phoenix.PubSub</span><span style="color:#f92672">.</span>subscribe(<span style="color:#e6db74">:demo_pub_sub</span>, <span style="color:#e6db74">&#34;message_topic&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> broadcast({<span style="color:#e6db74">:error</span>, _reason} <span style="color:#f92672">=</span> error, _event), <span style="color:#e6db74">do</span>: error
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> broadcast({<span style="color:#e6db74">:ok</span>, message}, event) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Phoenix.PubSub</span><span style="color:#f92672">.</span>broadcast(<span style="color:#e6db74">:demo_pub_sub</span>, <span style="color:#e6db74">&#34;message_topic&#34;</span>, {event, message})
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, message}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> schedule_cleanup <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Process</span><span style="color:#f92672">.</span>send_after(self(), <span style="color:#e6db74">:cleanup</span>, <span style="color:#a6e22e">@cleanup_interval</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> clean_oldest_message([]), <span style="color:#e6db74">do</span>: []
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">defp</span> clean_oldest_message(state) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">List</span><span style="color:#f92672">.</span>delete_at(state, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="what-it-does">What it does?</h3>
+<ul>
+<li>Once client subscribed to our topic it will able to react to updates.</li>
+<li>Once cleanup happened we send update to the Phoenix.PubSub saying message deleted.</li>
+<li>Once new message added we tell to everyone who subscribed that new message was added.</li>
+</ul>
+<h2 id="lets-move-to-our-liveview">Let&rsquo;s move to our LiveView</h2>
+<p>We need to create another module which will hold Phoenix.LiveView logic.</p>
+<p>Quite similiar to what we&rsquo;ve done in <code>MessageStorage</code> we need to init the state. And subscribe to our message topic from <code>Phoenix.PubSub</code>.</p>
+<p>And as you can see we have <code>socket</code> through which we able to send and receive updates from our page. At the return we will iniate <code>messsages</code> state and <code>message_value</code> which we will use for our input value.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">DemoTest</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">Phoenix.LiveView</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> mount(_params, _session, socket) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> connected?(socket), <span style="color:#e6db74">do</span>: <span style="color:#a6e22e">MessageStorage</span><span style="color:#f92672">.</span>subscribe()
+</span></span><span style="display:flex;"><span>    messages <span style="color:#f92672">=</span> <span style="color:#a6e22e">MessageStorage</span><span style="color:#f92672">.</span>get_messages()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:ok</span>, assign(socket, <span style="color:#e6db74">messages</span>: messages, <span style="color:#e6db74">message_value</span>: <span style="color:#e6db74">&#34;&#34;</span>)}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><blockquote>
+<p>❤️ Huge thanks to the everyone who worked on erlang, BEAM, Elixir, Phoenix and LiveView that I don&rsquo;t need to write a single line of javascript. (no offend, I&rsquo;m a backend developer and you will notice it from my frontend skills)</p>
+</blockquote>
+<p>In our render function we can write html and <code>heex</code> annotaions.
+I simply added two css libraries as otherwise it would look completelly boring and aweful, which can be found in the <code>&lt;head&gt;&lt;/head&gt;</code>.</p>
+<p>Let&rsquo;s display our messages, for that we will use <code>for</code> anotation:
+<code>&lt;div class=&quot;chat-bubble&quot; :for={message &lt;- @messages}&gt;&lt;%= message %&gt;&lt;/div&gt;</code></p>
+<p>And in order to &ldquo;submit&rdquo; our message we will use simple form:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">phx-submit</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;new_message&#34;</span> &gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">{@message_value}</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Message...&#34;</span> <span style="color:#a6e22e">autofocus</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+</span></span></code></pre></div><p>In which you can find our <code>@message_value</code> which we added in init state and <code>phx-submit=&quot;new_message&quot;</code>, this is an event which we will need to handle in order to send updates from our UI to <code>MessageStorage</code> and than further to other clients.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">DemoTest</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">Phoenix.LiveView</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> render(assigns) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">~H</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;head&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;link href=&#34;https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/head&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;body&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;div class=&#34;h-screen flex items-center justify-center&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &lt;div class=&#34;mockup-phone border-primary&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &lt;div class=&#34;camera&#34;&gt;&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &lt;div class=&#34;display&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;div class=&#34;artboard artboard-demo phone-1&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;div class=&#34;chat chat-end w-full&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                &lt;div class=&#34;chat-bubble&#34; :for={message &lt;- @messages}&gt;&lt;%= message %&gt;&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;form phx-submit=&#34;new_message&#34; &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                &lt;input type=&#34;text&#34; name=&#34;text&#34; value={@message_value} placeholder=&#34;Message...&#34; autofocus&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                &lt;input type=&#34;submit&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &lt;/form&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/body&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>Now let&rsquo;s wire our UI logic with the rest of the funcitonality which we developed.</p>
+<h3 id="what-needs-to-be-done">What needs to be done?</h3>
+<ul>
+<li>Handle <code>&quot;new_message&quot;</code>:
+<ul>
+<li>send new message to <code>MessageStorage</code> in order to store it in <code>GenServer</code> and update other clients via <code>Phoenix.PubSub</code></li>
+<li>and we need to update socket state in order to display it here in our LiveView: <code>&lt;div class=&quot;chat-bubble&quot; :for={message &lt;- @messages}&gt;&lt;%= message %&gt;&lt;/div&gt;</code></li>
+</ul>
+</li>
+<li>Handle updates from <code>GenServer</code>
+<ul>
+<li><code>:message_last_deleted</code> we need to delete last one from our view</li>
+<li><code>:message_created</code> display new message which came from GenServer which was sent from another client. (or by you from iex)</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">DemoTest</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">use</span> <span style="color:#a6e22e">Phoenix.LiveView</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> handle_event(<span style="color:#e6db74">&#34;new_message&#34;</span>, %{<span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#f92672">=&gt;</span> message}, socket) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">MessageStorage</span><span style="color:#f92672">.</span>add_message(message)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># here i wanted to reset message once we hit enter, but found out it&#39;s not a bug but feature</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># works only once (input is in focus and due to that it wont be updated)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># https://github.com/phoenixframework/phoenix_live_view/issues/624</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:noreply</span>, socket}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> handle_info({<span style="color:#e6db74">:message_last_deleted</span>}, socket) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> length(socket<span style="color:#f92672">.</span>assigns<span style="color:#f92672">.</span>messages) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#e6db74">:noreply</span>, socket}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      [_<span style="color:#f92672">|</span>tail] <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>assigns<span style="color:#f92672">.</span>messages
+</span></span><span style="display:flex;"><span>      {<span style="color:#e6db74">:noreply</span>, assign(socket, <span style="color:#e6db74">messages</span>: tail )}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> handle_info({<span style="color:#e6db74">:message_created</span>, message}, socket) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">:noreply</span>, assign(socket, <span style="color:#e6db74">messages</span>: socket<span style="color:#f92672">.</span>assigns<span style="color:#f92672">.</span>messages <span style="color:#f92672">++</span> [message] )}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h2 id="lets-run">Let&rsquo;s run</h2>
+<p>We need to start our <code>Phoenix.PubSub</code>, <code>GenServer</code> which we wrapped in <code>MessageStorage</code> module and our <code>Phoenix.LiveView</code> via <code>PhoenixPlayground.start/2</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>children <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Supervisor</span><span style="color:#f92672">.</span>child_spec({<span style="color:#a6e22e">Phoenix.PubSub</span>, <span style="color:#e6db74">name</span>: <span style="color:#e6db74">:demo_pub_sub</span>}, <span style="color:#e6db74">id</span>: <span style="color:#e6db74">:demo_pub_sub</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MessageStorage</span>,
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">PhoenixPlayground</span><span style="color:#f92672">.</span>start(<span style="color:#e6db74">live</span>: <span style="color:#a6e22e">DemoTest</span>, <span style="color:#e6db74">child_specs</span>: children)
+</span></span></code></pre></div><p>You can run it and test yourself:</p>
+<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/blue.svg" alt="Run in Livebook"></a></p>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://mrpopov.com/posts/top-5-things-i-learned-as-entrepreneur/">
+                  <span class="button__text">Top 5 Things I Learned as Entrepreneur</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="../../" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2024 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://mrpopov.com/assets/main.js"></script>
+<script src="https://mrpopov.com/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>

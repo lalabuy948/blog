@@ -8,6 +8,7 @@ tags:
   - code
   - tools
   - lifestyle
+  - tutorial
 seo: ["notion", "github", "action", "backup"]
 ---
 

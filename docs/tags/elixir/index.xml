@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>elixir on </title>
+    <link>https://mrpopov.com/tags/elixir/</link>
+    <description>Recent content in elixir on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Jul 2024 23:46:53 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Single File Chat in Elixir Phoenix</title>
+      <link>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</link>
+      <pubDate>Fri, 12 Jul 2024 23:46:53 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</guid>
+      <description>&lt;h2 id=&#34;meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
+&lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

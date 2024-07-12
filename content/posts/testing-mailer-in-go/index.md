@@ -8,13 +8,14 @@ tags:
   - go
   - docker
   - code
+  - tutorial
 ---
 
 ## Forewords
 
 I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use `is_email_confirmed` column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
 
-I was looking on few popular tools across the Internet: 
+I was looking on few popular tools across the Internet:
 - https://mailtrap.io/
 - https://mailcow.email/
 - https://mailu.io/1.7/
@@ -22,7 +23,7 @@ I was looking on few popular tools across the Internet:
 
 ## What I found
 
-My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally. 
+My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.
 
 -> https://github.com/mailhog/MailHog ![stars](https://img.shields.io/github/stars/mailhog/MailHog?style=plastic)
 
@@ -43,7 +44,7 @@ My requirements were: run in docker, easy to config, basic functionality to rend
 
 I did the small package in my project and now I can use it around my services to send emails and catch them in mailhog!
 
-About golang smtp you can checkout here 
+About golang smtp you can checkout here
 - https://github.com/golang/go/wiki/SendingMail
 - https://golang.org/pkg/net/smtp/
 

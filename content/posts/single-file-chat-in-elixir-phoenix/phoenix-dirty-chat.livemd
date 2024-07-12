@@ -1,0 +1,156 @@
+# Phoenix quick dirty chat
+
+```elixir
+Mix.install([
+  {:phoenix_playground, "~> 0.1.3"}
+])
+```
+
+## Phoenix Playground
+
+```elixir
+defmodule DemoTest do
+  use Phoenix.LiveView
+
+  def mount(_params, _session, socket) do
+    if connected?(socket), do: MessageStorage.subscribe()
+    messages = MessageStorage.get_messages()
+
+    {:ok, assign(socket, messages: messages, message_value: "")}
+  end
+
+  def render(assigns) do
+    ~H"""
+    <head>
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+      <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body>
+
+      <div class="h-screen flex items-center justify-center">
+
+      <div class="mockup-phone border-primary">
+        <div class="camera"></div>
+        <div class="display">
+          <div class="artboard artboard-demo phone-1">
+
+            <div class="chat chat-end w-full">
+              <div class="chat-bubble" :for={message <- @messages}><%= message %></div>
+            </div>
+
+            <form phx-submit="new_message" >
+              <input type="text" name="text" value={@message_value} placeholder="Message..." autofocus>
+              <input type="submit" />
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    </body>
+    """
+  end
+
+  def handle_event("new_message", %{"text" => message}, socket) do
+    MessageStorage.add_message(message)
+
+    # works only once (input is in focus and due to that wont be updated)
+    # https://github.com/phoenixframework/phoenix_live_view/issues/624
+    # socket = assign(socket, :message_value, nil)
+
+    {:noreply, socket}
+  end
+
+  def handle_info({:message_last_deleted}, socket) do
+    if length(socket.assigns.messages) == 0 do
+      {:noreply, socket}
+    else
+      [_|tail] = socket.assigns.messages
+      {:noreply, assign(socket, messages: tail )}
+    end
+  end
+
+  def handle_info({:message_created, message}, socket) do
+    {:noreply, assign(socket, messages: socket.assigns.messages ++ [message] )}
+  end
+
+end
+```
+
+## Our storage and topic logic
+
+```elixir
+defmodule MessageStorage do
+  use GenServer
+
+  @cleanup_interval 5_000 # 5 seconds
+
+  def start_link(_opts) do
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  end
+
+  def init(_args) do
+    schedule_cleanup()
+    {:ok, []}
+  end
+
+  def add_message(message) do
+    GenServer.cast(__MODULE__, {:add_message, message})
+
+    broadcast({:ok, message}, :message_created)
+  end
+
+  def get_messages() do
+    GenServer.call(__MODULE__, :get_messages)
+  end
+
+  def handle_cast({:add_message, message}, state) do
+    {:noreply, [message | state]}
+  end
+
+  def handle_call(:get_messages, _from, state) do
+    {:reply, Enum.reverse(state), state}
+  end
+
+  def handle_info(:cleanup, state) do
+    new_state = clean_oldest_message(state)
+    schedule_cleanup()
+
+    Phoenix.PubSub.broadcast(:demo_pub_sub, "message_topic", {:message_last_deleted})
+
+    {:noreply, new_state}
+  end
+
+  def subscribe, do: Phoenix.PubSub.subscribe(:demo_pub_sub, "message_topic")
+
+  defp broadcast({:error, _reason} = error, _event), do: error
+  defp broadcast({:ok, message}, event) do
+    Phoenix.PubSub.broadcast(:demo_pub_sub, "message_topic", {event, message})
+    {:ok, message}
+  end
+
+  defp schedule_cleanup do
+    Process.send_after(self(), :cleanup, @cleanup_interval)
+  end
+
+  defp clean_oldest_message([]), do: []
+  defp clean_oldest_message(state) do
+    List.delete_at(state, -1)
+  end
+end
+
+```
+
+## Start tree
+
+```elixir
+children = [
+  Supervisor.child_spec({Phoenix.PubSub, name: :demo_pub_sub}, id: :demo_pub_sub),
+  MessageStorage,
+]
+
+PhoenixPlayground.start(live: DemoTest, child_specs: children)
+```

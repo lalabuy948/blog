@@ -9,6 +9,7 @@ tags:
   - env
   - docker
   - code
+  - tutorial
 ---
 
 ## Forewords

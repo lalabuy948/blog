@@ -8,6 +8,7 @@ tags:
   - tools
   - code
   - env
+  - tutorial
 
 seo:
   [dotenv, open source, golang, github actions]
@@ -35,7 +36,7 @@ I would like to mention [Github Actions](https://github.com/features/actions) he
 
 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Flalabuy948%2Fgenvutils%2Fblob%2Fmaster%2F.github%2Fworkflows%2Fci.yml&style=github"></script>
 
-Btw I'm really proud of my bash skill to do the last thing in one line 😂 
+Btw I'm really proud of my bash skill to do the last thing in one line 😂
 
 ```bash
 curl https://sum.golang.org/lookup/github.com/lalabuy948/genvutils@"$(git describe --tags `git rev-list --tags --max-count=1`)"
