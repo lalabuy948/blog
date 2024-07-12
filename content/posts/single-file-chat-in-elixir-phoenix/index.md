@@ -9,7 +9,19 @@ tags:
   - elixir
   - tutorial
 
-seo: ["Elixir", "Phoenix", "LiveView", "Chat Application", "Real-time Messaging", "GenServer", "Phoenix.PubSub", "Web Development", "LiveBook", "Elixir Tutorial"]
+seo:
+  [
+    "Elixir",
+    "Phoenix",
+    "LiveView",
+    "Chat Application",
+    "Real-time Messaging",
+    "GenServer",
+    "Phoenix.PubSub",
+    "Web Development",
+    "LiveBook",
+    "Elixir Tutorial",
+  ]
 seo_description: "Learn how to create a single-file chat application in Elixir Phoenix with real-time messaging using GenServer and Phoenix.PubSub. This tutorial walks you through setting up message storage, handling updates, and integrating LiveView for seamless user experiences. Perfect for developers looking to enhance their Elixir and Phoenix skills."
 ---
 
@@ -34,7 +46,7 @@ If you would like jump straight into the code:
 
 ## Let's jump into
 
-Open empty livebook and add next block to Notebook Dependencies and setup
+Open empty LiveBook and add next block to Notebook Dependencies and setup
 
 ```elixir
 Mix.install([
@@ -52,7 +64,7 @@ First I created simple `MessageStorage` module with three key functions,
 
 Now we need to handle GenServer events:
 
-`handle_cast/2` simmply add new message to the begning of our empty list which we initiated in `init/1`.
+`handle_cast/2` simply add new message to the begging of our empty list which we initiated in `init/1`.
 
 and
 
@@ -130,16 +142,16 @@ defmodule MessageStorage do
   end
 ```
 
-As for the updates as prommissed we will use [Phoenix.PubSub](https://hexdocs.pm/phoenix_pubsub/Phoenix.PubSub.html) as we will need to tell to our clients what's going on like new message was added to the view and old ones were deleted.
+As for the updates as promised we will use [Phoenix.PubSub](https://hexdocs.pm/phoenix_pubsub/Phoenix.PubSub.html) as we will need to tell to our clients what's going on like new message was added to the view and old ones were deleted.
 
 To achieve that we will need two core functionalities: subscribe and broadcast.
 `subscribe` will let our clients to subscribe to our events from `MessageStorage` module
 
 and
 
-`broadcast` will enable us to send new updates into phonix PubSub.
+`broadcast` will enable us to send new updates into `Phoenix.PubSub`.
 
-Just jumping a bit further, once we will add Phoenix.PubSub to our star tree we will define name of that PubSub like this:
+Just jumping a bit further, once we will add `Phoenix.PubSub` to our star tree we will define name of that PubSub like this:
 
 ```elixir
 Supervisor.child_spec({Phoenix.PubSub, name: :demo_pub_sub}, id: :demo_pub_sub),
@@ -197,9 +209,9 @@ end
 
 We need to create another module which will hold Phoenix.LiveView logic.
 
-Quite similiar to what we've done in `MessageStorage` we need to init the state. And subscribe to our message topic from `Phoenix.PubSub`.
+Quite similar to what we've done in `MessageStorage` we need to init the state. And subscribe to our message topic from `Phoenix.PubSub`.
 
-And as you can see we have `socket` through which we able to send and receive updates from our page. At the return we will iniate `messsages` state and `message_value` which we will use for our input value.
+And as you can see we have `socket` through which we able to send and receive updates from our page. At the return we will initiate `messages` state and `message_value` which we will use for our input value.
 
 ```elixir
 defmodule DemoTest do
@@ -219,17 +231,23 @@ end
 
 > ❤️ Huge thanks to the everyone who worked on erlang, BEAM, Elixir, Phoenix and LiveView that I don't need to write a single line of javascript. (no offend, I'm a backend developer and you will notice it from my frontend skills)
 
-In our render function we can write html and `heex` annotaions.
-I simply added two css libraries as otherwise it would look completelly boring and aweful, which can be found in the `<head></head>`.
+In our render function we can write html and `heex` annotations.
+I simply added two css libraries as otherwise it would look completely boring and awful, which can be found in the `<head></head>`.
 
-Let's display our messages, for that we will use `for` anotation:
+Let's display our messages, for that we will use `for` annotation:
 `<div class="chat-bubble" :for={message <- @messages}><%= message %></div>`
 
 And in order to "submit" our message we will use simple form:
 
 ```html
-<form phx-submit="new_message" >
-  <input type="text" name="text" value={@message_value} placeholder="Message..." autofocus>
+<form phx-submit="new_message">
+  <input
+    type="text"
+    name="text"
+    value="{@message_value}"
+    placeholder="Message..."
+    autofocus
+  />
   <input type="submit" />
 </form>
 ```
@@ -282,7 +300,7 @@ defmodule DemoTest do
 end
 ```
 
-Now let's wire our UI logic with the rest of the funcitonality which we developed.
+Now let's wire our UI logic with the rest of the functionality which we developed.
 
 ### What needs to be done?
 
@@ -292,7 +310,6 @@ Now let's wire our UI logic with the rest of the funcitonality which we develope
 - Handle updates from `GenServer`
   - `:message_last_deleted` we need to delete last one from our view
   - `:message_created` display new message which came from GenServer which was sent from another client. (or by you from iex)
-
 
 ```elixir
 defmodule DemoTest do
