@@ -35,8 +35,6 @@ If you would like jump straight into the code:
 
 <!--more-->
 
-![Screenshot](/img/single-file-chat-in-elixir-phoenix/splitscreen.png)
-
 ## What's the plan?
 
 - Have chat with exchanging messages between clients in real time
