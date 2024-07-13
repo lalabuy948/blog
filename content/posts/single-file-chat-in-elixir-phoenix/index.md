@@ -64,7 +64,7 @@ First I created simple `MessageStorage` module with three key functions,
 
 Now we need to handle GenServer events:
 
-`handle_cast/2` simply add new message to the begging of our empty list which we initiated in `init/1`.
+`handle_cast/2` simply add new message to the beginning of our empty list which we initiated in `init/1`.
 
 and
 
