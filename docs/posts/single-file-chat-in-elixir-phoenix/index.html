@@ -267,7 +267,6 @@ If you would like jump straight into the code:
 <p>I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a> made both of my wishes come true!</p>
 <p>If you would like jump straight into the code:</p>
 <p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/pink.svg" alt="Run in Livebook"></a></p>
-<p><img src="../../img/single-file-chat-in-elixir-phoenix/splitscreen.png" alt="Screenshot"></p>
 <h2 id="whats-the-plan">What&rsquo;s the plan?</h2>
 <ul>
 <li>Have chat with exchanging messages between clients in real time</li>
@@ -290,7 +289,7 @@ If you would like jump straight into the code:
 <li><code>get_messages/1</code> likewise</li>
 </ul>
 <p>Now we need to handle GenServer events:</p>
-<p><code>handle_cast/2</code> simply add new message to the begging of our empty list which we initiated in <code>init/1</code>.</p>
+<p><code>handle_cast/2</code> simply add new message to the beginning of our empty list which we initiated in <code>init/1</code>.</p>
 <p>and</p>
 <p><code>handle_call</code> where I used <code>Enum.reverse()</code> in order to return messages in reverse, because in the chat you read top down where old on top and newest at the bottom.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">MessageStorage</span> <span style="color:#66d9ef">do</span>
