@@ -282,39 +282,39 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 <ol start="3">
 <li>Paste this yml file</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Notion backup&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">schedule</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#34;0 0 * * *&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">backup</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Backup</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">timeout-minutes</span>: <span style="color:#ae81ff">15</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-node@v2</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">node-version</span>: <span style="color:#e6db74">&#34;12&#34;</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup dependencies</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">npm install -g notion-backup</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run backup</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">notion-backup</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">NOTION_TOKEN</span>: <span style="color:#ae81ff">${{ secrets.NOTION_TOKEN }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">NOTION_SPACE_ID</span>: <span style="color:#ae81ff">${{ secrets.NOTION_SPACE_ID }}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Commit changes</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">elstudio/actions-js-build/commit@v3</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">commitMessage</span>: <span style="color:#ae81ff">Automated snapshot</span>
-</span></span></code></pre></div><ol start="4">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#34;Notion backup&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">on</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">push</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">branches</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- main<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">schedule</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- <span style="color:#000080">cron</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#34;0 0 * * *&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">jobs</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">backup</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">runs-on</span>:<span style="color:#bbb"> </span>ubuntu-latest<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Backup<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">timeout-minutes</span>:<span style="color:#bbb"> </span><span style="color:#099">15</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">steps</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>actions/checkout@v2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>actions/setup-node@v2<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">with</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">node-version</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#34;12&#34;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Setup dependencies<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">run</span>:<span style="color:#bbb"> </span>npm install -g notion-backup<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Run backup<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">run</span>:<span style="color:#bbb"> </span>notion-backup<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">env</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">NOTION_TOKEN</span>:<span style="color:#bbb"> </span>${{ secrets.NOTION_TOKEN }}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">NOTION_SPACE_ID</span>:<span style="color:#bbb"> </span>${{ secrets.NOTION_SPACE_ID }}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Commit changes<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>elstudio/actions-js-build/commit@v3<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">with</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">commitMessage</span>:<span style="color:#bbb"> </span>Automated snapshot<span style="color:#bbb">
+</span></span></span></code></pre></div><ol start="4">
 <li>
 <p>Get your secrets</p>
 <ol>

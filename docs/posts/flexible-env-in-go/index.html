@@ -276,37 +276,37 @@ Then I realized that my friend does not want to struggle with database setup and
 <p>I prefer using <code>.env</code> instead of typing stuff to cli. I found out really elegant solution. You can still use <code>.env</code> and parse it easily with
 <code>github.com/caarlos0/env/v6</code>, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes <code>github.com/joho/godotenv</code>, if you provide environment variables via dockerfile or docker-compose it will override constants in your <code>.env</code>.</p>
 <h2 id="solution">Solution</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">config</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> config
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;log&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/caarlos0/env/v6&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/joho/godotenv&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;github.com/caarlos0/env/v6&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;github.com/joho/godotenv&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Env</span>        <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;ENVIRONMENT&#34; envDefault:&#34;dev&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ServerPort</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;SERVER_PORT&#34; envDefault:&#34;8080&#34;`</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">type</span> Config <span style="color:#000;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Env        <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`env:&#34;ENVIRONMENT&#34; envDefault:&#34;dev&#34;`</span>
+</span></span><span style="display:flex;"><span>	ServerPort <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`env:&#34;SERVER_PORT&#34; envDefault:&#34;8080&#34;`</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DbHost</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_HOST&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DbPort</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_PORT&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DbUser</span>     <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_USER&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DbPassword</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_PASSWORD&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DbDialect</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`env:&#34;DB_DIALECT&#34; envDefault:&#34;sqlite3&#34;`</span>
+</span></span><span style="display:flex;"><span>	DbHost     <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`env:&#34;DB_HOST&#34;`</span>
+</span></span><span style="display:flex;"><span>	DbPort     <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`env:&#34;DB_PORT&#34;`</span>
+</span></span><span style="display:flex;"><span>	DbUser     <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`env:&#34;DB_USER&#34;`</span>
+</span></span><span style="display:flex;"><span>	DbPassword <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`env:&#34;DB_PASSWORD&#34;`</span>
+</span></span><span style="display:flex;"><span>	DbDialect  <span style="color:#458;font-weight:bold">string</span> <span style="color:#d14">`env:&#34;DB_DIALECT&#34; envDefault:&#34;sqlite3&#34;`</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ParseEnv</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">godotenv</span>.<span style="color:#a6e22e">Load</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Error loading .env file&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">ParseEnv</span>() <span style="color:#000;font-weight:bold">*</span>Config {
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">:=</span> godotenv.<span style="color:#900;font-weight:bold">Load</span>(); err <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		log.<span style="color:#900;font-weight:bold">Fatal</span>(<span style="color:#d14">&#34;Error loading .env file&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cfg</span> <span style="color:#a6e22e">Config</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">Parse</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfg</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Error parsing .env file&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">var</span> cfg Config
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">:=</span> env.<span style="color:#900;font-weight:bold">Parse</span>(<span style="color:#000;font-weight:bold">&amp;</span>cfg); err <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		log.<span style="color:#900;font-weight:bold">Fatal</span>(<span style="color:#d14">&#34;Error parsing .env file&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfg</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">&amp;</span>cfg
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Not sure if it will be useful to anyone, but i decided to share it.</p>
 <p>Cover from <a href="https://github.com/ashleymcnamara/gophers">github.com/ashleymcnamara/gophers</a>.</p>

@@ -282,49 +282,49 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
 <p>My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.</p>
 <p>-&gt; <a href="https://github.com/mailhog/MailHog">https://github.com/mailhog/MailHog</a> <img src="https://img.shields.io/github/stars/mailhog/MailHog?style=plastic" alt="stars"></p>
 <h2 id="setup">Setup</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># docker-compose.dev.yml</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">mailhog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mailhog/mailhog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mailhog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;8025:8025&#39;</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;1025:1025&#39;</span>
-</span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>I did the small package in my project and now I can use it around my services to send emails and catch them in mailhog!</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># docker-compose.dev.yml</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#555">...</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">mailhog</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">image</span>:<span style="color:#bbb"> </span>mailhog/mailhog<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">container_name</span>:<span style="color:#bbb"> </span>mailhog<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">restart</span>:<span style="color:#bbb"> </span>always<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">ports</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#d14">&#39;8025:8025&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#d14">&#39;1025:1025&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#555">...</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>I did the small package in my project and now I can use it around my services to send emails and catch them in mailhog!</p>
 <p>About golang smtp you can checkout here</p>
 <ul>
 <li><a href="https://github.com/golang/go/wiki/SendingMail">https://github.com/golang/go/wiki/SendingMail</a></li>
 <li><a href="https://golang.org/pkg/net/smtp/">https://golang.org/pkg/net/smtp/</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;bytes&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/smtp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;bytes&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#d14">&#34;net/smtp&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Connect to the remote SMTP server.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">smtp</span>.<span style="color:#a6e22e">Dial</span>(<span style="color:#e6db74">&#34;localhost:1025&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// Connect to the remote SMTP server.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	c, err <span style="color:#000;font-weight:bold">:=</span> smtp.<span style="color:#900;font-weight:bold">Dial</span>(<span style="color:#d14">&#34;localhost:1025&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		log.<span style="color:#900;font-weight:bold">Fatal</span>(err)
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Close</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Set the sender and recipient.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Mail</span>(<span style="color:#e6db74">&#34;sender@example.org&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Rcpt</span>(<span style="color:#e6db74">&#34;recipient@example.net&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Send the email body.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">wc</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Data</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">defer</span> c.<span style="color:#900;font-weight:bold">Close</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Set the sender and recipient.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	c.<span style="color:#900;font-weight:bold">Mail</span>(<span style="color:#d14">&#34;sender@example.org&#34;</span>)
+</span></span><span style="display:flex;"><span>	c.<span style="color:#900;font-weight:bold">Rcpt</span>(<span style="color:#d14">&#34;recipient@example.net&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">// Send the email body.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	wc, err <span style="color:#000;font-weight:bold">:=</span> c.<span style="color:#900;font-weight:bold">Data</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> err <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		log.<span style="color:#900;font-weight:bold">Fatal</span>(err)
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">wc</span>.<span style="color:#a6e22e">Close</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">buf</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">NewBufferString</span>(<span style="color:#e6db74">&#34;This is the email body.&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">buf</span>.<span style="color:#a6e22e">WriteTo</span>(<span style="color:#a6e22e">wc</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">defer</span> wc.<span style="color:#900;font-weight:bold">Close</span>()
+</span></span><span style="display:flex;"><span>	buf <span style="color:#000;font-weight:bold">:=</span> bytes.<span style="color:#900;font-weight:bold">NewBufferString</span>(<span style="color:#d14">&#34;This is the email body.&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">if</span> _, err = buf.<span style="color:#900;font-weight:bold">WriteTo</span>(wc); err <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">nil</span> {
+</span></span><span style="display:flex;"><span>		log.<span style="color:#900;font-weight:bold">Fatal</span>(err)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>I would recommend setting this up via env, check <a href="../../posts/flexible-env-in-go/">my post</a> about it.</p>

@@ -106,6 +106,8 @@ We will define clean up interval and schedule clean up job every 5 seconds to de
 
 > ⁉️ This is not optimal way to delete old messages, only for educational purposes, as proper way would be to store created time stamp next to each message and delete based on time stamps, but just for quick night dirty prototyping it will do the job.
 
+Improved version located on my [GitHub 🔗](https://github.com/lalabuy948/InMemoryChat)
+
 ```elixir
 defmodule MessageStorage do
   use GenServer

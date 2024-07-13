@@ -11,10 +11,16 @@ enableRobotsTXT = false
 
 staticDir = ['static']
 
+PygmentsCodeFences = true
+PygmentsStyle = "github"
+
+
 [markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-unsafe = true
+    [markup.highlight]
+        style = 'github'
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
 
 [params]
 contentTypeName = "posts"
@@ -28,7 +34,7 @@ twitter = "lalabuy948"
 copyright = "Copyright 203"
 itunes_subtitle = "The best podcast ever"
 itunes_author = "Daniil Popov"
-itunes_summary = "Some awesome description"            # Limited to 4000 characters or less, plain text, no HTML
+itunes_summary = "Some awesome description"
 itunes_owner_name = "Daniil Popov"
 itunes_owner_email = "lalabuy9948@gmail.com"
 itunes_image = "https://mrpopov.com/img/mrpopov1.webp"
