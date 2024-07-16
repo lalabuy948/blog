@@ -6,7 +6,16 @@
     <description>Recent content in code on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 12 Jul 2024 23:46:53 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Jul 2024 21:23:11 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ultimate Tech Scaling Guide</title>
+      <link>https://mrpopov.com/posts/ultimate-tech-scaling-guide/</link>
+      <pubDate>Tue, 16 Jul 2024 21:23:11 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/ultimate-tech-scaling-guide/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Single File Chat in Elixir Phoenix</title>
       <link>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</link>

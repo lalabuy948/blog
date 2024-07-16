@@ -14,7 +14,6 @@ staticDir = ['static']
 PygmentsCodeFences = true
 PygmentsStyle = "github"
 
-
 [markup]
     [markup.highlight]
         style = 'github'
