@@ -33,7 +33,7 @@ seo:
 seo_description: "Investing in people, not just assets or stocks, can lead to a successful bottom line. By hiring the right people, investing in their training and development, and fostering a positive work environment, you can create a strong foundation for success. In uncertain times, investing in yourself and others can lead to personal growth, development, and resilience. Learn how investing in people can unlock your full potential and achieve great things."
 ---
 
-As you might feel hard times are approaching, failure of Silicon Valley Bank is not the only sign of what’s happening in the world. Enormous [true inflation](<[https://truflation.com](https://truflation.com/)>) with a lot of excluded spheres in calculations and constant lie on reported numbers. The main question is how to protect yourself from upcoming “tsunami”, as some enlightened people are saying.
+As you might feel hard times are approaching, failure of Silicon Valley Bank is not the only sign of what’s happening in the world. Enormous [https://truflation.com](https://truflation.com/) with a lot of excluded spheres in calculations and constant lie on reported numbers. The main question is how to protect yourself from upcoming “tsunami”, as some enlightened people are saying.
 
 Stocks, crypto, commodities, real estate, different currencies - all of this might evaporate in matter of a blink. Stocks unpredictable, crypto even worse. Commodities and real estate might nationalised. Any currency might hit hyper inflation or even if going to find a stable pair, you still need to do operations through banks which can refuse giving you real value back instead of digits on your phone screen.
 

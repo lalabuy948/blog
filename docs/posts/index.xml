@@ -6,7 +6,17 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 16 Jul 2024 21:23:11 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Aug 2024 14:19:03 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Connect Livebook to Phoenix on Vps</title>
+      <link>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</link>
+      <pubDate>Sat, 03 Aug 2024 14:19:03 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://livebook.dev&#34;&gt;Livebook&lt;/a&gt; is very powerful application which can be used in many different ways with your &lt;a href=&#34;https://www.phoenixframework.org&#34;&gt;Phoneix&lt;/a&gt; project.
+I have few apps running on my VPS and sometimes I would like to run some functions without creating interface for them from admin side, such as cache clean up. Perhaps run some analytical queries to the database and much more.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Ultimate Tech Scaling Guide</title>
       <link>https://mrpopov.com/posts/ultimate-tech-scaling-guide/</link>
@@ -25,7 +35,7 @@
       <description>&lt;h2 id=&#34;meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
 &lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img alt=&#34;Run in Livebook&#34; src=&#34;https://livebook.dev/badge/v1/pink.svg&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -93,7 +103,7 @@ So what are some best practices and tips for ensuring data security in digital c
       <pubDate>Tue, 18 Apr 2023 13:14:05 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/the-highest-roi-asset/</guid>
-      <description>As you might feel hard times are approaching, failure of Silicon Valley Bank is not the only sign of what’s happening in the world. Enormous true inflation with a lot of excluded spheres in calculations and constant lie on reported numbers. The main question is how to protect yourself from upcoming “tsunami”, as some enlightened people are saying.
+      <description>As you might feel hard times are approaching, failure of Silicon Valley Bank is not the only sign of what’s happening in the world. Enormous https://truflation.com with a lot of excluded spheres in calculations and constant lie on reported numbers. The main question is how to protect yourself from upcoming “tsunami”, as some enlightened people are saying.
 Stocks, crypto, commodities, real estate, different currencies - all of this might evaporate in matter of a blink.</description>
     </item>
     

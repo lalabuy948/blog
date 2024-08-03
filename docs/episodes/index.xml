@@ -10,9 +10,9 @@
      xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
     >
   <channel>
-    <title>Mr. Popov</title>
+    <title></title>
     <atom:link href="https://mrpopov.com/episodes/index.xml" rel="self" type="application/rss+xml" />
-    <link>https://mrpopov.com</link>
+    <link>https://mrpopov.com/</link>
     <description>Some awesome description</description>
     <lastBuildDate>Mon, 10 Apr 2023 22:27:18 &#43;0200</lastBuildDate>
     <sy:updatePeriod>hourly</sy:updatePeriod>
@@ -34,38 +34,10 @@
     <googleplay:image href="https://mrpopov.com/img/mrpopov1.webp"></googleplay:image>
     <image>
       <url>https://mrpopov.com/img/mrpopov1.webp</url>
-      <title>Mr. Popov</title>
-      <link>https://mrpopov.com</link>
+      <title></title>
+      <link>https://mrpopov.com/</link>
     </image>
     <itunes:category text="Technology">
       <itunes:category text="Software How-To" /><itunes:category text="Tech News" /></itunes:category><itunes:explicit>false</itunes:explicit>
-    <googleplay:explicit>false</googleplay:explicit><generator>Hugo -- gohugo.io</generator>
-        <item>
-          
-            <title>01 - A Bit About AI [Ru]
-          
-          
-          </title>
-          <link>https://mrpopov.com/episodes/01-a-bit-about-ai-ru/</link>
-          <pubDate>Mon, 10 Apr 2023 22:27:18 +0200 </pubDate>
-          <dc:creator></dc:creator>
-          <guid>###.mp3</guid>
-          <itunes:author>
-            
-            </itunes:author>
-          
-        
-          <itunes:title>01 - A Bit About AI [Ru]</itunes:title>
-        
-        <itunes:subtitle><![CDATA[
-        
-        
-        
-        ]]></itunes:subtitle>
-        <itunes:summary></itunes:summary>
-        <description></description>
-        <googleplay:description></googleplay:description>
-        <content:encoded><![CDATA[]]></content:encoded><itunes:image href="https://mrpopov.com/img/episode/default.jpg"></itunes:image>
-          <googleplay:image href="https://mrpopov.com/img/episode/default.jpg"></googleplay:image><enclosure url="###.mp3"  type="audio/mpeg" /><itunes:explicit>false</itunes:explicit>
-          <googleplay:explicit>no</googleplay:explicit></item></channel>
+    <googleplay:explicit>false</googleplay:explicit><generator>Hugo -- gohugo.io</generator></channel>
 </rss>
