@@ -18,6 +18,10 @@ Based in Luxembourg, I work remotely but am open to on-site visits.
 
 ### Companies I contributed to
 
+[Interdisciplinary Centre for Security, Reliability and Trust](https://www.uni.lu/snt-en/)
+
+[Toniiq](https://www.toniiq.com)
+
 [Eurosender.com](https://www.eurosender.com)
 
 [PostLu](https://www.post.lu)
