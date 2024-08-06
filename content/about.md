@@ -8,11 +8,11 @@ title: "About"
 
 [My CV](/cv/)
 
-Result oriented fractional CTO with proven track record. Over decade of experience in technology, product building, people management and processes establishment. Primarily was in charge of complex projects which were critical part of the entire system and require cross department coordination, as an example ERP migration and integration or entire feed migration on live environment with millions of active users without service downtime. During my leadership in one of the companies I increased engineering efficiency by more than twice in half year and decreased tech debt by 45% in 1,5 years.
+Result-oriented Senior Software Engineer and fCTO with a proven track record. With over a decade of experience in technology, software development, people management, and process establishment, I have primarily led complex projects that are critical to entire systems, often requiring cross-department coordination. For example, I have overseen ERP migration and integration, as well as live feed migration for environments with millions of active users without service downtime. During my leadership, I increased engineering efficiency by more than twice in half a year and decreased tech debt by 45% in 1.5 years.
 
-Recognised leader with strong management skills, in-depth technology knowledge with business first approach. Goal oriented, doer, highly creative, trustworthy, reliable, self-motivated and self-initiative.
+Recognized leader with strong software engineering skills, in-depth technology knowledge, and a business-first approach. Goal-oriented, innovative, trustworthy, reliable, self-motivated, and proactive.
 
-Based in Luxembourg, work remotely, open for on-site visits.
+Based in Luxembourg, I work remotely but am open to on-site visits.
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/)
 
