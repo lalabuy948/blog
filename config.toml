@@ -15,11 +15,11 @@ PygmentsCodeFences = true
 PygmentsStyle = "github"
 
 [markup]
-    [markup.highlight]
-        style = 'github'
-    [markup.goldmark]
-        [markup.goldmark.renderer]
-            unsafe = true
+[markup.highlight]
+style = 'github'
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
 contentTypeName = "posts"
@@ -101,3 +101,7 @@ url = "https://www.pexels.com/@daniil-popov-1864765"
 identifier = "discord"
 name = "Join discord"
 url = "https://discord.gg/nrpaSurVWV"
+[[languages.en.menu.main]]
+identifier = "zprojects"
+name = "Pets graveyard"
+url = "/projects"
