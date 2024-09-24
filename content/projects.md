@@ -4,6 +4,12 @@ date: ""
 title: "Projects"
 ---
 
+## [Phoenix Analytics](https://github.com/lalabuy948/PhoenixAnalytics)
+
+Up to now, my most successful open source attempt.
+
+[![](https://raw.githubusercontent.com/lalabuy948/PhoenixAnalytics/master/github/hero.png)](https://github.com/lalabuy948/PhoenixAnalytics)
+
 ## [The Inidie Stack](https://theindiestack.com)
 
 I wanted to create simple listing for indie hackers to publish their product and showcase chosen stack.
