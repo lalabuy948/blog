@@ -5,8 +5,21 @@
     <link>https://mrpopov.com/posts/</link>
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 03 Aug 2024 14:19:03 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Apr 2025 15:26:59 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tax-Free Income Scheme: Step-by-Step Guide</title>
+      <link>https://mrpopov.com/posts/tax-free-income-step-by-step/</link>
+      <pubDate>Wed, 02 Apr 2025 15:26:59 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/tax-free-income-step-by-step/</guid>
+      <description>For Digital Nomads, Freelancers, and Remote Business Owners
+Non US Citizens only
+1. Set Up Your Tax-Free Business Entity Step 1: Form a US LLC Why? US LLCs are flexible, low-cost, and avoid corporate tax if structured correctly.
+How?
+Choose a State: Wyoming (no state tax, privacy) Delaware (strong legal framework) New Mexico (cheapest, but less banking flexibility) Hire a Registered Agent: Required for compliance (cost: $50-300/year) Obtain an EIN: Apply for an Employer Identification Number (EIN) via IRS Form SS-4 (free) Alternative Structures: UAE Free Zone Company: 0% corporate/personal tax, but higher setup costs (~$15k) Estonia e-Residency: 0% corporate tax until profits are distributed 2.</description>
+    </item>
+    
     <item>
       <title>Connect Livebook to Phoenix on Vps</title>
       <link>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</link>
@@ -35,7 +48,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <description>&lt;h2 id=&#34;meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
 &lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img alt=&#34;Run in Livebook&#34; src=&#34;https://livebook.dev/badge/v1/pink.svg&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

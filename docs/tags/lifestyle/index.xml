@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lifestyle on </title>
+    <title>lifestyle on </title>
     <link>https://mrpopov.com/tags/lifestyle/</link>
-    <description>Recent content in Lifestyle on </description>
+    <description>Recent content in lifestyle on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 05 Aug 2023 08:41:40 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/lifestyle/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Apr 2025 15:26:59 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/lifestyle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tax-Free Income Scheme: Step-by-Step Guide</title>
+      <link>https://mrpopov.com/posts/tax-free-income-step-by-step/</link>
+      <pubDate>Wed, 02 Apr 2025 15:26:59 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/tax-free-income-step-by-step/</guid>
+      <description>For Digital Nomads, Freelancers, and Remote Business Owners
+Non US Citizens only
+1. Set Up Your Tax-Free Business Entity Step 1: Form a US LLC Why? US LLCs are flexible, low-cost, and avoid corporate tax if structured correctly.
+How?
+Choose a State: Wyoming (no state tax, privacy) Delaware (strong legal framework) New Mexico (cheapest, but less banking flexibility) Hire a Registered Agent: Required for compliance (cost: $50-300/year) Obtain an EIN: Apply for an Employer Identification Number (EIN) via IRS Form SS-4 (free) Alternative Structures: UAE Free Zone Company: 0% corporate/personal tax, but higher setup costs (~$15k) Estonia e-Residency: 0% corporate tax until profits are distributed 2.</description>
+    </item>
+    
     <item>
       <title>Speed Up Your Life [upd]</title>
       <link>https://mrpopov.com/posts/speed-up-your-life/</link>
