@@ -172,5 +172,3 @@ seo_description: "Learn how to legally structure your business for tax-free inco
 - **Adapt as Needed:** If your income or lifestyle changes (e.g., US clients), restructure immediately
 
 *By following these steps, you can legally retain ~100% of your income while living and working globally.*
-
-*By following these steps, you can legally retain ~100% of your income while living and working globally.*
