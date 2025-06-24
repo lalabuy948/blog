@@ -18,6 +18,10 @@ Based in Luxembourg, I work remotely but am open to on-site visits.
 
 ### Companies I contributed to
 
+[CyanView](https://www.cyanview.com/)
+
+[AITax13](https://www.aitax13.com/)
+
 [Interdisciplinary Centre for Security, Reliability and Trust](https://www.uni.lu/snt-en/)
 
 [Toniiq](https://www.toniiq.com)
