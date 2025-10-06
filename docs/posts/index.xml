@@ -6,7 +6,17 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Apr 2025 15:26:59 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Oct 2025 21:55:18 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir Liveview Signle Binary</title>
+      <link>https://mrpopov.com/posts/elixir-liveview-signle-binary/</link>
+      <pubDate>Mon, 06 Oct 2025 21:55:18 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/elixir-liveview-signle-binary/</guid>
+      <description>We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&amp;hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
+The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&amp;rsquo;d get into that rotten stuff pretty soon.</description>
+    </item>
+    
     <item>
       <title>Tax-Free Income Scheme: Step-by-Step Guide</title>
       <link>https://mrpopov.com/posts/tax-free-income-step-by-step/</link>

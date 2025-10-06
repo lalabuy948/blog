@@ -3,15 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mrpopov.com/</loc>
-    <lastmod>2025-04-02T15:26:59+02:00</lastmod>
+    <lastmod>2025-10-06T21:55:18+02:00</lastmod>
   </url><url>
-    <loc>https://mrpopov.com/tags/lifestyle/</loc>
-    <lastmod>2025-04-02T15:26:59+02:00</lastmod>
+    <loc>https://mrpopov.com/tags/code/</loc>
+    <lastmod>2025-10-06T21:55:18+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/elixir/</loc>
+    <lastmod>2025-10-06T21:55:18+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/posts/elixir-liveview-signle-binary/</loc>
+    <lastmod>2025-10-06T21:55:18+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/</loc>
-    <lastmod>2025-04-02T15:26:59+02:00</lastmod>
+    <lastmod>2025-10-06T21:55:18+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/</loc>
+    <lastmod>2025-10-06T21:55:18+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/tutorial/</loc>
+    <lastmod>2025-10-06T21:55:18+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/tags/lifestyle/</loc>
     <lastmod>2025-04-02T15:26:59+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/tax-free-income-step-by-step/</loc>
@@ -20,16 +32,7 @@
     <loc>https://mrpopov.com/tags/work/</loc>
     <lastmod>2025-04-02T15:26:59+02:00</lastmod>
   </url><url>
-    <loc>https://mrpopov.com/tags/code/</loc>
-    <lastmod>2024-08-03T14:19:03+02:00</lastmod>
-  </url><url>
     <loc>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</loc>
-    <lastmod>2024-08-03T14:19:03+02:00</lastmod>
-  </url><url>
-    <loc>https://mrpopov.com/tags/elixir/</loc>
-    <lastmod>2024-08-03T14:19:03+02:00</lastmod>
-  </url><url>
-    <loc>https://mrpopov.com/tags/tutorial/</loc>
     <lastmod>2024-08-03T14:19:03+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/architecture/</loc>
