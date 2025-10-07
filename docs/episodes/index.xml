@@ -12,7 +12,7 @@
   <channel>
     <title></title>
     <atom:link href="https://mrpopov.com/episodes/index.xml" rel="self" type="application/rss+xml" />
-    <link>https://mrpopov.com</link>
+    <link>https://mrpopov.com/</link>
     <description>Some awesome description</description>
     <lastBuildDate>Mon, 10 Apr 2023 22:27:18 &#43;0200</lastBuildDate>
     <sy:updatePeriod>hourly</sy:updatePeriod>
@@ -35,7 +35,7 @@
     <image>
       <url>https://mrpopov.com/img/mrpopov1.webp</url>
       <title></title>
-      <link>https://mrpopov.com</link>
+      <link>https://mrpopov.com/</link>
     </image>
     <itunes:category text="Technology">
       <itunes:category text="Software How-To" /><itunes:category text="Tech News" /></itunes:category><itunes:explicit>false</itunes:explicit>

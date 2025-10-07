@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: env</title>
+      <title>MrPopov :: Env</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
@@ -38,8 +38,8 @@
 
 
 
-    <meta property="og:title" content="Mr.Popov :: env">
-    <meta property="twitter:title" content="Mr.Popov :: env">
+    <meta property="og:title" content="Mr.Popov">
+    <meta property="twitter:title" content="Mr.Popov">
 
 
 
@@ -302,8 +302,10 @@
       <div class="post-content">
         
           
-            lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
-After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; github.
+            <h1 id="lalabuy948genvutilshttpsgithubcomlalabuy948genvutils"><a href="https://github.com/lalabuy948/genvutils">lalabuy948/genvutils</a></h1>
+<h2 id="motivation">Motivation</h2>
+<p>As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it <a href="../../posts/flexible-env-in-go/">there</a></p>
+<p>After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; <a href="https://github.com/lalabuy948/genvutils">github.com/lalabuy948/genvutils</a></p>
           
         
       </div>
@@ -348,8 +350,14 @@ After some time I decided to create another open-source library for the world an
       <div class="post-content">
         
           
-            How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
+            <h1 id="how-to-use-hashicorp-vault-as-dot-environment-manager">How to use Hashicorp Vault as dot environment manager?</h1>
+<p>I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂</p>
+<h2 id="pre-requirements">Pre Requirements</h2>
+<ul>
+<li>Installed vault</li>
+<li>Finish setup instructions</li>
+</ul>
+<p>You can find nicely described steps here: <a href="https://learn.hashicorp.com/vault/getting-started/install">Getting started</a></p>
           
         
       </div>
@@ -396,8 +404,13 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
       <div class="post-content">
         
           
-            Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
-Problem I prefer using .
+            <h2 id="forewords">Forewords</h2>
+<p>I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
+I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part.
+Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.</p>
+<h2 id="problem">Problem</h2>
+<p>I prefer using <code>.env</code> instead of typing stuff to cli. I found out really elegant solution. You can still use <code>.env</code> and parse it easily with
+<code>github.com/caarlos0/env/v6</code>, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes <code>github.com/joho/godotenv</code>, if you provide environment variables via dockerfile or docker-compose it will override constants in your <code>.env</code>.</p>
           
         
       </div>
