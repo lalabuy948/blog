@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Tutorial</title>
+      <title>MrPopov :: tutorial</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
@@ -38,8 +38,8 @@
 
 
 
-    <meta property="og:title" content="Mr.Popov">
-    <meta property="twitter:title" content="Mr.Popov">
+    <meta property="og:title" content="Mr.Popov :: tutorial">
+    <meta property="twitter:title" content="Mr.Popov :: tutorial">
 
 
 
@@ -300,8 +300,8 @@
       <div class="post-content">
         
           
-            <p>We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.</p>
-<p>The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.</p>
+            We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders… Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
+The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we’d get into that rotten stuff pretty soon.
           
         
       </div>
@@ -391,7 +391,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
             <h2 id="meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml">Meet <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a></h2>
 <p>I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a> made both of my wishes come true!</p>
 <p>If you would like jump straight into the code:</p>
-<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img alt="Run in Livebook" src="https://livebook.dev/badge/v1/pink.svg"></a></p>
+<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/pink.svg" alt="Run in Livebook"></a></p>
           
         
       </div>
@@ -436,18 +436,9 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <div class="post-content">
         
           
-            <h2 id="data-is-expensive">Data is expensive</h2>
-<p>I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..</p>
-<p>Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?</p>
-<h2 id="backup">Backup</h2>
-<ol>
-<li>Create a private github repo</li>
-</ol>
-<p><img alt="create private repo" src="../../img/notion-github-backup/private_repo.webp"></p>
-<ol start="2">
-<li>Go to actions tab and click on <code>set up a workflow yourself -&gt;</code></li>
-</ol>
-<p><img alt="set up workflow" src="../../img/notion-github-backup/setup_workflow.webp"></p>
+            Data is expensive I write around 2-3 important notes a day. And don’t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don’t trust notion, trust but verify, right?
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; Paste this yml file name: &quot;Notion backup&quot; on: push: branches: - main schedule: - cron: &quot;0 0 * * *&quot; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &quot;12&quot; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.
           
         
       </div>
@@ -492,10 +483,8 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <div class="post-content">
         
           
-            <h1 id="lalabuy948genvutilshttpsgithubcomlalabuy948genvutils"><a href="https://github.com/lalabuy948/genvutils">lalabuy948/genvutils</a></h1>
-<h2 id="motivation">Motivation</h2>
-<p>As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it <a href="../../posts/flexible-env-in-go/">there</a></p>
-<p>After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; <a href="https://github.com/lalabuy948/genvutils">github.com/lalabuy948/genvutils</a></p>
+            lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
+After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; github.
           
         
       </div>

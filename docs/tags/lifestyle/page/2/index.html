@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Lifestyle</title>
+      <title>MrPopov :: lifestyle</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
@@ -38,8 +38,8 @@
 
 
 
-    <meta property="og:title" content="Mr.Popov">
-    <meta property="twitter:title" content="Mr.Popov">
+    <meta property="og:title" content="Mr.Popov :: lifestyle">
+    <meta property="twitter:title" content="Mr.Popov :: lifestyle">
 
 
 
@@ -300,8 +300,8 @@
       <div class="post-content">
         
           
-            <p>Look dear readers, I’m not even suppose to write such an articles, since I’m an inspiring manager and have to motivate people becoming better and so on. I not going to lie right, manager in IT department has nothing to do with people motivation or being a great example for productivity. I play games and fuck it, I like it.</p>
-<p>I used to fly quite a lot and still do and I was constantly looking for on-the-go solutions. For a while I was happy with iPad, but all the games there mostly arcade with zero story. Then I invested in Asus Rog Flow Z13, i9 and 3050ti on-the-fly sounds good right? Yeah, 1h of play for extra 3kilos on my back. This is so niche product that I’m still trying to sell it for half price.</p>
+            Look dear readers, I’m not even suppose to write such an articles, since I’m an inspiring manager and have to motivate people becoming better and so on. I not going to lie right, manager in IT department has nothing to do with people motivation or being a great example for productivity. I play games and fuck it, I like it.
+I used to fly quite a lot and still do and I was constantly looking for on-the-go solutions.
           
         
       </div>
@@ -344,14 +344,7 @@
       <div class="post-content">
         
           
-            <h1 id="or-how-i-moved-with-one-backpack-and-half-suitcase">Or how I moved with one backpack and half suitcase.</h1>
-<h2 id="foreword">Foreword</h2>
-<p>This story has begun on 08.06 of 2021. The CEO of our company invited me to his office.
-We discussed my half year review and etc, and he put an offer in front of me.
-I went through, and I have to admit it was a nice package. But here is a small thing,
-I had to move to Luxembourg. We had some talks about that before, so I was morally prepared.
-Another country about which I didn&rsquo;t know anything, except it&rsquo;s
-one of the most expensive countries to live in.</p>
+            Or how I moved with one backpack and half suitcase. Foreword This story has begun on 08.06 of 2021. The CEO of our company invited me to his office. We discussed my half year review and etc, and he put an offer in front of me. I went through, and I have to admit it was a nice package. But here is a small thing, I had to move to Luxembourg.
           
         
       </div>
@@ -396,18 +389,9 @@ one of the most expensive countries to live in.</p>
       <div class="post-content">
         
           
-            <h2 id="data-is-expensive">Data is expensive</h2>
-<p>I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..</p>
-<p>Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?</p>
-<h2 id="backup">Backup</h2>
-<ol>
-<li>Create a private github repo</li>
-</ol>
-<p><img alt="create private repo" src="../../../../img/notion-github-backup/private_repo.webp"></p>
-<ol start="2">
-<li>Go to actions tab and click on <code>set up a workflow yourself -&gt;</code></li>
-</ol>
-<p><img alt="set up workflow" src="../../../../img/notion-github-backup/setup_workflow.webp"></p>
+            Data is expensive I write around 2-3 important notes a day. And don’t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don’t trust notion, trust but verify, right?
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; Paste this yml file name: &quot;Notion backup&quot; on: push: branches: - main schedule: - cron: &quot;0 0 * * *&quot; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &quot;12&quot; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.
           
         
       </div>
@@ -450,7 +434,7 @@ one of the most expensive countries to live in.</p>
       <div class="post-content">
         
           
-            I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to <a href="https://github.com/features/codespaces">codespaces</a> I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&rsquo;s just Hugo.
+            I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to codespaces I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn’t require docker-compose with 10 services, the first thing which I setup here is my blog since it’s just Hugo.
           
         
       </div>
@@ -493,9 +477,8 @@ one of the most expensive countries to live in.</p>
       <div class="post-content">
         
           
-            <h1 id="basic-building-blocks">Basic Building Blocks</h1>
-<p>My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.</p>
-<p>That&rsquo;s why I started spending much more of my spare time on our family project which is called <a href="https://basicbb.com">basicbb - Basic Building Blocks</a>. And <a href="../../../../tech-scaling/">#TechScaling</a> but that&rsquo;s a story for the next post.</p>
+            Basic Building Blocks My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.
+That’s why I started spending much more of my spare time on our family project which is called basicbb - Basic Building Blocks.
           
         
       </div>

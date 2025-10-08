@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Elixir on </title>
+    <title>elixir on </title>
     <link>https://mrpopov.com/tags/elixir/</link>
-    <description>Recent content in Elixir on </description>
+    <description>Recent content in elixir on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Mon, 06 Oct 2025 21:55:18 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elixir LiveView Single Binary</title>
@@ -13,8 +13,8 @@
       <pubDate>Mon, 06 Oct 2025 21:55:18 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/elixir-liveview-single-binary/</guid>
-      <description>&lt;p&gt;We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&amp;hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.&lt;/p&gt;
-&lt;p&gt;The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&amp;rsquo;d get into that rotten stuff pretty soon.&lt;/p&gt;</description>
+      <description>We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&amp;hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
+The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&amp;rsquo;d get into that rotten stuff pretty soon.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <description>&lt;h2 id=&#34;meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
 &lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img alt=&#34;Run in Livebook&#34; src=&#34;https://livebook.dev/badge/v1/pink.svg&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
