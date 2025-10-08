@@ -9,6 +9,9 @@ tags:
   - elixir
   - tutorial
 
+aliases:
+  - /posts/elixir-liveview-signle-binary/
+
 seo:
   - phoenix liveview desktop app
   - tauri elixir
