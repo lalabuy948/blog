@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>MrPopov :: Elixir Liveview Socket Reconnect</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://mrpopov.com/posts/elixir-liveview-socket-reconnect/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mrpopov.com/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="Deep dive into fixing a critical Phoenix LiveView bug where stale form data was sent after WebSocket reconnection, causing hardware resets. Learn how to use the _mounts counter to prevent queued events from corrupting IoT device state."/>
+        
+
+
+
+    <meta name="keywords" content="phoenix liveview reconnection, liveview socket disconnect, phoenix websocket stale data, liveview mount counter, phoenix iot bug fix, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://mrpopov.com/img/elixir-liveview-socket-reconnect/phase_VH.jpg">
+    <meta property="twitter:image" content="https://mrpopov.com/img/elixir-liveview-socket-reconnect/phase_VH.jpg">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Elixir Liveview Socket Reconnect">
+    <meta property="twitter:title" content="Mr.Popov :: Elixir Liveview Socket Reconnect">
+
+
+
+    <meta property="og:description" content="The Phoenix LiveView Reconnection Bug: A Deep Dive I encountered a critical bug in a Phoenix LiveView settings page that controlled hardware via MQTT. When the WebSocket connection dropped and LiveView automatically reconnected, stale form values were being sent back to the hardware, overwriting the current hardware state.
+">
+    <meta property="twitter:description" content="The Phoenix LiveView Reconnection Bug: A Deep Dive I encountered a critical bug in a Phoenix LiveView settings page that controlled hardware via MQTT. When the WebSocket connection dropped and LiveView automatically reconnected, stale form values were being sent back to the hardware, overwriting the current hardware state.
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrpopov.com/posts/elixir-liveview-socket-reconnect/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mrpopov.com/posts/elixir-liveview-socket-reconnect/">
+
+
+<link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/assets/main.js" as="script">
+<link rel="preload" href="https://mrpopov.com/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="../../" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    
+    <span>
+      <a href="../../episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="../../about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="../../cv/">CV</a></li>
+              
+            
+              
+                <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+              
+            
+              
+                <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+              
+            
+              
+                <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+              
+                <li><a href="../../projects">Pets graveyard</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="../../about">About</a></li>
+      
+    
+      
+        <li><a href="../../cv/">CV</a></li>
+      
+    
+      
+        <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+      
+    
+      
+        <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+      
+    
+      
+        <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+      
+        <li><a href="../../projects">Pets graveyard</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://mrpopov.com/posts/elixir-liveview-socket-reconnect/">Elixir Liveview Socket Reconnect</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            22-10-2025
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">— 8 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://mrpopov.com/tags/elixir/">elixir</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/code/">code</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/work/">work</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="Elixir Liveview Socket Reconnect" src="https://mrpopov.com/img/elixir-liveview-socket-reconnect/phase_VH.jpg" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <h2 id="the-phoenix-liveview-reconnection-bug-a-deep-dive">The Phoenix LiveView Reconnection Bug: A Deep Dive</h2>
+<p>I encountered a critical bug in a Phoenix LiveView settings page that controlled hardware via MQTT. When the WebSocket connection dropped and LiveView automatically reconnected, stale form values were being sent back to the hardware, overwriting the current hardware state.</p>
+<p><strong>What Was Happening:</strong></p>
+<ol>
+<li>User has Phase Horizontal = 22 on hardware</li>
+<li>Browser shows Phase Horizontal = 22</li>
+<li>WiFi disconnects briefly</li>
+<li>While disconnected, user changes hardware to Phase Horizontal = -25</li>
+<li>Browser reconnects (LiveView remounts)</li>
+<li>Browser still thinks value is 22 (stale)</li>
+<li>Form sends &ldquo;update&rdquo; event with stale value 22</li>
+<li>Hardware gets reset to 22 ❌</li>
+</ol>
+<p><strong>MQTT Logs Showing the Problem:</strong></p>
+<pre tabindex="0"><code>cy-vp4/videoproc/status/volatile/genlock_phase -25 10  # Hardware&#39;s current value
+cy-vp4/videoproc/action/set/genlock genlock 22 10      # Stale value sent! ❌
+</code></pre><p>This caused the hardware (an RCP - Remote Control Panel) to reset to old values whenever the network hiccupped.</p>
+<h3 id="understanding-liveviews-lifecycle">Understanding LiveView&rsquo;s Lifecycle</h3>
+<p>When a LiveView loses connection:</p>
+<ol>
+<li>WebSocket disconnects (network issue, sleep, etc.)</li>
+<li>Client queues any events that happen while disconnected</li>
+<li>Client automatically reconnects</li>
+<li>Server calls <code>mount/3</code> again (fresh start)</li>
+<li>Client replays queued events ⚠️</li>
+</ol>
+<p><strong>The problem:</strong> The queued events contain stale form values from before the disconnect!</p>
+<p><strong>Visual Example:</strong></p>
+<ul>
+<li><strong>T0:</strong> Form shows: <code>phase_horizontal = 22</code></li>
+<li><strong>T1:</strong> WiFi disconnects</li>
+<li><strong>T2:</strong> Hardware changes to: <code>phase_horizontal = -25</code></li>
+<li><strong>T3:</strong> User types &ldquo;25&rdquo; in form (queued, not sent)</li>
+<li><strong>T4:</strong> WiFi reconnects → <code>mount/3</code> runs again</li>
+<li><strong>T5:</strong> Queued event fires: <code>phx-change</code> with value = 22 (STALE!)</li>
+<li><strong>T6:</strong> Server sends 22 to MQTT → Hardware reset ❌</li>
+</ul>
+<h3 id="attempted-solutions-and-why-they-failed">Attempted Solutions (And Why They Failed)</h3>
+<h4 id="attempt-1-the-recently_reconnected-flag">Attempt 1: The <code>recently_reconnected</code> Flag</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> mount(_params, _session, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:ok</span>, assign(socket, <span style="color:#990073">:recently_reconnected</span>, <span style="color:#008080">false</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_event(<span style="color:#d14">&#34;update_video&#34;</span>, params, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">unless</span> socket<span style="color:#000;font-weight:bold">.</span>assigns<span style="color:#000;font-weight:bold">.</span>recently_reconnected <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># Send to MQTT</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, socket}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p><strong>Why it failed:</strong> I set <code>recently_reconnected</code> to <code>false</code> on mount, so it was never <code>true</code> during reconnection! I had no way to detect when a reconnection actually happened.</p>
+<h4 id="attempt-2-javascript-hook-detection">Attempt 2: JavaScript Hook Detection</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">const</span> ReconnectionHook <span style="color:#000;font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>  reconnected() {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">this</span>.pushEvent(<span style="color:#d14">&#34;reconnected&#34;</span>, {});
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_event(<span style="color:#d14">&#34;reconnected&#34;</span>, _params, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#458;font-weight:bold">Process</span><span style="color:#000;font-weight:bold">.</span>send_after(self(), <span style="color:#990073">:clear_flag</span>, <span style="color:#099">2000</span>)
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, assign(socket, <span style="color:#990073">:recently_reconnected</span>, <span style="color:#008080">true</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p><strong>Why it failed:</strong></p>
+<ul>
+<li>Race condition: JavaScript hook might fire after queued form events already processed</li>
+<li>Unreliable: Doesn&rsquo;t catch all reconnection scenarios</li>
+<li>Client-side dependency: If hook fails to load or execute, protection is gone</li>
+<li>Timing issues: No guarantee of execution order</li>
+</ul>
+<p><strong>Example race condition:</strong></p>
+<pre tabindex="0"><code>T0: Reconnect
+T1: mount/3 runs → recently_reconnected = false
+T2: Queued form event → processes normally → sends to MQTT ❌
+T3: JS hook fires → sets recently_reconnected = true (too late!)
+</code></pre><h4 id="attempt-3-always-block-on-mount">Attempt 3: Always Block on Mount</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> mount(_params, _session, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span> connected?(socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">Process</span><span style="color:#000;font-weight:bold">.</span>send_after(self(), <span style="color:#990073">:clear_flag</span>, <span style="color:#099">3000</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:ok</span>, assign(socket, <span style="color:#990073">:recently_reconnected</span>, connected?(socket))}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p><strong>Why it didn&rsquo;t work well:</strong></p>
+<ul>
+<li>Blocked updates even on the first connection</li>
+<li>Users had to wait 3 seconds before the form worked</li>
+<li>Poor initial user experience</li>
+<li>No distinction between first visit and reconnection</li>
+</ul>
+<h3 id="the-robust-solution-using-_mounts-counter">The Robust Solution: Using <code>_mounts</code> Counter</h3>
+<p>Phoenix LiveView provides a built-in reconnection counter called <code>_mounts</code> in the connection parameters.</p>
+<h4 id="how-it-works">How It Works:</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> mount(_params, _session, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic"># Get LiveView&#39;s official reconnection counter</span>
+</span></span><span style="display:flex;"><span>  is_reconnect <span style="color:#000;font-weight:bold">=</span> connected?(socket) <span style="color:#000;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>                 (get_connect_params(socket)[<span style="color:#d14">&#34;_mounts&#34;</span>] <span style="color:#000;font-weight:bold">||</span> <span style="color:#099">0</span>) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic"># Only block events if this is a reconnection</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span> is_reconnect <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">Process</span><span style="color:#000;font-weight:bold">.</span>send_after(self(), <span style="color:#990073">:clear_reconnect_flag</span>, <span style="color:#099">500</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:ok</span>, assign(socket, <span style="color:#990073">:ignoring_reconnect_events</span>, is_reconnect)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p><strong>Key insight:</strong> <code>_mounts</code> starts at 0 on first connection, then increments on each reconnection:</p>
+<table>
+<thead>
+<tr>
+<th>Connection Type</th>
+<th><code>_mounts</code> Value</th>
+<th><code>is_reconnect</code></th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First visit</td>
+<td>0</td>
+<td><code>false</code></td>
+<td>Events work immediately ✅</td>
+</tr>
+<tr>
+<td>2nd connection</td>
+<td>1</td>
+<td><code>true</code></td>
+<td>Events blocked for 500ms ✅</td>
+</tr>
+<tr>
+<td>3rd connection</td>
+<td>2</td>
+<td><code>true</code></td>
+<td>Events blocked for 500ms ✅</td>
+</tr>
+</tbody>
+</table>
+<h4 id="guard-clause-to-block-all-events">Guard Clause to Block ALL Events</h4>
+<p>The critical piece: pattern match to block all events during reconnection:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># This MUST come BEFORE other handle_event clauses</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_event(_event, _params, %{<span style="color:#990073">assigns</span>: %{<span style="color:#990073">ignoring_reconnect_events</span>: <span style="color:#008080">true</span>}} <span style="color:#000;font-weight:bold">=</span> socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, socket}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Now your normal handlers</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_event(<span style="color:#d14">&#34;update_video&#34;</span>, params, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic"># This only runs if ignoring_reconnect_events is false</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, update_video(socket, params)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_event(<span style="color:#d14">&#34;update_network&#34;</span>, params, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic"># This also gets blocked during reconnection</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, update_network(socket, params)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p><strong>Why pattern matching works:</strong> Elixir tries function clauses in order from top to bottom. If <code>ignoring_reconnect_events: true</code>, the first clause matches and returns immediately, never reaching the other handlers.</p>
+<h4 id="example-flow-during-reconnection">Example Flow During Reconnection:</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># T0: Reconnect happens</span>
+</span></span><span style="display:flex;"><span>mount(_params, _session, socket)
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> _mounts <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> is_reconnect <span style="color:#000;font-weight:bold">=</span> <span style="color:#008080">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> ignoring_reconnect_events <span style="color:#000;font-weight:bold">=</span> <span style="color:#008080">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> <span style="color:#458;font-weight:bold">Schedule</span> <span style="color:#990073">:clear_reconnect_flag</span> <span style="color:#000;font-weight:bold">in</span> <span style="color:#099">500</span>ms
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># T1: Stale queued event arrives</span>
+</span></span><span style="display:flex;"><span>handle_event(<span style="color:#d14">&#34;update_video&#34;</span>, %{<span style="color:#d14">&#34;phase&#34;</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#d14">&#34;22&#34;</span>}, socket)
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> <span style="color:#458;font-weight:bold">Pattern</span> matches guard clause (ignoring_reconnect_events <span style="color:#000;font-weight:bold">=</span> <span style="color:#008080">true</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> <span style="color:#458;font-weight:bold">Returns</span> immediately, does nothing <span style="color:#a61717;background-color:#e3d2d2">✅</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># T2: Fresh MQTT data arrives</span>
+</span></span><span style="display:flex;"><span>handle_info({<span style="color:#990073">:setting_updated</span>, <span style="color:#d14">&#34;genlock_phase&#34;</span>, {<span style="color:#000;font-weight:bold">-</span><span style="color:#099">25</span>, <span style="color:#099">10</span>}}, socket)
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> <span style="color:#458;font-weight:bold">Updates</span> form with fresh value
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> <span style="color:#458;font-weight:bold">Form</span> now shows <span style="color:#000;font-weight:bold">-</span><span style="color:#099">25</span> <span style="color:#a61717;background-color:#e3d2d2">✅</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># T3: 500ms elapsed</span>
+</span></span><span style="display:flex;"><span>handle_info(<span style="color:#990073">:clear_reconnect_flag</span>, socket)
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> ignoring_reconnect_events <span style="color:#000;font-weight:bold">=</span> <span style="color:#008080">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">→</span> <span style="color:#458;font-weight:bold">Normal</span> operation resumes <span style="color:#a61717;background-color:#e3d2d2">✅</span>
+</span></span></code></pre></div><h4 id="clear-the-flag-after-short-delay">Clear the Flag After Short Delay</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_info(<span style="color:#990073">:clear_reconnect_flag</span>, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic"># After 500ms, resume normal event processing</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, assign(socket, <span style="color:#990073">:ignoring_reconnect_events</span>, <span style="color:#008080">false</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p><strong>Why 500ms?</strong> Long enough for:</p>
+<ul>
+<li>Stale queued events to arrive and get blocked</li>
+<li>Fresh MQTT data to arrive via <code>handle_info({:setting_updated, ...})</code></li>
+<li>Form to update with current hardware values</li>
+</ul>
+<p>But short enough that users don&rsquo;t notice any delay.</p>
+<h3 id="complete-solution-summary">Complete Solution Summary</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> mount(_params, _session, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic"># Detect reconnection using official _mounts counter</span>
+</span></span><span style="display:flex;"><span>  is_reconnect <span style="color:#000;font-weight:bold">=</span> connected?(socket) <span style="color:#000;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>                 (get_connect_params(socket)[<span style="color:#d14">&#34;_mounts&#34;</span>] <span style="color:#000;font-weight:bold">||</span> <span style="color:#099">0</span>) <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">if</span> is_reconnect <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">Process</span><span style="color:#000;font-weight:bold">.</span>send_after(self(), <span style="color:#990073">:clear_reconnect_flag</span>, <span style="color:#099">500</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:ok</span>, assign(socket, <span style="color:#990073">:ignoring_reconnect_events</span>, is_reconnect)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Guard clause blocks ALL events during reconnection</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_event(_event, _params, %{<span style="color:#990073">assigns</span>: %{<span style="color:#990073">ignoring_reconnect_events</span>: <span style="color:#008080">true</span>}} <span style="color:#000;font-weight:bold">=</span> socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, socket}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Normal event handlers (only run when NOT reconnecting)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_event(<span style="color:#d14">&#34;update_video&#34;</span>, params, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic"># Process normally - this is real user input</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, update_settings(socket, params)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> handle_info(<span style="color:#990073">:clear_reconnect_flag</span>, socket) <span style="color:#000;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:noreply</span>, assign(socket, <span style="color:#990073">:ignoring_reconnect_events</span>, <span style="color:#008080">false</span>)}
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><h3 id="why-this-solution-is-robust">Why This Solution Is Robust</h3>
+<h4 id="-server-side-only">✅ Server-Side Only</h4>
+<ul>
+<li>No JavaScript hooks required</li>
+<li>Can&rsquo;t be bypassed by client manipulation</li>
+<li>Works regardless of client-side code</li>
+</ul>
+<h4 id="-official-liveview-api">✅ Official LiveView API</h4>
+<ul>
+<li>Uses <code>get_connect_params(socket)[&quot;_mounts&quot;]</code></li>
+<li>This is LiveView&rsquo;s internal reconnection counter</li>
+<li>Guaranteed to be accurate and maintained</li>
+</ul>
+<h4 id="-blocks-all-events">✅ Blocks ALL Events</h4>
+<ul>
+<li>Pattern matching catches everything with <code>_event</code></li>
+<li>No need to modify each handler individually</li>
+<li>Add new handlers without worrying about reconnection</li>
+</ul>
+<h4 id="-time-limited">✅ Time-Limited</h4>
+<ul>
+<li>Automatically clears after 500ms</li>
+<li>No risk of permanently blocking events</li>
+<li>Short enough to be unnoticeable to users</li>
+</ul>
+<h4 id="-no-race-conditions">✅ No Race Conditions</h4>
+<ul>
+<li>Flag is set synchronously in <code>mount/3</code></li>
+<li>Guaranteed to be set before any events process</li>
+<li>Timer ensures it always clears</li>
+</ul>
+<h4 id="-distinguishes-first-vs-reconnect">✅ Distinguishes First vs. Reconnect</h4>
+<ul>
+<li>First connection (<code>_mounts = 0</code>): events work immediately</li>
+<li>Reconnections (<code>_mounts &gt; 0</code>): events blocked for 500ms</li>
+<li>Best user experience for both scenarios</li>
+</ul>
+<h3 id="key-lessons-learned">Key Lessons Learned</h3>
+<h4 id="1-liveview-remounts-on-reconnection">1. LiveView Remounts on Reconnection</h4>
+<p>When the WebSocket reconnects, <code>mount/3</code> is called again from scratch. Your code must handle this gracefully and distinguish between first mount and remount.</p>
+<h4 id="2-use-official-apis-when-available">2. Use Official APIs When Available</h4>
+<p>Phoenix provides <code>get_connect_params(socket)[&quot;_mounts&quot;]</code> specifically for detecting reconnections. Don&rsquo;t reinvent the wheel with custom flags or JavaScript hooks.</p>
+<h4 id="3-pattern-matching-is-powerful">3. Pattern Matching Is Powerful</h4>
+<p>A single guard clause with pattern matching can protect all your event handlers elegantly. This is more maintainable than adding checks to each handler.</p>
+<h4 id="4-queued-events-are-stale">4. Queued Events Are Stale</h4>
+<p>Events queued during disconnection contain old data. Block them temporarily after reconnection and let fresh data arrive from your source of truth (MQTT, database, etc.).</p>
+<h4 id="5-race-conditions-are-real">5. Race Conditions Are Real</h4>
+<p>Client-side hooks and async processes can execute in unpredictable order. Server-side synchronous checks in <code>mount/3</code> eliminate race conditions.</p>
+<h4 id="6-test-reconnection-scenarios">6. Test Reconnection Scenarios</h4>
+<p>Bugs related to reconnection are easy to miss in development. Explicitly test:</p>
+<ul>
+<li>Disconnect WiFi briefly</li>
+<li>Put laptop to sleep</li>
+<li>Simulate network issues with browser dev tools throttling</li>
+<li>Check logs to verify stale data isn&rsquo;t sent</li>
+</ul>
+<h4 id="7-balance-protection-vs-ux">7. Balance Protection vs. UX</h4>
+<ul>
+<li><strong>Too short (&lt; 100ms):</strong> Stale events might sneak through</li>
+<li><strong>Too long (&gt; 1000ms):</strong> Users notice the delay</li>
+<li><strong>500ms is a sweet spot</strong> for most applications</li>
+</ul>
+<h3 id="testing-the-fix">Testing the Fix</h3>
+<p>To verify this works:</p>
+<ol>
+<li>Open browser dev tools → Network tab</li>
+<li>Change a value on your hardware (Phase Horizontal = 50)</li>
+<li>Throttle network or disconnect WiFi for 2 seconds</li>
+<li>Change hardware again while disconnected (Phase Horizontal = -25)</li>
+<li>Reconnect</li>
+<li>Check MQTT logs → Should NOT see stale value (50) being sent ✅</li>
+<li>Check browser → Should show current value (-25) ✅</li>
+</ol>
+<p><strong>Expected MQTT Log (Correct):</strong></p>
+<pre tabindex="0"><code>cy-vp4/videoproc/status/volatile/genlock_phase -25 10  # Fresh value ✅
+# No stale &#34;50&#34; being sent back
+</code></pre><p><strong>Before Fix (Incorrect):</strong></p>
+<pre tabindex="0"><code>cy-vp4/videoproc/status/volatile/genlock_phase -25 10  # Current value
+cy-vp4/videoproc/action/set/genlock genlock 50 10      # Stale value! ❌
+</code></pre><h3 id="real-world-impact">Real-World Impact</h3>
+<p>This bug pattern affects any LiveView application where:</p>
+<ul>
+<li>Form data comes from external sources (IoT devices, databases, APIs)</li>
+<li>Data can change while user is disconnected</li>
+<li>Sending stale data has consequences (hardware resets, data corruption, financial transactions)</li>
+</ul>
+<p><strong>Common scenarios:</strong></p>
+<ul>
+<li>IoT dashboards (our case)</li>
+<li>Collaborative editing tools</li>
+<li>Real-time monitoring systems</li>
+<li>Trading platforms</li>
+<li>Inventory management</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>This bug demonstrates how reconnection handling is a critical but often overlooked aspect of real-time applications. The stale data problem can cause:</p>
+<ul>
+<li>Hardware resets</li>
+<li>Data corruption</li>
+<li>User confusion</li>
+<li>Lost work</li>
+</ul>
+<p>By using LiveView&rsquo;s official <code>_mounts</code> counter and pattern matching to block events during reconnection, I created a robust solution that:</p>
+<ul>
+<li>Requires minimal code (~15 lines)</li>
+<li>Has no race conditions</li>
+<li>Works reliably in all scenarios</li>
+<li>Doesn&rsquo;t degrade user experience</li>
+<li>Is easy to understand and maintain</li>
+</ul>
+<p>The final code is simpler, more reliable, and more maintainable than all our attempted workarounds combined. <strong>The key insight: Never trust the client :D</strong></p>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://mrpopov.com/posts/elixir-liveview-single-binary/">
+                  <span class="button__text">Elixir LiveView Single Binary</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="../../" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://mrpopov.com/assets/main.js"></script>
+<script src="https://mrpopov.com/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>

@@ -6,7 +6,17 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Oct 2025 21:55:18 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Oct 2025 18:22:33 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir Liveview Socket Reconnect</title>
+      <link>https://mrpopov.com/posts/elixir-liveview-socket-reconnect/</link>
+      <pubDate>Wed, 22 Oct 2025 18:22:33 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/elixir-liveview-socket-reconnect/</guid>
+      <description>&lt;h2 id=&#34;the-phoenix-liveview-reconnection-bug-a-deep-dive&#34;&gt;The Phoenix LiveView Reconnection Bug: A Deep Dive&lt;/h2&gt;
+&lt;p&gt;I encountered a critical bug in a Phoenix LiveView settings page that controlled hardware via MQTT. When the WebSocket connection dropped and LiveView automatically reconnected, stale form values were being sent back to the hardware, overwriting the current hardware state.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Elixir LiveView Single Binary</title>
       <link>https://mrpopov.com/posts/elixir-liveview-single-binary/</link>
