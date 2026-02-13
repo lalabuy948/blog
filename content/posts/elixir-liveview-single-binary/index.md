@@ -642,3 +642,4 @@ The final application is completely self-contained - users simply download and r
 - [www.cyanview.com](https://www.cyanview.com/)
 - [CyanView - From Super Bowl to Olympics](https://youtu.be/CUzarY3ry2M?si=KYfJy8Ef1ZQL4vCU)
 - [1703 Group](https://1703.lu/)
+- [Github Repo Example](https://github.com/lalabuy948/phoenix_tauri)
