@@ -18,9 +18,9 @@
 
 
         
-            <meta name="description" content="Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
-Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&amp;gt; Paste this yml file name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#34;12&amp;#34; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets."/>
+            <meta name="description" content="Data is expensive I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; "/>
         
 
 
@@ -43,12 +43,12 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 
 
 
-    <meta property="og:description" content="Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
-Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&amp;gt; Paste this yml file name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#34;12&amp;#34; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.">
-    <meta property="twitter:description" content="Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
-Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&amp;gt; Paste this yml file name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#34;12&amp;#34; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.">
+    <meta property="og:description" content="Data is expensive I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; ">
+    <meta property="twitter:description" content="Data is expensive I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..
+Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?
+Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; ">
 
 
 
@@ -290,38 +290,38 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 <ol start="3">
 <li>Paste this yml file</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#34;Notion backup&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">on</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">push</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">branches</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- main<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">schedule</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>- <span style="color:#000080">cron</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#34;0 0 * * *&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">jobs</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">backup</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">runs-on</span>:<span style="color:#bbb"> </span>ubuntu-latest<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Backup<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">timeout-minutes</span>:<span style="color:#bbb"> </span><span style="color:#099">15</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">steps</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>actions/checkout@v2<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>actions/setup-node@v2<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">with</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">node-version</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#34;12&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Setup dependencies<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">run</span>:<span style="color:#bbb"> </span>npm install -g notion-backup<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Run backup<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">run</span>:<span style="color:#bbb"> </span>notion-backup<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">env</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">NOTION_TOKEN</span>:<span style="color:#bbb"> </span>${{ secrets.NOTION_TOKEN }}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">NOTION_SPACE_ID</span>:<span style="color:#bbb"> </span>${{ secrets.NOTION_SPACE_ID }}<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">name</span>:<span style="color:#bbb"> </span>Commit changes<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">uses</span>:<span style="color:#bbb"> </span>elstudio/actions-js-build/commit@v3<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">with</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">commitMessage</span>:<span style="color:#bbb"> </span>Automated snapshot<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;Notion backup&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">on</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">push</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">branches</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- main<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">schedule</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>- <span style="color:#0550ae">cron</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;0 0 * * *&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">jobs</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">backup</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">runs-on</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>ubuntu-latest<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Backup<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">timeout-minutes</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">15</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">steps</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">uses</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>actions/checkout@v2<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">uses</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>actions/setup-node@v2<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">with</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">node-version</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;12&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Setup dependencies<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">run</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>npm install -g notion-backup<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Run backup<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">run</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>notion-backup<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">env</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">NOTION_TOKEN</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>${{ secrets.NOTION_TOKEN }}<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">NOTION_SPACE_ID</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>${{ secrets.NOTION_SPACE_ID }}<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Commit changes<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">uses</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>elstudio/actions-js-build/commit@v3<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">with</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">commitMessage</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Automated snapshot<span style="color:#fff">
 </span></span></span></code></pre></div><ol start="4">
 <li>
 <p>Get your secrets</p>
@@ -437,7 +437,7 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 </a>
 
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
         <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     

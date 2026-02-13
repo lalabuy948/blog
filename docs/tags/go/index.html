@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: go</title>
+      <title>MrPopov :: Go</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
@@ -38,8 +38,8 @@
 
 
 
-    <meta property="og:title" content="Mr.Popov :: go">
-    <meta property="twitter:title" content="Mr.Popov :: go">
+    <meta property="og:title" content="Mr.Popov">
+    <meta property="twitter:title" content="Mr.Popov">
 
 
 
@@ -302,9 +302,17 @@
       <div class="post-content">
         
           
-            Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
-I was looking on few popular tools across the Internet:
-<a href="https://mailtrap.io/">https://mailtrap.io/</a> <a href="https://mailcow.email/">https://mailcow.email/</a> <a href="https://mailu.io/1.7/">https://mailu.io/1.7/</a> <a href="https://poste.io/">https://poste.io/</a> What I found My requirements were: run in docker, easy to config, basic functionality to render email.
+            <h2 id="forewords">Forewords</h2>
+<p>I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use <code>is_email_confirmed</code> column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.</p>
+<p>I was looking on few popular tools across the Internet:</p>
+<ul>
+<li><a href="https://mailtrap.io/">https://mailtrap.io/</a></li>
+<li><a href="https://mailcow.email/">https://mailcow.email/</a></li>
+<li><a href="https://mailu.io/1.7/">https://mailu.io/1.7/</a></li>
+<li><a href="https://poste.io/">https://poste.io/</a></li>
+</ul>
+<h2 id="what-i-found">What I found</h2>
+<p>My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.</p>
           
         
       </div>
@@ -351,8 +359,13 @@ I was looking on few popular tools across the Internet:
       <div class="post-content">
         
           
-            Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
-Problem I prefer using .
+            <h2 id="forewords">Forewords</h2>
+<p>I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
+I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part.
+Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.</p>
+<h2 id="problem">Problem</h2>
+<p>I prefer using <code>.env</code> instead of typing stuff to cli. I found out really elegant solution. You can still use <code>.env</code> and parse it easily with
+<code>github.com/caarlos0/env/v6</code>, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes <code>github.com/joho/godotenv</code>, if you provide environment variables via dockerfile or docker-compose it will override constants in your <code>.env</code>.</p>
           
         
       </div>
@@ -385,7 +398,7 @@ Problem I prefer using .
 </a>
 
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
         <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     

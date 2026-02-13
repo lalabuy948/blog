@@ -19,7 +19,8 @@
 
         
             <meta name="description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started"/>
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
+"/>
         
 
 
@@ -43,9 +44,11 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
 
 
     <meta property="og:description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started">
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
+">
     <meta property="twitter:description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started">
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
+">
 
 
 
@@ -295,28 +298,28 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
 <p>First of all you need token. In the right corner you will see profile icon and copy token button when you toggle the first one.</p>
 <p><img src="../../img/hashicorp-vault-as-environment-manager/vault-screenshot-3.webp" alt="Create new secret engine"></p>
 <p>In my project I added this make file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Makefile
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#008080">CFLAGS</span><span style="color:#000;font-weight:bold">=</span>-g
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">export</span> <span style="color:#008080">CFLAGS</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#57606a"># Makefile
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">CFLAGS</span><span style="color:#0550ae">=</span>-g
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">export</span> <span style="color:#953800">CFLAGS</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">dev</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">dev</span><span style="color:#0550ae">:</span>
 </span></span><span style="display:flex;"><span>	@./bin/getenv.sh development
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">staging</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">staging</span><span style="color:#0550ae">:</span>
 </span></span><span style="display:flex;"><span>	@./bin/getenv.sh staging
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">production</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">production</span><span style="color:#0550ae">:</span>
 </span></span><span style="display:flex;"><span>	@./bin/getenv.sh production
 </span></span></code></pre></div><p>And in <code>bin</code> folder I have <code>getenv.sh</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#008080">secretsJSON</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>curl --request GET <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>  --url https://VAULT.YOURDOMAIN.COM/v1/service/<span style="color:#d14">&#34;</span><span style="color:#008080">$1</span><span style="color:#d14">&#34;</span> <span style="color:#d14">\
-</span></span></span><span style="display:flex;"><span><span style="color:#d14"></span>  --header <span style="color:#d14">&#34;x-vault-token: </span><span style="color:#d14">${</span><span style="color:#008080">VAULT_TOKEN</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">secretsJSON</span><span style="color:#0550ae">=</span><span style="color:#cf222e">$(</span>curl --request GET <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>  --url https://VAULT.YOURDOMAIN.COM/v1/service/<span style="color:#0a3069">&#34;</span><span style="color:#953800">$1</span><span style="color:#0a3069">&#34;</span> <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>  --header <span style="color:#0a3069">&#34;x-vault-token: </span><span style="color:#0a3069">${</span><span style="color:#953800">VAULT_TOKEN</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#cf222e">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># shellcheck disable=SC2217</span>
-</span></span><span style="display:flex;"><span>jq -r <span style="color:#d14">&#39;.data | keys[] as $k | &#34;\($k)=\&#34;\(.[$k])\&#34;&#34;&#39;</span> <span style="color:#000;font-weight:bold">&lt;&lt;&lt;</span> <span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">secretsJSON</span><span style="color:#d14">}</span><span style="color:#d14">&#34;</span> | tr -d <span style="color:#d14">&#39;&#34;&#39;</span> &gt; .env
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># shellcheck disable=SC2217</span>
+</span></span><span style="display:flex;"><span>jq -r <span style="color:#0a3069">&#39;.data | keys[] as $k | &#34;\($k)=\&#34;\(.[$k])\&#34;&#34;&#39;</span> <span style="color:#0550ae">&lt;&lt;&lt;</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">${</span><span style="color:#953800">secretsJSON</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span> <span style="color:#1f2328">|</span> tr -d <span style="color:#0a3069">&#39;&#34;&#39;</span> &gt; .env
 </span></span></code></pre></div><p>Do not forget to export your copied token! <code>export VAULT_TOKEN=&lt;TOKEN_GOES_HERE&gt;</code></p>
 <p>Not sure if it useful to anyone, but i decided to share it here.
 Picture from <a href="https://www.instana.com/blog/hashicorp-vault-monitoring/">instana.com</a></p>
@@ -411,7 +414,7 @@ Picture from <a href="https://www.instana.com/blog/hashicorp-vault-monitoring/">
 </a>
 
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
         <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     

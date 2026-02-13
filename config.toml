@@ -1,14 +1,15 @@
 baseurl = "https://mrpopov.com"
 languageCode = "en-us"
 theme = "hello-friend"
-[pagination]
-pagerSize = 5
 publishDir = "docs"
 relativeurls = true
 rssFullText = true
 rssImage = "image/url/here"
 canonifyurls = true
 enableRobotsTXT = false
+
+[pagination]
+pagerSize = 5
 
 staticDir = ['static']
 

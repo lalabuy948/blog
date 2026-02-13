@@ -280,65 +280,65 @@ y: Because one not enough?
 <p>y: Because one not enough?</p>
 </blockquote>
 <p>Initially your <code>redis</code> docker-compose setup would look like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">version</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#39;3&#39;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">services</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">redis</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">image</span>:<span style="color:#bbb"> </span>redis:6.0.6-alpine3.12<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">container_name</span>:<span style="color:#bbb"> </span>redis_master<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">ports</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#d14">&#34;6379&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">restart</span>:<span style="color:#bbb"> </span>always<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#0550ae">version</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;3&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">services</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">redis</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">image</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis:6.0.6-alpine3.12<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">container_name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis_master<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">ports</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0a3069">&#34;6379&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">restart</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>always<span style="color:#fff">
 </span></span></span></code></pre></div><p>To be able to add second node slave/follower we need to change a bit our above example.</p>
 <p>This <a href="../../stuff/redis-cluster-in-docker-compose/redis.dev.conf">redis.conf</a> changing
 <code>bind 127.0.0.1</code> -&gt; <code>bind 0.0.0.0</code> configuration. Plus let&rsquo;s add network.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">version</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#39;3&#39;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">networks</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">web-network</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">driver</span>:<span style="color:#bbb"> </span>bridge<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">services</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">redis</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">image</span>:<span style="color:#bbb"> </span>redis:6.0.6-alpine3.12<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">container_name</span>:<span style="color:#bbb"> </span>redis_master<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">networks</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- web-network<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">ports</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#d14">&#34;6379&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">volumes</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- ./infra/etc/redis.dev.conf:/redis.conf<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">command</span>:<span style="color:#bbb"> </span>[<span style="color:#bbb"> </span><span style="color:#d14">&#34;redis-server&#34;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#34;/redis.conf&#34;</span><span style="color:#bbb"> </span>]<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">restart</span>:<span style="color:#bbb"> </span>always<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#0550ae">version</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;3&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">networks</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">web-network</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">driver</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>bridge<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">services</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">redis</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">image</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis:6.0.6-alpine3.12<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">container_name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis_master<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">networks</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- web-network<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">ports</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0a3069">&#34;6379&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">volumes</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- ./infra/etc/redis.dev.conf:/redis.conf<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">command</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">[</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;redis-server&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;/redis.conf&#34;</span><span style="color:#fff"> </span><span style="color:#1f2328">]</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">restart</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>always<span style="color:#fff">
 </span></span></span></code></pre></div><p>Finally we can add second node</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">version</span>:<span style="color:#bbb"> </span><span style="color:#d14">&#39;3&#39;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">networks</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">web-network</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">driver</span>:<span style="color:#bbb"> </span>bridge<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">services</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">redis</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">image</span>:<span style="color:#bbb"> </span>redis:6.0.6-alpine3.12<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">container_name</span>:<span style="color:#bbb"> </span>redis_master<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">networks</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- web-network<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">ports</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#d14">&#34;6379&#34;</span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">volumes</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- ./infra/etc/redis.dev.conf:/redis.conf<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">command</span>:<span style="color:#bbb"> </span>[<span style="color:#bbb"> </span><span style="color:#d14">&#34;redis-server&#34;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#34;/redis.conf&#34;</span><span style="color:#bbb"> </span>]<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">restart</span>:<span style="color:#bbb"> </span>always<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">redis-slave</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">image</span>:<span style="color:#bbb"> </span>redis:6.0.6-alpine3.12<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">container_name</span>:<span style="color:#bbb"> </span>redis_slave<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">networks</span>:<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- web-network<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">command</span>:<span style="color:#bbb"> </span>redis-server --slaveof redis 6379<span style="color:#bbb">
-</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">restart</span>:<span style="color:#bbb"> </span>always<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#0550ae">version</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;3&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">networks</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">web-network</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">driver</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>bridge<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">services</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">redis</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">image</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis:6.0.6-alpine3.12<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">container_name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis_master<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">networks</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- web-network<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">ports</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0a3069">&#34;6379&#34;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">volumes</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- ./infra/etc/redis.dev.conf:/redis.conf<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">command</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">[</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;redis-server&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;/redis.conf&#34;</span><span style="color:#fff"> </span><span style="color:#1f2328">]</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">restart</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>always<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">redis-slave</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">image</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis:6.0.6-alpine3.12<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">container_name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis_slave<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">networks</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- web-network<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">command</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>redis-server --slaveof redis 6379<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">restart</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>always<span style="color:#fff">
 </span></span></span></code></pre></div><p>If all good you will see something like this</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>MASTER &lt;-&gt; REPLICA sync: Finished with success
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>MASTER &lt;-&gt; REPLICA sync: Finished with success
 </span></span></code></pre></div><p>ps
 Redis will be accessible by this url <code>redis:6379</code>.</p>
     </div>
@@ -431,7 +431,7 @@ Redis will be accessible by this url <code>redis:6379</code>.</p>
 </a>
 
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
         <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     

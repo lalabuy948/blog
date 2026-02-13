@@ -280,52 +280,52 @@ And do not forget to add <code>. $HOME/.asdf/asdf.sh</code> to your rc file. I&r
 </blockquote>
 <p>I have two systemmd services, one for Phoenix app and one for Livebook.</p>
 <p>Here is an examples:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># /lib/systemd/system/phoenix.service</span>
-</span></span><span style="display:flex;"><span>[Unit]
-</span></span><span style="display:flex;"><span>Description=The Indie Stack - Phoenix App
-</span></span><span style="display:flex;"><span>After=network.target
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#57606a"># /lib/systemd/system/phoenix.service</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">Unit</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Description</span><span style="color:#1f2328">=</span><span style="color:#1f2328">The</span> <span style="color:#1f2328">Indie</span> <span style="color:#1f2328">Stack</span> <span style="color:#1f2328">-</span> <span style="color:#1f2328">Phoenix</span> <span style="color:#1f2328">App</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">After</span><span style="color:#1f2328">=</span><span style="color:#1f2328">network</span><span style="color:#1f2328">.</span><span style="color:#1f2328">target</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[Service]
-</span></span><span style="display:flex;"><span>Type=simple
-</span></span><span style="display:flex;"><span>User=root
-</span></span><span style="display:flex;"><span>Restart=on-failure
-</span></span><span style="display:flex;"><span>EnvironmentFile=<span style="color:#a61717;background-color:#e3d2d2">/</span>var<span style="color:#a61717;background-color:#e3d2d2">/</span>www<span style="color:#a61717;background-color:#e3d2d2">/</span>TheIndieStack<span style="color:#a61717;background-color:#e3d2d2">/</span>.env
-</span></span><span style="display:flex;"><span>WorkingDirectory=<span style="color:#a61717;background-color:#e3d2d2">/</span>var<span style="color:#a61717;background-color:#e3d2d2">/</span>www<span style="color:#a61717;background-color:#e3d2d2">/</span>TheIndieStack<span style="color:#a61717;background-color:#e3d2d2">/</span>
-</span></span><span style="display:flex;"><span>ExecStart=<span style="color:#a61717;background-color:#e3d2d2">/</span>usr<span style="color:#a61717;background-color:#e3d2d2">/</span>bin<span style="color:#a61717;background-color:#e3d2d2">/</span>zsh -c <span style="color:#d14">&#39;elixir --name tis@127.0.0.1 --cookie supersecret -S mix phx.server&#39;</span>
-</span></span><span style="display:flex;"><span>Environment=<span style="color:#d14">&#34;PATH=/root/.asdf/bin:/root/.asdf/shims:/usr/local/bin:/usr/bin:/bin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">Service</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Type</span><span style="color:#1f2328">=</span><span style="color:#1f2328">simple</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">User</span><span style="color:#1f2328">=</span><span style="color:#1f2328">root</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Restart</span><span style="color:#1f2328">=</span><span style="color:#1f2328">on-failure</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">EnvironmentFile</span><span style="color:#1f2328">=</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">var</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">www</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">TheIndieStack</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">.</span><span style="color:#1f2328">env</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">WorkingDirectory</span><span style="color:#1f2328">=</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">var</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">www</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">TheIndieStack</span><span style="color:#f6f8fa;background-color:#82071e">/</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">ExecStart</span><span style="color:#1f2328">=</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">usr</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">bin</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">zsh</span> <span style="color:#1f2328">-c</span> <span style="color:#0a3069">&#39;elixir --name tis@127.0.0.1 --cookie supersecret -S mix phx.server&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Environment</span><span style="color:#1f2328">=</span><span style="color:#0a3069">&#34;PATH=/root/.asdf/bin:/root/.asdf/shims:/usr/local/bin:/usr/bin:/bin&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[Install]
-</span></span><span style="display:flex;"><span>WantedBy=multi-user.target
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">Install</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">WantedBy</span><span style="color:#1f2328">=</span><span style="color:#1f2328">multi-user</span><span style="color:#1f2328">.</span><span style="color:#1f2328">target</span>
 </span></span></code></pre></div><p>Instead of running your Phoneix application with <code>mix phx.server</code> you need to run it like so: <code>elixir --name tis@127.0.0.1 --cookie supersecret -S mix phx.server</code>. In order to give node name and set cookie, so that in the future we will be able to connect to that from <code>Livebook</code>.</p>
 <p>Here is simplest way to install Livebook using elixir:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mix <span style="color:#000;font-weight:bold">do</span> local.rebar --force, local.hex --force
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mix <span style="color:#cf222e">do</span> local.rebar --force, local.hex --force
 </span></span><span style="display:flex;"><span>mix escript.install hex livebook
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Start the Livebook server</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Start the Livebook server</span>
 </span></span><span style="display:flex;"><span>livebook server
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># See all the configuration options</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># See all the configuration options</span>
 </span></span><span style="display:flex;"><span>livebook server --help
 </span></span></code></pre></div><p>And since I&rsquo;m using <code>.asdf</code>, here is example of my <code>livebook.service</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># /lib/systemd/system/livebook.service</span>
-</span></span><span style="display:flex;"><span>[Unit]
-</span></span><span style="display:flex;"><span>Description=The Indie Stack - Livebook
-</span></span><span style="display:flex;"><span>After=network.target
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#57606a"># /lib/systemd/system/livebook.service</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">Unit</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Description</span><span style="color:#1f2328">=</span><span style="color:#1f2328">The</span> <span style="color:#1f2328">Indie</span> <span style="color:#1f2328">Stack</span> <span style="color:#1f2328">-</span> <span style="color:#1f2328">Livebook</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">After</span><span style="color:#1f2328">=</span><span style="color:#1f2328">network</span><span style="color:#1f2328">.</span><span style="color:#1f2328">target</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[Service]
-</span></span><span style="display:flex;"><span>Type=simple
-</span></span><span style="display:flex;"><span>User=root
-</span></span><span style="display:flex;"><span>Restart=on-failure
-</span></span><span style="display:flex;"><span>EnvironmentFile=<span style="color:#a61717;background-color:#e3d2d2">/</span>var<span style="color:#a61717;background-color:#e3d2d2">/</span>www<span style="color:#a61717;background-color:#e3d2d2">/</span>Livebooks<span style="color:#a61717;background-color:#e3d2d2">/</span>.env
-</span></span><span style="display:flex;"><span>WorkingDirectory=<span style="color:#a61717;background-color:#e3d2d2">/</span>var<span style="color:#a61717;background-color:#e3d2d2">/</span>www<span style="color:#a61717;background-color:#e3d2d2">/</span>Livebooks<span style="color:#a61717;background-color:#e3d2d2">/</span>
-</span></span><span style="display:flex;"><span>ExecStart=<span style="color:#a61717;background-color:#e3d2d2">/</span>usr<span style="color:#a61717;background-color:#e3d2d2">/</span>bin<span style="color:#a61717;background-color:#e3d2d2">/</span>zsh -c <span style="color:#d14">&#39;/root/.asdf/installs/elixir/1.17.2-otp-27/.mix/escripts/livebook server&#39;</span>
-</span></span><span style="display:flex;"><span>Environment=<span style="color:#d14">&#34;PATH=/root/.asdf/bin:/root/.asdf/shims:/usr/local/bin:/usr/bin:/bin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">Service</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Type</span><span style="color:#1f2328">=</span><span style="color:#1f2328">simple</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">User</span><span style="color:#1f2328">=</span><span style="color:#1f2328">root</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Restart</span><span style="color:#1f2328">=</span><span style="color:#1f2328">on-failure</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">EnvironmentFile</span><span style="color:#1f2328">=</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">var</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">www</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">Livebooks</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">.</span><span style="color:#1f2328">env</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">WorkingDirectory</span><span style="color:#1f2328">=</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">var</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">www</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">Livebooks</span><span style="color:#f6f8fa;background-color:#82071e">/</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">ExecStart</span><span style="color:#1f2328">=</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">usr</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">bin</span><span style="color:#f6f8fa;background-color:#82071e">/</span><span style="color:#1f2328">zsh</span> <span style="color:#1f2328">-c</span> <span style="color:#0a3069">&#39;/root/.asdf/installs/elixir/1.17.2-otp-27/.mix/escripts/livebook server&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Environment</span><span style="color:#1f2328">=</span><span style="color:#0a3069">&#34;PATH=/root/.asdf/bin:/root/.asdf/shims:/usr/local/bin:/usr/bin:/bin&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[Install]
-</span></span><span style="display:flex;"><span>WantedBy=multi-user.target
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.env" data-lang=".env"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># EnvironmentFile=/var/www/Livebooks/.env from example above</span>
-</span></span><span style="display:flex;"><span><span style="color:#008080">LIVEBOOK_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>VerySecretPassword
-</span></span><span style="display:flex;"><span><span style="color:#008080">LIVEBOOK_PORT</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">9090</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">Install</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">WantedBy</span><span style="color:#1f2328">=</span><span style="color:#1f2328">multi-user</span><span style="color:#1f2328">.</span><span style="color:#1f2328">target</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-.env" data-lang=".env"><span style="display:flex;"><span><span style="color:#57606a"># EnvironmentFile=/var/www/Livebooks/.env from example above</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">LIVEBOOK_PASSWORD</span><span style="color:#0550ae">=</span>VerySecretPassword
+</span></span><span style="display:flex;"><span><span style="color:#953800">LIVEBOOK_PORT</span><span style="color:#0550ae">=</span><span style="color:#0550ae">9090</span>
 </span></span></code></pre></div><ul>
 <li>Each time when you add or modify service files you must run: <code>systemctl daemon-reload</code></li>
 <li>When you would like to start service: <code>systemctl start livebook.service</code></li>
@@ -442,7 +442,7 @@ And do not forget to add <code>. $HOME/.asdf/asdf.sh</code> to your rc file. I&r
 </a>
 
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
         <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     

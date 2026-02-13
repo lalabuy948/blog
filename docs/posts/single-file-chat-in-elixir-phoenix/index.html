@@ -271,7 +271,7 @@ If you would like jump straight into the code:
     
 
     <div class="post-content">
-      <h2 id="meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml">Meet <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a></h2>
+      <h2 id="meet-phonenixplayground">Meet <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a></h2>
 <p>I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a> made both of my wishes come true!</p>
 <p>If you would like jump straight into the code:</p>
 <p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/pink.svg" alt="Run in Livebook"></a></p>
@@ -286,9 +286,9 @@ If you would like jump straight into the code:
 </ul>
 <h2 id="lets-jump-into">Let&rsquo;s jump into</h2>
 <p>Open empty LiveBook and add next block to Notebook Dependencies and setup</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#458;font-weight:bold">Mix</span><span style="color:#000;font-weight:bold">.</span>install([
-</span></span><span style="display:flex;"><span>  {<span style="color:#990073">:phoenix_playground</span>, <span style="color:#d14">&#34;~&gt; 0.1.3&#34;</span>}
-</span></span><span style="display:flex;"><span>])
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#1f2328">Mix</span><span style="color:#0550ae">.</span>install<span style="color:#1f2328">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">{</span><span style="color:#032f62">:phoenix_playground</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;~&gt; 0.1.3&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">])</span>
 </span></span></code></pre></div><h2 id="lets-create-logic-to-hold-our-messages">Let&rsquo;s create logic to hold our messages</h2>
 <p>First I created simple <code>MessageStorage</code> module with three key functions,</p>
 <ul>
@@ -300,113 +300,113 @@ If you would like jump straight into the code:
 <p><code>handle_cast/2</code> simply add new message to the beginning of our empty list which we initiated in <code>init/1</code>.</p>
 <p>and</p>
 <p><code>handle_call</code> where I used <code>Enum.reverse()</code> in order to return messages in reverse, because in the chat you read top down where old on top and newest at the bottom.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">defmodule</span> <span style="color:#458;font-weight:bold">MessageStorage</span> <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">use</span> <span style="color:#458;font-weight:bold">GenServer</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">MessageStorage</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">use</span> <span style="color:#1f2328">GenServer</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> start_link(_opts) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">GenServer</span><span style="color:#000;font-weight:bold">.</span>start_link(__MODULE__, [], <span style="color:#990073">name</span>: __MODULE__)
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> start_link<span style="color:#1f2328">(</span>_opts<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">GenServer</span><span style="color:#0550ae">.</span>start_link<span style="color:#1f2328">(</span>__MODULE__<span style="color:#1f2328">,</span> <span style="color:#1f2328">[],</span> <span style="color:#032f62">name</span><span style="color:#1f2328">:</span> __MODULE__<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> init(_args) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:ok</span>, []}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> init<span style="color:#1f2328">(</span>_args<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[]}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> add_message(message) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">GenServer</span><span style="color:#000;font-weight:bold">.</span>cast(__MODULE__, {<span style="color:#990073">:add_message</span>, message})
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> add_message<span style="color:#1f2328">(</span>message<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">GenServer</span><span style="color:#0550ae">.</span>cast<span style="color:#1f2328">(</span>__MODULE__<span style="color:#1f2328">,</span> <span style="color:#1f2328">{</span><span style="color:#032f62">:add_message</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> get_messages() <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">GenServer</span><span style="color:#000;font-weight:bold">.</span>call(__MODULE__, <span style="color:#990073">:get_messages</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> get_messages<span style="color:#1f2328">()</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">GenServer</span><span style="color:#0550ae">.</span>call<span style="color:#1f2328">(</span>__MODULE__<span style="color:#1f2328">,</span> <span style="color:#032f62">:get_messages</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> handle_cast({<span style="color:#990073">:add_message</span>, message}, state) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:noreply</span>, [message <span style="color:#000;font-weight:bold">|</span> state]}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> handle_cast<span style="color:#1f2328">({</span><span style="color:#032f62">:add_message</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">},</span> state<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span>message <span style="color:#0550ae">|</span> state<span style="color:#1f2328">]}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> handle_call(<span style="color:#990073">:get_messages</span>, _from, state) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:reply</span>, <span style="color:#458;font-weight:bold">Enum</span><span style="color:#000;font-weight:bold">.</span>reverse(state), state}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> handle_call<span style="color:#1f2328">(</span><span style="color:#032f62">:get_messages</span><span style="color:#1f2328">,</span> _from<span style="color:#1f2328">,</span> state<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:reply</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">Enum</span><span style="color:#0550ae">.</span>reverse<span style="color:#1f2328">(</span>state<span style="color:#1f2328">),</span> state<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
 </span></span></code></pre></div><h2 id="lets-add-clean-up-and-updates">Let&rsquo;s add clean up and updates</h2>
 <p>We will define clean up interval and schedule clean up job every 5 seconds to delete the oldest message.</p>
 <blockquote>
 <p>⁉️ This is not optimal way to delete old messages, only for educational purposes, as proper way would be to store created time stamp next to each message and delete based on time stamps, but just for quick night dirty prototyping it will do the job.</p>
 </blockquote>
 <p>Improved version located on my <a href="https://github.com/lalabuy948/InMemoryChat">GitHub 🔗</a></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">defmodule</span> <span style="color:#458;font-weight:bold">MessageStorage</span> <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">use</span> <span style="color:#458;font-weight:bold">GenServer</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">MessageStorage</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">use</span> <span style="color:#1f2328">GenServer</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#008080">@cleanup_interval</span> <span style="color:#099">5_000</span> <span style="color:#998;font-style:italic"># 5 seconds</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">@cleanup_interval</span> <span style="color:#0550ae">5_000</span> <span style="color:#57606a"># 5 seconds</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> start_link(_opts) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">GenServer</span><span style="color:#000;font-weight:bold">.</span>start_link(__MODULE__, [], <span style="color:#990073">name</span>: __MODULE__)
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> start_link<span style="color:#1f2328">(</span>_opts<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">GenServer</span><span style="color:#0550ae">.</span>start_link<span style="color:#1f2328">(</span>__MODULE__<span style="color:#1f2328">,</span> <span style="color:#1f2328">[],</span> <span style="color:#032f62">name</span><span style="color:#1f2328">:</span> __MODULE__<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> init(_args) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    schedule_cleanup()
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:ok</span>, []}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> init<span style="color:#1f2328">(</span>_args<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    schedule_cleanup<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[]}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> handle_info(<span style="color:#990073">:cleanup</span>, state) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    new_state <span style="color:#000;font-weight:bold">=</span> clean_oldest_message(state)
-</span></span><span style="display:flex;"><span>    schedule_cleanup()
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> handle_info<span style="color:#1f2328">(</span><span style="color:#032f62">:cleanup</span><span style="color:#1f2328">,</span> state<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    new_state <span style="color:#0550ae">=</span> clean_oldest_message<span style="color:#1f2328">(</span>state<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    schedule_cleanup<span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:noreply</span>, new_state}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span> new_state<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> schedule_cleanup <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">Process</span><span style="color:#000;font-weight:bold">.</span>send_after(self(), <span style="color:#990073">:cleanup</span>, <span style="color:#008080">@cleanup_interval</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> schedule_cleanup <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Process</span><span style="color:#0550ae">.</span>send_after<span style="color:#1f2328">(</span>self<span style="color:#1f2328">(),</span> <span style="color:#032f62">:cleanup</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">@cleanup_interval</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> clean_oldest_message([]), <span style="color:#990073">do</span>: []
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> clean_oldest_message(state) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">List</span><span style="color:#000;font-weight:bold">.</span>delete_at(state, <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> clean_oldest_message<span style="color:#1f2328">([]),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> clean_oldest_message<span style="color:#1f2328">(</span>state<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">List</span><span style="color:#0550ae">.</span>delete_at<span style="color:#1f2328">(</span>state<span style="color:#1f2328">,</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span></code></pre></div><p>As for the updates as promised we will use <a href="https://hexdocs.pm/phoenix_pubsub/Phoenix.PubSub.html">Phoenix.PubSub</a> as we will need to tell to our clients what&rsquo;s going on like new message was added to the view and old ones were deleted.</p>
 <p>To achieve that we will need two core functionalities: subscribe and broadcast.
 <code>subscribe</code> will let our clients to subscribe to our events from <code>MessageStorage</code> module</p>
 <p>and</p>
 <p><code>broadcast</code> will enable us to send new updates into <code>Phoenix.PubSub</code>.</p>
 <p>Just jumping a bit further, once we will add <code>Phoenix.PubSub</code> to our star tree we will define name of that PubSub like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#458;font-weight:bold">Supervisor</span><span style="color:#000;font-weight:bold">.</span>child_spec({<span style="color:#458;font-weight:bold">Phoenix.PubSub</span>, <span style="color:#990073">name</span>: <span style="color:#990073">:demo_pub_sub</span>}, <span style="color:#990073">id</span>: <span style="color:#990073">:demo_pub_sub</span>),
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#1f2328">Supervisor</span><span style="color:#0550ae">.</span>child_spec<span style="color:#1f2328">({</span><span style="color:#1f2328">Phoenix.PubSub</span><span style="color:#1f2328">,</span> <span style="color:#032f62">name</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">},</span> <span style="color:#032f62">id</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">),</span>
 </span></span></code></pre></div><p>That&rsquo;s why here you can see that name:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#458;font-weight:bold">Phoenix.PubSub</span><span style="color:#000;font-weight:bold">.</span>subscribe(<span style="color:#990073">:demo_pub_sub</span>, <span style="color:#d14">&#34;message_topic&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#1f2328">Phoenix.PubSub</span><span style="color:#0550ae">.</span>subscribe<span style="color:#1f2328">(</span><span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;message_topic&#34;</span><span style="color:#1f2328">)</span>
 </span></span></code></pre></div><p>and <code>message_topic</code> is just the name for our topic. Here is extended functionality of module:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">defmodule</span> <span style="color:#458;font-weight:bold">MessageStorage</span> <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">use</span> <span style="color:#458;font-weight:bold">GenServer</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">MessageStorage</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">use</span> <span style="color:#1f2328">GenServer</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> handle_info(<span style="color:#990073">:cleanup</span>, state) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    new_state <span style="color:#000;font-weight:bold">=</span> clean_oldest_message(state)
-</span></span><span style="display:flex;"><span>    schedule_cleanup()
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> handle_info<span style="color:#1f2328">(</span><span style="color:#032f62">:cleanup</span><span style="color:#1f2328">,</span> state<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    new_state <span style="color:#0550ae">=</span> clean_oldest_message<span style="color:#1f2328">(</span>state<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    schedule_cleanup<span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">Phoenix.PubSub</span><span style="color:#000;font-weight:bold">.</span>broadcast(<span style="color:#990073">:demo_pub_sub</span>, <span style="color:#d14">&#34;message_topic&#34;</span>, {<span style="color:#990073">:message_last_deleted</span>})
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Phoenix.PubSub</span><span style="color:#0550ae">.</span>broadcast<span style="color:#1f2328">(</span><span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;message_topic&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">{</span><span style="color:#032f62">:message_last_deleted</span><span style="color:#1f2328">})</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:noreply</span>, new_state}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span> new_state<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> subscribe, <span style="color:#990073">do</span>: <span style="color:#458;font-weight:bold">Phoenix.PubSub</span><span style="color:#000;font-weight:bold">.</span>subscribe(<span style="color:#990073">:demo_pub_sub</span>, <span style="color:#d14">&#34;message_topic&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> subscribe<span style="color:#1f2328">,</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">Phoenix.PubSub</span><span style="color:#0550ae">.</span>subscribe<span style="color:#1f2328">(</span><span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;message_topic&#34;</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> broadcast({<span style="color:#990073">:error</span>, _reason} <span style="color:#000;font-weight:bold">=</span> error, _event), <span style="color:#990073">do</span>: error
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> broadcast({<span style="color:#990073">:ok</span>, message}, event) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">Phoenix.PubSub</span><span style="color:#000;font-weight:bold">.</span>broadcast(<span style="color:#990073">:demo_pub_sub</span>, <span style="color:#d14">&#34;message_topic&#34;</span>, {event, message})
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:ok</span>, message}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> broadcast<span style="color:#1f2328">({</span><span style="color:#032f62">:error</span><span style="color:#1f2328">,</span> _reason<span style="color:#1f2328">}</span> <span style="color:#0550ae">=</span> error<span style="color:#1f2328">,</span> _event<span style="color:#1f2328">),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> error
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> broadcast<span style="color:#1f2328">({</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">},</span> event<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Phoenix.PubSub</span><span style="color:#0550ae">.</span>broadcast<span style="color:#1f2328">(</span><span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;message_topic&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">{</span>event<span style="color:#1f2328">,</span> message<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> schedule_cleanup <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">Process</span><span style="color:#000;font-weight:bold">.</span>send_after(self(), <span style="color:#990073">:cleanup</span>, <span style="color:#008080">@cleanup_interval</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> schedule_cleanup <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Process</span><span style="color:#0550ae">.</span>send_after<span style="color:#1f2328">(</span>self<span style="color:#1f2328">(),</span> <span style="color:#032f62">:cleanup</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">@cleanup_interval</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> clean_oldest_message([]), <span style="color:#990073">do</span>: []
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">defp</span> clean_oldest_message(state) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">List</span><span style="color:#000;font-weight:bold">.</span>delete_at(state, <span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> clean_oldest_message<span style="color:#1f2328">([]),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> clean_oldest_message<span style="color:#1f2328">(</span>state<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">List</span><span style="color:#0550ae">.</span>delete_at<span style="color:#1f2328">(</span>state<span style="color:#1f2328">,</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
 </span></span></code></pre></div><h3 id="what-it-does">What it does?</h3>
 <ul>
 <li>Once client subscribed to our topic it will able to react to updates.</li>
@@ -417,19 +417,19 @@ If you would like jump straight into the code:
 <p>We need to create another module which will hold Phoenix.LiveView logic.</p>
 <p>Quite similar to what we&rsquo;ve done in <code>MessageStorage</code> we need to init the state. And subscribe to our message topic from <code>Phoenix.PubSub</code>.</p>
 <p>And as you can see we have <code>socket</code> through which we able to send and receive updates from our page. At the return we will initiate <code>messages</code> state and <code>message_value</code> which we will use for our input value.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">defmodule</span> <span style="color:#458;font-weight:bold">DemoTest</span> <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">use</span> <span style="color:#458;font-weight:bold">Phoenix.LiveView</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">DemoTest</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">use</span> <span style="color:#1f2328">Phoenix.LiveView</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> mount(_params, _session, socket) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> connected?(socket), <span style="color:#990073">do</span>: <span style="color:#458;font-weight:bold">MessageStorage</span><span style="color:#000;font-weight:bold">.</span>subscribe()
-</span></span><span style="display:flex;"><span>    messages <span style="color:#000;font-weight:bold">=</span> <span style="color:#458;font-weight:bold">MessageStorage</span><span style="color:#000;font-weight:bold">.</span>get_messages()
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> mount<span style="color:#1f2328">(</span>_params<span style="color:#1f2328">,</span> _session<span style="color:#1f2328">,</span> socket<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> connected?<span style="color:#1f2328">(</span>socket<span style="color:#1f2328">),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">MessageStorage</span><span style="color:#0550ae">.</span>subscribe<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    messages <span style="color:#0550ae">=</span> <span style="color:#1f2328">MessageStorage</span><span style="color:#0550ae">.</span>get_messages<span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:ok</span>, assign(socket, <span style="color:#990073">messages</span>: messages, <span style="color:#990073">message_value</span>: <span style="color:#d14">&#34;&#34;</span>)}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> assign<span style="color:#1f2328">(</span>socket<span style="color:#1f2328">,</span> <span style="color:#032f62">messages</span><span style="color:#1f2328">:</span> messages<span style="color:#1f2328">,</span> <span style="color:#032f62">message_value</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">)}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
 </span></span></code></pre></div><blockquote>
 <p>❤️ Huge thanks to the everyone who worked on erlang, BEAM, Elixir, Phoenix and LiveView that I don&rsquo;t need to write a single line of javascript. (no offend, I&rsquo;m a backend developer and you will notice it from my frontend skills)</p>
 </blockquote>
@@ -438,60 +438,60 @@ I simply added two css libraries as otherwise it would look completely boring an
 <p>Let&rsquo;s display our messages, for that we will use <code>for</code> annotation:
 <code>&lt;div class=&quot;chat-bubble&quot; :for={message &lt;- @messages}&gt;&lt;%= message %&gt;&lt;/div&gt;</code></p>
 <p>And in order to &ldquo;submit&rdquo; our message we will use simple form:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">form</span> <span style="color:#008080">phx-submit</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;new_message&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">input</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008080">value</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{@message_value}&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008080">placeholder</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Message...&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008080">autofocus</span>
-</span></span><span style="display:flex;"><span>  /&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;submit&#34;</span> /&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">form</span>&gt;
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">form</span> <span style="color:#1f2328">phx-submit</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;new_message&#34;</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">input</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">type</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">name</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">value</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;{@message_value}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">placeholder</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Message...&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">autofocus</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">input</span> <span style="color:#1f2328">type</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;submit&#34;</span> <span style="color:#1f2328">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">form</span><span style="color:#1f2328">&gt;</span>
 </span></span></code></pre></div><p>In which you can find our <code>@message_value</code> which we added in init state and <code>phx-submit=&quot;new_message&quot;</code>, this is an event which we will need to handle in order to send updates from our UI to <code>MessageStorage</code> and than further to other clients.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">defmodule</span> <span style="color:#458;font-weight:bold">DemoTest</span> <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">use</span> <span style="color:#458;font-weight:bold">Phoenix.LiveView</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">DemoTest</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">use</span> <span style="color:#1f2328">Phoenix.LiveView</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> render(assigns) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#d14">~H</span><span style="color:#d14">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">    &lt;head&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">      &lt;link href=&#34;https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34; /&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">      &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">    &lt;/head&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">    &lt;body&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">      &lt;div class=&#34;h-screen flex items-center justify-center&#34;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">        &lt;div class=&#34;mockup-phone border-primary&#34;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">          &lt;div class=&#34;camera&#34;&gt;&lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">          &lt;div class=&#34;display&#34;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">            &lt;div class=&#34;artboard artboard-demo phone-1&#34;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">              &lt;div class=&#34;chat chat-end w-full&#34;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">                &lt;div class=&#34;chat-bubble&#34; :for={message &lt;- @messages}&gt;&lt;%= message %&gt;&lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">              &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">              &lt;form phx-submit=&#34;new_message&#34; &gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">                &lt;input type=&#34;text&#34; name=&#34;text&#34; value={@message_value} placeholder=&#34;Message...&#34; autofocus&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">                &lt;input type=&#34;submit&#34; /&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">              &lt;/form&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">            &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">          &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">        &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">      &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">    &lt;/body&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#d14">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> render<span style="color:#1f2328">(</span>assigns<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">~H</span><span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &lt;head&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      &lt;link href=&#34;https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &lt;/head&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &lt;body&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      &lt;div class=&#34;h-screen flex items-center justify-center&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        &lt;div class=&#34;mockup-phone border-primary&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">          &lt;div class=&#34;camera&#34;&gt;&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">          &lt;div class=&#34;display&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            &lt;div class=&#34;artboard artboard-demo phone-1&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">              &lt;div class=&#34;chat chat-end w-full&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">                &lt;div class=&#34;chat-bubble&#34; :for={message &lt;- @messages}&gt;&lt;%= message %&gt;&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">              &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">              &lt;form phx-submit=&#34;new_message&#34; &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">                &lt;input type=&#34;text&#34; name=&#34;text&#34; value={@message_value} placeholder=&#34;Message...&#34; autofocus&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">                &lt;input type=&#34;submit&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">              &lt;/form&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">          &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &lt;/body&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
 </span></span></code></pre></div><p>Now let&rsquo;s wire our UI logic with the rest of the functionality which we developed.</p>
 <h3 id="what-needs-to-be-done">What needs to be done?</h3>
 <ul>
@@ -508,42 +508,42 @@ I simply added two css libraries as otherwise it would look completely boring an
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">defmodule</span> <span style="color:#458;font-weight:bold">DemoTest</span> <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">use</span> <span style="color:#458;font-weight:bold">Phoenix.LiveView</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">DemoTest</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">use</span> <span style="color:#1f2328">Phoenix.LiveView</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> handle_event(<span style="color:#d14">&#34;new_message&#34;</span>, %{<span style="color:#d14">&#34;text&#34;</span> <span style="color:#000;font-weight:bold">=&gt;</span> message}, socket) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">MessageStorage</span><span style="color:#000;font-weight:bold">.</span>add_message(message)
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> handle_event<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;new_message&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">%{</span><span style="color:#0a3069">&#34;text&#34;</span> <span style="color:#0550ae">=&gt;</span> message<span style="color:#1f2328">},</span> socket<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">MessageStorage</span><span style="color:#0550ae">.</span>add_message<span style="color:#1f2328">(</span>message<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># here i wanted to reset message once we hit enter, but found out it&#39;s not a bug but feature</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># works only once (input is in focus and due to that it wont be updated)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># https://github.com/phoenixframework/phoenix_live_view/issues/624</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># here i wanted to reset message once we hit enter, but found out it&#39;s not a bug but feature</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># works only once (input is in focus and due to that it wont be updated)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># https://github.com/phoenixframework/phoenix_live_view/issues/624</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:noreply</span>, socket}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span> socket<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> handle_info({<span style="color:#990073">:message_last_deleted</span>}, socket) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> length(socket<span style="color:#000;font-weight:bold">.</span>assigns<span style="color:#000;font-weight:bold">.</span>messages) <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>      {<span style="color:#990073">:noreply</span>, socket}
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">else</span>
-</span></span><span style="display:flex;"><span>      [_<span style="color:#000;font-weight:bold">|</span>tail] <span style="color:#000;font-weight:bold">=</span> socket<span style="color:#000;font-weight:bold">.</span>assigns<span style="color:#000;font-weight:bold">.</span>messages
-</span></span><span style="display:flex;"><span>      {<span style="color:#990073">:noreply</span>, assign(socket, <span style="color:#990073">messages</span>: tail )}
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> handle_info<span style="color:#1f2328">({</span><span style="color:#032f62">:message_last_deleted</span><span style="color:#1f2328">},</span> socket<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> length<span style="color:#1f2328">(</span>socket<span style="color:#0550ae">.</span>assigns<span style="color:#0550ae">.</span>messages<span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span> socket<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">[</span>_<span style="color:#0550ae">|</span>tail<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> socket<span style="color:#0550ae">.</span>assigns<span style="color:#0550ae">.</span>messages
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span> assign<span style="color:#1f2328">(</span>socket<span style="color:#1f2328">,</span> <span style="color:#032f62">messages</span><span style="color:#1f2328">:</span> tail <span style="color:#1f2328">)}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">def</span> handle_info({<span style="color:#990073">:message_created</span>, message}, socket) <span style="color:#000;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>    {<span style="color:#990073">:noreply</span>, assign(socket, <span style="color:#990073">messages</span>: socket<span style="color:#000;font-weight:bold">.</span>assigns<span style="color:#000;font-weight:bold">.</span>messages <span style="color:#000;font-weight:bold">++</span> [message] )}
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> handle_info<span style="color:#1f2328">({</span><span style="color:#032f62">:message_created</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">},</span> socket<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span> assign<span style="color:#1f2328">(</span>socket<span style="color:#1f2328">,</span> <span style="color:#032f62">messages</span><span style="color:#1f2328">:</span> socket<span style="color:#0550ae">.</span>assigns<span style="color:#0550ae">.</span>messages <span style="color:#0550ae">++</span> <span style="color:#1f2328">[</span>message<span style="color:#1f2328">]</span> <span style="color:#1f2328">)}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
 </span></span></code></pre></div><h2 id="lets-run">Let&rsquo;s run</h2>
 <p>We need to start our <code>Phoenix.PubSub</code>, <code>GenServer</code> which we wrapped in <code>MessageStorage</code> module and our <code>Phoenix.LiveView</code> via <code>PhoenixPlayground.start/2</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>children <span style="color:#000;font-weight:bold">=</span> [
-</span></span><span style="display:flex;"><span>  <span style="color:#458;font-weight:bold">Supervisor</span><span style="color:#000;font-weight:bold">.</span>child_spec({<span style="color:#458;font-weight:bold">Phoenix.PubSub</span>, <span style="color:#990073">name</span>: <span style="color:#990073">:demo_pub_sub</span>}, <span style="color:#990073">id</span>: <span style="color:#990073">:demo_pub_sub</span>),
-</span></span><span style="display:flex;"><span>  <span style="color:#458;font-weight:bold">MessageStorage</span>,
-</span></span><span style="display:flex;"><span>]
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>children <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">Supervisor</span><span style="color:#0550ae">.</span>child_spec<span style="color:#1f2328">({</span><span style="color:#1f2328">Phoenix.PubSub</span><span style="color:#1f2328">,</span> <span style="color:#032f62">name</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">},</span> <span style="color:#032f62">id</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:demo_pub_sub</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">MessageStorage</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#458;font-weight:bold">PhoenixPlayground</span><span style="color:#000;font-weight:bold">.</span>start(<span style="color:#990073">live</span>: <span style="color:#458;font-weight:bold">DemoTest</span>, <span style="color:#990073">child_specs</span>: children)
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">PhoenixPlayground</span><span style="color:#0550ae">.</span>start<span style="color:#1f2328">(</span><span style="color:#032f62">live</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">DemoTest</span><span style="color:#1f2328">,</span> <span style="color:#032f62">child_specs</span><span style="color:#1f2328">:</span> children<span style="color:#1f2328">)</span>
 </span></span></code></pre></div><p>You can run it and test yourself:</p>
 <p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/blue.svg" alt="Run in Livebook"></a></p>
     </div>
@@ -636,7 +636,7 @@ I simply added two css libraries as otherwise it would look completely boring an
 </a>
 
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
         <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
       </div>
     

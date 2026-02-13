@@ -18,13 +18,13 @@
     </item>
     
     <item>
-      <title>Elixir LiveView Single Binary</title>
+      <title>Elixir LiveView Single Binary [UPD]</title>
       <link>https://mrpopov.com/posts/elixir-liveview-single-binary/</link>
       <pubDate>Mon, 06 Oct 2025 21:55:18 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/elixir-liveview-single-binary/</guid>
-      <description>We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&amp;hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
-The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&amp;rsquo;d get into that rotten stuff pretty soon.</description>
+      <description>&lt;p&gt;We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&amp;hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.&lt;/p&gt;
+&lt;p&gt;The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&amp;rsquo;d get into that rotten stuff pretty soon.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -33,11 +33,31 @@ The only thing that really worried me was the WebView. There is nothing in the w
       <pubDate>Wed, 02 Apr 2025 15:26:59 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/tax-free-income-step-by-step/</guid>
-      <description>For Digital Nomads, Freelancers, and Remote Business Owners
-Non US Citizens only
-1. Set Up Your Tax-Free Business Entity Step 1: Form a US LLC Why? US LLCs are flexible, low-cost, and avoid corporate tax if structured correctly.
-How?
-Choose a State: Wyoming (no state tax, privacy) Delaware (strong legal framework) New Mexico (cheapest, but less banking flexibility) Hire a Registered Agent: Required for compliance (cost: $50-300/year) Obtain an EIN: Apply for an Employer Identification Number (EIN) via IRS Form SS-4 (free) Alternative Structures: UAE Free Zone Company: 0% corporate/personal tax, but higher setup costs (~$15k) Estonia e-Residency: 0% corporate tax until profits are distributed 2.</description>
+      <description>&lt;p&gt;&lt;em&gt;For Digital Nomads, Freelancers, and Remote Business Owners&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Non US Citizens only&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-set-up-your-tax-free-business-entity&#34;&gt;1. Set Up Your Tax-Free Business Entity&lt;/h2&gt;
+&lt;h3 id=&#34;step-1-form-a-us-llc&#34;&gt;Step 1: Form a US LLC&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Why?&lt;/strong&gt; US LLCs are flexible, low-cost, and avoid corporate tax if structured correctly.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Choose a State:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Wyoming (no state tax, privacy)&lt;/li&gt;
+&lt;li&gt;Delaware (strong legal framework)&lt;/li&gt;
+&lt;li&gt;New Mexico (cheapest, but less banking flexibility)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hire a Registered Agent:&lt;/strong&gt; Required for compliance (cost: $50-300/year)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Obtain an EIN:&lt;/strong&gt; Apply for an Employer Identification Number (EIN) via IRS Form SS-4 (free)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;alternative-structures&#34;&gt;Alternative Structures:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;UAE Free Zone Company:&lt;/strong&gt; 0% corporate/personal tax, but higher setup costs (~$15k)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estonia e-Residency:&lt;/strong&gt; 0% corporate tax until profits are distributed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-terminate-tax-residency&#34;&gt;2. Terminate Tax Residency&lt;/h2&gt;
+&lt;h3 id=&#34;step-2-become-a-tax-nomad&#34;&gt;Step 2: Become a Tax Nomad&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Why?&lt;/strong&gt; Most countries tax residents on worldwide income.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -65,7 +85,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <pubDate>Fri, 12 Jul 2024 23:46:53 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</guid>
-      <description>&lt;h2 id=&#34;meet-phonenixplaygroundhttpshexdocspmphoenix_playgroundreadmehtml&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;meet-phonenixplayground&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
 &lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
@@ -77,8 +97,9 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <pubDate>Mon, 27 May 2024 14:43:13 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/top-5-things-i-learned-as-entrepreneur/</guid>
-      <description>In August 2023, I opened my own LLC to run a fractional CTO/consulting business. After almost a year, I learned some important things that could be useful for people who would like to make a change in their career.
-1. Never trust anyone unless the contract is signed and the invoice is paid. As the title says, a potential client might be eager to work with you, but when it comes to the actual contract and work, they might suddenly disappear without any signs of life, even people with whom you thought you had a nice relationship.</description>
+      <description>&lt;p&gt;In August 2023, I opened my own LLC to run a fractional CTO/consulting business. After almost a year, I learned some important things that could be useful for people who would like to make a change in their career.&lt;/p&gt;
+&lt;h2 id=&#34;1-never-trust-anyone-unless-the-contract-is-signed-and-the-invoice-is-paid&#34;&gt;1. Never trust anyone unless the contract is signed and the invoice is paid.&lt;/h2&gt;
+&lt;p&gt;As the title says, a potential client might be eager to work with you, but when it comes to the actual contract and work, they might suddenly disappear without any signs of life, even people with whom you thought you had a nice relationship. Lower your expectations to zero or sometimes below zero. Once the contract is signed and the invoice is paid, you can have a small relief. (This happened to me 9 out of 10 times, maybe something is wrong with me)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -87,8 +108,19 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <pubDate>Mon, 28 Aug 2023 18:08:39 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/top-self-help-books/</guid>
-      <description>Mark Manson - The Subtle Art of Not Giving a F*ck James Clear - Atomic Habits https://aliabdaal.com/book-notes/atomic-habits-summary/
-Kelly McGonigal - The Upside of Stress Jordan B. Peterson - 12 Rules for Life: An Antidote to Chaos Jason Fried - It Doesn&amp;rsquo;t Have to Be Crazy at Work Gary John Bishop - Wise as Fu*k </description>
+      <description>&lt;h2 id=&#34;mark-manson---the-subtle-art-of-not-giving-a-fck&#34;&gt;Mark Manson - The Subtle Art of Not Giving a F*ck&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1465761302i/28257707.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;james-clear---atomic-habits&#34;&gt;James Clear - Atomic Habits&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/40121378-atomic-habits&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655988385i/40121378.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://aliabdaal.com/book-notes/atomic-habits-summary/&#34;&gt;https://aliabdaal.com/book-notes/atomic-habits-summary/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kelly-mcgonigal---the-upside-of-stress&#34;&gt;Kelly McGonigal - The Upside of Stress&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/23281639-the-upside-of-stress&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1413129464i/23281639.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jordan-b-peterson---12-rules-for-life-an-antidote-to-chaos&#34;&gt;Jordan B. Peterson - 12 Rules for Life: An Antidote to Chaos&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/30257963-12-rules-for-life&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1512705866i/30257963.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jason-fried---it-doesnt-have-to-be-crazy-at-work&#34;&gt;Jason Fried - It Doesn&amp;rsquo;t Have to Be Crazy at Work&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/38900866-it-doesn-t-have-to-be-crazy-at-work&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1526057292i/38900866.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gary-john-bishop---wise-as-fuk&#34;&gt;Gary John Bishop - Wise as Fu*k&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/50496881-wise-as-fu-k&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1601938076i/50496881.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -97,7 +129,8 @@ Kelly McGonigal - The Upside of Stress Jordan B. Peterson - 12 Rules for Life: A
       <pubDate>Thu, 17 Aug 2023 22:35:34 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/continuous-improvement-culture/</guid>
-      <description>How to establish a culture of continuous improvement across whole company? Why it’s even important to have continuous improvement culture in your company? For example, if you read a book for 15 minutes daily you already read more than majority of people aged between 15 to 44. Just fifteen minutes a day may put you ahead of competition and this result will be multiplied through the period of time. Same works in business, teams of personal growth.</description>
+      <description>&lt;h2 id=&#34;how-to-establish-a-culture-of-continuous-improvement-across-whole-company&#34;&gt;How to establish a culture of continuous improvement across whole company?&lt;/h2&gt;
+&lt;p&gt;Why it’s even important to have continuous improvement culture in your company? For example, if you read a book for 15 minutes daily you already read more than majority of people aged between 15 to 44. Just fifteen minutes a day may put you ahead of competition and this result will be multiplied through the period of time. Same works in business, teams of personal growth.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -106,8 +139,9 @@ Kelly McGonigal - The Upside of Stress Jordan B. Peterson - 12 Rules for Life: A
       <pubDate>Thu, 17 Aug 2023 22:20:00 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/stunning-presentations-fast/</guid>
-      <description>Do you want to create stunning presentations in just 15 minutes? How often when you need to make presentation it becomes entire saga of preparations, updates and fixes? All of it because you use wrong process and tools.
-Let&amp;rsquo;s dive a bit into the process of creating a presentation. In most cases, you are on a call where 80% of the content is delivered verbally and only 20% is shown on the screen to highlight your thoughts.</description>
+      <description>&lt;h2 id=&#34;do-you-want-to-create-stunning-presentations-in-just-15-minutes&#34;&gt;Do you want to create stunning presentations in just 15 minutes?&lt;/h2&gt;
+&lt;p&gt;How often when you need to make presentation it becomes entire saga of preparations, updates and fixes? All of it because you use wrong process and tools.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s dive a bit into the process of creating a presentation. In most cases, you are on a call where 80% of the content is delivered verbally and only 20% is shown on the screen to highlight your thoughts. However, when preparing a presentation, you often spend 80% of your time creating only 20% of the content.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -116,8 +150,8 @@ Let&amp;rsquo;s dive a bit into the process of creating a presentation. In most 
       <pubDate>Sat, 05 Aug 2023 08:41:40 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/speed-up-your-life/</guid>
-      <description>Most of my friends and colleagues are asking where I’m rushing, why I want to get promotions as fast as possible. Being a director in your twenties, when you suppose to drink, do stupid stuff and spend time with friends. I work effectively more than 12 hours every day, on my pet projects, main job and other side quests.
-Here is one important thing you need to accept and understand. Our brain has been representing a lot of important data wrongly since the beginning due to established patterns, especially the ones that are much easier to recognize.</description>
+      <description>&lt;p&gt;Most of my friends and colleagues are asking where I’m rushing, why I want to get promotions as fast as possible. Being a director in your twenties, when you suppose to drink, do stupid stuff and spend time with friends. I work effectively more than 12 hours every day, on my pet projects, main job and other side quests.&lt;/p&gt;
+&lt;p&gt;Here is one important thing you need to accept and understand. Our brain has been representing a lot of important data wrongly since the beginning due to established patterns, especially the ones that are much easier to recognize. I will provide you with a few examples that were eye-opening for me.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -126,8 +160,8 @@ Here is one important thing you need to accept and understand. Our brain has bee
       <pubDate>Thu, 18 May 2023 10:09:14 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/data-security-quick-wins/</guid>
-      <description>Data security is a critical concern for any industry, but it&amp;rsquo;s especially important in digital company. With so much sensitive information being exchanged between different parties, it&amp;rsquo;s essential to have robust security measures in place to protect against malicious attacks and data breaches.
-So what are some best practices and tips for ensuring data security in digital company? First and foremost, it&amp;rsquo;s important to implement strong access controls and encryption methods to protect data both in transit and at rest.</description>
+      <description>&lt;p&gt;Data security is a critical concern for any industry, but it&amp;rsquo;s especially important in digital company. With so much sensitive information being exchanged between different parties, it&amp;rsquo;s essential to have robust security measures in place to protect against malicious attacks and data breaches.&lt;/p&gt;
+&lt;p&gt;So what are some best practices and tips for ensuring data security in digital company? First and foremost, it&amp;rsquo;s important to implement strong access controls and encryption methods to protect data both in transit and at rest. This can include measures such as multi-factor authentication, VPNs, and SSL encryption. All our dev environments are hidden under VPN and password protected.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -136,8 +170,8 @@ So what are some best practices and tips for ensuring data security in digital c
       <pubDate>Tue, 18 Apr 2023 13:14:05 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/the-highest-roi-asset/</guid>
-      <description>As you might feel hard times are approaching, failure of Silicon Valley Bank is not the only sign of what’s happening in the world. Enormous https://truflation.com with a lot of excluded spheres in calculations and constant lie on reported numbers. The main question is how to protect yourself from upcoming “tsunami”, as some enlightened people are saying.
-Stocks, crypto, commodities, real estate, different currencies - all of this might evaporate in matter of a blink.</description>
+      <description>&lt;p&gt;As you might feel hard times are approaching, failure of Silicon Valley Bank is not the only sign of what’s happening in the world. Enormous &lt;a href=&#34;https://truflation.com/&#34;&gt;https://truflation.com&lt;/a&gt; with a lot of excluded spheres in calculations and constant lie on reported numbers. The main question is how to protect yourself from upcoming “tsunami”, as some enlightened people are saying.&lt;/p&gt;
+&lt;p&gt;Stocks, crypto, commodities, real estate, different currencies - all of this might evaporate in matter of a blink. Stocks unpredictable, crypto even worse. Commodities and real estate might nationalised. Any currency might hit hyper inflation or even if going to find a stable pair, you still need to do operations through banks which can refuse giving you real value back instead of digits on your phone screen.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -146,7 +180,11 @@ Stocks, crypto, commodities, real estate, different currencies - all of this mig
       <pubDate>Wed, 05 Apr 2023 17:19:25 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/productivity-with-adhd/</guid>
-      <description>I started noticing that nowadays with enormous amount of distractions it&amp;rsquo;s incredibly hard to focus on things. And I was researching how people with ADHD actually staying hyper-focused, because fo them it must be even harder. Attention Deficit Hyperactivity Disorder - ADHD can make it difficult to stay focused and productive, but there are strategies that I found useful and I will share them with you, which can help you stop procrastination and start getting things done even if you don&amp;rsquo;t have ADHD but facing lack of focus.</description>
+      <description>&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/JsT3KPYJFl4?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;I started noticing that nowadays with enormous amount of distractions it&amp;rsquo;s incredibly hard to focus on things. And I was researching how people with ADHD actually staying hyper-focused, because fo them it must be even harder. Attention Deficit Hyperactivity Disorder - ADHD can make it difficult to stay focused and productive, but there are strategies that I found useful and I will share them with you, which can help you stop procrastination and start getting things done even if you don&amp;rsquo;t have ADHD but facing lack of focus. Here are some tips on how to be productive with ADHD and how to trick your brain into staying on task:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -155,8 +193,9 @@ Stocks, crypto, commodities, real estate, different currencies - all of this mig
       <pubDate>Tue, 04 Apr 2023 19:30:45 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/start-using-ai-immediately/</guid>
-      <description>Why you need to start using AI as soon as possible Hey there, today we are talking why you need to start using AI now. Artificial Intelligence has been around for quite some time, and it&amp;rsquo;s no longer a concept of the future. Many businesses are already leveraging AI to improve their operations and stay ahead of the competition.
-In this post, I&amp;rsquo;ll talk about the need for AI implementation, the benefits of AI, and why you should not afraid of it.</description>
+      <description>&lt;h1 id=&#34;why-you-need-to-start-using-ai-as-soon-as-possible&#34;&gt;Why you need to start using AI as soon as possible&lt;/h1&gt;
+&lt;p&gt;Hey there, today we are talking why you need to start using AI now. Artificial Intelligence has been around for quite some time, and it&amp;rsquo;s no longer a concept of the future. Many businesses are already leveraging AI to improve their operations and stay ahead of the competition.&lt;/p&gt;
+&lt;p&gt;In this post, I&amp;rsquo;ll talk about the need for AI implementation, the benefits of AI, and why you should not afraid of it. So, let&amp;rsquo;s dive right in.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -165,7 +204,7 @@ In this post, I&amp;rsquo;ll talk about the need for AI implementation, the bene
       <pubDate>Fri, 17 Mar 2023 14:43:18 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/user-stories-explained/</guid>
-      <description>Why would we even need something like user stories? Based on my view this is an intermediate state of information between long and boring business summaries and technical tickets. In my cycle of articles about IT management we spoke about SCRUM and we discussed about process, responsibilities and etc. but we didn&amp;rsquo;t discuss actual challenges which we are solving. There are users, users have needs, based on that needs certain services and products are being developed.</description>
+      <description>&lt;p&gt;Why would we even need something like user stories? Based on my view this is an intermediate state of information between long and boring business summaries and technical tickets. In my cycle of articles about IT management we spoke about &lt;a href=&#34;./posts/a-bit-about-scrum-and-its-history/&#34;&gt;SCRUM&lt;/a&gt; and we discussed about process, responsibilities and etc. but we didn&amp;rsquo;t discuss actual challenges which we are solving. There are users, users have needs, based on that needs certain services and products are being developed. And to deliver solution to user we first need to write down an idea and transfer this idea to developers. Since modern software development is complex and its complexity has many reasons, one of the common challenges is to solve information complexity and one of the methods is to break down big peace of functionality into user stories.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -174,8 +213,14 @@ In this post, I&amp;rsquo;ll talk about the need for AI implementation, the bene
       <pubDate>Sun, 12 Mar 2023 12:56:14 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/improve-and-do-retrospectives-right/</guid>
-      <description>“Improving daily work is even more important than doing daily work.” Gene Kim The Phoenix Project
-Often as managers, we try to be a great example, lead by example and work as hard as we can and this is related to any leaders, team leads, managers, CEOs and etc. All of this is nice, but will never lead to great results, as a single person you cannot impact the results of the whole company, no matter how great, fast, experienced you are.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“Improving daily work is even more important than doing daily work.”
+&lt;strong&gt;Gene Kim&lt;/strong&gt; &lt;a href=&#34;https://www.goodreads.com/book/show/17255186-the-phoenix-project&#34;&gt;The Phoenix Project&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Often as managers, we try to be a great example, lead by example and work as hard as we can and this is related to
+any leaders, team leads, managers, CEOs and etc.
+All of this is nice, but will never lead to great results, as a single person you cannot impact the results of the whole company,
+no matter how great, fast, experienced you are. There is always a team and more than one person behind success. I stumbled upon one concept which is called &amp;ldquo;multiplier&amp;rdquo; from the same name book &lt;a href=&#34;https://www.goodreads.com/book/show/8310410-multipliers&#34;&gt;&amp;ldquo;Multipliers&amp;rdquo;&lt;/a&gt;, that was eye opening for me. Instead of pushing yourself you must educate and mentor others, as you will work as the &amp;ldquo;multiplier&amp;rdquo; and bring much more value towards the company/business/team/department.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -184,7 +229,7 @@ Often as managers, we try to be a great example, lead by example and work as har
       <pubDate>Sun, 05 Mar 2023 13:26:45 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/a-bit-about-scrum-and-its-history/</guid>
-      <description>I was inspired about SCRUM methodology back in 2018 when for the first time I read a book named &amp;ldquo;The SCRUM Field Guide&amp;rdquo; which written by Mitch Lacey. Back in the day I used to be an engineer and I could not realize all benefits of adapting this methodology and was blindly following what team lead was saying. Nowadays when I&amp;rsquo;m in charge of success of more than 20 people, that&amp;rsquo;s where I had to come back to this book and write down all important notes which I would like to share.</description>
+      <description>&lt;p&gt;I was inspired about SCRUM methodology back in 2018 when for the first time I read a book named &lt;a href=&#34;https://www.goodreads.com/book/show/12426548-the-scrum-field-guide&#34;&gt;&amp;ldquo;The SCRUM Field Guide&amp;rdquo;&lt;/a&gt; which written by Mitch Lacey. Back in the day I used to be an engineer and I could not realize all benefits of adapting this methodology and was blindly following what team lead was saying. Nowadays when I&amp;rsquo;m in charge of success of more than 20 people, that&amp;rsquo;s where I had to come back to this book and write down all important notes which I would like to share. As well as to share how and where scrum methodology and agile principles started.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -193,8 +238,8 @@ Often as managers, we try to be a great example, lead by example and work as har
       <pubDate>Sun, 05 Mar 2023 12:11:49 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/best-travel-policy/</guid>
-      <description>General guidelines
-✅ As the best practice we use the most affordable and efficient type of transportation and stays. The price of the stay and travel must be free or the provider has to pay our company for promoting them on tiktok. For those employees who didn’t reach 5 mln. subscribers and not able to get a bargain with the provider, the price of the stay and transportation must be covered by the employee.</description>
+      <description>&lt;p&gt;&lt;strong&gt;General guidelines&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;✅ As the best practice we use the most affordable and efficient type of transportation and stays. The price of the stay and travel must be free or the provider has to pay our company for promoting them on tiktok. For those employees who didn’t reach 5 mln. subscribers and not able to get a bargain with the provider, the price of the stay and transportation must be covered by the employee. &lt;/p&gt;</description>
     </item>
     
     <item>
@@ -203,8 +248,11 @@ Often as managers, we try to be a great example, lead by example and work as har
       <pubDate>Sun, 22 Jan 2023 12:59:55 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/mini-space-journey/</guid>
-      <description>It&amp;rsquo;s finally released 🎉 Use for social media: #MiniSpaceJourney
-&amp;ldquo;Mini Space Journey&amp;rdquo; is an innovative game for the Apple Watch that takes players on a thrilling adventure through outer space. Instead of using the watch&amp;rsquo;s accelerometer and gyroscope, the game utilizes the unique crown button on the side of the watch to navigate the player&amp;rsquo;s spacecraft. This makes for a unique and interactive gaming experience that is not found in other Apple Watch games.</description>
+      <description>&lt;p&gt;It&amp;rsquo;s finally released 🎉 Use for social media: &lt;code&gt;#MiniSpaceJourney&lt;/code&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+    &lt;a href=&#34;https://apps.apple.com/us/app/mini-space-journey/id1665989118?itsct=apps_box_badge&amp;amp;itscg=30200&#34; style=&#34;display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;&#34;&gt;&lt;img src=&#34;https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;amp;releaseDate=1674345600&#34; alt=&#34;Download on the App Store&#34; style=&#34;border-radius: 13px; width: 250px; height: 83px;&#34;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Mini Space Journey&amp;rdquo; is an innovative game for the Apple Watch that takes players on a thrilling adventure through outer space. Instead of using the watch&amp;rsquo;s accelerometer and gyroscope, the game utilizes the unique crown button on the side of the watch to navigate the player&amp;rsquo;s spacecraft. This makes for a unique and interactive gaming experience that is not found in other Apple Watch games.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -213,9 +261,9 @@ Often as managers, we try to be a great example, lead by example and work as har
       <pubDate>Sat, 26 Nov 2022 19:59:00 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/best-opportunity-of-your-life/</guid>
-      <description>✅ Motivating and adequate leader charging you with motivation for the whole day. You will grow as a professional and become stronger personality. We won’t use shocker on you for first week.
-✅ Young team, this year we had just one fight. The oldest developer is 59, but he has a young soul and using electro scooter. Great atmosphere in the office where we blame everyone equally.
-✅ Modern technical stack, php 5.</description>
+      <description>&lt;p&gt;✅ Motivating and adequate leader charging you with motivation for the whole day. You will grow as a professional and become stronger personality. We won’t use shocker on you for first week.&lt;/p&gt;
+&lt;p&gt;✅ Young team, this year we had just one fight. The oldest developer is 59, but he has a young soul and using electro scooter. Great atmosphere in the office where we blame everyone equally.&lt;/p&gt;
+&lt;p&gt;✅ Modern technical stack, php 5.4 and Perl. Every developer gets top notch equipment, Intel Celeron/ Pentium IV, Windows XP or Vista pre installed on the diskette.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -224,8 +272,8 @@ Often as managers, we try to be a great example, lead by example and work as har
       <pubDate>Thu, 24 Nov 2022 11:20:02 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/steamdeck-for-whom/</guid>
-      <description>Look dear readers, I’m not even suppose to write such an articles, since I’m an inspiring manager and have to motivate people becoming better and so on. I not going to lie right, manager in IT department has nothing to do with people motivation or being a great example for productivity. I play games and fuck it, I like it.
-I used to fly quite a lot and still do and I was constantly looking for on-the-go solutions.</description>
+      <description>&lt;p&gt;Look dear readers, I’m not even suppose to write such an articles, since I’m an inspiring manager and have to motivate people becoming better and so on. I not going to lie right, manager in IT department has nothing to do with people motivation or being a great example for productivity. I play games and fuck it, I like it.&lt;/p&gt;
+&lt;p&gt;I used to fly quite a lot and still do and I was constantly looking for on-the-go solutions. For a while I was happy with iPad, but all the games there mostly arcade with zero story. Then I invested in Asus Rog Flow Z13, i9 and 3050ti on-the-fly sounds good right? Yeah, 1h of play for extra 3kilos on my back. This is so niche product that I’m still trying to sell it for half price.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -234,7 +282,9 @@ I used to fly quite a lot and still do and I was constantly looking for on-the-g
       <pubDate>Fri, 10 Jun 2022 10:00:00 +0000</pubDate>
       
       <guid>https://mrpopov.com/posts/wfh-wtf/</guid>
-      <description>Wfh - wtf? Working from home is post fake-pandemic trend which seems to make life of corpos even harder than paying higher taxes than others and feeding others because they became bigger and more successful than others, this is normal behavior of our undeveloped society and non-discipline minds. But what happened with small to medium bizes founded by entrepreneurs, who are real people and humans? This camp was divided into two extremes.</description>
+      <description>&lt;h1 id=&#34;wfh---wtf&#34;&gt;Wfh - wtf?&lt;/h1&gt;
+&lt;p&gt;Working from home is post fake-pandemic trend which seems to make life of corpos even harder than paying higher taxes than others and feeding others because they became bigger and more successful than others, this is normal behavior of our undeveloped society and non-discipline minds. &lt;/p&gt;
+&lt;p&gt;But what happened with small to medium bizes founded by entrepreneurs, who are real people and humans? This camp was divided into two extremes. One says that only office and at least 40h in the office and others say “we don’t care where are you - home, office or Maldives, see you in zoom” just bring the results. And to be honest second camp is much smaller on the market. &lt;/p&gt;</description>
     </item>
     
     <item>
@@ -243,7 +293,14 @@ I used to fly quite a lot and still do and I was constantly looking for on-the-g
       <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
       
       <guid>https://mrpopov.com/posts/how-i-became-digital-nomad-cto/</guid>
-      <description>Or how I moved with one backpack and half suitcase. Foreword This story has begun on 08.06 of 2021. The CEO of our company invited me to his office. We discussed my half year review and etc, and he put an offer in front of me. I went through, and I have to admit it was a nice package. But here is a small thing, I had to move to Luxembourg.</description>
+      <description>&lt;h1 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h1&gt;
+&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;
+&lt;p&gt;This story has begun on 08.06 of 2021. The CEO of our company invited me to his office.
+We discussed my half year review and etc, and he put an offer in front of me.
+I went through, and I have to admit it was a nice package. But here is a small thing,
+I had to move to Luxembourg. We had some talks about that before, so I was morally prepared.
+Another country about which I didn&amp;rsquo;t know anything, except it&amp;rsquo;s
+one of the most expensive countries to live in.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -252,9 +309,18 @@ I used to fly quite a lot and still do and I was constantly looking for on-the-g
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/notion-github-backup/</guid>
-      <description>Data is expensive I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..
-Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&amp;gt; Paste this yml file name: &amp;#34;Notion backup&amp;#34; on: push: branches: - main schedule: - cron: &amp;#34;0 0 * * *&amp;#34; jobs: backup: runs-on: ubuntu-latest name: Backup timeout-minutes: 15 steps: - uses: actions/checkout@v2 - uses: actions/setup-node@v2 with: node-version: &amp;#34;12&amp;#34; - name: Setup dependencies run: npm install -g notion-backup - name: Run backup run: notion-backup env: NOTION_TOKEN: ${{ secrets.</description>
+      <description>&lt;h2 id=&#34;data-is-expensive&#34;&gt;Data is expensive&lt;/h2&gt;
+&lt;p&gt;I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..&lt;/p&gt;
+&lt;p&gt;Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?&lt;/p&gt;
+&lt;h2 id=&#34;backup&#34;&gt;Backup&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a private github repo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;./img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Go to actions tab and click on &lt;code&gt;set up a workflow yourself -&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;./img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -263,7 +329,7 @@ Backup Create a private github repo Go to actions tab and click on set up a work
       <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/recursive-blog-post-codespaces/</guid>
-      <description>I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to codespaces I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&amp;rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&amp;rsquo;s just Hugo.</description>
+      <description>&lt;p&gt;I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to &lt;a href=&#34;https://github.com/features/codespaces&#34;&gt;codespaces&lt;/a&gt; I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&amp;rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&amp;rsquo;s just Hugo.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -272,8 +338,9 @@ Backup Create a private github repo Go to actions tab and click on set up a work
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/basicbb/</guid>
-      <description>Basic Building Blocks My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.
-That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called basicbb - Basic Building Blocks.</description>
+      <description>&lt;h1 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h1&gt;
+&lt;p&gt;My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called &lt;a href=&#34;https://basicbb.com&#34;&gt;basicbb - Basic Building Blocks&lt;/a&gt;. And &lt;a href=&#34;./tech-scaling/&#34;&gt;#TechScaling&lt;/a&gt; but that&amp;rsquo;s a story for the next post.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -282,8 +349,10 @@ That&amp;rsquo;s why I started spending much more of my spare time on our family
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/flexible-env-in-go-v2/</guid>
-      <description>lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
-After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; github.</description>
+      <description>&lt;h1 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;./posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; &lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;github.com/lalabuy948/genvutils&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -292,7 +361,8 @@ After some time I decided to create another open-source library for the world an
       <pubDate>Fri, 21 Aug 2020 13:19:54 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/typ.life/</guid>
-      <description>r/mk Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&amp;rsquo;t open the fridge every five minutes&amp;hellip; So, I had to suffer&amp;hellip; And I decided to adapt my small cabinet to trick my brain that I&amp;rsquo;m sitting in the office.</description>
+      <description>&lt;h2 id=&#34;rmk&#34;&gt;&lt;a href=&#34;https://www.reddit.com/r/MechanicalKeyboards/&#34;&gt;r/mk&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&amp;rsquo;t open the fridge every five minutes&amp;hellip; So, I had to suffer&amp;hellip; And I decided to adapt my small cabinet to trick my brain that I&amp;rsquo;m sitting in the office. I got a monitor, mouse, and vertical laptop holder to save someplace. Keyboard right? That&amp;rsquo;s how I found &lt;code&gt;r/mk&lt;/code&gt;&amp;hellip; I got hooked into that within my head.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -315,8 +385,14 @@ After some time I decided to create another open-source library for the world an
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
-      <description>How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started</description>
+      <description>&lt;h1 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h1&gt;
+&lt;p&gt;I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂&lt;/p&gt;
+&lt;h2 id=&#34;pre-requirements&#34;&gt;Pre Requirements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Installed vault&lt;/li&gt;
+&lt;li&gt;Finish setup instructions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find nicely described steps here: &lt;a href=&#34;https://learn.hashicorp.com/vault/getting-started/install&#34;&gt;Getting started&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -325,7 +401,7 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
       <pubDate>Tue, 19 May 2020 14:55:36 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/must-play-ios-games/</guid>
-      <description>After I started working from home I got a bit more time to play games and would like to share my favorite ones. There are a few criteria by which I was compiling these lists. First of all, games should be optimized for the iPhone and iPad, games shouldn&amp;rsquo;t have bugs or unstable performance. And of course, keep in mind that it&amp;rsquo;s my taste and I would love to discover new projects - drop your favorite in comments below.</description>
+      <description>&lt;p&gt;After I started working from home I got a bit more time to play games and would like to share my favorite ones. There are a few criteria by which I was compiling these lists. First of all, games should be optimized for the iPhone and iPad, games shouldn&amp;rsquo;t have bugs or unstable performance. And of course, keep in mind that it&amp;rsquo;s my taste and I would love to discover new projects - drop your favorite in comments below.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -334,7 +410,7 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
       <pubDate>Thu, 14 May 2020 16:58:31 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/dont-go-to-it-or-even-go-out/</guid>
-      <description>During massive panic around the world I got stuck at home the same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?</description>
+      <description>&lt;p&gt;During massive panic around the world I got stuck at home the same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -343,8 +419,9 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
       <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
       
       <guid>https://mrpopov.com/posts/ipad-do-you-need-it/</guid>
-      <description>I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.
-Zoom, right? MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings.</description>
+      <description>&lt;p&gt;I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.&lt;/p&gt;
+&lt;h2 id=&#34;zoom-right&#34;&gt;Zoom, right?&lt;/h2&gt;
+&lt;p&gt;MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings. True for programmers who sit in the most dark corner of the room. But for me it&amp;rsquo;s important to clearly see the person to whom I&amp;rsquo;m talking to. Hope I&amp;rsquo;m not only one who has this preferences. iPad has brilliant front camera for that kind of use and you can plug and play it to your zoom or any other conference apps. While you on the meeting via your iPad you can use your main laptop without any losses and slow downs. I hate how zoom opens on MacBook, it crashes time to time, on other hand on iPad I didn&amp;rsquo;t have such an experience - one tap and you online. If you use g-calendar + zoom, jitsi or any other meeting tools you can jump to the sync with one single tap, by moving your calendar to &amp;ldquo;Today View&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -353,8 +430,10 @@ Zoom, right? MacBook has the shittiest camera on the market, for some of my cowo
       <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
-      <description>Logektor ⚡️ Forewords This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.
-But after few days I received tests assignment from them.</description>
+      <description>&lt;h1 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
+&lt;p&gt;This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.&lt;/p&gt;
+&lt;p&gt;But after few days I received tests assignment from them. I was a bit confused, because for that kind of positions there is no test assignment usually. I was busy and working 24/7 in another company and had a business trip for 3 days (two days of the trip were weekend) that week and I told them about it.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -363,9 +442,17 @@ But after few days I received tests assignment from them.</description>
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/testing-mailer-in-go/</guid>
-      <description>Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
-I was looking on few popular tools across the Internet:
-https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/ What I found My requirements were: run in docker, easy to config, basic functionality to render email.</description>
+      <description>&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
+&lt;p&gt;I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use &lt;code&gt;is_email_confirmed&lt;/code&gt; column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.&lt;/p&gt;
+&lt;p&gt;I was looking on few popular tools across the Internet:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mailtrap.io/&#34;&gt;https://mailtrap.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mailcow.email/&#34;&gt;https://mailcow.email/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mailu.io/1.7/&#34;&gt;https://mailu.io/1.7/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://poste.io/&#34;&gt;https://poste.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-i-found&#34;&gt;What I found&lt;/h2&gt;
+&lt;p&gt;My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -374,8 +461,13 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
       <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
       
       <guid>https://mrpopov.com/posts/flexible-env-in-go/</guid>
-      <description>Forewords I was doing hobby project, nothing special, server with authentication few endpoints and connection to database. I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part. Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.
-Problem I prefer using .</description>
+      <description>&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
+&lt;p&gt;I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
+I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part.
+Then I realized that my friend does not want to struggle with database setup and so on. So, solution was straight forward - docker-compose.&lt;/p&gt;
+&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;I prefer using &lt;code&gt;.env&lt;/code&gt; instead of typing stuff to cli. I found out really elegant solution. You can still use &lt;code&gt;.env&lt;/code&gt; and parse it easily with
+&lt;code&gt;github.com/caarlos0/env/v6&lt;/code&gt;, specify default values or even load file (certificates etc). But in docker-compose you need to specify same ports for database for example. Here comes &lt;code&gt;github.com/joho/godotenv&lt;/code&gt;, if you provide environment variables via dockerfile or docker-compose it will override constants in your &lt;code&gt;.env&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>
