@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+      <title>MrPopov :: Case Study: Data Security - Best Practices, Tips and Quick wins</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://localhost:1313/case-studies/data-security-best-practices-tips-and-quick-wins/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="http://localhost:1313/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="This case study provides best practices, tips, and quick wins for ensuring data security in any digital or traditional company. It covers various measures to safeguard sensitive information, such as access controls, encryption methods, clear data governance policies, documentation and employee training, periodic security penetration tests, and staying up-to-date with the latest trends and developments in data security. It also emphasises the importance of maintaining technical debt and locking your screen to prevent unauthorised access. Download this case study to learn how to protect your company&#39;s sensitive data."/>
+        
+
+
+
+    <meta name="keywords" content="Data security, best practices, tips, quick wins, access controls, encryption methods, data governance policies, employee training, security penetration tests, technical debt, screen lock, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="http://localhost:1313/img/case-study/CaseStudy_DataSecurity.webp">
+    <meta property="twitter:image" content="http://localhost:1313/img/case-study/CaseStudy_DataSecurity.webp">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Case Study: Data Security - Best Practices, Tips and Quick wins">
+    <meta property="twitter:title" content="Mr.Popov :: Case Study: Data Security - Best Practices, Tips and Quick wins">
+
+
+
+    <meta property="og:description" content=" Get it on
+This case study provides best practices, tips, and quick wins for ensuring data security in any digital or traditional company.
+It covers various measures to safeguard sensitive information, such as access controls, encryption methods, clear data governance policies, documentation and employee training, periodic security penetration tests, and staying up-to-date with the latest trends and developments in data security. It also emphasises the importance of maintaining technical debt and locking your screen to prevent unauthorised access.
+">
+    <meta property="twitter:description" content=" Get it on
+This case study provides best practices, tips, and quick wins for ensuring data security in any digital or traditional company.
+It covers various measures to safeguard sensitive information, such as access controls, encryption methods, clear data governance policies, documentation and employee training, periodic security penetration tests, and staying up-to-date with the latest trends and developments in data security. It also emphasises the importance of maintaining technical debt and locking your screen to prevent unauthorised access.
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/case-studies/data-security-best-practices-tips-and-quick-wins/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="http://localhost:1313/case-studies/data-security-best-practices-tips-and-quick-wins/">
+
+
+<link rel="preload" href="http://localhost:1313/assets/style.css" as="style">
+<link rel="preload" href="http://localhost:1313/style.css" as="style">
+<link rel="preload" href="http://localhost:1313/assets/main.js" as="script">
+<link rel="preload" href="http://localhost:1313/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="http://localhost:1313/assets/style.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:1313/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://localhost:1313/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    
+    <span>
+      <a href="/episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/cv/">CV</a></li>
+              
+            
+              
+                <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+              
+            
+              
+                <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+              
+            
+              
+                <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+              
+                <li><a href="/projects">Pets graveyard</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/cv/">CV</a></li>
+      
+    
+      
+        <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+      
+    
+      
+        <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+      
+    
+      
+        <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+      
+        <li><a href="/projects">Pets graveyard</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="http://localhost:1313/case-studies/data-security-best-practices-tips-and-quick-wins/">Case Study: Data Security - Best Practices, Tips and Quick wins</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            25-04-2023
+        </span>
+      
+      <span class="post-author">— Written by DP</span>
+
+      
+        <span class="post-read-time">— 1 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="http://localhost:1313/tags/work/">work</a>&nbsp;
+        
+          #<a href="http://localhost:1313/tags/case-study/">case-study</a>&nbsp;
+        
+          #<a href="http://localhost:1313/tags/management/">management</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="Case Study: Data Security - Best Practices, Tips and Quick wins" src="http://localhost:1313/img/case-study/CaseStudy_DataSecurity.webp" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <script src="https://gumroad.com/js/gumroad.js"></script>
+<p><a class="gumroad-button" href="https://1703g.gumroad.com/l/data-security-best-practices-tips-and-quick-wins">Get it on</a></p>
+<p>This case study provides best practices, tips, and quick wins for ensuring data security in any digital or traditional company.</p>
+<p>It covers various measures to safeguard sensitive information, such as access controls, encryption methods, clear data governance policies, documentation and employee training, periodic security penetration tests, and staying up-to-date with the latest trends and developments in data security. It also emphasises the importance of maintaining technical debt and locking your screen to prevent unauthorised access.</p>
+<p>Download this case study to learn how to protect your company&rsquo;s sensitive data.</p>
+<p>Let&rsquo;s connect 👇🏻</p>
+<p><a href="https://www.linkedin.com/in/mrpopov/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="Let’s connect!"></a></p>
+
+    </div>
+    
+
+    </div>
+
+    
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://localhost:1313/assets/main.js"></script>
+<script src="http://localhost:1313/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>
