@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>MrPopov :: Elixir LiveView Single Binary [UPD]</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://mrpopov.com/posts/elixir-liveview-single-binary/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mrpopov.com/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="Learn how to build a cross-platform desktop application from Phoenix LiveView using Tauri and Burrito. This comprehensive guide covers packaging Phoenix as a standalone executable with embedded ERTS, creating native desktop apps for Linux, macOS, and Windows, and implementing a sidecar architecture for seamless integration."/>
+        
+
+
+
+    <meta name="keywords" content="phoenix liveview desktop app, tauri elixir, cross-platform elixir, phoenix standalone executable, burrito elixir, elixir desktop application, phoenix tauri integration, sidecar architecture, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.png">
+    <meta property="twitter:image" content="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.png">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Elixir LiveView Single Binary [UPD]">
+    <meta property="twitter:title" content="Mr.Popov :: Elixir LiveView Single Binary [UPD]">
+
+
+
+    <meta property="og:description" content="We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
+The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.
+">
+    <meta property="twitter:description" content="We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
+The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrpopov.com/posts/elixir-liveview-single-binary/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mrpopov.com/posts/elixir-liveview-single-binary/">
+
+
+<link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/assets/main.js" as="script">
+<link rel="preload" href="https://mrpopov.com/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    
+    <span>
+      <a href="/episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/cv/">CV</a></li>
+              
+            
+              
+                <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+              
+            
+              
+                <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+              
+            
+              
+                <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+              
+                <li><a href="/projects">Pets graveyard</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/cv/">CV</a></li>
+      
+    
+      
+        <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+      
+    
+      
+        <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+      
+    
+      
+        <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+      
+        <li><a href="/projects">Pets graveyard</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://mrpopov.com/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary [UPD]</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            06-10-2025
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">— 9 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://mrpopov.com/tags/code/">code</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/elixir/">elixir</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/tutorial/">tutorial</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="Elixir LiveView Single Binary [UPD]" src="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <p>We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.</p>
+<p>The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.</p>
+<h1 id="or-building-a-cross-platform-desktop-app-from-phoenix-liveview-with-tauri">or Building a Cross-Platform Desktop App from Phoenix LiveView with Tauri</h1>
+<p>This guide shows how to package a Phoenix LiveView application as a standalone cross-platform desktop application using Tauri and Burrito, based on the CyCameraCompanion implementation.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p>The desktop app uses a <strong>sidecar architecture</strong>:</p>
+<ul>
+<li><strong>Tauri (Rust)</strong>: Native window wrapper and process manager</li>
+<li><strong>Phoenix Backend</strong>: Bundled as a standalone executable via Burrito</li>
+<li><strong>Communication</strong>: Phoenix runs on localhost:4000, Tauri webview connects to it</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Elixir 1.17+ / Erlang OTP 27+ with a Phoenix application (working locally)</li>
+<li>Rust 1.92+ and Cargo installed</li>
+<li>Node.js 24+ / npm 11+ installed</li>
+<li>Tauri CLI 2.10+ (<code>cargo install tauri-cli</code>)</li>
+<li>For Windows builds from Linux:
+<ul>
+<li><code>cargo-xwin</code> (<code>cargo install cargo-xwin</code>)</li>
+<li>Zig 0.15+ installed via <a href="https://github.com/tristanisham/zvm">ZVM</a> (Zig Version Manager)</li>
+</ul>
+</li>
+</ul>
+<h2 id="step-1-add-burrito-for-standalone-phoenix-executables">Step 1: Add Burrito for Standalone Phoenix Executables</h2>
+<p>Burrito wraps Phoenix releases into single executables with embedded ERTS (Erlang Runtime System).</p>
+<h3 id="11-add-burrito-dependency">1.1 Add Burrito Dependency</h3>
+<p>Add to <code>mix.exs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defp</span> deps <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># ... existing deps</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:burrito</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;~&gt; 1.5&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><h3 id="12-configure-releases">1.2 Configure Releases</h3>
+<p>Add release configuration in <code>mix.exs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">def</span> releases<span style="color:#1f2328">()</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  erts_path <span style="color:#0550ae">=</span> <span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;MIX_ERTS_PATH&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">Mix</span><span style="color:#0550ae">.</span>env<span style="color:#1f2328">()</span> <span style="color:#0550ae">==</span> <span style="color:#032f62">:prod</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">cy_camera_companion</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">include_executables_for</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#032f62">:unix</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">include_erts</span><span style="color:#1f2328">:</span> erts_path<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">quiet</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">cy_camera_companion_desktop</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">steps</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#032f62">:assemble</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Burrito</span><span style="color:#0550ae">.</span>wrap<span style="color:#0550ae">/</span><span style="color:#0550ae">1</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">burrito</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#032f62">targets</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#032f62">macos</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#032f62">os</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:darwin</span><span style="color:#1f2328">,</span> <span style="color:#032f62">cpu</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:aarch64</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#032f62">linux</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#032f62">os</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:linux</span><span style="color:#1f2328">,</span> <span style="color:#032f62">cpu</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:x86_64</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#032f62">windows</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#032f62">os</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:windows</span><span style="color:#1f2328">,</span> <span style="color:#032f62">cpu</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:x86_64</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><h3 id="13-configure-runtime-for-production">1.3 Configure Runtime for Production</h3>
+<p>Update <code>config/runtime.exs</code> for production:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">if</span> config_env<span style="color:#1f2328">()</span> <span style="color:#0550ae">==</span> <span style="color:#032f62">:prod</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  database_path <span style="color:#0550ae">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;CY_COMPANION_DATABASE_PATH&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Path</span><span style="color:#0550ae">.</span>join<span style="color:#1f2328">([</span><span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>user_home<span style="color:#1f2328">()</span> <span style="color:#0550ae">||</span> <span style="color:#0a3069">&#34;.&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;.cy_camera_companion&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;cy_camera_companion.db&#34;</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a"># Ensure database directory exists</span>
+</span></span><span style="display:flex;"><span>  database_dir <span style="color:#0550ae">=</span> <span style="color:#1f2328">Path</span><span style="color:#0550ae">.</span>dirname<span style="color:#1f2328">(</span>database_path<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">File</span><span style="color:#0550ae">.</span>mkdir_p!<span style="color:#1f2328">(</span>database_dir<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  config <span style="color:#032f62">:cy_camera_companion</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">CyCameraCompanion.Repo</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">database</span><span style="color:#1f2328">:</span> database_path<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">pool_size</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>to_integer<span style="color:#1f2328">(</span><span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;POOL_SIZE&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span> <span style="color:#0a3069">&#34;5&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  config <span style="color:#032f62">:cy_camera_companion</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">CyCameraCompanionWeb.Endpoint</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">http</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">ip</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">port</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>to_integer<span style="color:#1f2328">(</span><span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;CY_COMPANION_PORT&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span> <span style="color:#0a3069">&#34;4000&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">secret_key_base</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;SECRET_KEY_BASE&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span> <span style="color:#0a3069">&#34;your-fallback-key&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">server</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">check_origin</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><h3 id="14-skip-migrations-in-burrito-context">1.4 Skip Migrations in Burrito Context</h3>
+<p>Update <code>lib/cy_camera_companion/application.ex</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>children <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a"># ... other children</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">{</span><span style="color:#1f2328">Ecto.Migrator</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#032f62">repos</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">Application</span><span style="color:#0550ae">.</span>fetch_env!<span style="color:#1f2328">(</span><span style="color:#032f62">:cy_camera_companion</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:ecto_repos</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#032f62">skip</span><span style="color:#1f2328">:</span> skip_migrations?<span style="color:#1f2328">()},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a"># ... other children</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">defp</span> skip_migrations?<span style="color:#1f2328">()</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;BURRITO_TARGET&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">nil</span> <span style="color:#0550ae">or</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">Application</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#032f62">:cy_camera_companion</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:skip_migrations</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">false</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><h3 id="15-create-release-module-for-migrations">1.5 Create Release Module for Migrations</h3>
+<p>Create <code>lib/cy_camera_companion/release.ex</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">CyCameraCompanion.Release</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">@moduledoc</span> <span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  Used for executing DB release tasks when run in production without Mix
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  installed.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">@app</span> <span style="color:#032f62">:cy_camera_companion</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> migrate <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    load_app<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> repo <span style="color:#0550ae">&lt;-</span> repos<span style="color:#1f2328">()</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> _<span style="color:#1f2328">,</span> _<span style="color:#1f2328">}</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">Ecto.Migrator</span><span style="color:#0550ae">.</span>with_repo<span style="color:#1f2328">(</span>repo<span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Ecto.Migrator</span><span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span><span style="color:#6639ba">&amp;1</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:up</span><span style="color:#1f2328">,</span> <span style="color:#032f62">all</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">true</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> rollback<span style="color:#1f2328">(</span>repo<span style="color:#1f2328">,</span> version<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    load_app<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> _<span style="color:#1f2328">,</span> _<span style="color:#1f2328">}</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">Ecto.Migrator</span><span style="color:#0550ae">.</span>with_repo<span style="color:#1f2328">(</span>repo<span style="color:#1f2328">,</span> <span style="color:#0550ae">&amp;</span><span style="color:#1f2328">Ecto.Migrator</span><span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span><span style="color:#6639ba">&amp;1</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:down</span><span style="color:#1f2328">,</span> <span style="color:#032f62">to</span><span style="color:#1f2328">:</span> version<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> repos <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Application</span><span style="color:#0550ae">.</span>fetch_env!<span style="color:#1f2328">(</span><span style="color:#1f2328">@app</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:ecto_repos</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> load_app <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Application</span><span style="color:#0550ae">.</span>load<span style="color:#1f2328">(</span><span style="color:#1f2328">@app</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><h3 id="16-update-gitignore">1.6 Update .gitignore</h3>
+<p>Add to <code>.gitignore</code>:</p>
+<pre tabindex="0"><code>burrito_out/*
+</code></pre><h2 id="step-2-initialize-tauri-project">Step 2: Initialize Tauri Project</h2>
+<h3 id="21-create-tauri-directory-structure">2.1 Create Tauri Directory Structure</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p tauri/src-tauri/binaries
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri
+</span></span></code></pre></div><h3 id="22-initialize-tauri-project">2.2 Initialize Tauri Project</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create tauri-app@latest
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Select: src-tauri as the folder name</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Select: Vanilla (no framework)</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Skip frontend setup (we&#39;ll use our own)</span>
+</span></span></code></pre></div><h3 id="23-configure-tauri">2.3 Configure Tauri</h3>
+<p>Update <code>tauri/src-tauri/Cargo.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">package</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">name</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;camera_companion&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;0.1.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">description</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;CyanView - Camera Companion&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">authors</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;you&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">edition</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;2021&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[[</span><span style="color:#1f2328">bin</span><span style="color:#1f2328">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">name</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;camera-companion&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">path</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;src/main.rs&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">lib</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">name</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;tauri_lib&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">crate-type</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;staticlib&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;cdylib&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;rlib&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">build-dependencies</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">tauri-build</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;2&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">features</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[]</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">dependencies</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">tauri</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;2&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">features</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[]</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">tauri-plugin-opener</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">tauri-plugin-shell</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">serde</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;1&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">features</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;derive&#34;</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">serde_json</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">tokio</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;1&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">features</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;time&#34;</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">reqwest</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;0.11&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">features</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;blocking&#34;</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h3 id="24-configure-tauri-settings">2.4 Configure Tauri Settings</h3>
+<p>Update <code>tauri/src-tauri/tauri.conf.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;$schema&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;https://schema.tauri.app/config/2&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;productName&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;CY Camera Companion&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;version&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;0.1.0&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;identifier&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;com.cyanview.camera-companion&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;build&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;frontendDist&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;../src&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;app&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;withGlobalTauri&#34;</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;windows&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;security&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;csp&#34;</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;bundle&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;active&#34;</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;targets&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;all&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;icon&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;icons/32x32.png&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;icons/128x128.png&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;icons/128x128@2x.png&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;icons/icon.icns&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;icons/icon.ico&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;externalBin&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;cy_camera_companion_backend&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;plugins&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;shell&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;open&#34;</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h3 id="25-create-tauri-main-logic">2.5 Create Tauri Main Logic</h3>
+<p>Update <code>tauri/src-tauri/src/lib.rs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#cf222e">use</span><span style="color:#fff"> </span>tauri::<span style="color:#1f2328">{</span>WebviewUrl<span style="color:#1f2328">,</span><span style="color:#fff"> </span>WebviewWindowBuilder<span style="color:#1f2328">};</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">#[cfg_attr(mobile, tauri::mobile_entry_point)]</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">pub</span><span style="color:#fff"> </span><span style="color:#cf222e">fn</span> <span style="color:#6639ba">run</span><span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tauri::Builder::default<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>plugin<span style="color:#1f2328">(</span>tauri_plugin_shell::init<span style="color:#1f2328">())</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>setup<span style="color:#1f2328">(</span><span style="color:#0550ae">|</span>app<span style="color:#0550ae">|</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#cf222e">let</span><span style="color:#fff"> </span>handle<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>app<span style="color:#1f2328">.</span>handle<span style="color:#1f2328">().</span>clone<span style="color:#1f2328">();</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#57606a">// Start the Elixir backend as a sidecar
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span>tauri::async_runtime::spawn<span style="color:#1f2328">(</span><span style="color:#cf222e">async</span><span style="color:#fff"> </span><span style="color:#cf222e">move</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span><span style="color:#cf222e">let</span><span style="color:#fff"> </span><span style="color:#6639ba">Err</span><span style="color:#1f2328">(</span>e<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>start_backend<span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span>handle<span style="color:#1f2328">).</span><span style="color:#cf222e">await</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                    </span><span style="color:#6639ba">eprintln!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Failed to start backend: </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>e<span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#1f2328">});</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#6639ba">Ok</span><span style="color:#1f2328">(())</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">})</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>run<span style="color:#1f2328">(</span>tauri::<span style="color:#6639ba">generate_context!</span><span style="color:#1f2328">())</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>expect<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;error while running tauri application&#34;</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">async</span><span style="color:#fff"> </span><span style="color:#cf222e">fn</span> <span style="color:#6639ba">start_backend</span><span style="color:#1f2328">(</span>handle: <span style="color:#cf222e">&amp;</span><span style="color:#1f2328">tauri</span>::AppHandle<span style="color:#1f2328">)</span><span style="color:#fff"> </span>-&gt; <span style="color:#6639ba">Result</span><span style="color:#0550ae">&lt;</span><span style="color:#1f2328">(),</span><span style="color:#fff"> </span><span style="color:#6639ba">Box</span><span style="color:#0550ae">&lt;</span><span style="color:#cf222e">dyn</span><span style="color:#fff"> </span>std::error::Error<span style="color:#0550ae">&gt;&gt;</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">use</span><span style="color:#fff"> </span>tauri_plugin_shell::ShellExt<span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Starting CY Camera Companion backend...&#34;</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Platform: </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>std::env::consts::<span style="color:#0550ae">OS</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Architecture: </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>std::env::consts::<span style="color:#0550ae">ARCH</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Get the sidecar command for the backend - Tauri will automatically select the right binary
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">let</span><span style="color:#fff"> </span>sidecar_command<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>handle<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>shell<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>sidecar<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;cy_camera_companion_backend&#34;</span><span style="color:#1f2328">)</span><span style="color:#0550ae">?</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;CY_COMPANION_PORT&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;4000&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;MIX_ENV&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;prod&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">.</span>env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;BURRITO_TARGET&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;tauri&#34;</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Spawn the sidecar process
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">let</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>_rx<span style="color:#1f2328">,</span><span style="color:#fff"> </span>_child<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>sidecar_command<span style="color:#1f2328">.</span>spawn<span style="color:#1f2328">()</span><span style="color:#0550ae">?</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Backend process started, waiting for it to be ready...&#34;</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Wait for the backend to be ready
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">let</span><span style="color:#fff"> </span><span style="color:#cf222e">mut</span><span style="color:#fff"> </span>attempts<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">let</span><span style="color:#fff"> </span>max_attempts<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#0550ae">60</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">loop</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>attempts<span style="color:#fff"> </span><span style="color:#0550ae">+=</span><span style="color:#fff"> </span><span style="color:#0550ae">1</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span>attempts<span style="color:#fff"> </span><span style="color:#0550ae">&gt;</span><span style="color:#fff"> </span>max_attempts<span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#cf222e">return</span><span style="color:#fff"> </span><span style="color:#6639ba">Err</span><span style="color:#1f2328">(</span><span style="color:#6639ba">format!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Backend failed to start after </span><span style="color:#0a3069">{}</span><span style="color:#0a3069"> attempts&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>max_attempts<span style="color:#1f2328">).</span>into<span style="color:#1f2328">());</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#57606a">// Try to connect to the backend
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#cf222e">match</span><span style="color:#fff"> </span>reqwest::get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;http://localhost:4000&#34;</span><span style="color:#1f2328">).</span><span style="color:#cf222e">await</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#6639ba">Ok</span><span style="color:#1f2328">(</span>response<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span>response<span style="color:#1f2328">.</span>status<span style="color:#1f2328">().</span>is_success<span style="color:#1f2328">()</span><span style="color:#fff"> </span><span style="color:#0550ae">=&gt;</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Backend is ready after </span><span style="color:#0a3069">{}</span><span style="color:#0a3069"> attempts!&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>attempts<span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span><span style="color:#cf222e">break</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#6639ba">Ok</span><span style="color:#1f2328">(</span>response<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">=&gt;</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Backend responded with status: </span><span style="color:#0a3069">{}</span><span style="color:#0a3069"> (attempt </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">)&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>response<span style="color:#1f2328">.</span>status<span style="color:#1f2328">(),</span><span style="color:#fff"> </span>attempts<span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span>tokio::time::sleep<span style="color:#1f2328">(</span>tokio::time::Duration::from_secs<span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)).</span><span style="color:#cf222e">await</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#6639ba">Err</span><span style="color:#1f2328">(</span>e<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#0550ae">=&gt;</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span><span style="color:#cf222e">if</span><span style="color:#fff"> </span>attempts<span style="color:#fff"> </span><span style="color:#0550ae">%</span><span style="color:#fff"> </span><span style="color:#0550ae">5</span><span style="color:#fff"> </span><span style="color:#0550ae">==</span><span style="color:#fff"> </span><span style="color:#0550ae">0</span><span style="color:#fff"> </span><span style="color:#1f2328">{</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                    </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Waiting for backend... (attempt </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">/</span><span style="color:#0a3069">{}</span><span style="color:#0a3069">): </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>attempts<span style="color:#1f2328">,</span><span style="color:#fff"> </span>max_attempts<span style="color:#1f2328">,</span><span style="color:#fff"> </span>e<span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                </span>tokio::time::sleep<span style="color:#1f2328">(</span>tokio::time::Duration::from_secs<span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)).</span><span style="color:#cf222e">await</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#57606a">// Open the main window pointing to localhost:4000
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>WebviewWindowBuilder::new<span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>handle<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0a3069">&#34;main&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>WebviewUrl::External<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;http://localhost:4000&#34;</span><span style="color:#1f2328">.</span>parse<span style="color:#1f2328">().</span>unwrap<span style="color:#1f2328">())</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">.</span>title<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;CY Camera Companion&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">.</span>inner_size<span style="color:#1f2328">(</span><span style="color:#0550ae">1200.0</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0550ae">800.0</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">.</span>center<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">.</span>build<span style="color:#1f2328">()</span><span style="color:#0550ae">?</span><span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">println!</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Main window opened successfully&#34;</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">Ok</span><span style="color:#1f2328">(())</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
+</span></span></span></code></pre></div><h3 id="26-create-loading-page">2.6 Create Loading Page</h3>
+<p>Create <code>tauri/src/index.html</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#57606a">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">html</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">head</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">meta</span> <span style="color:#1f2328">charset</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;UTF-8&#34;</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">title</span><span style="color:#1f2328">&gt;</span>CY Camera Companion - Loading<span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">title</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">style</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">body</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">margin</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">padding</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">20</span><span style="color:#cf222e">px</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">font-family</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">-</span>apple-system<span style="color:#1f2328">,</span> BlinkMacSystemFont<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#39;Segoe UI&#39;</span><span style="color:#1f2328">,</span> Roboto<span style="color:#1f2328">,</span> <span style="color:#cf222e">sans-serif</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">display</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">flex</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">flex-direction</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">column</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">align-items</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">center</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">justify-content</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">center</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">height</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">100</span><span style="color:#cf222e">vh</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">background</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">#1a1a1a</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">color</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">#fff</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">.</span><span style="color:#1f2328">loading</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">text-align</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">center</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">.</span><span style="color:#1f2328">spinner</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">border</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">4</span><span style="color:#cf222e">px</span> <span style="color:#cf222e">solid</span> <span style="color:#0550ae">#333</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">border-top</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">4</span><span style="color:#cf222e">px</span> <span style="color:#cf222e">solid</span> <span style="color:#0550ae">#0EA5E9</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">border-radius</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">50</span><span style="color:#cf222e">%</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">width</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">40</span><span style="color:#cf222e">px</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">height</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">40</span><span style="color:#cf222e">px</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">animation</span><span style="color:#1f2328">:</span> spin <span style="color:#0550ae">1</span><span style="color:#cf222e">s</span> <span style="color:#cf222e">linear</span> <span style="color:#cf222e">infinite</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">margin</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">20</span><span style="color:#cf222e">px</span> <span style="color:#cf222e">auto</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">@</span><span style="color:#cf222e">keyframes</span> <span style="color:#0550ae">spin</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">0</span><span style="color:#0550ae">%</span> <span style="color:#1f2328">{</span> <span style="color:#cf222e">transform</span><span style="color:#1f2328">:</span> <span style="color:#6639ba">rotate</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#cf222e">deg</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">100</span><span style="color:#0550ae">%</span> <span style="color:#1f2328">{</span> <span style="color:#cf222e">transform</span><span style="color:#1f2328">:</span> <span style="color:#6639ba">rotate</span><span style="color:#1f2328">(</span><span style="color:#0550ae">360</span><span style="color:#cf222e">deg</span><span style="color:#1f2328">);</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">style</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">head</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">body</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">div</span> <span style="color:#1f2328">class</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;loading&#34;</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">h1</span><span style="color:#1f2328">&gt;</span>CY Camera Companion<span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">h1</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">div</span> <span style="color:#1f2328">class</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;spinner&#34;</span><span style="color:#1f2328">&gt;&lt;/</span><span style="color:#0550ae">div</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">p</span><span style="color:#1f2328">&gt;</span>Starting backend service...<span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">p</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">p</span> <span style="color:#1f2328">id</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">&gt;</span>Initializing...<span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">p</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">div</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;</span><span style="color:#0550ae">script</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">let</span> <span style="color:#1f2328">attempts</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">const</span> <span style="color:#1f2328">maxAttempts</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">30</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">function</span> <span style="color:#1f2328">checkBackend</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">attempts</span><span style="color:#0550ae">++</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">const</span> <span style="color:#1f2328">status</span> <span style="color:#0550ae">=</span> <span style="color:#6639ba">document</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getElementById</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;status&#39;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">attempts</span> <span style="color:#0550ae">&gt;</span> <span style="color:#1f2328">maxAttempts</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">status</span><span style="color:#1f2328">.</span><span style="color:#1f2328">textContent</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#39;Backend failed to start. Please check logs.&#39;</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">return</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">status</span><span style="color:#1f2328">.</span><span style="color:#1f2328">textContent</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">`Checking backend... (</span><span style="color:#0a3069">${</span><span style="color:#1f2328">attempts</span><span style="color:#0a3069">}</span><span style="color:#0a3069">/</span><span style="color:#0a3069">${</span><span style="color:#1f2328">maxAttempts</span><span style="color:#0a3069">}</span><span style="color:#0a3069">)`</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">fetch</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;http://localhost:4000&#39;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">.</span><span style="color:#1f2328">then</span><span style="color:#1f2328">(</span><span style="color:#1f2328">response</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">response</span><span style="color:#1f2328">.</span><span style="color:#1f2328">ok</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#1f2328">status</span><span style="color:#1f2328">.</span><span style="color:#1f2328">textContent</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#39;Backend ready! Redirecting...&#39;</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#6639ba">window</span><span style="color:#1f2328">.</span><span style="color:#1f2328">location</span><span style="color:#1f2328">.</span><span style="color:#1f2328">href</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#39;http://localhost:4000&#39;</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#1f2328">setTimeout</span><span style="color:#1f2328">(</span><span style="color:#1f2328">checkBackend</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1000</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">.</span><span style="color:#cf222e">catch</span><span style="color:#1f2328">(()</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#1f2328">setTimeout</span><span style="color:#1f2328">(</span><span style="color:#1f2328">checkBackend</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1000</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">setTimeout</span><span style="color:#1f2328">(</span><span style="color:#1f2328">checkBackend</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">3000</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">script</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">body</span><span style="color:#1f2328">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">html</span><span style="color:#1f2328">&gt;</span>
+</span></span></code></pre></div><h2 id="step-3-build-process">Step 3: Build Process</h2>
+<h3 id="31-build-phoenix-release-with-burrito">3.1 Build Phoenix Release with Burrito</h3>
+<p>Build the standalone Phoenix executable for each platform:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># From the Phoenix app root directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">MIX_ENV</span><span style="color:#0550ae">=</span>prod mix release cy_camera_companion_desktop
+</span></span></code></pre></div><p>This creates binaries in <code>burrito_out/</code>:</p>
+<ul>
+<li><code>cy_camera_companion_desktop_linux</code> (Linux x86_64)</li>
+<li><code>cy_camera_companion_desktop_macos</code> (macOS ARM64)</li>
+<li><code>cy_camera_companion_desktop_windows.exe</code> (Windows x86_64)</li>
+</ul>
+<h3 id="32-link-binaries-to-tauri">3.2 Link Binaries to Tauri</h3>
+<p>Create symlinks from Tauri directory to Burrito output binaries with platform-specific naming:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create symlinks (one-time setup)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri/src-tauri
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># For Linux</span>
+</span></span><span style="display:flex;"><span>ln -s ../../burrito_out/cy_camera_companion_desktop_linux <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>   cy_camera_companion_backend-x86_64-unknown-linux-gnu
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># For macOS</span>
+</span></span><span style="display:flex;"><span>ln -s ../../burrito_out/cy_camera_companion_desktop_macos <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>   cy_camera_companion_backend-aarch64-apple-darwin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># For Windows</span>
+</span></span><span style="display:flex;"><span>ln -s ../../burrito_out/cy_camera_companion_desktop_windows.exe <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>   cy_camera_companion_backend-x86_64-pc-windows-msvc.exe
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../..
+</span></span></code></pre></div><p><strong>Important</strong>: Tauri expects binaries named with the pattern: <code>{name}-{target-triple}</code> or <code>{name}-{target-triple}.exe</code> for Windows.</p>
+<p><strong>Why symlinks?</strong> Using symlinks instead of copying means you don&rsquo;t need to manually copy files after each Phoenix release build - the Tauri build will automatically use the latest Burrito output.</p>
+<h3 id="33-build-tauri-application">3.3 Build Tauri Application</h3>
+<h4 id="for-native-platform">For Native Platform</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri
+</span></span><span style="display:flex;"><span>cargo tauri build
+</span></span></code></pre></div><h4 id="cross-compile-for-windows-from-linux">Cross-Compile for Windows from Linux</h4>
+<p>Install required tools:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Install ZVM (Zig Version Manager) - https://github.com/tristanisham/zvm</span>
+</span></span><span style="display:flex;"><span>curl https://raw.githubusercontent.com/tristanisham/zvm/master/install.sh <span style="color:#1f2328">|</span> bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Install Zig 0.15.2 via ZVM</span>
+</span></span><span style="display:flex;"><span>zvm install 0.15.2
+</span></span><span style="display:flex;"><span>zvm use 0.15.2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Verify Zig version</span>
+</span></span><span style="display:flex;"><span>zig version  <span style="color:#57606a"># Should output: 0.15.2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Install cargo-xwin</span>
+</span></span><span style="display:flex;"><span>cargo install cargo-xwin
+</span></span></code></pre></div><p>Build for Windows:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri
+</span></span><span style="display:flex;"><span>cargo tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc
+</span></span></code></pre></div><p><strong>Important</strong>: Zig must be installed via <a href="https://github.com/tristanisham/zvm">ZVM</a> to manage versions reliably. Manual installs from ziglang.org can cause PATH and version conflicts.</p>
+<p>The built applications will be in:</p>
+<ul>
+<li>Linux: <code>tauri/src-tauri/target/release/bundle/</code></li>
+<li>Windows: <code>tauri/src-tauri/target/x86_64-pc-windows-msvc/release/bundle/</code></li>
+<li>macOS: <code>tauri/src-tauri/target/release/bundle/</code></li>
+</ul>
+<h2 id="step-4-key-implementation-details">Step 4: Key Implementation Details</h2>
+<h3 id="database-persistence">Database Persistence</h3>
+<p>The app stores the SQLite database in the user&rsquo;s home directory:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#1f2328">Path</span><span style="color:#0550ae">.</span>join<span style="color:#1f2328">([</span><span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>user_home<span style="color:#1f2328">()</span> <span style="color:#0550ae">||</span> <span style="color:#0a3069">&#34;.&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;.cy_camera_companion&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;cy_camera_companion.db&#34;</span><span style="color:#1f2328">])</span>
+</span></span></code></pre></div><h3 id="migration-strategy">Migration Strategy</h3>
+<p>Migrations are skipped when running in Burrito/Tauri context (detected via <code>BURRITO_TARGET</code> env var). You can run migrations manually if needed via the Release module.</p>
+<h3 id="process-communication">Process Communication</h3>
+<ol>
+<li>Tauri launches the Phoenix backend as a sidecar process</li>
+<li>Backend starts on <code>localhost:4000</code></li>
+<li>Tauri polls the endpoint until it responds successfully</li>
+<li>Tauri opens a webview window pointing to <code>localhost:4000</code></li>
+<li>Phoenix LiveView handles all UI interactions</li>
+</ol>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>Key environment variables passed to the backend:</p>
+<ul>
+<li><code>CY_COMPANION_PORT</code>: HTTP port (default: 4000)</li>
+<li><code>MIX_ENV</code>: Set to &ldquo;prod&rdquo;</li>
+<li><code>BURRITO_TARGET</code>: Signals running in bundled mode</li>
+</ul>
+<h2 id="platform-specific-considerations">Platform-Specific Considerations</h2>
+<h3 id="windows">Windows</h3>
+<ul>
+<li>Binary must have <code>.exe</code> extension</li>
+<li>Use <code>cargo-xwin</code> for cross-compilation from Linux</li>
+<li>Target triple: <code>x86_64-pc-windows-msvc</code></li>
+</ul>
+<h3 id="macos">macOS</h3>
+<ul>
+<li>Target triple: <code>aarch64-apple-darwin</code> (Apple Silicon)</li>
+<li>Code signing may be required for distribution</li>
+</ul>
+<h3 id="linux">Linux</h3>
+<ul>
+<li>Target triple: <code>x86_64-unknown-linux-gnu</code></li>
+<li>May need to bundle system libraries</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="backend-fails-to-start">Backend Fails to Start</h3>
+<ul>
+<li>Check logs in Tauri dev tools console</li>
+<li>Verify binary permissions (must be executable)</li>
+<li>Ensure all dependencies are bundled in Burrito release</li>
+</ul>
+<h3 id="window-opens-before-backend-ready">Window Opens Before Backend Ready</h3>
+<ul>
+<li>Increase polling timeout in <code>lib.rs</code></li>
+<li>Add more detailed logging to debug startup timing</li>
+</ul>
+<h3 id="database-issues">Database Issues</h3>
+<ul>
+<li>Ensure database directory has write permissions</li>
+<li>Check that migrations are handled correctly</li>
+<li>Verify database path resolution in production</li>
+</ul>
+<h2 id="complete-build-commands-reference">Complete Build Commands Reference</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Step 1: Build Phoenix releases with Burrito</span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">MIX_ENV</span><span style="color:#0550ae">=</span>prod mix release cy_camera_companion_desktop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Step 2: Create symlinks to binaries (one-time setup)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri/src-tauri
+</span></span><span style="display:flex;"><span>ln -s ../../burrito_out/cy_camera_companion_desktop_linux <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>   cy_camera_companion_backend-x86_64-unknown-linux-gnu
+</span></span><span style="display:flex;"><span>ln -s ../../burrito_out/cy_camera_companion_desktop_macos <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>   cy_camera_companion_backend-aarch64-apple-darwin
+</span></span><span style="display:flex;"><span>ln -s ../../burrito_out/cy_camera_companion_desktop_windows.exe <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>   cy_camera_companion_backend-x86_64-pc-windows-msvc.exe
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../..
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Step 3: Build Tauri app</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Native build</span>
+</span></span><span style="display:flex;"><span>cargo tauri build
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Windows cross-compile from Linux</span>
+</span></span><span style="display:flex;"><span>cargo tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc
+</span></span></code></pre></div><h2 id="result">Result</h2>
+<p>You now have:</p>
+<ul>
+<li>✅ Single-binary desktop applications for Linux, macOS, and Windows</li>
+<li>✅ Native window with system integration</li>
+<li>✅ Embedded Phoenix LiveView backend</li>
+<li>✅ No external dependencies required</li>
+<li>✅ Cross-platform builds from a single development machine</li>
+</ul>
+<p>The final application is completely self-contained - users simply download and run the executable.</p>
+<h2 id="check-out">Check out</h2>
+<ul>
+<li><a href="https://www.cyanview.com/">www.cyanview.com</a></li>
+<li><a href="https://youtu.be/CUzarY3ry2M?si=KYfJy8Ef1ZQL4vCU">CyanView - From Super Bowl to Olympics</a></li>
+<li><a href="https://1703.lu/">1703 Group</a></li>
+</ul>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://mrpopov.com/posts/elixir-liveview-socket-reconnect/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Elixir Liveview Socket Reconnect</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://mrpopov.com/posts/tax-free-income-step-by-step/">
+                  <span class="button__text">Tax-Free Income Scheme: Step-by-Step Guide</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://mrpopov.com/assets/main.js"></script>
+<script src="https://mrpopov.com/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>

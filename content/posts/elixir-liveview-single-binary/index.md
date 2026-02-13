@@ -1,5 +1,5 @@
 ---
-title: "Elixir LiveView Single Binary"
+title: "Elixir LiveView Single Binary [UPD]"
 date: 2025-10-06T21:55:18+02:00
 draft: false
 comments: true
@@ -42,12 +42,13 @@ The desktop app uses a **sidecar architecture**:
 
 ## Prerequisites
 
-- Elixir/Phoenix application (working locally)
-- Rust and Cargo installed
-- Node.js/npm installed
+- Elixir 1.17+ / Erlang OTP 27+ with a Phoenix application (working locally)
+- Rust 1.92+ and Cargo installed
+- Node.js 24+ / npm 11+ installed
+- Tauri CLI 2.10+ (`cargo install tauri-cli`)
 - For Windows builds from Linux:
-  - `cargo-xwin` (version 0.19.2 or compatible)
-  - Zig 0.13.0 (other versions may not work - this specific version is required)
+  - `cargo-xwin` (`cargo install cargo-xwin`)
+  - Zig 0.15+ installed via [ZVM](https://github.com/tristanisham/zvm) (Zig Version Manager)
 
 ## Step 1: Add Burrito for Standalone Phoenix Executables
 
@@ -61,7 +62,7 @@ Add to `mix.exs`:
 defp deps do
   [
     # ... existing deps
-    {:burrito, "~> 1.1.0"}
+    {:burrito, "~> 1.5"}
   ]
 end
 ```
@@ -512,16 +513,15 @@ cargo tauri build
 Install required tools:
 
 ```bash
-# Install Zig 0.13.0 (IMPORTANT: other versions may not work)
-# Download from https://ziglang.org/download/
-# Or use version manager like zigup
-wget https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz
-tar -xf zig-linux-x86_64-0.13.0.tar.xz
-sudo mv zig-linux-x86_64-0.13.0 /usr/local/zig-0.13.0
-export PATH="/usr/local/zig-0.13.0:$PATH"
+# Install ZVM (Zig Version Manager) - https://github.com/tristanisham/zvm
+curl https://raw.githubusercontent.com/tristanisham/zvm/master/install.sh | bash
+
+# Install Zig 0.15.2 via ZVM
+zvm install 0.15.2
+zvm use 0.15.2
 
 # Verify Zig version
-zig version  # Should output: 0.13.0
+zig version  # Should output: 0.15.2
 
 # Install cargo-xwin
 cargo install cargo-xwin
@@ -534,7 +534,7 @@ cd tauri
 cargo tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc
 ```
 
-**Important**: Zig version 0.13.0 is required for cargo-xwin compatibility. Other versions (0.11.x, 0.12.x, 0.14.x) may cause build failures.
+**Important**: Zig must be installed via [ZVM](https://github.com/tristanisham/zvm) to manage versions reliably. Manual installs from ziglang.org can cause PATH and version conflicts.
 
 The built applications will be in:
 - Linux: `tauri/src-tauri/target/release/bundle/`

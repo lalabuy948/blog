@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Work on </title>
+    <link>https://mrpopov.com/tags/work/</link>
+    <description>Recent content in Work on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Oct 2025 18:22:33 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir Liveview Socket Reconnect</title>
+      <link>https://mrpopov.com/posts/elixir-liveview-socket-reconnect/</link>
+      <pubDate>Wed, 22 Oct 2025 18:22:33 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/elixir-liveview-socket-reconnect/</guid>
+      <description>&lt;h2 id=&#34;the-phoenix-liveview-reconnection-bug-a-deep-dive&#34;&gt;The Phoenix LiveView Reconnection Bug: A Deep Dive&lt;/h2&gt;
+&lt;p&gt;I encountered a critical bug in a Phoenix LiveView settings page that controlled hardware via MQTT. When the WebSocket connection dropped and LiveView automatically reconnected, stale form values were being sent back to the hardware, overwriting the current hardware state.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tax-Free Income Scheme: Step-by-Step Guide</title>
+      <link>https://mrpopov.com/posts/tax-free-income-step-by-step/</link>
+      <pubDate>Wed, 02 Apr 2025 15:26:59 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/tax-free-income-step-by-step/</guid>
+      <description>&lt;p&gt;&lt;em&gt;For Digital Nomads, Freelancers, and Remote Business Owners&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Non US Citizens only&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-set-up-your-tax-free-business-entity&#34;&gt;1. Set Up Your Tax-Free Business Entity&lt;/h2&gt;
+&lt;h3 id=&#34;step-1-form-a-us-llc&#34;&gt;Step 1: Form a US LLC&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Why?&lt;/strong&gt; US LLCs are flexible, low-cost, and avoid corporate tax if structured correctly.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Choose a State:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Wyoming (no state tax, privacy)&lt;/li&gt;
+&lt;li&gt;Delaware (strong legal framework)&lt;/li&gt;
+&lt;li&gt;New Mexico (cheapest, but less banking flexibility)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hire a Registered Agent:&lt;/strong&gt; Required for compliance (cost: $50-300/year)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Obtain an EIN:&lt;/strong&gt; Apply for an Employer Identification Number (EIN) via IRS Form SS-4 (free)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;alternative-structures&#34;&gt;Alternative Structures:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;UAE Free Zone Company:&lt;/strong&gt; 0% corporate/personal tax, but higher setup costs (~$15k)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estonia e-Residency:&lt;/strong&gt; 0% corporate tax until profits are distributed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-terminate-tax-residency&#34;&gt;2. Terminate Tax Residency&lt;/h2&gt;
+&lt;h3 id=&#34;step-2-become-a-tax-nomad&#34;&gt;Step 2: Become a Tax Nomad&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Why?&lt;/strong&gt; Most countries tax residents on worldwide income.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Top 5 Things I Learned as Entrepreneur</title>
+      <link>https://mrpopov.com/posts/top-5-things-i-learned-as-entrepreneur/</link>
+      <pubDate>Mon, 27 May 2024 14:43:13 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/top-5-things-i-learned-as-entrepreneur/</guid>
+      <description>&lt;p&gt;In August 2023, I opened my own LLC to run a fractional CTO/consulting business. After almost a year, I learned some important things that could be useful for people who would like to make a change in their career.&lt;/p&gt;
+&lt;h2 id=&#34;1-never-trust-anyone-unless-the-contract-is-signed-and-the-invoice-is-paid&#34;&gt;1. Never trust anyone unless the contract is signed and the invoice is paid.&lt;/h2&gt;
+&lt;p&gt;As the title says, a potential client might be eager to work with you, but when it comes to the actual contract and work, they might suddenly disappear without any signs of life, even people with whom you thought you had a nice relationship. Lower your expectations to zero or sometimes below zero. Once the contract is signed and the invoice is paid, you can have a small relief. (This happened to me 9 out of 10 times, maybe something is wrong with me)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Continuous Improvement Culture</title>
+      <link>https://mrpopov.com/posts/continuous-improvement-culture/</link>
+      <pubDate>Thu, 17 Aug 2023 22:35:34 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/continuous-improvement-culture/</guid>
+      <description>&lt;h2 id=&#34;how-to-establish-a-culture-of-continuous-improvement-across-whole-company&#34;&gt;How to establish a culture of continuous improvement across whole company?&lt;/h2&gt;
+&lt;p&gt;Why it’s even important to have continuous improvement culture in your company? For example, if you read a book for 15 minutes daily you already read more than majority of people aged between 15 to 44. Just fifteen minutes a day may put you ahead of competition and this result will be multiplied through the period of time. Same works in business, teams of personal growth.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Stunning Presentations. Fast.</title>
+      <link>https://mrpopov.com/posts/stunning-presentations-fast/</link>
+      <pubDate>Thu, 17 Aug 2023 22:20:00 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/stunning-presentations-fast/</guid>
+      <description>&lt;h2 id=&#34;do-you-want-to-create-stunning-presentations-in-just-15-minutes&#34;&gt;Do you want to create stunning presentations in just 15 minutes?&lt;/h2&gt;
+&lt;p&gt;How often when you need to make presentation it becomes entire saga of preparations, updates and fixes? All of it because you use wrong process and tools.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s dive a bit into the process of creating a presentation. In most cases, you are on a call where 80% of the content is delivered verbally and only 20% is shown on the screen to highlight your thoughts. However, when preparing a presentation, you often spend 80% of your time creating only 20% of the content.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Data Security Quick Wins</title>
+      <link>https://mrpopov.com/posts/data-security-quick-wins/</link>
+      <pubDate>Thu, 18 May 2023 10:09:14 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/data-security-quick-wins/</guid>
+      <description>&lt;p&gt;Data security is a critical concern for any industry, but it&amp;rsquo;s especially important in digital company. With so much sensitive information being exchanged between different parties, it&amp;rsquo;s essential to have robust security measures in place to protect against malicious attacks and data breaches.&lt;/p&gt;
+&lt;p&gt;So what are some best practices and tips for ensuring data security in digital company? First and foremost, it&amp;rsquo;s important to implement strong access controls and encryption methods to protect data both in transit and at rest. This can include measures such as multi-factor authentication, VPNs, and SSL encryption. All our dev environments are hidden under VPN and password protected.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Highest ROI Asset</title>
+      <link>https://mrpopov.com/posts/the-highest-roi-asset/</link>
+      <pubDate>Tue, 18 Apr 2023 13:14:05 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/the-highest-roi-asset/</guid>
+      <description>&lt;p&gt;As you might feel hard times are approaching, failure of Silicon Valley Bank is not the only sign of what’s happening in the world. Enormous &lt;a href=&#34;https://truflation.com/&#34;&gt;https://truflation.com&lt;/a&gt; with a lot of excluded spheres in calculations and constant lie on reported numbers. The main question is how to protect yourself from upcoming “tsunami”, as some enlightened people are saying.&lt;/p&gt;
+&lt;p&gt;Stocks, crypto, commodities, real estate, different currencies - all of this might evaporate in matter of a blink. Stocks unpredictable, crypto even worse. Commodities and real estate might nationalised. Any currency might hit hyper inflation or even if going to find a stable pair, you still need to do operations through banks which can refuse giving you real value back instead of digits on your phone screen.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Productivity With Adhd</title>
+      <link>https://mrpopov.com/posts/productivity-with-adhd/</link>
+      <pubDate>Wed, 05 Apr 2023 17:19:25 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/productivity-with-adhd/</guid>
+      <description>&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/JsT3KPYJFl4?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;I started noticing that nowadays with enormous amount of distractions it&amp;rsquo;s incredibly hard to focus on things. And I was researching how people with ADHD actually staying hyper-focused, because fo them it must be even harder. Attention Deficit Hyperactivity Disorder - ADHD can make it difficult to stay focused and productive, but there are strategies that I found useful and I will share them with you, which can help you stop procrastination and start getting things done even if you don&amp;rsquo;t have ADHD but facing lack of focus. Here are some tips on how to be productive with ADHD and how to trick your brain into staying on task:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Start Using AI Immediately</title>
+      <link>https://mrpopov.com/posts/start-using-ai-immediately/</link>
+      <pubDate>Tue, 04 Apr 2023 19:30:45 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/start-using-ai-immediately/</guid>
+      <description>&lt;h1 id=&#34;why-you-need-to-start-using-ai-as-soon-as-possible&#34;&gt;Why you need to start using AI as soon as possible&lt;/h1&gt;
+&lt;p&gt;Hey there, today we are talking why you need to start using AI now. Artificial Intelligence has been around for quite some time, and it&amp;rsquo;s no longer a concept of the future. Many businesses are already leveraging AI to improve their operations and stay ahead of the competition.&lt;/p&gt;
+&lt;p&gt;In this post, I&amp;rsquo;ll talk about the need for AI implementation, the benefits of AI, and why you should not afraid of it. So, let&amp;rsquo;s dive right in.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Improve and Do Retrospectives Right</title>
+      <link>https://mrpopov.com/posts/improve-and-do-retrospectives-right/</link>
+      <pubDate>Sun, 12 Mar 2023 12:56:14 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/improve-and-do-retrospectives-right/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“Improving daily work is even more important than doing daily work.”
+&lt;strong&gt;Gene Kim&lt;/strong&gt; &lt;a href=&#34;https://www.goodreads.com/book/show/17255186-the-phoenix-project&#34;&gt;The Phoenix Project&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Often as managers, we try to be a great example, lead by example and work as hard as we can and this is related to
+any leaders, team leads, managers, CEOs and etc.
+All of this is nice, but will never lead to great results, as a single person you cannot impact the results of the whole company,
+no matter how great, fast, experienced you are. There is always a team and more than one person behind success. I stumbled upon one concept which is called &amp;ldquo;multiplier&amp;rdquo; from the same name book &lt;a href=&#34;https://www.goodreads.com/book/show/8310410-multipliers&#34;&gt;&amp;ldquo;Multipliers&amp;rdquo;&lt;/a&gt;, that was eye opening for me. Instead of pushing yourself you must educate and mentor others, as you will work as the &amp;ldquo;multiplier&amp;rdquo; and bring much more value towards the company/business/team/department.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Bit About Scrum and Its History</title>
+      <link>https://mrpopov.com/posts/a-bit-about-scrum-and-its-history/</link>
+      <pubDate>Sun, 05 Mar 2023 13:26:45 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/a-bit-about-scrum-and-its-history/</guid>
+      <description>&lt;p&gt;I was inspired about SCRUM methodology back in 2018 when for the first time I read a book named &lt;a href=&#34;https://www.goodreads.com/book/show/12426548-the-scrum-field-guide&#34;&gt;&amp;ldquo;The SCRUM Field Guide&amp;rdquo;&lt;/a&gt; which written by Mitch Lacey. Back in the day I used to be an engineer and I could not realize all benefits of adapting this methodology and was blindly following what team lead was saying. Nowadays when I&amp;rsquo;m in charge of success of more than 20 people, that&amp;rsquo;s where I had to come back to this book and write down all important notes which I would like to share. As well as to share how and where scrum methodology and agile principles started.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Best Travel Policy</title>
+      <link>https://mrpopov.com/posts/best-travel-policy/</link>
+      <pubDate>Sun, 05 Mar 2023 12:11:49 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/best-travel-policy/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;General guidelines&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;✅ As the best practice we use the most affordable and efficient type of transportation and stays. The price of the stay and travel must be free or the provider has to pay our company for promoting them on tiktok. For those employees who didn’t reach 5 mln. subscribers and not able to get a bargain with the provider, the price of the stay and transportation must be covered by the employee. &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Best Opportunity of Your Life</title>
+      <link>https://mrpopov.com/posts/best-opportunity-of-your-life/</link>
+      <pubDate>Sat, 26 Nov 2022 19:59:00 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/best-opportunity-of-your-life/</guid>
+      <description>&lt;p&gt;✅ Motivating and adequate leader charging you with motivation for the whole day. You will grow as a professional and become stronger personality. We won’t use shocker on you for first week.&lt;/p&gt;
+&lt;p&gt;✅ Young team, this year we had just one fight. The oldest developer is 59, but he has a young soul and using electro scooter. Great atmosphere in the office where we blame everyone equally.&lt;/p&gt;
+&lt;p&gt;✅ Modern technical stack, php 5.4 and Perl. Every developer gets top notch equipment, Intel Celeron/ Pentium IV, Windows XP or Vista pre installed on the diskette.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wfh Wtf</title>
+      <link>https://mrpopov.com/posts/wfh-wtf/</link>
+      <pubDate>Fri, 10 Jun 2022 10:00:00 +0000</pubDate>
+      
+      <guid>https://mrpopov.com/posts/wfh-wtf/</guid>
+      <description>&lt;h1 id=&#34;wfh---wtf&#34;&gt;Wfh - wtf?&lt;/h1&gt;
+&lt;p&gt;Working from home is post fake-pandemic trend which seems to make life of corpos even harder than paying higher taxes than others and feeding others because they became bigger and more successful than others, this is normal behavior of our undeveloped society and non-discipline minds. &lt;/p&gt;
+&lt;p&gt;But what happened with small to medium bizes founded by entrepreneurs, who are real people and humans? This camp was divided into two extremes. One says that only office and at least 40h in the office and others say “we don’t care where are you - home, office or Maldives, see you in zoom” just bring the results. And to be honest second camp is much smaller on the market. &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How I Became Digital Nomad CTO</title>
+      <link>https://mrpopov.com/posts/how-i-became-digital-nomad-cto/</link>
+      <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
+      
+      <guid>https://mrpopov.com/posts/how-i-became-digital-nomad-cto/</guid>
+      <description>&lt;h1 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h1&gt;
+&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;
+&lt;p&gt;This story has begun on 08.06 of 2021. The CEO of our company invited me to his office.
+We discussed my half year review and etc, and he put an offer in front of me.
+I went through, and I have to admit it was a nice package. But here is a small thing,
+I had to move to Luxembourg. We had some talks about that before, so I was morally prepared.
+Another country about which I didn&amp;rsquo;t know anything, except it&amp;rsquo;s
+one of the most expensive countries to live in.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Don’t go to IT or even go out</title>
+      <link>https://mrpopov.com/posts/dont-go-to-it-or-even-go-out/</link>
+      <pubDate>Thu, 14 May 2020 16:58:31 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/dont-go-to-it-or-even-go-out/</guid>
+      <description>&lt;p&gt;During massive panic around the world I got stuck at home the same as a lot of other people probably. And a lot of my friends watching on me because not much changed in my life, I didn’t lose my job and I busy every day even due to massive panic which causes lockdown. So, they started asking me what should I do to become a developer like you and do millions per month?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iPad - Do You Need It?</title>
+      <link>https://mrpopov.com/posts/ipad-do-you-need-it/</link>
+      <pubDate>Tue, 21 Apr 2020 10:51:42 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/ipad-do-you-need-it/</guid>
+      <description>&lt;p&gt;I decided to share this thoughts, cause of purchasing new iPad pro. I was thinking for last few years, do I really need an iPad? I used to think that it&amp;rsquo;s completely useless device. If I have MacBook as main working machine and iPhone as secondary/helper. I&amp;rsquo;m going to talk about this device from programmer/manager perspective.&lt;/p&gt;
+&lt;h2 id=&#34;zoom-right&#34;&gt;Zoom, right?&lt;/h2&gt;
+&lt;p&gt;MacBook has the shittiest camera on the market, for some of my coworkers it doesn&amp;rsquo;t sound as disadvantage, because they simply don&amp;rsquo;t use camera for syncs and meetings. True for programmers who sit in the most dark corner of the room. But for me it&amp;rsquo;s important to clearly see the person to whom I&amp;rsquo;m talking to. Hope I&amp;rsquo;m not only one who has this preferences. iPad has brilliant front camera for that kind of use and you can plug and play it to your zoom or any other conference apps. While you on the meeting via your iPad you can use your main laptop without any losses and slow downs. I hate how zoom opens on MacBook, it crashes time to time, on other hand on iPad I didn&amp;rsquo;t have such an experience - one tap and you online. If you use g-calendar + zoom, jitsi or any other meeting tools you can jump to the sync with one single tap, by moving your calendar to &amp;ldquo;Today View&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Bad HR experience or How new repo was born</title>
+      <link>https://mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</link>
+      <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
+      <description>&lt;h1 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
+&lt;p&gt;This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.&lt;/p&gt;
+&lt;p&gt;But after few days I received tests assignment from them. I was a bit confused, because for that kind of positions there is no test assignment usually. I was busy and working 24/7 in another company and had a business trip for 3 days (two days of the trip were weekend) that week and I told them about it.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

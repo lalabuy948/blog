@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Startup on </title>
+    <link>https://mrpopov.com/tags/startup/</link>
+    <description>Recent content in Startup on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 May 2023 10:09:14 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/startup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Security Quick Wins</title>
+      <link>https://mrpopov.com/posts/data-security-quick-wins/</link>
+      <pubDate>Thu, 18 May 2023 10:09:14 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/data-security-quick-wins/</guid>
+      <description>&lt;p&gt;Data security is a critical concern for any industry, but it&amp;rsquo;s especially important in digital company. With so much sensitive information being exchanged between different parties, it&amp;rsquo;s essential to have robust security measures in place to protect against malicious attacks and data breaches.&lt;/p&gt;
+&lt;p&gt;So what are some best practices and tips for ensuring data security in digital company? First and foremost, it&amp;rsquo;s important to implement strong access controls and encryption methods to protect data both in transit and at rest. This can include measures such as multi-factor authentication, VPNs, and SSL encryption. All our dev environments are hidden under VPN and password protected.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>BasicBB</title>
+      <link>https://mrpopov.com/posts/basicbb/</link>
+      <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
+      
+      <guid>https://mrpopov.com/posts/basicbb/</guid>
+      <description>&lt;h1 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h1&gt;
+&lt;p&gt;My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called &lt;a href=&#34;https://basicbb.com&#34;&gt;basicbb - Basic Building Blocks&lt;/a&gt;. And &lt;a href=&#34;https://mrpopov.com/tech-scaling/&#34;&gt;#TechScaling&lt;/a&gt; but that&amp;rsquo;s a story for the next post.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

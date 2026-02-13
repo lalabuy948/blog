@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>MrPopov :: Hashicorp Vault as Environment Manager</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mrpopov.com/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
+"/>
+        
+
+
+
+    <meta name="keywords" content="hashicorp, vault, dotenv, how to, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png">
+    <meta property="twitter:image" content="https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Hashicorp Vault as Environment Manager">
+    <meta property="twitter:title" content="Mr.Popov :: Hashicorp Vault as Environment Manager">
+
+
+
+    <meta property="og:description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
+">
+    <meta property="twitter:description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
+Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/">
+
+
+<link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/assets/main.js" as="script">
+<link rel="preload" href="https://mrpopov.com/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    
+    <span>
+      <a href="/episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/cv/">CV</a></li>
+              
+            
+              
+                <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+              
+            
+              
+                <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+              
+            
+              
+                <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+              
+                <li><a href="/projects">Pets graveyard</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/cv/">CV</a></li>
+      
+    
+      
+        <li><a href="https://discord.gg/nrpaSurVWV">Join discord</a></li>
+      
+    
+      
+        <li><a href="https://www.behance.net/lalabuy">Me on behance</a></li>
+      
+    
+      
+        <li><a href="https://dribbble.com/lalabuy">Me on dribbble</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+      
+        <li><a href="/projects">Pets graveyard</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/">Hashicorp Vault as Environment Manager</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            20-06-2020
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">— 2 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="https://mrpopov.com/tags/tools/">tools</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/code/">code</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/env/">env</a>&nbsp;
+        
+          #<a href="https://mrpopov.com/tags/tutorial/">tutorial</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="Hashicorp Vault as Environment Manager" src="https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <h1 id="how-to-use-hashicorp-vault-as-dot-environment-manager">How to use Hashicorp Vault as dot environment manager?</h1>
+<p>I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂</p>
+<h2 id="pre-requirements">Pre Requirements</h2>
+<ul>
+<li>Installed vault</li>
+<li>Finish setup instructions</li>
+</ul>
+<p>You can find nicely described steps here: <a href="https://learn.hashicorp.com/vault/getting-started/install">Getting started</a></p>
+<h2 id="1-lets-add-kv-engine">#1 Let&rsquo;s add KV engine</h2>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot.webp" alt="Create KV secret engine"></p>
+<p>In my case I will name it service. After you added your Key Value engine, you should see something like this:</p>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-0.webp" alt="Added KV secret engine"></p>
+<h2 id="2-add-secrets-json-files">#2 Add secrets (json files)</h2>
+<p>In my case I created development, staging and production. This files will store actual key value pairs, which in our case dot environment pairs.</p>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-1.webp" alt="Create new secret engine"></p>
+<h2 id="3-add-key-value-pairs">#3 Add key value pairs</h2>
+<p>Fill your secrets (json files) with your secrets.</p>
+<p><code>db_host localhost</code> for example</p>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-2.webp" alt="Create new secret engine"></p>
+<h2 id="4-pull-key-value">#4 Pull key value</h2>
+<p>First of all you need token. In the right corner you will see profile icon and copy token button when you toggle the first one.</p>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-3.webp" alt="Create new secret engine"></p>
+<p>In my project I added this make file:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#57606a"># Makefile
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">CFLAGS</span><span style="color:#0550ae">=</span>-g
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">export</span> <span style="color:#953800">CFLAGS</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">dev</span><span style="color:#0550ae">:</span>
+</span></span><span style="display:flex;"><span>	@./bin/getenv.sh development
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">staging</span><span style="color:#0550ae">:</span>
+</span></span><span style="display:flex;"><span>	@./bin/getenv.sh staging
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">production</span><span style="color:#0550ae">:</span>
+</span></span><span style="display:flex;"><span>	@./bin/getenv.sh production
+</span></span></code></pre></div><p>And in <code>bin</code> folder I have <code>getenv.sh</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#953800">secretsJSON</span><span style="color:#0550ae">=</span><span style="color:#cf222e">$(</span>curl --request GET <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>  --url https://VAULT.YOURDOMAIN.COM/v1/service/<span style="color:#0a3069">&#34;</span><span style="color:#953800">$1</span><span style="color:#0a3069">&#34;</span> <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span>  --header <span style="color:#0a3069">&#34;x-vault-token: </span><span style="color:#0a3069">${</span><span style="color:#953800">VAULT_TOKEN</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#cf222e">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># shellcheck disable=SC2217</span>
+</span></span><span style="display:flex;"><span>jq -r <span style="color:#0a3069">&#39;.data | keys[] as $k | &#34;\($k)=\&#34;\(.[$k])\&#34;&#34;&#39;</span> <span style="color:#0550ae">&lt;&lt;&lt;</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">${</span><span style="color:#953800">secretsJSON</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span> <span style="color:#1f2328">|</span> tr -d <span style="color:#0a3069">&#39;&#34;&#39;</span> &gt; .env
+</span></span></code></pre></div><p>Do not forget to export your copied token! <code>export VAULT_TOKEN=&lt;TOKEN_GOES_HERE&gt;</code></p>
+<p>Not sure if it useful to anyone, but i decided to share it here.
+Picture from <a href="https://www.instana.com/blog/hashicorp-vault-monitoring/">instana.com</a></p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://mrpopov.com/posts/redis-cluster-in-docker-compose/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Redis Cluster in Docker Compose</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://mrpopov.com/posts/must-play-ios-games/">
+                  <span class="button__text">Must Play iOS Games</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://mrpopov.com/assets/main.js"></script>
+<script src="https://mrpopov.com/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>
