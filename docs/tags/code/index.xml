@@ -6,7 +6,17 @@
     <description>Recent content in Code on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Oct 2025 18:22:33 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Feb 2026 16:07:30 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir Phoenix Optimisations iPhone Safari</title>
+      <link>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</link>
+      <pubDate>Sat, 14 Feb 2026 16:07:30 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re running a Phoenix LiveView application and your iOS Safari users are experiencing frozen pages, slow reconnects, or 10+ second hangs after returning from sleep — this article is for you.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been running a production Phoenix LiveView application. The app worked great on desktop, but iPhone users kept reporting the same thing: the page would freeze or hang for several seconds after switching back from another app or unlocking their phone. Sometimes the page would never recover at all.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Elixir Liveview Socket Reconnect</title>
       <link>https://mrpopov.com/posts/elixir-liveview-socket-reconnect/</link>
