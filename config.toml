@@ -76,18 +76,6 @@ identifier = "about"
 name = "About"
 url = "/about"
 [[languages.en.menu.main]]
-identifier = "cv"
-name = "CV"
-url = "/cv/"
-[[languages.en.menu.main]]
-identifier = "dribbble"
-name = "Me on dribbble"
-url = "https://dribbble.com/lalabuy"
-[[languages.en.menu.main]]
-identifier = "behance"
-name = "Me on behance"
-url = "https://www.behance.net/lalabuy"
-[[languages.en.menu.main]]
 identifier = "linkedin"
 name = "Me on linkedin"
 url = "https://www.linkedin.com/in/mrpopov/"
@@ -99,11 +87,3 @@ url = "https://github.com/lalabuy948"
 identifier = "pexels"
 name = "Me on pexels"
 url = "https://www.pexels.com/@daniil-popov-1864765"
-[[languages.en.menu.main]]
-identifier = "discord"
-name = "Join discord"
-url = "https://discord.gg/nrpaSurVWV"
-[[languages.en.menu.main]]
-identifier = "zprojects"
-name = "Pets graveyard"
-url = "/projects"
