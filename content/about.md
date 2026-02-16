@@ -6,17 +6,19 @@ title: "About"
 
 {{< image src="/img/me.webp" alt="Daniil Popov" position="center" style="width: 250px;border-radius: 50%;" >}}
 
-[My CV](/cv/)
+CEO & Senior Software Engineering Leader
 
-Result-oriented Senior Software Engineer and fCTO with a proven track record. With over a decade of experience in technology, software development, people management, and process establishment, I have primarily led complex projects that are critical to entire systems, often requiring cross-department coordination. For example, I have overseen ERP migration and integration, as well as live feed migration for environments with millions of active users without service downtime. During my leadership, I increased engineering efficiency by more than twice in half a year and decreased tech debt by 45% in 1.5 years.
+Founder & CEO of [1703 Group](https://1703.lu/), an Elixir/BEAM engineering boutique delivering fault-tolerant, scalable systems, talent placement, and zero-downtime legacy rewrites. Over 10 years of experience leading critical, high-stakes projects: zero-downtime ERP migrations, live system integrations serving millions of users, and cross-department transformations. Delivered 2x engineering efficiency gains in 6 months and 45% tech debt reduction in 1.5 years. Strategic, business-first executive with deep technical expertise, proven reliability, and a track record of driving results at scale.
 
-Recognized leader with strong software engineering skills, in-depth technology knowledge, and a business-first approach. Goal-oriented, innovative, trustworthy, reliable, self-motivated, and proactive.
+Based in Luxembourg · Operate Remote · Open to on-site visits
 
-Based in Luxembourg, I work remotely but am open to on-site visits.
+
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/)
 
 ### Companies I contributed to
+
+[1703 Group](https://1703.lu/)
 
 [CyanView](https://www.cyanview.com/)
 
