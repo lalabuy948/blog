@@ -75,11 +75,11 @@
 &lt;ol&gt;
 &lt;li&gt;Create a private github repo&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;../../img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Go to actions tab and click on &lt;code&gt;set up a workflow yourself -&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;../../img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -99,7 +99,7 @@
       <guid>https://mrpopov.com/posts/flexible-env-in-go-v2/</guid>
       <description>&lt;h1 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;../../posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;https://mrpopov.com/posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; &lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;github.com/lalabuy948/genvutils&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

@@ -17,7 +17,7 @@
         {{ if eq .Kind "page" }}
         <div class="archive__post">
           <h3 class="archive__post-title"><a
-              href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+              href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
           </h3>
           <div class="archive__post-meta">
             <span class="archive__post-date">

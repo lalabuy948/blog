@@ -33,7 +33,7 @@
 
     {{ range $paginator.Pages }}
     <div class="post on-list">
-      <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+      <h1 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
       <div class="post-meta">
         {{ if .Date }}
           <span class="post-date">
@@ -49,7 +49,7 @@
       {{ if .Params.tags }}
         <span class="post-tags">
           {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+            #<a href="{{ (urlize (printf "/tags/%s" . )) }}/">{{ . }}</a>&nbsp;
           {{ end }}
         </span>
       {{ end }}

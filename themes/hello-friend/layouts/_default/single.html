@@ -1,6 +1,6 @@
 {{ define "main" }}
   <div class="post">
-    <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+    <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h2>
     <div class="post-meta">
       {{ with .Date | default nil }}
         <span class="post-date">
@@ -17,7 +17,7 @@
     {{ if .Params.tags }}
       <span class="post-tags">
         {{ range .Params.tags }}
-          #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+          #<a href="{{ (urlize (printf "/tags/%s" . )) }}/">{{ . }}</a>&nbsp;
         {{ end }}
       </span>
     {{ end }}
@@ -47,7 +47,7 @@
           <div class="pagination__buttons">
             {{ if .NextInSection }}
               <span class="button previous">
-                <a href="{{ .NextInSection.Permalink }}">
+                <a href="{{ .NextInSection.RelPermalink }}">
                   <span class="button__icon">←</span>
                   <span class="button__text">{{ .NextInSection.Title }}</span>
                 </a>
@@ -55,7 +55,7 @@
             {{ end }}
             {{ if .PrevInSection }}
               <span class="button next">
-                <a href="{{ .PrevInSection.Permalink }}">
+                <a href="{{ .PrevInSection.RelPermalink }}">
                   <span class="button__text">{{ .PrevInSection.Title }}</span>
                   <span class="button__icon">→</span>
                 </a>
