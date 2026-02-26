@@ -22,7 +22,7 @@ seo:
 seo_description: "Fix iOS Safari freezing and slow reconnects in Phoenix LiveView. Covers upgrading to Phoenix 1.8.3 for visibilitychange support, tuning longPollFallbackMs, reducing CSS blur performance issues, and converting static pages from LiveView to controllers for faster mobile experience."
 ---
 
-If you're running a Phoenix LiveView application and your iOS Safari users are experiencing frozen pages, slow reconnects, or 10+ second hangs after returning from sleep — this article is for you.
+If you're running a Phoenix LiveView application and your iOS Safari users are experiencing frozen pages, slow reconnects, or 10+ second hangs after returning from sleep this article is for you.
 
 I've been running a production Phoenix LiveView application. The app worked great on desktop, but iPhone users kept reporting the same thing: the page would freeze or hang for several seconds after switching back from another app or unlocking their phone. Sometimes the page would never recover at all.
 
@@ -34,7 +34,7 @@ The symptoms were consistent:
 
 - User opens the app on iPhone Safari
 - Switches to another app or locks the phone
-- Returns to the page — it's frozen for 5-15 seconds
+- Returns to the page it's frozen for 5-15 seconds
 - Sometimes the page never reconnects and requires a manual refresh
 
 This wasn't a bug in my code. It was a combination of how iOS Safari handles WebSockets, how Phoenix reconnects after sleep, and some surprising CSS performance issues.
@@ -45,7 +45,7 @@ After digging through Phoenix issues, Elixir forum posts, and a lot of iOS Safar
 
 ### 1. Phoenix Reconnect Logic Before 1.8.2
 
-When a phone sleeps, iOS Safari kills the WebSocket connection. Phoenix detects the error and immediately starts trying to reconnect — but the page is hidden. The browser throttles or stalls these background reconnection attempts. When the user returns, there's a stalled reconnect attempt blocking the main thread for seconds.
+When a phone sleeps, iOS Safari kills the WebSocket connection. Phoenix detects the error and immediately starts trying to reconnect but the page is hidden. The browser throttles or stalls these background reconnection attempts. When the user returns, there's a stalled reconnect attempt blocking the main thread for seconds.
 
 Phoenix 1.8.2 (PR [#6534](https://github.com/phoenixframework/phoenix/pull/6534)) fixed this by using the `visibilitychange` API. It stops reconnect attempts while the page is hidden and immediately reconnects when it becomes visible. This single fix is the biggest improvement.
 
@@ -57,11 +57,11 @@ The problem compounds because the longpoll fallback flag is stored in `sessionSt
 
 ### 3. Heavy CSS Blur Effects
 
-This one surprised me. Large CSS `blur()` values on decorative background elements were causing mobile Safari to stall WebSocket connections for several seconds. The hero section had glow effects with `blur-[120px]` and `blur-[150px]` — purely decorative elements that were killing network performance on iOS.
+This one surprised me. Large CSS `blur()` values on decorative background elements were causing mobile Safari to stall WebSocket connections for several seconds. The hero section had glow effects with `blur-[120px]` and `blur-[150px]` purely decorative elements that were killing network performance on iOS.
 
 ### 4. Full-Page LiveView for Static Content
 
-The home page was a single LiveView rendering everything — hero section, country grid, testimonials, FAQ, CTA. That meant a full WebSocket connection for a page where 90% of the content was static HTML. Every reconnect issue affected the entire page.
+The home page was a single LiveView rendering everything hero section, country grid, testimonials, FAQ, CTA. That meant a full WebSocket connection for a page where 90% of the content was static HTML. Every reconnect issue affected the entire page.
 
 ## The Fixes
 
@@ -123,7 +123,7 @@ Replace extreme blur values with responsive alternatives. Mobile gets a lighter 
 <div class="bg-primary/20 blur-3xl sm:blur-[120px] rounded-full" />
 ```
 
-`blur-3xl` is 72px — still looks great on mobile but doesn't stall the browser's network stack.
+`blur-3xl` is 72px still looks great on mobile but doesn't stall the browser's network stack.
 
 ### Convert Static Pages to Controllers
 
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-These work alongside the LiveView hooks — the standalone init handles controller pages, the hooks handle LiveView pages.
+These work alongside the LiveView hooks the standalone init handles controller pages, the hooks handle LiveView pages.
 
 ## Other Things Worth Knowing
 
@@ -181,7 +181,7 @@ config :my_app, MyAppWeb.Endpoint,
 
 ### iCloud Private Relay
 
-Safari has a bug where iCloud Private Relay sends CONNECT requests instead of proper WebSocket upgrade requests. This breaks WebSocket connections on some infrastructure (Cloudflare, GCP load balancers, nginx). There's no server-side fix — it's an Apple bug that appears to be resolved in Safari 26.0.1.
+Safari has a bug where iCloud Private Relay sends CONNECT requests instead of proper WebSocket upgrade requests. This breaks WebSocket connections on some infrastructure (Cloudflare, GCP load balancers, nginx). There's no server-side fix it's an Apple bug that appears to be resolved in Safari 26.0.1.
 
 ### TLS Configuration
 
@@ -191,11 +191,11 @@ Safari's WebSocket implementation is strict with TLS certificate validation and 
 
 The priority order for fixing iOS Safari LiveView performance:
 
-1. **Upgrade Phoenix to 1.8.3+** — gets you the `visibilitychange` reconnect fix
-2. **Convert static pages to controllers** — eliminates unnecessary WebSocket connections
-3. **Tune `longPollFallbackMs`** — increase to 5000ms or disable entirely
-4. **Audit heavy CSS** — large `blur()` and `backdrop-filter` values stall mobile networking
-5. **Add `visibilitychange` safety net** — belt and suspenders for reconnection
-6. **Test Bandit vs Cowboy** — if issues persist after everything else
+1. **Upgrade Phoenix to 1.8.3+** gets you the `visibilitychange` reconnect fix
+2. **Convert static pages to controllers** eliminates unnecessary WebSocket connections
+3. **Tune `longPollFallbackMs`** increase to 5000ms or disable entirely
+4. **Audit heavy CSS** large `blur()` and `backdrop-filter` values stall mobile networking
+5. **Add `visibilitychange` safety net** belt and suspenders for reconnection
+6. **Test Bandit vs Cowboy** if issues persist after everything else
 
 The fundamental lesson: not every page needs a WebSocket. Phoenix makes it easy to use LiveView for everything, but the right architecture is static HTML for static content and LiveView only where you need interactivity. Your iOS users will thank you.

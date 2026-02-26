@@ -30,7 +30,7 @@
             </span>
             {{ end }}
             {{ if $.Site.Params.ShowReadingTime }}
-            <span class="archive__post-read-time">— {{ .ReadingTime }}
+            <span class="archive__post-read-time">{{ .ReadingTime }}
               {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
             {{ end }}
           </div>
