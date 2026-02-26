@@ -3,21 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mrpopov.com/</loc>
-    <lastmod>2026-02-14T16:07:30+01:00</lastmod>
+    <lastmod>2026-02-25T14:08:19+01:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/code/</loc>
-    <lastmod>2026-02-14T16:07:30+01:00</lastmod>
+    <lastmod>2026-02-25T14:08:19+01:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/elixir/</loc>
-    <lastmod>2026-02-14T16:07:30+01:00</lastmod>
+    <lastmod>2026-02-25T14:08:19+01:00</lastmod>
   </url><url>
-    <loc>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</loc>
-    <lastmod>2026-02-14T16:07:30+01:00</lastmod>
+    <loc>https://mrpopov.com/tags/migration/</loc>
+    <lastmod>2026-02-25T14:08:19+01:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/</loc>
-    <lastmod>2026-02-14T16:07:30+01:00</lastmod>
+    <lastmod>2026-02-25T14:08:19+01:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/posts/python-react-to-elixir-phoenix-migration-breakdown/</loc>
+    <lastmod>2026-02-25T14:08:19+01:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/</loc>
+    <lastmod>2026-02-25T14:08:19+01:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</loc>
     <lastmod>2026-02-14T16:07:30+01:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/tutorial/</loc>

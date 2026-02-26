@@ -1,7 +1,7 @@
 ---
 title: "Python React to Elixir Phoenix Migration Breakdown"
 date: 2026-02-25T14:08:19+01:00
-draft: true
+draft: false
 comments: true
 cover: "img/python-react-to-elixir-phoenix-migration-breakdown/thumbnail.png"
 tags: ["elixir", "migration", "code"]
