@@ -6,7 +6,17 @@
     <description>Recent content in Tutorial on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Feb 2026 16:07:30 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Mar 2026 10:00:00 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How We Cut Phoenix Memory from 300MB to 120MB on Embedded</title>
+      <link>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</link>
+      <pubDate>Thu, 05 Mar 2026 10:00:00 +0100</pubDate>
+      
+      <guid>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</guid>
+      <description>&lt;p&gt;At &lt;a href=&#34;https://cyanview.com&#34;&gt;CyanView&lt;/a&gt;, we run a Phoenix LiveView application on embedded hardware. Out of the box, the BEAM VM was eating 300MB of RAM at idle and keeping the CPU at 45%. After tuning, we got it down to ~120MB and 5-10% idle CPU.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s exactly what we changed and why each thing matters.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Elixir Phoenix Optimisations iPhone Safari</title>
       <link>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</link>

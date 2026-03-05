@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>MrPopov :: How We Cut Phoenix Memory from 300MB to 120MB on Embedded</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://mrpopov.com/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="Practical guide to reducing BEAM VM memory from 300MB to 120MB and idle CPU from 45% to 5-10% for Phoenix apps on embedded devices. Covers allocator tuning, scheduler limits, PubSub pool sizing, and other production-tested optimisations."/>
+        
+
+
+
+    <meta name="keywords" content="beam vm memory optimization, phoenix embedded device, erlang allocator tuning, elixir low memory, beam scheduler tuning, phoenix raspberry pi, erlang vm.args, phoenix memory usage, beam allocator flags, elixir embedded, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://mrpopov.com/img/elixir-beam-vm-embedded-optimisation/preview.png">
+    <meta property="twitter:image" content="https://mrpopov.com/img/elixir-beam-vm-embedded-optimisation/preview.png">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: How We Cut Phoenix Memory from 300MB to 120MB on Embedded">
+    <meta property="twitter:title" content="Mr.Popov :: How We Cut Phoenix Memory from 300MB to 120MB on Embedded">
+
+
+
+    <meta property="og:description" content="At CyanView, we run a Phoenix LiveView application on embedded hardware. Out of the box, the BEAM VM was eating 300MB of RAM at idle and keeping the CPU at 45%. After tuning, we got it down to ~120MB and 5-10% idle CPU.
+Here&rsquo;s exactly what we changed and why each thing matters.
+">
+    <meta property="twitter:description" content="At CyanView, we run a Phoenix LiveView application on embedded hardware. Out of the box, the BEAM VM was eating 300MB of RAM at idle and keeping the CPU at 45%. After tuning, we got it down to ~120MB and 5-10% idle CPU.
+Here&rsquo;s exactly what we changed and why each thing matters.
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/">
+
+
+<link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/style.css" as="style">
+<link rel="preload" href="https://mrpopov.com/assets/main.js" as="script">
+<link rel="preload" href="https://mrpopov.com/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/assets/style.css">
+
+
+<link rel="stylesheet" href="https://mrpopov.com/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    
+    <span>
+      <a href="/episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/elixir-beam-vm-embedded-optimisation/">How We Cut Phoenix Memory from 300MB to 120MB on Embedded</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            05-03-2026
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">5 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/code/">code</a>&nbsp;
+        
+          #<a href="/tags/elixir/">elixir</a>&nbsp;
+        
+          #<a href="/tags/tutorial/">tutorial</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="How We Cut Phoenix Memory from 300MB to 120MB on Embedded" src="https://mrpopov.com/img/elixir-beam-vm-embedded-optimisation/preview.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <p>At <a href="https://cyanview.com">CyanView</a>, we run a Phoenix LiveView application on embedded hardware. Out of the box, the BEAM VM was eating 300MB of RAM at idle and keeping the CPU at 45%. After tuning, we got it down to ~120MB and 5-10% idle CPU.</p>
+<p>Here&rsquo;s exactly what we changed and why each thing matters.</p>
+<h2 id="where-does-300mb-go">Where Does 300MB Go?</h2>
+<p>Most of that memory isn&rsquo;t actually &ldquo;used&rdquo; it&rsquo;s <strong>pre-allocated</strong> by the BEAM&rsquo;s memory allocators. The VM aggressively grabs memory in large carrier blocks for performance on servers with plenty of RAM. On an embedded device, this is wasteful.</p>
+<p>You can see the gap yourself:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># actual memory used by the VM</span>
+</span></span><span style="display:flex;"><span><span style="color:#032f62">:erlang</span><span style="color:#0550ae">.</span>memory<span style="color:#1f2328">()</span> <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Enum</span><span style="color:#0550ae">.</span>map<span style="color:#1f2328">(</span><span style="color:#cf222e">fn</span> <span style="color:#1f2328">{</span>k<span style="color:#1f2328">,</span> v<span style="color:#1f2328">}</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">{</span>k<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">#{</span><span style="color:#1f2328">Float</span><span style="color:#0550ae">.</span>round<span style="color:#1f2328">(</span>v <span style="color:#0550ae">/</span> <span style="color:#0550ae">1_048_576</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span><span style="color:#0a3069">}</span><span style="color:#0a3069"> MB&#34;</span><span style="color:#1f2328">}</span> <span style="color:#cf222e">end</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># with :recon shows allocated vs used</span>
+</span></span><span style="display:flex;"><span><span style="color:#032f62">:recon_alloc</span><span style="color:#0550ae">.</span>memory<span style="color:#1f2328">(</span><span style="color:#032f62">:allocated</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#032f62">:recon_alloc</span><span style="color:#0550ae">.</span>memory<span style="color:#1f2328">(</span><span style="color:#032f62">:used</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>The difference between allocated and used is what we&rsquo;re clawing back.</p>
+<h2 id="1-beam-allocator-tuning-biggest-win">1. BEAM Allocator Tuning (Biggest Win)</h2>
+<p>This is the single most impactful change. Add these flags to your <code>rel/vm.args.eex</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">## address-order best-fit for all allocators (returns memory to OS faster)</span>
+</span></span><span style="display:flex;"><span>+MBas aobf
+</span></span><span style="display:flex;"><span>+MHas aobf
+</span></span><span style="display:flex;"><span>+MPas aobf
+</span></span><span style="display:flex;"><span>+MDas aobf
+</span></span><span style="display:flex;"><span>+MFas aobf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## disable carrier utilization limit (prevents holding empty carriers)</span>
+</span></span><span style="display:flex;"><span>+MBacul <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>+MHacul <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## smaller carrier sizes</span>
+</span></span><span style="display:flex;"><span>+MBsmbcs <span style="color:#0550ae">64</span>
+</span></span><span style="display:flex;"><span>+MBlmbcs <span style="color:#0550ae">128</span>
+</span></span><span style="display:flex;"><span>+MHsmbcs <span style="color:#0550ae">64</span>
+</span></span><span style="display:flex;"><span>+MHlmbcs <span style="color:#0550ae">128</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## smaller main carrier</span>
+</span></span><span style="display:flex;"><span>+MMscs <span style="color:#0550ae">20</span>
+</span></span></code></pre></div><p><strong>What this does:</strong> By default, BEAM allocators use a best-fit strategy optimised for throughput on multi-core servers. They hold onto freed carrier blocks in case they&rsquo;re needed again. The <code>aobf</code> (address-order best-fit) strategy is more aggressive about returning memory to the OS. Reducing carrier sizes (<code>smbcs</code>, <code>lmbcs</code>) means the VM grabs smaller chunks at a time.</p>
+<p>This alone dropped our idle memory from ~300MB to ~150MB.</p>
+<h2 id="2-reduce-schedulers">2. Reduce Schedulers</h2>
+<p>BEAM spawns one scheduler per CPU core by default. Each scheduler has its own set of allocator instances, run queues, and timers. On embedded hardware you don&rsquo;t need 4-8 schedulers.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">## single scheduler adjust to your workload</span>
+</span></span><span style="display:flex;"><span>+S 1:1
+</span></span><span style="display:flex;"><span>+SDcpu 1:1
+</span></span><span style="display:flex;"><span>+SDio <span style="color:#0550ae">1</span>
+</span></span></code></pre></div><p>We went with 1 scheduler for our use case. If your app handles concurrent HTTP requests under load, try <code>+S 2:2</code> instead. The sweet spot depends on your actual concurrency needs.</p>
+<p><strong>Impact:</strong> This took us from ~150MB down to ~120MB and was the main reason idle CPU dropped from 45% to 5-10%.</p>
+<h2 id="3-scheduler-wakeup-tuning">3. Scheduler Wakeup Tuning</h2>
+<p>We already had some of these, but the full set matters:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">## don&#39;t burn CPU waiting for work</span>
+</span></span><span style="display:flex;"><span>+c <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>+sbwt none
+</span></span><span style="display:flex;"><span>+sbwtdcpu none
+</span></span><span style="display:flex;"><span>+sbwtdio none
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## low wakeup threshold schedulers sleep faster when idle</span>
+</span></span><span style="display:flex;"><span>+swt very_low
+</span></span><span style="display:flex;"><span>+swtdcpu very_low
+</span></span><span style="display:flex;"><span>+swtdio very_low
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## disable scheduler compaction for IO</span>
+</span></span><span style="display:flex;"><span>+secio <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## enable kernel poll (epoll/kqueue)</span>
+</span></span><span style="display:flex;"><span>+K <span style="color:#6639ba">true</span>
+</span></span></code></pre></div><p>The <code>+sbwt none</code> flags tell schedulers not to busy-wait when there&rsquo;s no work. Without this, each scheduler spins in a tight loop consuming CPU even when idle. The <code>+swt very_low</code> flags make schedulers go to sleep faster after a period of no work.</p>
+<h2 id="4-resource-limits">4. Resource Limits</h2>
+<p>Reduce the pre-allocated tables if your app doesn&rsquo;t need the defaults:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">## atom table (default: 1048576)</span>
+</span></span><span style="display:flex;"><span>+t <span style="color:#0550ae">100000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## max processes (default: 262144)</span>
+</span></span><span style="display:flex;"><span>+P <span style="color:#0550ae">50000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## max ports (default: 65536)</span>
+</span></span><span style="display:flex;"><span>+Q <span style="color:#0550ae">8192</span>
+</span></span></code></pre></div><p>Each of these tables is pre-allocated at startup. Smaller tables = less baseline memory. Just make sure your app doesn&rsquo;t hit these limits under load.</p>
+<h2 id="5-strip-beams-in-release">5. Strip Beams in Release</h2>
+<p>Debug info in <code>.beam</code> files adds up. Strip it for production:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># mix.exs</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> releases<span style="color:#1f2328">()</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">my_app</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">include_executables_for</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#032f62">:unix</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">include_erts</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#032f62">strip_beams</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>This saves a few MB on disk and in memory when modules are loaded.</p>
+<h2 id="6-pubsub-pool-size">6. PubSub Pool Size</h2>
+<p>Phoenix PubSub defaults to <code>System.schedulers_online()</code> pool workers. On embedded, you only need one:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># application.ex</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span><span style="color:#1f2328">Phoenix.PubSub</span><span style="color:#1f2328">,</span> <span style="color:#032f62">name</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">MyApp.PubSub</span><span style="color:#1f2328">,</span> <span style="color:#032f62">pool_size</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h2 id="7-liveview-socket-tuning">7. LiveView Socket Tuning</h2>
+<p>Disable longpoll (saves a separate transport), enable compression, and set a reasonable timeout:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># endpoint.ex</span>
+</span></span><span style="display:flex;"><span>socket <span style="color:#0a3069">&#34;/live&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">Phoenix.LiveView.Socket</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#032f62">websocket</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">connect_info</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#032f62">session</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">@session_options</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">compress</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">timeout</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">60_000</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
+</span></span></code></pre></div><p>Removing the <code>longpoll:</code> option means the server doesn&rsquo;t maintain the longpoll transport at all. If your embedded device only serves local network clients, you likely don&rsquo;t need it.</p>
+<h2 id="8-logger-level">8. Logger Level</h2>
+<p>Less log buffering in production:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># config/prod.exs</span>
+</span></span><span style="display:flex;"><span>config <span style="color:#032f62">:logger</span><span style="color:#1f2328">,</span> <span style="color:#032f62">level</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:warning</span>
+</span></span></code></pre></div><p>Every log message allocates memory for formatting and buffering. On embedded, you usually want to see warnings and errors only.</p>
+<h2 id="9-add-recon-for-diagnostics">9. Add :recon for Diagnostics</h2>
+<p>Add <code>:recon</code> as a dependency so you can inspect allocator behaviour at runtime:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># mix.exs deps</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span><span style="color:#032f62">:recon</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;~&gt; 2.5&#34;</span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><p>Then in a remote console:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># see the gap between allocated and used</span>
+</span></span><span style="display:flex;"><span><span style="color:#032f62">:recon_alloc</span><span style="color:#0550ae">.</span>memory<span style="color:#1f2328">(</span><span style="color:#032f62">:allocated</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#032f62">:recon_alloc</span><span style="color:#0550ae">.</span>memory<span style="color:#1f2328">(</span><span style="color:#032f62">:used</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># per-allocator breakdown</span>
+</span></span><span style="display:flex;"><span><span style="color:#032f62">:recon_alloc</span><span style="color:#0550ae">.</span>memory<span style="color:#1f2328">(</span><span style="color:#032f62">:allocated</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:current</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="already-using-bandit">Already Using Bandit?</h2>
+<p>If you&rsquo;re still on Cowboy, consider switching to <a href="https://github.com/mtrudel/bandit">Bandit</a>. It tends to use less memory per connection. Phoenix 1.8 already defaults to Bandit:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># config.exs</span>
+</span></span><span style="display:flex;"><span>config <span style="color:#032f62">:my_app</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">MyAppWeb.Endpoint</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#032f62">adapter</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">Bandit.PhoenixAdapter</span>
+</span></span></code></pre></div><h2 id="the-full-vmargseex">The Full vm.args.eex</h2>
+<p>Here&rsquo;s our complete file for reference:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">## --- memory optimisation (embedded/low-RAM targets) ---</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## address-order best-fit for all allocators</span>
+</span></span><span style="display:flex;"><span>+MBas aobf
+</span></span><span style="display:flex;"><span>+MHas aobf
+</span></span><span style="display:flex;"><span>+MPas aobf
+</span></span><span style="display:flex;"><span>+MDas aobf
+</span></span><span style="display:flex;"><span>+MFas aobf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## disable carrier utilization limit</span>
+</span></span><span style="display:flex;"><span>+MBacul <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>+MHacul <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## smaller carrier sizes</span>
+</span></span><span style="display:flex;"><span>+MBsmbcs <span style="color:#0550ae">64</span>
+</span></span><span style="display:flex;"><span>+MBlmbcs <span style="color:#0550ae">128</span>
+</span></span><span style="display:flex;"><span>+MHsmbcs <span style="color:#0550ae">64</span>
+</span></span><span style="display:flex;"><span>+MHlmbcs <span style="color:#0550ae">128</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## smaller main carrier</span>
+</span></span><span style="display:flex;"><span>+MMscs <span style="color:#0550ae">20</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## --- scheduler tuning ---</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>+S 1:1
+</span></span><span style="display:flex;"><span>+SDcpu 1:1
+</span></span><span style="display:flex;"><span>+SDio <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## --- resource limits ---</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>+t <span style="color:#0550ae">100000</span>
+</span></span><span style="display:flex;"><span>+P <span style="color:#0550ae">50000</span>
+</span></span><span style="display:flex;"><span>+Q <span style="color:#0550ae">8192</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">## --- general ---</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>+c <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>+sbwt none
+</span></span><span style="display:flex;"><span>+sbwtdcpu none
+</span></span><span style="display:flex;"><span>+sbwtdio none
+</span></span><span style="display:flex;"><span>+swt very_low
+</span></span><span style="display:flex;"><span>+swtdcpu very_low
+</span></span><span style="display:flex;"><span>+swtdio very_low
+</span></span><span style="display:flex;"><span>+secio <span style="color:#6639ba">false</span>
+</span></span><span style="display:flex;"><span>+K <span style="color:#6639ba">true</span>
+</span></span></code></pre></div><h2 id="results">Results</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>Before</th>
+          <th>After</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Idle RAM</td>
+          <td>~300MB</td>
+          <td>~120MB</td>
+      </tr>
+      <tr>
+          <td>Idle CPU</td>
+          <td>~45%</td>
+          <td>5-10%</td>
+      </tr>
+      <tr>
+          <td>Release size</td>
+          <td>baseline</td>
+          <td>~15% smaller (strip_beams)</td>
+      </tr>
+  </tbody>
+</table>
+<p>The allocator tuning and scheduler reduction account for about 90% of the improvement. Everything else is incremental but worth doing on constrained hardware.</p>
+<p>If you&rsquo;re deploying Elixir to Raspberry Pi, industrial gateways, or any embedded Linux target start with the allocator flags. You&rsquo;ll see results immediately.</p>
+<p>Check some of me other content:</p>
+<ul>
+<li><a href="https://1703.lu/blog/why-elixir-is-the-smartest-stack-choice-at-every-stage-of-your-startup">Why Elixir Is the Smartest Stack Choice</a></li>
+<li><a href="https://www.youtube.com/watch?v=CseWOnKuk7o">CyanView &amp; Elixir in Broadcasts</a></li>
+</ul>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="/posts/python-react-to-elixir-phoenix-migration-breakdown/">
+                  <span class="button__text">Python React to Elixir Phoenix Migration Breakdown</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://mrpopov.com/assets/main.js"></script>
+<script src="https://mrpopov.com/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>
