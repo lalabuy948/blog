@@ -6,12 +6,14 @@
     <description>Recent content in Code on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
+    <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
     <lastBuildDate>Thu, 05 Mar 2026 10:00:00 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How We Cut Phoenix Memory from 300MB to 120MB on Embedded</title>
       <link>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</link>
       <pubDate>Thu, 05 Mar 2026 10:00:00 +0100</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</guid>
       <description>&lt;p&gt;At &lt;a href=&#34;https://cyanview.com&#34;&gt;CyanView&lt;/a&gt;, we run a Phoenix LiveView application on embedded hardware. Out of the box, the BEAM VM was eating 300MB of RAM at idle and keeping the CPU at 45%. After tuning, we got it down to ~120MB and 5-10% idle CPU.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s exactly what we changed and why each thing matters.&lt;/p&gt;</description>
@@ -21,7 +23,7 @@
       <title>Python React to Elixir Phoenix Migration Breakdown</title>
       <link>https://mrpopov.com/posts/python-react-to-elixir-phoenix-migration-breakdown/</link>
       <pubDate>Wed, 25 Feb 2026 14:08:19 +0100</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/python-react-to-elixir-phoenix-migration-breakdown/</guid>
       <description>&lt;p&gt;Due to an NDA we can&amp;rsquo;t go into specific business details, but here&amp;rsquo;s the gist: we inherited a SaaS platform in the accounting and document processing space. The system handled document ingestion, automated data extraction, workflow orchestration, and multi-tenant reporting a fairly typical B2B back-office tool. The original stack was maintained by a team of two backend engineers and one frontend developer. What follows is a breakdown of what the migration to Elixir/Phoenix looked like by the numbers.&lt;/p&gt;</description>
     </item>
@@ -30,7 +32,7 @@
       <title>Elixir Phoenix Optimisations iPhone Safari</title>
       <link>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</link>
       <pubDate>Sat, 14 Feb 2026 16:07:30 +0100</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re running a Phoenix LiveView application and your iOS Safari users are experiencing frozen pages, slow reconnects, or 10+ second hangs after returning from sleep this article is for you.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been running a production Phoenix LiveView application. The app worked great on desktop, but iPhone users kept reporting the same thing: the page would freeze or hang for several seconds after switching back from another app or unlocking their phone. Sometimes the page would never recover at all.&lt;/p&gt;</description>
@@ -40,7 +42,7 @@
       <title>Elixir Liveview Socket Reconnect</title>
       <link>https://mrpopov.com/posts/elixir-liveview-socket-reconnect/</link>
       <pubDate>Wed, 22 Oct 2025 18:22:33 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/elixir-liveview-socket-reconnect/</guid>
       <description>&lt;h2 id=&#34;the-phoenix-liveview-reconnection-bug-a-deep-dive&#34;&gt;The Phoenix LiveView Reconnection Bug: A Deep Dive&lt;/h2&gt;
 &lt;p&gt;I encountered a critical bug in a Phoenix LiveView settings page that controlled hardware via MQTT. When the WebSocket connection dropped and LiveView automatically reconnected, stale form values were being sent back to the hardware, overwriting the current hardware state.&lt;/p&gt;</description>
@@ -50,7 +52,7 @@
       <title>Elixir LiveView Single Binary [UPD]</title>
       <link>https://mrpopov.com/posts/elixir-liveview-single-binary/</link>
       <pubDate>Mon, 06 Oct 2025 21:55:18 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/elixir-liveview-single-binary/</guid>
       <description>&lt;p&gt;We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&amp;hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.&lt;/p&gt;
 &lt;p&gt;The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&amp;rsquo;d get into that rotten stuff pretty soon.&lt;/p&gt;</description>
@@ -60,7 +62,7 @@
       <title>Connect Livebook to Phoenix on Vps</title>
       <link>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</link>
       <pubDate>Sat, 03 Aug 2024 14:19:03 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://livebook.dev&#34;&gt;Livebook&lt;/a&gt; is very powerful application which can be used in many different ways with your &lt;a href=&#34;https://www.phoenixframework.org&#34;&gt;Phoneix&lt;/a&gt; project.
 I have few apps running on my VPS and sometimes I would like to run some functions without creating interface for them from admin side, such as cache clean up. Perhaps run some analytical queries to the database and much more.&lt;/p&gt;</description>
@@ -70,7 +72,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Ultimate Tech Scaling Guide</title>
       <link>https://mrpopov.com/posts/ultimate-tech-scaling-guide/</link>
       <pubDate>Tue, 16 Jul 2024 21:23:11 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/ultimate-tech-scaling-guide/</guid>
       <description></description>
     </item>
@@ -79,7 +81,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Single File Chat in Elixir Phoenix</title>
       <link>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</link>
       <pubDate>Fri, 12 Jul 2024 23:46:53 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</guid>
       <description>&lt;h2 id=&#34;meet-phonenixplayground&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
@@ -91,7 +93,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Notion Github Backup</title>
       <link>https://mrpopov.com/posts/notion-github-backup/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/notion-github-backup/</guid>
       <description>&lt;h2 id=&#34;data-is-expensive&#34;&gt;Data is expensive&lt;/h2&gt;
 &lt;p&gt;I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..&lt;/p&gt;
@@ -111,7 +113,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Recursive blog post or Github Codespaces</title>
       <link>https://mrpopov.com/posts/recursive-blog-post-codespaces/</link>
       <pubDate>Thu, 25 Feb 2021 21:19:26 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/recursive-blog-post-codespaces/</guid>
       <description>&lt;p&gt;I already posted a few thoughts about the iPad in the life of a developer. When I got a message from GitHub that I have beta access to &lt;a href=&#34;https://github.com/features/codespaces&#34;&gt;codespaces&lt;/a&gt; I was super excited and started looking for a project which I can try to move to the cloud development environment to try it out. Due to the lack of small cozy projects which wouldn&amp;rsquo;t require docker-compose with 10 services, the first thing which I setup here is my blog since it&amp;rsquo;s just Hugo.&lt;/p&gt;</description>
     </item>
@@ -120,7 +122,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Flexible Env in Go V2</title>
       <link>https://mrpopov.com/posts/flexible-env-in-go-v2/</link>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/flexible-env-in-go-v2/</guid>
       <description>&lt;h1 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
@@ -132,7 +134,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>https://typ.life</title>
       <link>https://mrpopov.com/posts/typ.life/</link>
       <pubDate>Fri, 21 Aug 2020 13:19:54 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/typ.life/</guid>
       <description>&lt;h2 id=&#34;rmk&#34;&gt;&lt;a href=&#34;https://www.reddit.com/r/MechanicalKeyboards/&#34;&gt;r/mk&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Due to quarantine, I had to set up my first home office. I never had anything at home except a laptop, because I can work anywhere, like in the office, cafe, park but not at ducking home. I have no idea how people can concentrate and don&amp;rsquo;t open the fridge every five minutes&amp;hellip; So, I had to suffer&amp;hellip; And I decided to adapt my small cabinet to trick my brain that I&amp;rsquo;m sitting in the office. I got a monitor, mouse, and vertical laptop holder to save someplace. Keyboard right? That&amp;rsquo;s how I found &lt;code&gt;r/mk&lt;/code&gt;&amp;hellip; I got hooked into that within my head.&lt;/p&gt;</description>
@@ -142,7 +144,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Hashicorp Vault as Environment Manager</title>
       <link>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</link>
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>&lt;h1 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h1&gt;
 &lt;p&gt;I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂&lt;/p&gt;
@@ -158,7 +160,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Testing Mailer in Go</title>
       <link>https://mrpopov.com/posts/testing-mailer-in-go/</link>
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/testing-mailer-in-go/</guid>
       <description>&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
 &lt;p&gt;I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use &lt;code&gt;is_email_confirmed&lt;/code&gt; column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.&lt;/p&gt;
@@ -177,7 +179,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <title>Flexible Env in Go</title>
       <link>https://mrpopov.com/posts/flexible-env-in-go/</link>
       <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
-      
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/flexible-env-in-go/</guid>
       <description>&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
 &lt;p&gt;I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
