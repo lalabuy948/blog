@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+      <title>MrPopov :: Broadcast Grade Color Scopes in Phoenix LiveView</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://localhost:1313/posts/phoenix-liveview-webgl-color-scopes/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="http://localhost:1313/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="How we shipped real broadcast style color scopes, waveform, RGB parade, vectorscope and histogram, as a Phoenix LiveView hook backed by WebGL. No React, no separate frontend, Elixir stayed in its lane."/>
+        
+
+
+
+    <meta name="keywords" content="phoenix liveview webgl, liveview canvas hook, video scopes webgl, waveform vectorscope browser, elixir extend frontend, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="http://localhost:1313/img/phoenix-liveview-webgl-color-scopes/preview.png">
+    <meta property="twitter:image" content="http://localhost:1313/img/phoenix-liveview-webgl-color-scopes/preview.png">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Broadcast Grade Color Scopes in Phoenix LiveView">
+    <meta property="twitter:title" content="Mr.Popov :: Broadcast Grade Color Scopes in Phoenix LiveView">
+
+
+
+    <meta property="og:description" content="Broadcast grade color scopes, inside a LiveView A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.
+I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on a separate frontend&rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.
+">
+    <meta property="twitter:description" content="Broadcast grade color scopes, inside a LiveView A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.
+I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on a separate frontend&rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/posts/phoenix-liveview-webgl-color-scopes/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="http://localhost:1313/posts/phoenix-liveview-webgl-color-scopes/">
+
+
+<link rel="preload" href="http://localhost:1313/assets/style.css" as="style">
+<link rel="preload" href="http://localhost:1313/style.css" as="style">
+<link rel="preload" href="http://localhost:1313/assets/main.js" as="script">
+<link rel="preload" href="http://localhost:1313/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="http://localhost:1313/assets/style.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:1313/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://localhost:1313/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    <span>
+      <a href="/episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/phoenix-liveview-webgl-color-scopes/">Broadcast Grade Color Scopes in Phoenix LiveView</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            19-04-2026
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">6 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/elixir/">elixir</a>&nbsp;
+        
+          #<a href="/tags/code/">code</a>&nbsp;
+        
+          #<a href="/tags/tutorial/">tutorial</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="Broadcast Grade Color Scopes in Phoenix LiveView" src="http://localhost:1313/img/phoenix-liveview-webgl-color-scopes/preview.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <h2 id="broadcast-grade-color-scopes-inside-a-liveview">Broadcast grade color scopes, inside a LiveView</h2>
+<p>A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.</p>
+<p>I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on a separate frontend&rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.</p>
+<p>This post is about how that went, and why I keep finding the Phoenix stack stretches further than people expect.</p>
+<h3 id="why-scopes-in-the-first-place">Why scopes in the first place</h3>
+<p>If you have never seen one: waveform shows per column luminance. Parade splits R, G and B side by side. Vectorscope plots chroma on a hue/saturation wheel. Histogram counts pixels per intensity bin. Together they tell you whether your image is actually blue or just vibes.</p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/wave.png" alt="Waveform scope"></p>
+<p>For us they sit next to the LUT preview. The server renders a preview frame through the current grading chain, pushes it to a <code>&lt;canvas&gt;</code>, and the scopes read from that canvas. That is the full contract between Elixir and WebGL: one canvas in, four scopes out.</p>
+<h3 id="why-liveview-was-a-fine-host">Why LiveView was a fine host</h3>
+<p>People reach for React the moment WebGL shows up. I get why, I have done it. But a LiveView hook is a perfectly normal place to own a canvas. You get a real DOM node with <code>mounted</code>, <code>updated</code>, <code>destroyed</code>. You get <code>pushEvent</code> / <code>handleEvent</code> for the cheap messages (save alpha, switch scope mode, change resolution). And the rest of the app is still rendered by Phoenix, so there is no dual state to babysit.</p>
+<p>The heavy work, pixel reading, WebGL programs, shaders, FBO management, all stays on the client. Elixir never sees a pixel. It owns the preview pipeline and persists a handful of user settings.</p>
+<h3 id="the-hook-in-one-screen">The hook in one screen</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">VideoScopes</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">mounted</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">engines</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">[];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_sourceCanvas</span> <span style="color:#0550ae">=</span> <span style="color:#6639ba">document</span><span style="color:#1f2328">.</span><span style="color:#1f2328">querySelector</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;#lut-preview canvas&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">const</span> <span style="color:#1f2328">type</span> <span style="color:#cf222e">of</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;waveform&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;histogram&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;parade&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;vectorscope&#34;</span><span style="color:#1f2328">])</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">const</span> <span style="color:#1f2328">canvas</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">el</span><span style="color:#1f2328">.</span><span style="color:#1f2328">querySelector</span><span style="color:#1f2328">(</span><span style="color:#0a3069">`#scope-</span><span style="color:#0a3069">${</span><span style="color:#1f2328">type</span><span style="color:#0a3069">}</span><span style="color:#0a3069">`</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">const</span> <span style="color:#1f2328">engine</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">ScopeEngine</span><span style="color:#1f2328">(</span><span style="color:#1f2328">canvas</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_sourceCanvas</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">engine</span><span style="color:#1f2328">.</span><span style="color:#1f2328">setScope</span><span style="color:#1f2328">(</span><span style="color:#1f2328">type</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">engines</span><span style="color:#1f2328">.</span><span style="color:#1f2328">push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">engine</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_running</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_tick</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">_tick</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">!</span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_running</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">return</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">performance</span><span style="color:#1f2328">.</span><span style="color:#1f2328">now</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">-</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_lastFrameTime</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">50</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_lastFrameTime</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">performance</span><span style="color:#1f2328">.</span><span style="color:#1f2328">now</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_renderAll</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">requestAnimationFrame</span><span style="color:#1f2328">(()</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_tick</span><span style="color:#1f2328">());</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><p>Four scopes, one <code>requestAnimationFrame</code> loop, one source canvas. No store, no reducer, no context. The hook owns the engines, the engines own their WebGL.</p>
+<h3 id="one-pixel-read-four-renders">One pixel read, four renders</h3>
+<p>The single biggest perf trap here is <code>getImageData</code>. It forces a GPU to CPU sync. Call it four times per frame, once per scope, and you will never hit 30 fps on a laptop. So read the source once, pass the same <code>Uint8Array</code> to every engine.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#1f2328">_renderAll</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">const</span> <span style="color:#1f2328">src</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_sourceCanvas</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">let</span> <span style="color:#1f2328">w</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">src</span><span style="color:#1f2328">.</span><span style="color:#1f2328">width</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">src</span><span style="color:#1f2328">.</span><span style="color:#1f2328">height</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_scopeMaxRes</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#6639ba">Math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">max</span><span style="color:#1f2328">(</span><span style="color:#1f2328">w</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_scopeMaxRes</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">const</span> <span style="color:#1f2328">scale</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_scopeMaxRes</span> <span style="color:#0550ae">/</span> <span style="color:#6639ba">Math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">max</span><span style="color:#1f2328">(</span><span style="color:#1f2328">w</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">w</span> <span style="color:#0550ae">=</span> <span style="color:#6639ba">Math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">round</span><span style="color:#1f2328">(</span><span style="color:#1f2328">w</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">scale</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">h</span> <span style="color:#0550ae">=</span> <span style="color:#6639ba">Math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">round</span><span style="color:#1f2328">(</span><span style="color:#1f2328">h</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">scale</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_readCtx</span><span style="color:#1f2328">.</span><span style="color:#1f2328">drawImage</span><span style="color:#1f2328">(</span><span style="color:#1f2328">src</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">w</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">const</span> <span style="color:#1f2328">pixels</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">Uint8Array</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_readCtx</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getImageData</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">w</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">).</span><span style="color:#1f2328">data</span><span style="color:#1f2328">.</span><span style="color:#1f2328">buffer</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">for</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">const</span> <span style="color:#1f2328">engine</span> <span style="color:#cf222e">of</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">engines</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">engine</span><span style="color:#1f2328">.</span><span style="color:#1f2328">uploadPixels</span><span style="color:#1f2328">(</span><span style="color:#1f2328">w</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">h</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">pixels</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><p>The 480 px default is deliberate. At 480x270 a waveform already looks continuous because adjacent columns blur together at real panel sizes. Native res is there for people who want it, in practice it mostly costs battery.</p>
+<h3 id="what-the-gpu-actually-does">What the GPU actually does</h3>
+<p>Each scope is a WebGL program with a hand written pair of shaders. The vectorscope is my favourite. Four lines of math that are older than I am:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#cf222e">float</span> Cb <span style="color:#0550ae">=</span> <span style="color:#0550ae">-</span><span style="color:#0550ae">0.1146</span> <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>r <span style="color:#0550ae">-</span> <span style="color:#0550ae">0.3854</span> <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>g <span style="color:#0550ae">+</span> <span style="color:#0550ae">0.5</span>    <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>b<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">float</span> Cr <span style="color:#0550ae">=</span>  <span style="color:#0550ae">0.5</span>    <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>r <span style="color:#0550ae">-</span> <span style="color:#0550ae">0.4542</span> <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>g <span style="color:#0550ae">-</span> <span style="color:#0550ae">0.0458</span> <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>b<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>gl_Position <span style="color:#0550ae">=</span> <span style="color:#cf222e">vec4</span><span style="color:#1f2328">(</span>Cb <span style="color:#0550ae">*</span> <span style="color:#0550ae">2.0</span> <span style="color:#0550ae">*</span> u_aspect<span style="color:#1f2328">.</span>x<span style="color:#1f2328">,</span> Cr <span style="color:#0550ae">*</span> <span style="color:#0550ae">2.0</span> <span style="color:#0550ae">*</span> u_aspect<span style="color:#1f2328">.</span>y<span style="color:#1f2328">,</span> <span style="color:#0550ae">0.0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1.0</span><span style="color:#1f2328">);</span>
+</span></span></code></pre></div><p>That is Rec.709 YCbCr, projected straight onto the canvas. The pixel keeps its own hue so the scope lights up in the color of the image instead of a uniform green. A broadcast engineer from the 70s would recognise it.</p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/vector.png" alt="Vectorscope"></p>
+<p>Waveform and parade draw as line strips between adjacent source pixels, which gives smooth traces instead of dotty clouds. Histogram is CPU side, 256 bin counts per channel rendered as triangle strips. Each scope has its own brightness multiplier, because line density per pixel is very different between them and I spent an embarrassing afternoon getting the ratios right.</p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/parade.png" alt="RGB parade"></p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/hist.png" alt="Histogram"></p>
+<h3 id="hdr-accumulation-with-a-polite-fallback">HDR accumulation, with a polite fallback</h3>
+<p>On WebGL2 plus <code>EXT_color_buffer_float</code>, we render the scopes additively into an <code>RGBA16F</code> framebuffer, then tone map with <code>1 - exp(-gain * x)</code> and a gamma curve. That gives you the soft, photographic traces you see in expensive scope hardware instead of clipped white mush.</p>
+<p>On WebGL1, or on browsers without the float blend extension, we render additively straight to the canvas and live with a slightly harsher look. The detection is boring:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">ext</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">gl</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getExtension</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;EXT_color_buffer_float&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">!</span><span style="color:#1f2328">ext</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span> <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_hdrPipeline</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">false</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">return</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">gl</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getExtension</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;EXT_float_blend&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// also test framebuffer completeness before committing
+</span></span></span></code></pre></div><p>This is the kind of thing that would normally require a separate pro app. In LiveView it is around 40 lines of capability detection and two extra shader programs. No npm dependency, no build step beyond what Phoenix already ships.</p>
+<h3 id="the-unexpected-bit-broadcastchannel">The unexpected bit: BroadcastChannel</h3>
+<p>One ask from colorists was a detached scopes window on a second monitor. Classic broadcast workflow. The lazy browser answer turned out to be <code>BroadcastChannel</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_scopeChannel</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">BroadcastChannel</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;video-scopes-sync&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_scopeChannel</span><span style="color:#1f2328">.</span><span style="color:#1f2328">onmessage</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">=&gt;</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">e</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#1f2328">.</span><span style="color:#1f2328">type</span> <span style="color:#0550ae">===</span> <span style="color:#0a3069">&#34;request-scope-pixels&#34;</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_hasReceiver</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_broadcastScopePixels</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// after reading pixels from the source canvas
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">copy</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">Uint8Array</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_lastPixels</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pixels</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">_scopeChannel</span><span style="color:#1f2328">.</span><span style="color:#1f2328">postMessage</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">{</span> <span style="color:#1f2328">type</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#34;scope-pixels&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">width</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">height</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">buffer</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">copy</span><span style="color:#1f2328">.</span><span style="color:#1f2328">buffer</span> <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">[</span><span style="color:#1f2328">copy</span><span style="color:#1f2328">.</span><span style="color:#1f2328">buffer</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span>
+</span></span></code></pre></div><p>Transferable <code>ArrayBuffer</code>s move to the popup without a copy. The popup is just another LiveView route with the same <code>VideoScopes</code> hook, listening instead of reading. Same code, same shaders, two windows, one source of truth. I still think this was suspiciously easy.</p>
+<h3 id="what-elixir-actually-does">What Elixir actually does</h3>
+<p>Almost nothing dramatic. It renders the LUT preview, keeps grading state, persists a few numbers:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">def</span> handle_event<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;save_scope_alpha&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">%{</span><span style="color:#0a3069">&#34;alpha&#34;</span> <span style="color:#0550ae">=&gt;</span> alpha<span style="color:#1f2328">},</span> socket<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">{</span><span style="color:#032f62">:noreply</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>   socket
+</span></span><span style="display:flex;"><span>   <span style="color:#0550ae">|&gt;</span> assign<span style="color:#1f2328">(</span><span style="color:#032f62">:scope_alpha</span><span style="color:#1f2328">,</span> alpha<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#0550ae">|&gt;</span> schedule_save<span style="color:#1f2328">()}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>No video data goes over the socket. No hook gymnastics for the pixel bus. The LiveView coordinates and persists, which is what LiveView is good at. WebGL does the rendering, <code>BroadcastChannel</code> does the mirroring, and the server stays boring.</p>
+<h3 id="takeaway">Takeaway</h3>
+<p>You can put serious, domain specific tooling directly into a Phoenix app. Scopes, meters, CAD viewers, waveform editors, anything GPU hungry. The hook system is not a consolation prize for &ldquo;the part where we admit we need JS&rdquo;. It is a real escape hatch, and the moment you stop treating it as a last resort, a lot of features stop needing a second service.</p>
+<p>It was super cool learning expirience learning WebGL shaders.</p>
+<ul>
+<li><a href="https://www.cyanview.com/">CyanView</a></li>
+<li><a href="https://1703.lu/">1703 Group | Elixir Agency</a></li>
+<li><a href="https://2026.goatmire.com/">How my talk will be accepted for Goatmire 2026</a></li>
+</ul>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="/posts/elixir-beam-vm-embedded-optimisation/">
+                  <span class="button__text">How We Cut Phoenix Memory from 300MB to 120MB on Embedded</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://localhost:1313/assets/main.js"></script>
+<script src="http://localhost:1313/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>
