@@ -8,7 +8,18 @@
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Thu, 05 Mar 2026 10:00:00 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Apr 2026 12:00:00 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Broadcast Grade Color Scopes in Phoenix LiveView</title>
+      <link>https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/</link>
+      <pubDate>Sun, 19 Apr 2026 12:00:00 +0200</pubDate>
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
+      <guid>https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/</guid>
+      <description>&lt;h2 id=&#34;broadcast-grade-color-scopes-inside-a-liveview&#34;&gt;Broadcast grade color scopes, inside a LiveView&lt;/h2&gt;
+&lt;p&gt;A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.&lt;/p&gt;
+&lt;p&gt;I looked at the ticket and thought, &amp;ldquo;ok, this is where we finally bolt on a separate frontend&amp;rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>How We Cut Phoenix Memory from 300MB to 120MB on Embedded</title>
       <link>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</link>

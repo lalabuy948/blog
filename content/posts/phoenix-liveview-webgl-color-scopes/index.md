@@ -1,7 +1,7 @@
 ---
 title: "Broadcast Grade Color Scopes in Phoenix LiveView"
 date: 2026-04-19T12:00:00+02:00
-draft: true
+draft: false
 comments: true
 cover: "/img/phoenix-liveview-webgl-color-scopes/preview.png"
 tags:

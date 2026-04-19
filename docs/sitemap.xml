@@ -3,24 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mrpopov.com/</loc>
-    <lastmod>2026-03-05T10:00:00+01:00</lastmod>
+    <lastmod>2026-04-19T12:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/</loc>
+    <lastmod>2026-04-19T12:00:00+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/code/</loc>
-    <lastmod>2026-03-05T10:00:00+01:00</lastmod>
+    <lastmod>2026-04-19T12:00:00+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/elixir/</loc>
-    <lastmod>2026-03-05T10:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</loc>
-    <lastmod>2026-03-05T10:00:00+01:00</lastmod>
+    <lastmod>2026-04-19T12:00:00+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/</loc>
-    <lastmod>2026-03-05T10:00:00+01:00</lastmod>
+    <lastmod>2026-04-19T12:00:00+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/</loc>
-    <lastmod>2026-03-05T10:00:00+01:00</lastmod>
+    <lastmod>2026-04-19T12:00:00+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/tutorial/</loc>
+    <lastmod>2026-04-19T12:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</loc>
     <lastmod>2026-03-05T10:00:00+01:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/migration/</loc>

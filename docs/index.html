@@ -237,6 +237,51 @@
 
     
     <div class="post on-list">
+      <h1 class="post-title"><a href="/posts/phoenix-liveview-webgl-color-scopes/">Broadcast Grade Color Scopes in Phoenix LiveView</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            19-04-2026
+          </span>
+        
+        
+        
+          <span class="post-read-time">6 ☕️</span>
+        
+      </div>
+
+      
+        <span class="post-tags">
+          
+            #<a href="/tags/elixir/">elixir</a>&nbsp;
+          
+            #<a href="/tags/code/">code</a>&nbsp;
+          
+            #<a href="/tags/tutorial/">tutorial</a>&nbsp;
+          
+        </span>
+      
+
+      
+        
+          
+          <img alt="Broadcast Grade Color Scopes in Phoenix LiveView" src="https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.png" class="post-cover" />
+        
+      
+
+      <div class="post-content">
+        
+          
+            <h2 id="broadcast-grade-color-scopes-inside-a-liveview">Broadcast grade color scopes, inside a LiveView</h2>
+<p>A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.</p>
+<p>I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on a separate frontend&rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.</p>
+          
+        
+      </div>
+      <div><a class="read-more button" href="/posts/phoenix-liveview-webgl-color-scopes/">Read more →</a></div>
+    </div>
+    
+    <div class="post on-list">
       <h1 class="post-title"><a href="/posts/elixir-beam-vm-embedded-optimisation/">How We Cut Phoenix Memory from 300MB to 120MB on Embedded</a></h1>
       <div class="post-meta">
         
@@ -409,50 +454,6 @@
         
       </div>
       <div><a class="read-more button" href="/posts/elixir-liveview-socket-reconnect/">Read more →</a></div>
-    </div>
-    
-    <div class="post on-list">
-      <h1 class="post-title"><a href="/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary [UPD]</a></h1>
-      <div class="post-meta">
-        
-          <span class="post-date">
-            06-10-2025
-          </span>
-        
-        
-        
-          <span class="post-read-time">9 ☕️</span>
-        
-      </div>
-
-      
-        <span class="post-tags">
-          
-            #<a href="/tags/code/">code</a>&nbsp;
-          
-            #<a href="/tags/elixir/">elixir</a>&nbsp;
-          
-            #<a href="/tags/tutorial/">tutorial</a>&nbsp;
-          
-        </span>
-      
-
-      
-        
-          
-          <img alt="Elixir LiveView Single Binary [UPD]" src="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.png" class="post-cover" />
-        
-      
-
-      <div class="post-content">
-        
-          
-            <p>We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.</p>
-<p>The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.</p>
-          
-        
-      </div>
-      <div><a class="read-more button" href="/posts/elixir-liveview-single-binary/">Read more →</a></div>
     </div>
     
     <div class="pagination">
