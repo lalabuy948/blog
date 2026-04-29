@@ -2,19 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on </title>
-    <link>https://mrpopov.com/tags/tutorial/</link>
+    <link>http://localhost:1313/tags/tutorial/</link>
     <description>Recent content in Tutorial on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Sun, 19 Apr 2026 12:00:00 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Apr 2026 12:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Make Your Phoenix Website AI Ready in Seconds</title>
+      <link>http://localhost:1313/posts/phoenix-ai-ready-markdown-negotiation/</link>
+      <pubDate>Wed, 29 Apr 2026 12:00:00 +0200</pubDate>
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
+      <guid>http://localhost:1313/posts/phoenix-ai-ready-markdown-negotiation/</guid>
+      <description>&lt;p&gt;AI agents are starting to crawl the web the same way browsers do, except they do not need your CSS, your hero animations, or your tracking pixels. They need text. Clean, structured, semantic text. If your site only speaks HTML, the agent has to render, parse, and guess. If your site speaks markdown when asked, the agent gets exactly what it needs in a fraction of the tokens.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://isitagentready.com/&#34;&gt;isitagentready.com&lt;/a&gt; is a small validator that checks your site against a growing set of &amp;ldquo;agent skills&amp;rdquo;. One of the most useful checks is &lt;strong&gt;markdown content negotiation&lt;/strong&gt;: when a client sends &lt;code&gt;Accept: text/markdown&lt;/code&gt;, your server should respond with markdown instead of HTML, on the same URL.&lt;/p&gt;
+&lt;p&gt;This post shows the exact Plug we use on this Phoenix app to pass that check, in well under a hundred lines of code.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Broadcast Grade Color Scopes in Phoenix LiveView</title>
-      <link>https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/</link>
+      <link>http://localhost:1313/posts/phoenix-liveview-webgl-color-scopes/</link>
       <pubDate>Sun, 19 Apr 2026 12:00:00 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/</guid>
+      <guid>http://localhost:1313/posts/phoenix-liveview-webgl-color-scopes/</guid>
       <description>&lt;h2 id=&#34;broadcast-grade-color-scopes-inside-a-liveview&#34;&gt;Broadcast grade color scopes, inside a LiveView&lt;/h2&gt;
 &lt;p&gt;A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.&lt;/p&gt;
 &lt;p&gt;I looked at the ticket and thought, &amp;ldquo;ok, this is where we finally bolt on a separate frontend&amp;rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.&lt;/p&gt;</description>
@@ -22,50 +33,50 @@
     
     <item>
       <title>How We Cut Phoenix Memory from 300MB to 120MB on Embedded</title>
-      <link>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</link>
+      <link>http://localhost:1313/posts/elixir-beam-vm-embedded-optimisation/</link>
       <pubDate>Thu, 05 Mar 2026 10:00:00 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/elixir-beam-vm-embedded-optimisation/</guid>
+      <guid>http://localhost:1313/posts/elixir-beam-vm-embedded-optimisation/</guid>
       <description>&lt;p&gt;At &lt;a href=&#34;https://cyanview.com&#34;&gt;CyanView&lt;/a&gt;, we run a Phoenix LiveView application on embedded hardware. Out of the box, the BEAM VM was eating 300MB of RAM at idle and keeping the CPU at 45%. After tuning, we got it down to ~120MB and 5-10% idle CPU.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s exactly what we changed and why each thing matters.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Elixir Phoenix Optimisations iPhone Safari</title>
-      <link>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</link>
+      <link>http://localhost:1313/posts/elixir-phoenix-optimisations-iphone-safari/</link>
       <pubDate>Sat, 14 Feb 2026 16:07:30 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/elixir-phoenix-optimisations-iphone-safari/</guid>
+      <guid>http://localhost:1313/posts/elixir-phoenix-optimisations-iphone-safari/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re running a Phoenix LiveView application and your iOS Safari users are experiencing frozen pages, slow reconnects, or 10+ second hangs after returning from sleep this article is for you.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been running a production Phoenix LiveView application. The app worked great on desktop, but iPhone users kept reporting the same thing: the page would freeze or hang for several seconds after switching back from another app or unlocking their phone. Sometimes the page would never recover at all.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Elixir LiveView Single Binary [UPD]</title>
-      <link>https://mrpopov.com/posts/elixir-liveview-single-binary/</link>
+      <link>http://localhost:1313/posts/elixir-liveview-single-binary/</link>
       <pubDate>Mon, 06 Oct 2025 21:55:18 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/elixir-liveview-single-binary/</guid>
+      <guid>http://localhost:1313/posts/elixir-liveview-single-binary/</guid>
       <description>&lt;p&gt;We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&amp;hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.&lt;/p&gt;
 &lt;p&gt;The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&amp;rsquo;d get into that rotten stuff pretty soon.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Connect Livebook to Phoenix on Vps</title>
-      <link>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</link>
+      <link>http://localhost:1313/posts/connect-livebook-to-phoenix-on-vps/</link>
       <pubDate>Sat, 03 Aug 2024 14:19:03 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/connect-livebook-to-phoenix-on-vps/</guid>
+      <guid>http://localhost:1313/posts/connect-livebook-to-phoenix-on-vps/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://livebook.dev&#34;&gt;Livebook&lt;/a&gt; is very powerful application which can be used in many different ways with your &lt;a href=&#34;https://www.phoenixframework.org&#34;&gt;Phoneix&lt;/a&gt; project.
 I have few apps running on my VPS and sometimes I would like to run some functions without creating interface for them from admin side, such as cache clean up. Perhaps run some analytical queries to the database and much more.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Single File Chat in Elixir Phoenix</title>
-      <link>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</link>
+      <link>http://localhost:1313/posts/single-file-chat-in-elixir-phoenix/</link>
       <pubDate>Fri, 12 Jul 2024 23:46:53 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/</guid>
+      <guid>http://localhost:1313/posts/single-file-chat-in-elixir-phoenix/</guid>
       <description>&lt;h2 id=&#34;meet-phonenixplayground&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
 &lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
@@ -74,10 +85,10 @@ I have few apps running on my VPS and sometimes I would like to run some functio
     
     <item>
       <title>Notion Github Backup</title>
-      <link>https://mrpopov.com/posts/notion-github-backup/</link>
+      <link>http://localhost:1313/posts/notion-github-backup/</link>
       <pubDate>Thu, 11 Mar 2021 17:11:54 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/notion-github-backup/</guid>
+      <guid>http://localhost:1313/posts/notion-github-backup/</guid>
       <description>&lt;h2 id=&#34;data-is-expensive&#34;&gt;Data is expensive&lt;/h2&gt;
 &lt;p&gt;I write around 2-3 important notes a day. And don&amp;rsquo;t actually worry if my laptop will be stolen, but the data on it..&lt;/p&gt;
 &lt;p&gt;Since Im heavy notion user I was looking for automated backup solution. Not that I don&amp;rsquo;t trust notion, trust but verify, right?&lt;/p&gt;
@@ -85,31 +96,31 @@ I have few apps running on my VPS and sometimes I would like to run some functio
 &lt;ol&gt;
 &lt;li&gt;Create a private github repo&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Go to actions tab and click on &lt;code&gt;set up a workflow yourself -&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Flexible Env in Go V2</title>
-      <link>https://mrpopov.com/posts/flexible-env-in-go-v2/</link>
+      <link>http://localhost:1313/posts/flexible-env-in-go-v2/</link>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/flexible-env-in-go-v2/</guid>
+      <guid>http://localhost:1313/posts/flexible-env-in-go-v2/</guid>
       <description>&lt;h1 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;https://mrpopov.com/posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;http://localhost:1313/posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; &lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;github.com/lalabuy948/genvutils&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hashicorp Vault as Environment Manager</title>
-      <link>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</link>
+      <link>http://localhost:1313/posts/hashicorp-vault-as-environment-manager/</link>
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
+      <guid>http://localhost:1313/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>&lt;h1 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h1&gt;
 &lt;p&gt;I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂&lt;/p&gt;
 &lt;h2 id=&#34;pre-requirements&#34;&gt;Pre Requirements&lt;/h2&gt;
@@ -122,10 +133,10 @@ I have few apps running on my VPS and sometimes I would like to run some functio
     
     <item>
       <title>Testing Mailer in Go</title>
-      <link>https://mrpopov.com/posts/testing-mailer-in-go/</link>
+      <link>http://localhost:1313/posts/testing-mailer-in-go/</link>
       <pubDate>Sun, 08 Mar 2020 19:23:14 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/testing-mailer-in-go/</guid>
+      <guid>http://localhost:1313/posts/testing-mailer-in-go/</guid>
       <description>&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
 &lt;p&gt;I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use &lt;code&gt;is_email_confirmed&lt;/code&gt; column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.&lt;/p&gt;
 &lt;p&gt;I was looking on few popular tools across the Internet:&lt;/p&gt;
@@ -141,10 +152,10 @@ I have few apps running on my VPS and sometimes I would like to run some functio
     
     <item>
       <title>Flexible Env in Go</title>
-      <link>https://mrpopov.com/posts/flexible-env-in-go/</link>
+      <link>http://localhost:1313/posts/flexible-env-in-go/</link>
       <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/flexible-env-in-go/</guid>
+      <guid>http://localhost:1313/posts/flexible-env-in-go/</guid>
       <description>&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
 &lt;p&gt;I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
 I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part.

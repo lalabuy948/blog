@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+      <title>MrPopov :: Make Your Phoenix Website AI Ready in Seconds</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://localhost:1313/posts/phoenix-ai-ready-markdown-negotiation/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/img/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="http://localhost:1313/img/favicon_io/site.webmanifest">
+
+
+
+
+        
+            <meta name="description" content="A tiny Phoenix Plug that returns text/markdown when an AI agent asks for it. Same URL, two representations, browsers see HTML, agents see clean markdown. Validated by isitagentready.com."/>
+        
+
+
+
+    <meta name="keywords" content="phoenix ai ready, markdown content negotiation, llms.txt phoenix, agent skills phoenix, text/markdown accept header, isitagentready, " />
+
+
+
+
+
+
+
+    <meta property="og:image" content="http://localhost:1313/img/phoenix-ai-ready-markdown-negotiation/preview.png">
+    <meta property="twitter:image" content="http://localhost:1313/img/phoenix-ai-ready-markdown-negotiation/preview.png">
+
+
+
+    <meta property="og:title" content="Mr.Popov :: Make Your Phoenix Website AI Ready in Seconds">
+    <meta property="twitter:title" content="Mr.Popov :: Make Your Phoenix Website AI Ready in Seconds">
+
+
+
+    <meta property="og:description" content="AI agents are starting to crawl the web the same way browsers do, except they do not need your CSS, your hero animations, or your tracking pixels. They need text. Clean, structured, semantic text. If your site only speaks HTML, the agent has to render, parse, and guess. If your site speaks markdown when asked, the agent gets exactly what it needs in a fraction of the tokens.
+isitagentready.com is a small validator that checks your site against a growing set of &ldquo;agent skills&rdquo;. One of the most useful checks is markdown content negotiation: when a client sends Accept: text/markdown, your server should respond with markdown instead of HTML, on the same URL.
+This post shows the exact Plug we use on this Phoenix app to pass that check, in well under a hundred lines of code.
+">
+    <meta property="twitter:description" content="AI agents are starting to crawl the web the same way browsers do, except they do not need your CSS, your hero animations, or your tracking pixels. They need text. Clean, structured, semantic text. If your site only speaks HTML, the agent has to render, parse, and guess. If your site speaks markdown when asked, the agent gets exactly what it needs in a fraction of the tokens.
+isitagentready.com is a small validator that checks your site against a growing set of &ldquo;agent skills&rdquo;. One of the most useful checks is markdown content negotiation: when a client sends Accept: text/markdown, your server should respond with markdown instead of HTML, on the same URL.
+This post shows the exact Plug we use on this Phoenix app to pass that check, in well under a hundred lines of code.
+">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/posts/phoenix-ai-ready-markdown-negotiation/">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="http://localhost:1313/posts/phoenix-ai-ready-markdown-negotiation/">
+
+
+<link rel="preload" href="http://localhost:1313/assets/style.css" as="style">
+<link rel="preload" href="http://localhost:1313/style.css" as="style">
+<link rel="preload" href="http://localhost:1313/assets/main.js" as="script">
+<link rel="preload" href="http://localhost:1313/assets/prism.js" as="script">
+
+
+<link rel="stylesheet" href="http://localhost:1313/assets/style.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:1313/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="http://localhost:1313/img/favicon.png">
+
+
+
+
+
+
+
+
+
+
+
+    
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+    <span>
+      <a href="/episodes/" style="text-decoration:none">🎙️</a>
+    </span>
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://1703.lu">1703</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            More 👇
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+              
+            
+              
+                <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://1703.lu">1703</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+      
+    
+      
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+      
+    
+      
+        <li><a href="https://www.pexels.com/@daniil-popov-1864765">Me on pexels</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/phoenix-ai-ready-markdown-negotiation/">Make Your Phoenix Website AI Ready in Seconds</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            29-04-2026
+        </span>
+      
+      
+
+      
+        <span class="post-read-time">6 ☕️</span>
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/elixir/">elixir</a>&nbsp;
+        
+          #<a href="/tags/code/">code</a>&nbsp;
+        
+          #<a href="/tags/tutorial/">tutorial</a>&nbsp;
+        
+      </span>
+    
+
+    
+      
+        
+        <img alt="Make Your Phoenix Website AI Ready in Seconds" src="http://localhost:1313/img/phoenix-ai-ready-markdown-negotiation/preview.png" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      <p>AI agents are starting to crawl the web the same way browsers do, except they do not need your CSS, your hero animations, or your tracking pixels. They need text. Clean, structured, semantic text. If your site only speaks HTML, the agent has to render, parse, and guess. If your site speaks markdown when asked, the agent gets exactly what it needs in a fraction of the tokens.</p>
+<p><a href="https://isitagentready.com/">isitagentready.com</a> is a small validator that checks your site against a growing set of &ldquo;agent skills&rdquo;. One of the most useful checks is <strong>markdown content negotiation</strong>: when a client sends <code>Accept: text/markdown</code>, your server should respond with markdown instead of HTML, on the same URL.</p>
+<p>This post shows the exact Plug we use on this Phoenix app to pass that check, in well under a hundred lines of code.</p>
+<h2 id="the-contract">The contract</h2>
+<p>The skill spec lives at <a href="https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md">isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md</a>. The rules are short:</p>
+<ul>
+<li>Request header: <code>Accept: text/markdown</code></li>
+<li>Response: markdown body with <code>Content-Type: text/markdown</code></li>
+<li>Optional <code>x-markdown-tokens</code> header with an estimated token count</li>
+<li>HTML stays the default for browsers, markdown is opt-in for agents</li>
+<li>The URL contract is preserved, the same path serves both representations</li>
+</ul>
+<p>That last bullet is the important one. No <code>/page.md</code> mirror, no separate sitemap, no extra build step. One canonical URL, content negotiation does the rest. Cloudflare zones get this for free, everyone else needs about 80 lines of Elixir.</p>
+<h2 id="the-plug">The Plug</h2>
+<p>Here is the full plug, dropped into <code>lib/easy_inc_web/plugs/markdown_negotiation.ex</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">YourPhoenix.Plugs.MarkdownNegotiation</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">@moduledoc</span> <span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  Content negotiation for AI agents.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  When a client requests `Accept: text/markdown`, this plug intercepts the
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  outgoing HTML response and rewrites it as a markdown representation,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  preserving the URL contract (same path, different representation).
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  Browsers (which send `Accept: text/html,...`) are unaffected.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">import</span> <span style="color:#1f2328">Plug.Conn</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">@max_bytes</span> <span style="color:#0550ae">2_000_000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> init<span style="color:#1f2328">(</span>opts<span style="color:#1f2328">),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> opts
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> call<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">,</span> _opts<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    conn <span style="color:#0550ae">=</span> put_resp_header<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;vary&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Accept&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> wants_markdown?<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      conn
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">|&gt;</span> put_req_header<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;accept&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;text/html&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">|&gt;</span> register_before_send<span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span>maybe_convert<span style="color:#0550ae">/</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>      conn
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> wants_markdown?<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    conn
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> get_req_header<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;accept&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Enum</span><span style="color:#0550ae">.</span>any?<span style="color:#1f2328">(</span><span style="color:#cf222e">fn</span> header <span style="color:#0550ae">-&gt;</span>
+</span></span><span style="display:flex;"><span>      header
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>split<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;,&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Enum</span><span style="color:#0550ae">.</span>any?<span style="color:#1f2328">(</span><span style="color:#0550ae">&amp;</span><span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>starts_with?<span style="color:#1f2328">(</span><span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>trim<span style="color:#1f2328">(</span><span style="color:#6639ba">&amp;1</span><span style="color:#1f2328">),</span> <span style="color:#0a3069">&#34;text/markdown&#34;</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> maybe_convert<span style="color:#1f2328">(%</span><span style="color:#1f2328">Plug.Conn</span><span style="color:#1f2328">{</span><span style="color:#032f62">status</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">200</span><span style="color:#1f2328">}</span> <span style="color:#0550ae">=</span> conn<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> html_response?<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">)</span> <span style="color:#0550ae">and</span> small_enough?<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      convert<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>      conn
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> maybe_convert<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> conn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> html_response?<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    conn
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> get_resp_header<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;content-type&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">List</span><span style="color:#0550ae">.</span>first<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#cf222e">case</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">nil</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#0550ae">false</span>
+</span></span><span style="display:flex;"><span>      type <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>starts_with?<span style="color:#1f2328">(</span>type<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;text/html&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> small_enough?<span style="color:#1f2328">(%</span><span style="color:#1f2328">Plug.Conn</span><span style="color:#1f2328">{</span><span style="color:#032f62">resp_body</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">nil</span><span style="color:#1f2328">}),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> small_enough?<span style="color:#1f2328">(%</span><span style="color:#1f2328">Plug.Conn</span><span style="color:#1f2328">{</span><span style="color:#032f62">resp_body</span><span style="color:#1f2328">:</span> body<span style="color:#1f2328">}),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">IO</span><span style="color:#0550ae">.</span>iodata_length<span style="color:#1f2328">(</span>body<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;=</span> <span style="color:#1f2328">@max_bytes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">defp</span> convert<span style="color:#1f2328">(</span>conn<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    html <span style="color:#0550ae">=</span> <span style="color:#1f2328">IO</span><span style="color:#0550ae">.</span>iodata_to_binary<span style="color:#1f2328">(</span>conn<span style="color:#0550ae">.</span>resp_body<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    markdown <span style="color:#0550ae">=</span> <span style="color:#1f2328">YourPhoenix.MarkdownConverter</span><span style="color:#0550ae">.</span>from_html<span style="color:#1f2328">(</span>html<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    tokens <span style="color:#0550ae">=</span> markdown <span style="color:#0550ae">|&gt;</span> byte_size<span style="color:#1f2328">()</span> <span style="color:#0550ae">|&gt;</span> div<span style="color:#1f2328">(</span><span style="color:#0550ae">4</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Integer</span><span style="color:#0550ae">.</span>to_string<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">%{</span>conn <span style="color:#0550ae">|</span> <span style="color:#032f62">resp_body</span><span style="color:#1f2328">:</span> markdown<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> put_resp_header<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;content-type&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;text/markdown; charset=utf-8&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> put_resp_header<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;x-markdown-tokens&#34;</span><span style="color:#1f2328">,</span> tokens<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> delete_resp_header<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;content-length&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>A few things worth pointing out.</p>
+<p><strong><code>vary: Accept</code> is set unconditionally.</strong> Caches and CDNs need to know that two clients hitting the same URL might get different bytes. Without this header, you will eventually serve markdown to a browser or HTML to an agent, and one of them will be very confused.</p>
+<p><strong>The plug rewrites the inbound <code>Accept</code> to <code>text/html</code> before the rest of the pipeline runs.</strong> Phoenix&rsquo;s <code>:accepts</code> plug only knows about the formats you list, and we do not want to register a <code>markdown</code> format just for this. Letting Phoenix think it is a normal HTML request keeps controllers, LiveViews, and views completely unchanged.</p>
+<p><strong>Conversion happens in <code>register_before_send/2</code>.</strong> The full HTML response is rendered first, then we walk the DOM and emit markdown. This is the lazy approach. A fancier version would render markdown directly from the LiveView, but the cost/benefit is not worth it for static-ish marketing pages. Floki is fast enough.</p>
+<p><strong>There is a 2 MB ceiling.</strong> If your page is larger than that, you have bigger problems than agent readiness. The cap also protects you from doing a full Floki parse on a binary upload that happened to flow through the wrong pipeline.</p>
+<h2 id="wiring-it-into-the-router">Wiring it into the router</h2>
+<p>One line, at the very top of the <code>:browser</code> pipeline:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>pipeline <span style="color:#032f62">:browser</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#1f2328">YourPhoenix.Plugs.MarkdownNegotiation</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#032f62">:accepts</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;html&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#032f62">:fetch_session</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#032f62">:fetch_live_flash</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#032f62">:put_root_layout</span><span style="color:#1f2328">,</span> <span style="color:#032f62">html</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span><span style="color:#1f2328">YourPhoenix.Layouts</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:root</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#032f62">:protect_from_forgery</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#032f62">:put_secure_browser_headers</span>
+</span></span><span style="display:flex;"><span>  plug <span style="color:#032f62">:fetch_current_scope_for_user</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Position matters. The plug needs to see the raw <code>Accept</code> header before <code>:accepts</code> filters it, and it registers a <code>before_send</code> callback that fires after every other plug has done its job.</p>
+<h2 id="the-html-to-markdown-converter">The HTML to markdown converter</h2>
+<p>The plug delegates the actual conversion to a small <code>MarkdownConverter</code> module. The full file is around 220 lines, the interesting parts are:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">def</span> from_html<span style="color:#1f2328">(</span>html<span style="color:#1f2328">)</span> <span style="color:#0550ae">when</span> is_binary<span style="color:#1f2328">(</span>html<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> document<span style="color:#1f2328">}</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>parse_document<span style="color:#1f2328">(</span>html<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  title <span style="color:#0550ae">=</span> document <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>find<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;head title&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>text<span style="color:#1f2328">()</span> <span style="color:#0550ae">|&gt;</span> normalize_inline<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  description <span style="color:#0550ae">=</span>
+</span></span><span style="display:flex;"><span>    document
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>find<span style="color:#1f2328">(</span><span style="color:#0a3069">~s|head meta[name=&#34;description&#34;]|</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>attribute<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">List</span><span style="color:#0550ae">.</span>first<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#cf222e">case</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">nil</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#0a3069">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      s <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>trim<span style="color:#1f2328">(</span>s<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  canonical <span style="color:#0550ae">=</span>
+</span></span><span style="display:flex;"><span>    document
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>find<span style="color:#1f2328">(</span><span style="color:#0a3069">~s|head link[rel=&#34;canonical&#34;]|</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>attribute<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;href&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">List</span><span style="color:#0550ae">.</span>first<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  main <span style="color:#0550ae">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">case</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>find<span style="color:#1f2328">(</span>document<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;main&#34;</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">[]</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">Floki</span><span style="color:#0550ae">.</span>find<span style="color:#1f2328">(</span>document<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;body&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>      nodes <span style="color:#0550ae">-&gt;</span> nodes
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  body_md <span style="color:#0550ae">=</span>
+</span></span><span style="display:flex;"><span>    main
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> walk<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">IO</span><span style="color:#0550ae">.</span>iodata_to_binary<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> decode_entities<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> collapse_blank_lines<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">String</span><span style="color:#0550ae">.</span>trim<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span><span style="color:#1f2328">(</span>title <span style="color:#0550ae">!=</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;</span><span style="color:#f6f8fa;background-color:#82071e">#</span><span style="color:#0a3069"> </span><span style="color:#0a3069">#{</span>title<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">else</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span><span style="color:#1f2328">(</span>description <span style="color:#0550ae">!=</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&gt; </span><span style="color:#0a3069">#{</span>description<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">else</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span><span style="color:#1f2328">(</span>canonical<span style="color:#1f2328">,</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Canonical: </span><span style="color:#0a3069">#{</span>canonical<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">else</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>    body_md<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">IO</span><span style="color:#0550ae">.</span>iodata_to_binary<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>The strategy is:</p>
+<ol>
+<li>Pull <code>&lt;title&gt;</code>, <code>meta description</code>, and the canonical URL out of <code>&lt;head&gt;</code>. These become the markdown front matter the agent sees first.</li>
+<li>Find <code>&lt;main&gt;</code>, fall back to <code>&lt;body&gt;</code>. Everything outside <code>&lt;main&gt;</code> is chrome the agent does not care about.</li>
+<li>Walk the DOM with a small set of pattern-matched clauses, one per tag. <code>h1</code> becomes <code>#</code>, <code>h2</code> becomes <code>##</code>, <code>pre</code> becomes a fenced code block, <code>a</code> becomes <code>[text](href)</code>, and so on.</li>
+<li>Skip the noise: <code>script</code>, <code>style</code>, <code>noscript</code>, <code>svg</code>, <code>iframe</code>, <code>template</code>, <code>form</code>, <code>button</code>, <code>input</code>, <code>select</code>, <code>textarea</code>. Also any node with class <code>hidden</code> or the <code>hidden</code> attribute.</li>
+</ol>
+<p>The full module is in the <a href="https://github.com/lalabuy948">easy_inc repo</a>, if you want to grab it as a starting point.</p>
+<h2 id="try-it">Try it</h2>
+<p>Once deployed, hit any page on your site twice:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#57606a"># Browser sees HTML</span>
+</span></span><span style="display:flex;"><span>curl -sI https://your-app.example/ <span style="color:#1f2328">|</span> grep -i content-type
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># content-type: text/html; charset=utf-8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Agent sees markdown</span>
+</span></span><span style="display:flex;"><span>curl -s -H <span style="color:#0a3069">&#34;Accept: text/markdown&#34;</span> https://your-app.example/ <span style="color:#1f2328">|</span> head -20
+</span></span></code></pre></div><p>You should see the page title as <code># Heading</code>, the meta description as a blockquote, the canonical URL on its own line, then the body content stripped down to plain markdown. Token count comes back in the <code>x-markdown-tokens</code> header.</p>
+<p>Then plug the URL into <a href="https://isitagentready.com/">isitagentready.com</a>, and the <code>markdownNegotiation</code> check flips to <code>pass</code>.</p>
+<h2 id="why-bother">Why bother</h2>
+<p>Two reasons.</p>
+<p>The first is cost. The same page served as HTML is somewhere between 5x and 20x more tokens than the markdown version once you include the layout, the script tags, the inlined SVG icons, and all the Tailwind class strings. If your content is being read by an agent on every request, that adds up fast on the agent&rsquo;s side, and slows down whatever it is trying to do for the user.</p>
+<p>The second is fidelity. An LLM reading raw HTML has to figure out what is content versus chrome, what is navigation versus body, what is decorative versus semantic. By the time it has done that, it has burned tokens and made mistakes. Handing it a clean markdown document means it spends its budget on reasoning about your content, not on parsing your layout.</p>
+<p>The whole thing took an afternoon to write and ship. If you run a Phoenix site, there is no real reason not to do it.</p>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="/posts/phoenix-liveview-webgl-color-scopes/">
+                  <span class="button__text">Broadcast Grade Color Scopes in Phoenix LiveView</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    </div>
+
+    
+      
+        <script src="https://utteranc.es/client.js"
+        repo="lalabuy948/blog"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous">
+</script>
+<script onload="setCommentTheme();">
+    theme = window.localStorage.getItem('theme');
+
+    function setCommentTheme() {
+        if (theme == 'dark') {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-dark'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        } else {
+            const message = {
+                type: 'set-theme',
+                theme: 'github-light'
+            };
+            var utterances = document.querySelector('iframe');
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es');
+        }
+    }
+
+    document.getElementsByClassName("theme-toggler")[0].addEventListener("click", function(){
+        setCommentTheme();
+    }); 
+
+    window.onload = setCommentTheme
+</script>
+
+      
+    
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">Mr. Popov</span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="http://localhost:1313/assets/main.js"></script>
+<script src="http://localhost:1313/assets/prism.js"></script>
+
+
+ 
+ <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+ <script defer>
+     glowCookies.start('en', { 
+         analytics: 'UA-99667265-12', 
+
+         bannerDescription: 'I use third-party cookies to analyze web traffic.',
+         policyLink: '/cookie-policy/',
+         hideAfterClick: true,
+         acceptBtnBackground: 'black',
+     });
+ </script>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(57146182, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/57146182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+
+
+      
+    </div>
+  </body>
+</html>

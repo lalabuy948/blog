@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Env on </title>
-    <link>https://mrpopov.com/tags/env/</link>
+    <link>http://localhost:1313/tags/env/</link>
     <description>Recent content in Env on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Fri, 25 Sep 2020 10:07:13 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/env/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Sep 2020 10:07:13 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/env/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flexible Env in Go V2</title>
-      <link>https://mrpopov.com/posts/flexible-env-in-go-v2/</link>
+      <link>http://localhost:1313/posts/flexible-env-in-go-v2/</link>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/flexible-env-in-go-v2/</guid>
+      <guid>http://localhost:1313/posts/flexible-env-in-go-v2/</guid>
       <description>&lt;h1 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;https://mrpopov.com/posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;http://localhost:1313/posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; &lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;github.com/lalabuy948/genvutils&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Hashicorp Vault as Environment Manager</title>
-      <link>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</link>
+      <link>http://localhost:1313/posts/hashicorp-vault-as-environment-manager/</link>
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
+      <guid>http://localhost:1313/posts/hashicorp-vault-as-environment-manager/</guid>
       <description>&lt;h1 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h1&gt;
 &lt;p&gt;I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂&lt;/p&gt;
 &lt;h2 id=&#34;pre-requirements&#34;&gt;Pre Requirements&lt;/h2&gt;
@@ -39,10 +39,10 @@
     
     <item>
       <title>Flexible Env in Go</title>
-      <link>https://mrpopov.com/posts/flexible-env-in-go/</link>
+      <link>http://localhost:1313/posts/flexible-env-in-go/</link>
       <pubDate>Sat, 07 Mar 2020 09:00:59 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/flexible-env-in-go/</guid>
+      <guid>http://localhost:1313/posts/flexible-env-in-go/</guid>
       <description>&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
 &lt;p&gt;I was doing hobby project, nothing special, server with authentication few endpoints and connection to database.
 I wrapped this project in docker to distribute project to another developer, he wanted to help with fronted but not that fluent at the backend part.
