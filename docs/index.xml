@@ -8,7 +8,18 @@
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Sun, 19 Apr 2026 12:00:00 +0200</lastBuildDate><atom:link href="https://mrpopov.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Apr 2026 12:00:00 +0200</lastBuildDate><atom:link href="https://mrpopov.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Make Your Phoenix Website AI Ready in Seconds</title>
+      <link>https://mrpopov.com/posts/phoenix-ai-ready-markdown-negotiation/</link>
+      <pubDate>Wed, 29 Apr 2026 12:00:00 +0200</pubDate>
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
+      <guid>https://mrpopov.com/posts/phoenix-ai-ready-markdown-negotiation/</guid>
+      <description>&lt;p&gt;AI agents are starting to crawl the web the same way browsers do, except they do not need your CSS, your hero animations, or your tracking pixels. They need text. Clean, structured, semantic text. If your site only speaks HTML, the agent has to render, parse, and guess. If your site speaks markdown when asked, the agent gets exactly what it needs in a fraction of the tokens.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://isitagentready.com/&#34;&gt;isitagentready.com&lt;/a&gt; is a small validator that checks your site against a growing set of &amp;ldquo;agent skills&amp;rdquo;. One of the most useful checks is &lt;strong&gt;markdown content negotiation&lt;/strong&gt;: when a client sends &lt;code&gt;Accept: text/markdown&lt;/code&gt;, your server should respond with markdown instead of HTML, on the same URL.&lt;/p&gt;
+&lt;p&gt;This post shows the exact Plug we use on this Phoenix app to pass that check, in well under a hundred lines of code.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Broadcast Grade Color Scopes in Phoenix LiveView</title>
       <link>https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/</link>

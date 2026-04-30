@@ -1,7 +1,7 @@
 ---
 title: "Make Your Phoenix Website AI Ready in Seconds"
 date: 2026-04-29T12:00:00+02:00
-draft: true
+draft: false
 comments: true
 cover: "/img/phoenix-ai-ready-markdown-negotiation/preview.png"
 tags:
