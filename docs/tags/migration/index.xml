@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Migration on </title>
-    <link>http://localhost:1313/tags/migration/</link>
+    <link>https://mrpopov.com/tags/migration/</link>
     <description>Recent content in Migration on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Wed, 25 Feb 2026 14:08:19 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/migration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Feb 2026 14:08:19 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/migration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python React to Elixir Phoenix Migration Breakdown</title>
-      <link>http://localhost:1313/posts/python-react-to-elixir-phoenix-migration-breakdown/</link>
+      <link>https://mrpopov.com/posts/python-react-to-elixir-phoenix-migration-breakdown/</link>
       <pubDate>Wed, 25 Feb 2026 14:08:19 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>http://localhost:1313/posts/python-react-to-elixir-phoenix-migration-breakdown/</guid>
+      <guid>https://mrpopov.com/posts/python-react-to-elixir-phoenix-migration-breakdown/</guid>
       <description>&lt;p&gt;Due to an NDA we can&amp;rsquo;t go into specific business details, but here&amp;rsquo;s the gist: we inherited a SaaS platform in the accounting and document processing space. The system handled document ingestion, automated data extraction, workflow orchestration, and multi-tenant reporting a fairly typical B2B back-office tool. The original stack was maintained by a team of two backend engineers and one frontend developer. What follows is a breakdown of what the migration to Elixir/Phoenix looked like by the numbers.&lt;/p&gt;</description>
     </item>
     

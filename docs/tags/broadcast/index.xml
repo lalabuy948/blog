@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Broadcast on </title>
-    <link>http://localhost:1313/tags/broadcast/</link>
+    <link>https://mrpopov.com/tags/broadcast/</link>
     <description>Recent content in Broadcast on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Mon, 21 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/broadcast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="https://mrpopov.com/tags/broadcast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CyanCamera: Turning an iPhone Into a Broadcast Camera</title>
-      <link>http://localhost:1313/posts/cyancamera-turning-phone-into-broadcast-camera/</link>
+      <link>https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/</link>
       <pubDate>Mon, 21 Sep 2026 09:00:00 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>http://localhost:1313/posts/cyancamera-turning-phone-into-broadcast-camera/</guid>
-      <description>&lt;p&gt;I gave a 20-minute talk this year on the color science behind CyanCamera, the app we built at &lt;a href=&#34;https://www.cyanview.com/&#34;&gt;CyanView&lt;/a&gt; that lets an iPhone sit next to a Sony Venice or an ARRI Alexa in a live broadcast truck. This post is that talk, written down.&lt;/p&gt;</description>
+      <guid>https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/</guid>
+      <description>&lt;p&gt;I gave a 20-minute talk this year at &lt;a href=&#34;https://rtcon.swmansion.com/&#34;&gt;RTCON by Software Mansion&lt;/a&gt; on the color science behind CyanCamera, the app we built at &lt;a href=&#34;https://www.cyanview.com/&#34;&gt;CyanView&lt;/a&gt; that lets an iPhone sit next to a Sony Venice or an ARRI Alexa in a live broadcast truck. This post is that talk, written down.&lt;/p&gt;</description>
     </item>
     
   </channel>
