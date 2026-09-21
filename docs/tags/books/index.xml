@@ -2,19 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Books on </title>
-    <link>https://mrpopov.com/tags/books/</link>
+    <link>http://localhost:1313/tags/books/</link>
     <description>Recent content in Books on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Sun, 12 Mar 2023 12:56:14 +0100</lastBuildDate><atom:link href="https://mrpopov.com/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Mar 2023 12:00:32 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Productivity Injection</title>
+      <link>http://localhost:1313/posts/productivity-injection/</link>
+      <pubDate>Sat, 25 Mar 2023 12:00:32 +0200</pubDate>
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
+      <guid>http://localhost:1313/posts/productivity-injection/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/59616977-building-a-second-brain?from_search=true&amp;amp;from_srp=true&amp;amp;qid=5dlGMST4iX&amp;amp;rank=2&#34;&gt;&amp;ldquo;Building a Second Brain&amp;rdquo;&lt;/a&gt; by Tiago Forte is an invaluable resource for anyone looking to boost their productivity and streamline their workflow. From an IT Lead perspective, this book offers practical advice on using digital tools and cloud-based storage solutions to organize and store information more effectively. As for me it was a life saver, since before that I was trying to capture and have everything in my head, all the tasks I need to do and all email I need to answer. That led me to thinking about work 24/7, which is a huge harm in a long term. And this quote become for me as an essential answer to my struggles:&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Improve and Do Retrospectives Right</title>
-      <link>https://mrpopov.com/posts/improve-and-do-retrospectives-right/</link>
+      <link>http://localhost:1313/posts/improve-and-do-retrospectives-right/</link>
       <pubDate>Sun, 12 Mar 2023 12:56:14 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/improve-and-do-retrospectives-right/</guid>
+      <guid>http://localhost:1313/posts/improve-and-do-retrospectives-right/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“Improving daily work is even more important than doing daily work.”
 &lt;strong&gt;Gene Kim&lt;/strong&gt; &lt;a href=&#34;https://www.goodreads.com/book/show/17255186-the-phoenix-project&#34;&gt;The Phoenix Project&lt;/a&gt;&lt;/p&gt;
@@ -27,10 +36,10 @@ no matter how great, fast, experienced you are. There is always a team and more 
     
     <item>
       <title>A Bit About Scrum and Its History</title>
-      <link>https://mrpopov.com/posts/a-bit-about-scrum-and-its-history/</link>
+      <link>http://localhost:1313/posts/a-bit-about-scrum-and-its-history/</link>
       <pubDate>Sun, 05 Mar 2023 13:26:45 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
-      <guid>https://mrpopov.com/posts/a-bit-about-scrum-and-its-history/</guid>
+      <guid>http://localhost:1313/posts/a-bit-about-scrum-and-its-history/</guid>
       <description>&lt;p&gt;I was inspired about SCRUM methodology back in 2018 when for the first time I read a book named &lt;a href=&#34;https://www.goodreads.com/book/show/12426548-the-scrum-field-guide&#34;&gt;&amp;ldquo;The SCRUM Field Guide&amp;rdquo;&lt;/a&gt; which written by Mitch Lacey. Back in the day I used to be an engineer and I could not realize all benefits of adapting this methodology and was blindly following what team lead was saying. Nowadays when I&amp;rsquo;m in charge of success of more than 20 people, that&amp;rsquo;s where I had to come back to this book and write down all important notes which I would like to share. As well as to share how and where scrum methodology and agile principles started.&lt;/p&gt;</description>
     </item>
     
