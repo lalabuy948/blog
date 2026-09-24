@@ -110,7 +110,9 @@ Which gives us the one rule that matters: you never *watch* log, you *convert* l
 
 ## The CyanCamera pipeline
 
-Here is where the pieces click together, what actually happens per frame:
+A real broadcast camera never talks straight to the switcher. It shoots log, feeds a hardware color box, a CCU or an RCP-driven LUT box, that decodes the log, applies the operator's grade, and hands clean Rec.709 (or HLG) downstream. Camera in log, color box, output: that three-stage chain is the entire professional pipeline, and every step in it exists because of one of the color science problems above, subsampling, the color matrix, bit depth, the log curve. Skip any one of them and the chain breaks somewhere a viewer can see.
+
+CyanCamera's job was to fit that exact chain inside the phone. No external CCU, no LUT box, no round trip to a truck: camera in log, color box, output, all of it on-device, all of it preserving every step from log to output that the hardware chain would otherwise do for you. Here is where the pieces click together, what actually happens per frame:
 
 ```
 Sensor (≈14 stops)
