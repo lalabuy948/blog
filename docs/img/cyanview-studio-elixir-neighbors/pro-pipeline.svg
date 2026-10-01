@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 640" font-family="Outfit, -apple-system, Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b98a5"/></marker>
+<linearGradient id="gLight" x1="0" x2="1"><stop offset="0" stop-color="#5b2bd6"/><stop offset=".2" stop-color="#1f6fe0"/><stop offset=".4" stop-color="#18b86a"/><stop offset=".6" stop-color="#f2d22e"/><stop offset=".8" stop-color="#f28a1f"/><stop offset="1" stop-color="#e02b2b"/></linearGradient>
+<linearGradient id="gLin" x1="0" x2="1"><stop offset="0" stop-color="#000"/><stop offset=".75" stop-color="#1a1a1a"/><stop offset=".93" stop-color="#6a6a6a"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+<linearGradient id="gLog" x1="0" x2="1"><stop offset="0" stop-color="#3a3f46"/><stop offset="1" stop-color="#a9adb3"/></linearGradient>
+<linearGradient id="gOut" x1="0" x2="1"><stop offset="0" stop-color="#000"/><stop offset=".35" stop-color="#3b2a1e"/><stop offset=".65" stop-color="#c88a5a"/><stop offset="1" stop-color="#fff4e6"/></linearGradient>
+</defs>
+<style>.h{fill:#ffffff;font-size:32px;font-weight:700}.s{font-size:18px;letter-spacing:3px;font-family:"JetBrains Mono",Menlo,monospace}.t{fill:#e6edf3;font-size:22px}.d{fill:#8b98a5;font-size:20px}.q{fill:#e6edf3;font-size:28px;font-style:italic}.box{fill:#000;stroke-width:3;rx:16}.ar{stroke:#8b98a5;stroke-width:4;fill:none;marker-end:url(#a)}.br{fill:none;stroke-width:3}</style>
+
+<rect x="355" y="30" width="890" height="44" rx="10" fill="rgba(109,201,243,0.08)" stroke="#6dc9f3" stroke-width="2"/>
+<text x="380" y="60" class="s" fill="#6dc9f3">SOFTWARE · ONE GRADE DRIVES BOTH SIDES</text>
+
+<path d="M355 150 V125 H930 V150" class="br" stroke="#f59e0b"/>
+<text x="375" y="112" class="s" fill="#f59e0b">CAMERA CONTROL · RCP</text>
+<path d="M985 150 V125 H1245 V150" class="br" stroke="#a78bfa"/>
+<text x="1000" y="112" class="s" fill="#a78bfa">COLOUR BOX · LUT</text>
+
+<rect x="40" y="170" width="260" height="330" class="box" stroke="#8b98a5"/>
+<text x="60" y="205" class="s" fill="#8b98a5">01</text>
+<text x="60" y="248" class="h">Light</text>
+<text x="60" y="290" class="t">the real scene</text>
+<text x="60" y="322" class="t">14+ stops of range</text>
+<text x="60" y="354" class="d">more than any screen</text>
+<rect x="60" y="420" width="220" height="50" rx="6" fill="url(#gLight)"/>
+
+<rect x="355" y="170" width="260" height="330" class="box" stroke="#f59e0b"/>
+<text x="375" y="205" class="s" fill="#f59e0b">02</text>
+<text x="375" y="248" class="h">Sensor</text>
+<text x="375" y="290" class="t">linear photon counts</text>
+<text x="375" y="322" class="t">iris · ND · shutter</text>
+<text x="375" y="354" class="d">gain · white balance</text>
+<rect x="375" y="420" width="220" height="50" rx="6" fill="url(#gLin)"/>
+
+<rect x="670" y="170" width="260" height="330" class="box" stroke="#f59e0b"/>
+<text x="690" y="205" class="s" fill="#f59e0b">03</text>
+<text x="690" y="248" class="h">Log</text>
+<text x="690" y="290" class="t">14 stops in 10 bits</text>
+<text x="690" y="322" class="t">flat and grey</text>
+<text x="690" y="354" class="d">on purpose, over SDI</text>
+<rect x="690" y="420" width="220" height="50" rx="6" fill="url(#gLog)"/>
+
+<rect x="985" y="170" width="260" height="330" class="box" stroke="#a78bfa"/>
+<text x="1005" y="205" class="s" fill="#a78bfa">04</text>
+<text x="1005" y="248" class="h">3D LUT</text>
+<text x="1005" y="290" class="t">33³ cube on log</text>
+<text x="1005" y="322" class="t">log → Rec.709</text>
+<text x="1005" y="354" class="d">plus the look</text>
+<rect x="1005" y="420" width="220" height="50" rx="6" fill="url(#gOut)"/>
+
+<rect x="1300" y="170" width="260" height="330" class="box" stroke="#34d399"/>
+<text x="1320" y="205" class="s" fill="#34d399">05</text>
+<text x="1320" y="248" class="h">Live feed</text>
+<text x="1320" y="290" class="t">Rec.709 or HDR</text>
+<text x="1320" y="322" class="t">to the vision mixer</text>
+<text x="1320" y="354" class="d">on air</text>
+<rect x="1320" y="420" width="220" height="50" rx="6" fill="url(#gOut)"/>
+
+<path d="M300 335 H352" class="ar"/><path d="M615 335 H667" class="ar"/><path d="M930 335 H982" class="ar"/><path d="M1245 335 H1297" class="ar"/>
+
+<text x="40" y="555" class="d">what the image looks like at each step ↑</text>
+<text x="40" y="610" class="t">Camera control shapes what the sensor captures. The colour box decides what the audience sees.</text>
+</svg>

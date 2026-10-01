@@ -202,7 +202,7 @@
       
 
       
-        <span class="post-read-time">8 ☕️</span>
+        <span class="post-read-time">9 ☕️</span>
       
     </div>
 
@@ -292,7 +292,8 @@ Output (R=0.47, G=0.32, B=0.08)
   <source src="/img/cyancamera-turning-phone-into-broadcast-camera/rcp-grade-live.mp4" type="video/mp4">
 </video>
 <h2 id="the-cyancamera-pipeline">The CyanCamera pipeline</h2>
-<p>Here is where the pieces click together, what actually happens per frame:</p>
+<p>A real broadcast camera never talks straight to the switcher. It shoots log, feeds a hardware color box, a CCU or an RCP-driven LUT box, that decodes the log, applies the operator&rsquo;s grade, and hands clean Rec.709 (or HLG) downstream. Camera in log, color box, output: that three-stage chain is the entire professional pipeline, and every step in it exists because of one of the color science problems above, subsampling, the color matrix, bit depth, the log curve. Skip any one of them and the chain breaks somewhere a viewer can see.</p>
+<p>CyanCamera&rsquo;s job was to fit that exact chain inside the phone. No external CCU, no LUT box, no round trip to a truck: camera in log, color box, output, all of it on-device, all of it preserving every step from log to output that the hardware chain would otherwise do for you. Here is where the pieces click together, what actually happens per frame:</p>
 <pre tabindex="0"><code>Sensor (≈14 stops)
         │
         ▼
@@ -355,6 +356,13 @@ combined(color) = FileLUT( GeneratedLUT(color) )
             <hr />
           </div>
           <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="/posts/cyanview-studio-elixir-neighbors/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">The BEAM Is a Friendly Host: C, Rust, Svelte and WebGPU Next to Elixir</span>
+                </a>
+              </span>
             
             
               <span class="button next">

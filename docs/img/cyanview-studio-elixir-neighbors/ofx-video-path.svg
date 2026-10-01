@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 780" font-family="Outfit, -apple-system, Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b98a5"/></marker></defs>
+<style>.t{fill:#e6edf3;font-size:26px}.h{fill:#ffffff;font-size:32px;font-weight:600}.d{fill:#8b98a5;font-size:22px}.m{font-family:"JetBrains Mono",Menlo,monospace;font-size:22px;fill:#6dc9f3}.box{fill:none;stroke:#8b98a5;stroke-width:3;rx:14}.cy{stroke:#6dc9f3}.pu{stroke:#a78bfa}.or{stroke:#f59e0b}.ar{stroke:#8b98a5;stroke-width:3;fill:none;marker-end:url(#a)}.fat{stroke:#a78bfa;stroke-width:6;fill:none;marker-end:url(#a)}</style>
+<text x="40" y="50" class="d">HOT PATH · frames · 20 ms budget at 1080p50 · macOS, Apple Silicon</text>
+<rect x="40" y="80" width="190" height="130" class="box"/><text x="60" y="130" class="h">SDI in</text><text x="60" y="175" class="d">DeckLink</text>
+<rect x="280" y="80" width="280" height="130" class="box or"/><text x="300" y="130" class="h">capture</text><text x="300" y="175" class="d">Rust + C++ shim</text>
+<rect x="610" y="80" width="470" height="130" class="box pu"/><text x="630" y="130" class="h">cy-fxvp OFX host</text><text x="630" y="175" class="d">C++ · HostSupport · Metal</text>
+<rect x="1130" y="80" width="220" height="130" class="box or"/><text x="1150" y="130" class="h">output</text><text x="1150" y="175" class="d">card clock</text>
+<rect x="1400" y="80" width="170" height="130" class="box"/><text x="1420" y="130" class="h">SDI out</text>
+<path d="M230 145 H280" class="fat"/><path d="M560 145 H610" class="fat"/><path d="M1080 145 H1130" class="fat"/><path d="M1350 145 H1400" class="fat"/>
+<text x="40" y="258" class="m">cyofx_chain_create2 · render2 · timings2</text>
+<text x="40" y="295" class="d">newest-wins slots: a slow stage lowers fps, never queues</text>
+<line x1="40" y1="335" x2="1560" y2="335" stroke="#8b98a5" stroke-width="2" stroke-dasharray="12 10"/>
+<text x="40" y="380" class="d">CONTROL PATH · chain definitions · no frames</text>
+<rect x="40" y="410" width="320" height="150" class="box cy"/><text x="60" y="460" class="h">LiveView</text><text x="60" y="500" class="t">stores the chain</text><text x="60" y="535" class="d">SQLite, JSON per feed</text>
+<rect x="520" y="410" width="340" height="150" class="box"/><text x="540" y="460" class="h">JS hook</text><text x="540" y="500" class="m">ofx_panel.js</text><text x="540" y="535" class="d">one UI, two backends</text>
+<rect x="980" y="410" width="330" height="150" class="box or"/><text x="1000" y="460" class="h">Rust commands</text><text x="1000" y="500" class="m">pipeline_set_chain</text><text x="1000" y="535" class="m">ofx_list_plugins</text>
+<rect x="1370" y="410" width="200" height="150" class="box cy"/><text x="1390" y="460" class="h">FXVP</text><text x="1390" y="500" class="d">remote box</text><text x="1390" y="535" class="m">HTTP + WS</text>
+<path d="M360 470 H520" class="ar"/><path d="M520 520 H360" class="ar"/><text x="378" y="458" class="d">push_event</text><text x="385" y="550" class="d">pushEvent</text>
+<path d="M860 485 H980" class="ar"/><text x="880" y="473" class="d">invoke</text>
+<path d="M1030 410 V210" class="ar"/><text x="1045" y="318" class="d">set chain</text>
+<path d="M200 560 V640 H1470 V560" class="ar"/><text x="480" y="628" class="d">Elixir drives remote boxes directly: Req + WebSockex, 10 s health poll</text>
+<text x="40" y="740" class="h">The BEAM never sees a frame. It sees a JSON list of plugins.</text>
+</svg>

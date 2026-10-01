@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" font-family="Outfit, -apple-system, Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+<defs><marker id="a-gy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b98a5"/></marker><marker id="a-cy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6dc9f3"/></marker><marker id="a-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#34d399"/></marker><marker id="a-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="a-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker><marker id="a-ye" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fbbf24"/></marker><marker id="a-rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker></defs>
+<style>.h{fill:#ffffff;font-size:30px;font-weight:600}.t{fill:#e6edf3;font-size:28px}.d{fill:#8b98a5;font-size:22px}.m{font-family:"JetBrains Mono",Menlo,monospace;font-size:22px;fill:#6dc9f3}.n{font-size:24px;font-weight:600;text-anchor:middle}.mid{text-anchor:middle}.end{text-anchor:end}.box{stroke-width:3}.wrap{fill:none}.gy{stroke:#8b98a5;fill:#8b98a512}.f-gy{fill:#8b98a5}.cy{stroke:#6dc9f3;fill:#6dc9f312}.f-cy{fill:#6dc9f3}.gr{stroke:#34d399;fill:#34d39912}.f-gr{fill:#34d399}.pu{stroke:#a78bfa;fill:#a78bfa12}.f-pu{fill:#a78bfa}.or{stroke:#f59e0b;fill:#f59e0b12}.f-or{fill:#f59e0b}.ye{stroke:#fbbf24;fill:#fbbf2412}.f-ye{fill:#fbbf24}.rd{stroke:#f87171;fill:#f8717112}.f-rd{fill:#f87171}</style>
+<rect x="40" y="40" width="460" height="200" rx="14" class="box gy"/>
+<circle cx="86" cy="88" r="20" fill="none" stroke="#8b98a5" stroke-width="3"/>
+<text x="86" y="96" class="n f-gy">1</text>
+<text x="122" y="98" class="h">Check</text>
+<text x="68" y="144" class="d f-gy">webview · updater.js</text>
+<text x="68" y="184" class="d">3 s after launch, or from</text>
+<text x="68" y="216" class="d">the Check for Updates menu</text>
+<path d="M500 140 H570" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="570" y="40" width="460" height="200" rx="14" class="box or"/>
+<circle cx="616" cy="88" r="20" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="616" y="96" class="n f-or">2</text>
+<text x="652" y="98" class="h">Ask the server</text>
+<text x="598" y="144" class="d f-or">Rust · updater plugin</text>
+<text x="598" y="184" class="m">GET …/api/v1/updates/</text>
+<text x="598" y="216" class="m">{target}/{arch}/{version}</text>
+<path d="M1030 140 H1100" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="1100" y="40" width="460" height="200" rx="14" class="box gy"/>
+<circle cx="1146" cy="88" r="20" fill="none" stroke="#8b98a5" stroke-width="3"/>
+<text x="1146" y="96" class="n f-gy">3</text>
+<text x="1182" y="98" class="h">Banner</text>
+<text x="1128" y="144" class="d f-gy">webview</text>
+<text x="1128" y="184" class="d">Update available, with notes.</text>
+<text x="1128" y="216" class="d">Later, or Install and restart.</text>
+<rect x="40" y="340" width="460" height="200" rx="14" class="box or"/>
+<circle cx="86" cy="388" r="20" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="86" y="396" class="n f-or">4</text>
+<text x="122" y="398" class="h">Download, verify</text>
+<text x="68" y="444" class="d f-or">Rust · updater plugin</text>
+<text x="68" y="484" class="d">progress over a Tauri Channel,</text>
+<text x="68" y="516" class="d">minisign key baked into the app</text>
+<path d="M500 440 H570" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="570" y="340" width="460" height="200" rx="14" class="box or"/>
+<circle cx="616" cy="388" r="20" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="616" y="396" class="n f-or">5</text>
+<text x="652" y="398" class="h">Restart</text>
+<text x="598" y="444" class="d f-or">Rust · relaunch_app</text>
+<text x="598" y="484" class="d">Rust kills the BEAM sidecar,</text>
+<text x="598" y="516" class="d">then relaunches the app</text>
+<path d="M1030 440 H1100" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="1100" y="340" width="460" height="200" rx="14" class="box cy"/>
+<circle cx="1146" cy="388" r="20" fill="none" stroke="#6dc9f3" stroke-width="3"/>
+<text x="1146" y="396" class="n f-cy">6</text>
+<text x="1182" y="398" class="h">New bundle boots</text>
+<text x="1128" y="444" class="d f-cy">Burrito · BEAM</text>
+<text x="1128" y="484" class="d">unpacks the new release,</text>
+<text x="1128" y="516" class="d">Phoenix answers, webview loads</text>
+<path d="M1330 240 V300 H270 V340" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<text x="800" y="286" class="d mid">the user clicks Install</text>
+<rect x="40" y="600" width="1520" height="170" rx="14" class="box gy wrap"/>
+<text x="68" y="652" class="h">One signed bundle per OS</text>
+<text x="68" y="692" class="d">shell and BEAM update together,</text>
+<text x="68" y="724" class="d">Elixir never takes part in it</text>
+<rect x="640" y="624" width="440" height="122" rx="14" class="box or"/>
+<text x="666" y="672" class="t">Tauri binary</text>
+<text x="666" y="712" class="d">Rust shell + C++ OFX host</text>
+<rect x="1100" y="624" width="440" height="122" rx="14" class="box cy"/>
+<text x="1126" y="672" class="t">Burrito sidecar</text>
+<text x="1126" y="712" class="d">ERTS + Elixir release + C NIF</text>
+</svg>

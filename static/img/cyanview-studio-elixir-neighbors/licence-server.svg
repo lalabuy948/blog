@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 780" font-family="Outfit, -apple-system, Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+<defs><marker id="a-gy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b98a5"/></marker><marker id="a-cy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6dc9f3"/></marker><marker id="a-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#34d399"/></marker><marker id="a-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="a-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker><marker id="a-ye" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fbbf24"/></marker><marker id="a-rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker></defs>
+<style>.h{fill:#ffffff;font-size:30px;font-weight:600}.t{fill:#e6edf3;font-size:28px}.d{fill:#8b98a5;font-size:22px}.m{font-family:"JetBrains Mono",Menlo,monospace;font-size:22px;fill:#6dc9f3}.n{font-size:24px;font-weight:600;text-anchor:middle}.mid{text-anchor:middle}.end{text-anchor:end}.box{stroke-width:3}.wrap{fill:none}.gy{stroke:#8b98a5;fill:#8b98a512}.f-gy{fill:#8b98a5}.cy{stroke:#6dc9f3;fill:#6dc9f312}.f-cy{fill:#6dc9f3}.gr{stroke:#34d399;fill:#34d39912}.f-gr{fill:#34d399}.pu{stroke:#a78bfa;fill:#a78bfa12}.f-pu{fill:#a78bfa}.or{stroke:#f59e0b;fill:#f59e0b12}.f-or{fill:#f59e0b}.ye{stroke:#fbbf24;fill:#fbbf2412}.f-ye{fill:#fbbf24}.rd{stroke:#f87171;fill:#f8717112}.f-rd{fill:#f87171}</style>
+<circle cx="60" cy="52" r="20" fill="none" stroke="#34d399" stroke-width="3"/>
+<text x="60" y="60" class="n f-gr">1</text>
+<text x="96" y="62" class="h">Identify the laptop</text>
+<rect x="40" y="86" width="500" height="160" rx="14" class="box gy"/>
+<text x="68" y="132" class="h">OS machine GUID</text>
+<text x="68" y="168" class="d">macOS</text>
+<text x="190" y="168" class="m">IOPlatformUUID</text>
+<text x="68" y="198" class="d">Windows</text>
+<text x="190" y="198" class="m">MachineGuid</text>
+<text x="68" y="228" class="d">Linux</text>
+<text x="190" y="228" class="m">/etc/machine-id</text>
+<path d="M540 166 H1060" fill="none" stroke="#34d399" stroke-width="3" marker-end="url(#a-gr)"/>
+<text x="800" y="146" class="t mid">HMAC-SHA256</text>
+<text x="800" y="200" class="d mid">key: the GUID</text>
+<text x="800" y="230" class="d mid">message: the app name</text>
+<rect x="1060" y="86" width="500" height="160" rx="14" class="box gr"/>
+<text x="1088" y="132" class="h">Machine fingerprint</text>
+<text x="1088" y="168" class="d">64 hex chars, anonymous</text>
+<text x="1088" y="198" class="d">app-specific, never the raw GUID</text>
+<text x="1088" y="228" class="d">same after reboot, dock, VPN, rename</text>
+<circle cx="60" cy="290" r="20" fill="none" stroke="#6dc9f3" stroke-width="3"/>
+<text x="60" y="298" class="n f-cy">2</text>
+<text x="96" y="300" class="h">Activate once, then heartbeat</text>
+<rect x="40" y="324" width="500" height="170" rx="14" class="box cy"/>
+<text x="68" y="370" class="h">LicenseManager</text>
+<text x="68" y="406" class="d">one GenServer in the desktop app</text>
+<text x="68" y="436" class="d">network calls run in a Task</text>
+<text x="68" y="466" class="d">cached in SQLite, status on PubSub</text>
+<rect x="1060" y="324" width="500" height="170" rx="14" class="box pu"/>
+<text x="1088" y="370" class="h">Licence server</text>
+<text x="1088" y="406" class="m">software.cyanview.com</text>
+<text x="1088" y="436" class="d">seats, plan, expiry</text>
+<text x="1088" y="466" class="d">how many FXVP nodes you may add</text>
+<path d="M540 366 H1060" fill="none" stroke="#6dc9f3" stroke-width="3" marker-end="url(#a-cy)"/>
+<text x="800" y="352" class="d mid">activate: email + key + fingerprint</text>
+<path d="M1060 420 H540" fill="none" stroke="#a78bfa" stroke-width="3" marker-end="url(#a-pu)"/>
+<text x="800" y="406" class="d mid">session token, seat number, plan</text>
+<path d="M540 474 H1060" fill="none" stroke="#6dc9f3" stroke-width="3" marker-end="url(#a-cy)"/>
+<text x="800" y="460" class="d mid">heartbeat every 5 min: token + fingerprint</text>
+<circle cx="60" cy="538" r="20" fill="none" stroke="#fbbf24" stroke-width="3"/>
+<text x="60" y="546" class="n f-ye">3</text>
+<text x="96" y="548" class="h">Offline is normal in a truck</text>
+<rect x="40" y="572" width="320" height="100" rx="14" class="box gy"/>
+<text x="68" y="616" class="h">inactive</text>
+<text x="68" y="650" class="d">no key on this laptop</text>
+<path d="M360 622 H440" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="440" y="572" width="320" height="100" rx="14" class="box gr"/>
+<text x="468" y="616" class="h">active</text>
+<text x="468" y="650" class="d">last heartbeat was good</text>
+<path d="M760 622 H840" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="840" y="572" width="320" height="100" rx="14" class="box ye"/>
+<text x="868" y="616" class="h">grace</text>
+<text x="868" y="650" class="d">offline, up to 72 hours</text>
+<path d="M1160 622 H1240" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="1240" y="572" width="320" height="100" rx="14" class="box rd"/>
+<text x="1268" y="616" class="h">expired</text>
+<text x="1268" y="650" class="d">back to the licence page</text>
+<path d="M1000 672 V712 H600 V672" fill="none" stroke="#34d399" stroke-width="3" marker-end="url(#a-gr)"/>
+<text x="800" y="750" class="d mid">one good heartbeat and it is active again</text>
+</svg>

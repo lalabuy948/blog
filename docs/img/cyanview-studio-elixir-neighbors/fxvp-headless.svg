@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 780" font-family="Outfit, -apple-system, Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+<defs><marker id="a-gy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b98a5"/></marker><marker id="a-cy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6dc9f3"/></marker><marker id="a-gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#34d399"/></marker><marker id="a-pu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="a-or" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker><marker id="a-ye" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fbbf24"/></marker><marker id="a-rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker></defs>
+<style>.h{fill:#ffffff;font-size:30px;font-weight:600}.t{fill:#e6edf3;font-size:28px}.d{fill:#8b98a5;font-size:22px}.m{font-family:"JetBrains Mono",Menlo,monospace;font-size:22px;fill:#6dc9f3}.n{font-size:24px;font-weight:600;text-anchor:middle}.mid{text-anchor:middle}.end{text-anchor:end}.box{stroke-width:3}.wrap{fill:none}.gy{stroke:#8b98a5;fill:#8b98a512}.f-gy{fill:#8b98a5}.cy{stroke:#6dc9f3;fill:#6dc9f312}.f-cy{fill:#6dc9f3}.gr{stroke:#34d399;fill:#34d39912}.f-gr{fill:#34d399}.pu{stroke:#a78bfa;fill:#a78bfa12}.f-pu{fill:#a78bfa}.or{stroke:#f59e0b;fill:#f59e0b12}.f-or{fill:#f59e0b}.ye{stroke:#fbbf24;fill:#fbbf2412}.f-ye{fill:#fbbf24}.rd{stroke:#f87171;fill:#f8717112}.f-rd{fill:#f87171}</style>
+<rect x="40" y="40" width="680" height="700" rx="14" class="box gy wrap"/>
+<text x="72" y="92" class="h">CyanView Studio</text>
+<text x="72" y="126" class="d">the laptop in the truck</text>
+<rect x="72" y="156" width="616" height="110" rx="14" class="box gy"/>
+<text x="100" y="204" class="h">Effects panel</text>
+<text x="100" y="240" class="d">one UI, whichever engine renders</text>
+<path d="M218 266 V396" fill="none" stroke="#f59e0b" stroke-width="3" marker-end="url(#a-or)"/>
+<text x="202" y="338" class="d end">Tauri invoke</text>
+<path d="M542 266 V396" fill="none" stroke="#6dc9f3" stroke-width="3" marker-end="url(#a-cy)"/>
+<text x="558" y="338" class="d">LiveView</text>
+<rect x="72" y="396" width="292" height="160" rx="14" class="box or"/>
+<text x="98" y="446" class="h">Local engine</text>
+<text x="98" y="486" class="d">OFX host in the</text>
+<text x="98" y="516" class="d">Rust shell, on Metal</text>
+<rect x="396" y="396" width="292" height="160" rx="14" class="box cy"/>
+<text x="422" y="446" class="h">Elixir</text>
+<text x="422" y="486" class="d">stores the chain,</text>
+<text x="422" y="516" class="d">one client per node</text>
+<text x="72" y="630" class="t">Same panel. Same chain JSON.</text>
+<text x="72" y="672" class="d">The UI does not care where the pixels are.</text>
+<path d="M688 468 H900" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)" marker-start="url(#a-gy)"/>
+<path d="M800 468 V88 H900" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<path d="M800 278 H900" fill="none" stroke="#8b98a5" stroke-width="3" marker-end="url(#a-gy)"/>
+<rect x="900" y="40" width="580" height="150" rx="14" class="box gr"/>
+<text x="928" y="86" class="h">FXVP node</text>
+<text x="928" y="122" class="d">headless Mac mini, DeckLink card</text>
+<text x="928" y="160" class="d f-ye">SDI in → OFX chain → SDI out</text>
+<path d="M832 152 H900" fill="none" stroke="#fbbf24" stroke-width="5" marker-end="url(#a-ye)"/>
+<path d="M1480 152 H1560" fill="none" stroke="#fbbf24" stroke-width="5" marker-end="url(#a-ye)"/>
+<rect x="900" y="230" width="580" height="150" rx="14" class="box gr"/>
+<text x="928" y="276" class="h">FXVP node</text>
+<text x="928" y="312" class="d">headless Mac mini, DeckLink card</text>
+<text x="928" y="350" class="d f-ye">SDI in → OFX chain → SDI out</text>
+<path d="M832 342 H900" fill="none" stroke="#fbbf24" stroke-width="5" marker-end="url(#a-ye)"/>
+<path d="M1480 342 H1560" fill="none" stroke="#fbbf24" stroke-width="5" marker-end="url(#a-ye)"/>
+<rect x="900" y="420" width="580" height="150" rx="14" class="box gr"/>
+<text x="928" y="466" class="h">FXVP node</text>
+<text x="928" y="502" class="d">headless Mac mini, DeckLink card</text>
+<text x="928" y="540" class="d f-ye">SDI in → OFX chain → SDI out</text>
+<path d="M832 532 H900" fill="none" stroke="#fbbf24" stroke-width="5" marker-end="url(#a-ye)"/>
+<path d="M1480 532 H1560" fill="none" stroke="#fbbf24" stroke-width="5" marker-end="url(#a-ye)"/>
+<path d="M900 632 H960" fill="none" stroke="#8b98a5" stroke-width="3"/>
+<text x="980" y="640" class="d">control: HTTP in, WebSocket events back</text>
+<path d="M900 682 H960" fill="none" stroke="#fbbf24" stroke-width="5"/>
+<text x="980" y="690" class="d">video: SDI in the rack, never on the network</text>
+</svg>

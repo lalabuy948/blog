@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" font-family="Outfit, -apple-system, Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8b98a5"/></marker>
+<marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6dc9f3"/></marker></defs>
+<style>.t{fill:#e6edf3;font-size:28px}.h{fill:#ffffff;font-size:34px;font-weight:600}.d{fill:#8b98a5;font-size:22px}.l{fill:#8b98a5;font-size:22px;text-anchor:middle}.m{font-family:"JetBrains Mono",Menlo,monospace;font-size:22px;fill:#6dc9f3}.box{fill:none;stroke:#8b98a5;stroke-width:3;rx:16}.cy{stroke:#6dc9f3}.or{stroke:#f59e0b}</style>
+<rect x="30" y="40" width="650" height="660" class="box or"/>
+<text x="60" y="90" class="h">Tauri shell</text><text x="60" y="125" class="d">Rust · one native window</text>
+<rect x="60" y="150" width="590" height="250" class="box"/>
+<text x="85" y="198" class="h">WebView</text>
+<text x="85" y="245" class="t">LiveView page from localhost</text>
+<text x="85" y="290" class="t">Svelte island · WebGPU preview</text>
+<text x="85" y="335" class="m">window.__TAURI__.invoke()</text>
+<text x="85" y="375" class="d">WKWebView / WebView2</text>
+<rect x="60" y="450" width="590" height="220" class="box or"/>
+<text x="85" y="498" class="h">Rust commands</text>
+<text x="85" y="543" class="m">ndi_* decklink_* pipeline_* ofx_*</text>
+<text x="85" y="590" class="t">menus · tray · updater · window</text>
+<text x="85" y="635" class="t">NDI via libloading · cy-fxvp</text>
+<rect x="960" y="40" width="610" height="660" class="box cy"/>
+<text x="990" y="90" class="h">Burrito sidecar</text><text x="990" y="125" class="d">ERTS + release in one file</text>
+<rect x="990" y="150" width="550" height="210" class="box cy"/>
+<text x="1015" y="198" class="h">Phoenix</text><text x="1180" y="198" class="m">127.0.0.1:4173</text>
+<text x="1015" y="248" class="t">LiveView · Bandit · SQLite</text>
+<text x="1015" y="298" class="t">RCP modules + desktop/</text>
+<rect x="990" y="400" width="550" height="270" class="box cy"/>
+<text x="1015" y="448" class="h">Supervision tree</text>
+<text x="1015" y="495" class="t">MQTT workers · devices</text>
+<text x="1015" y="540" class="t">LUT fan-out · DCTL ports</text>
+<text x="1015" y="585" class="t">discovery · proxy · relay</text>
+<text x="1015" y="630" class="m">C NIF: lut_nif.so</text>
+<path d="M680 180 H960" stroke="#8b98a5" stroke-width="3" marker-end="url(#a)"/>
+<text x="820" y="166" class="l">spawn + env</text>
+<path d="M650 260 H990" stroke="#6dc9f3" stroke-width="3" marker-end="url(#c)" marker-start="url(#c)"/>
+<text x="820" y="246" class="l">LiveView socket</text>
+<path d="M680 340 H990" stroke="#8b98a5" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#a)"/>
+<text x="820" y="326" class="l">poll until 200</text>
+<path d="M355 400 V450" stroke="#f59e0b" stroke-width="3" marker-end="url(#a)" marker-start="url(#a)"/>
+<text x="375" y="432" class="d">invoke / eval</text>
+<text x="30" y="745" class="d">Rust touches Elixir three times: spawn, poll, load URL. After that the browser is the bridge.</text>
+</svg>

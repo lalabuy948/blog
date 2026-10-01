@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" font-family="Outfit, -apple-system, Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b98a5"/></marker></defs>
+<style>.t{fill:#e6edf3;font-size:26px}.h{fill:#ffffff;font-size:32px;font-weight:600}.d{fill:#8b98a5;font-size:22px}.m{font-family:"JetBrains Mono",Menlo,monospace;font-size:22px;fill:#6dc9f3}.box{fill:none;stroke:#8b98a5;stroke-width:3;rx:14}.cy{stroke:#6dc9f3}.gr{stroke:#34d399}.or{stroke:#f59e0b}.ar{stroke:#8b98a5;stroke-width:3;fill:none;marker-end:url(#a)}</style>
+<rect x="30" y="60" width="270" height="600" class="box"/><text x="50" y="110" class="h">One Mac</text><text x="50" y="160" class="m">build_macos.sh</text><text x="50" y="200" class="m">build_windows.sh</text>
+<text x="50" y="280" class="d">macOS path</text>
+<text x="50" y="440" class="d">docker, linux/amd64</text>
+<path d="M300 305 H340" class="ar"/>
+<rect x="340" y="250" width="370" height="110" class="box cy"/><text x="360" y="295" class="h">mix release</text><text x="360" y="335" class="m">BURRITO_TARGET=macos</text>
+<path d="M710 305 H760" class="ar"/>
+<rect x="760" y="250" width="390" height="110" class="box or"/><text x="780" y="295" class="h">cargo tauri build</text><text x="780" y="335" class="d">sign · notarize · staple</text>
+<path d="M1150 305 H1200" class="ar"/>
+<rect x="1200" y="250" width="370" height="110" class="box"/><text x="1220" y="295" class="h">.dmg</text><text x="1220" y="335" class="d">aarch64, Apple Silicon</text>
+<path d="M300 510 H340" class="ar"/>
+<rect x="340" y="410" width="370" height="200" class="box cy"/><text x="360" y="455" class="h">Stage 1: Elixir</text><text x="360" y="495" class="t">zig 0.15 · JIT off</text><text x="360" y="535" class="m">BURRITO_TARGET=linux</text><text x="360" y="570" class="m">BURRITO_TARGET=windows</text>
+<path d="M710 510 H760" class="ar"/>
+<rect x="760" y="410" width="390" height="200" class="box gr"/><text x="780" y="455" class="h">patch step</text><text x="780" y="495" class="m">CC="zig cc -target …"</text><text x="780" y="535" class="t">rebuilt vs target ERTS</text><text x="780" y="570" class="d">lut_nif.so → lut_nif.dll</text>
+<path d="M1150 510 H1200" class="ar"/>
+<rect x="1200" y="410" width="370" height="200" class="box or"/><text x="1220" y="455" class="h">Stage 2: Ubuntu</text><text x="1220" y="495" class="t">cargo-xwin → .exe</text><text x="1220" y="535" class="t">linuxdeploy → AppImage</text><text x="1220" y="570" class="d">glibc 2.35 floor</text>
+<text x="30" y="700" class="d">Burrito recompiles NIFs of dependencies only. Our own NIF needed one extra step, about 60 lines of Elixir.</text>
+</svg>

@@ -8,7 +8,18 @@
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
     <webMaster>lalabuy9948@gmail.com (Daniil Popov)</webMaster>
-    <lastBuildDate>Mon, 21 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Oct 2026 09:00:00 +0200</lastBuildDate><atom:link href="https://mrpopov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The BEAM Is a Friendly Host: C, Rust, Svelte and WebGPU Next to Elixir</title>
+      <link>https://mrpopov.com/posts/cyanview-studio-elixir-neighbors/</link>
+      <pubDate>Thu, 01 Oct 2026 09:00:00 +0200</pubDate>
+      <author>lalabuy9948@gmail.com (Daniil Popov)</author>
+      <guid>https://mrpopov.com/posts/cyanview-studio-elixir-neighbors/</guid>
+      <description>&lt;p&gt;A few weeks ago I wrote down my talk on &lt;a href=&#34;https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/&#34;&gt;how one phone becomes a broadcast camera&lt;/a&gt;. This is the other end of that cable, from the second talk I gave this year, this time to an Elixir crowd at &lt;a href=&#34;https://2026.goatmire.com/&#34;&gt;Goatmire&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am not going to pitch Elixir. I am going to tell you how a small dashboard on a camera control panel turned into a color studio, and how every time the problem got harder, we added a neighbor language next to Elixir instead of rewriting.&lt;/p&gt;
+&lt;p&gt;Elixir is in every part of this story. It is the star in none of them. That is the point.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>CyanCamera: Turning an iPhone Into a Broadcast Camera</title>
       <link>https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/</link>
