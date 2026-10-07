@@ -461,11 +461,13 @@ Elixir isn't involved at all. No hot code upgrades, no appup files. The release 
 
 Licences are sold per seat, and a seat is one laptop. Our first attempt used hostname plus MAC address, which changed whenever someone plugged into a dock, joined a VPN or renamed the machine. One laptop ended up eating several seats.
 
-Now we read the machine GUID the OS already keeps (`IOPlatformUUID` on macOS, `MachineGuid` in the Windows registry, `machine-id` on Linux). We don't send it anywhere. It's used as the key for an HMAC-SHA256 over the app name, which gives 64 hex characters that are stable for that laptop, useless to any other app, and can't be turned back into the GUID.
+Now we read the machine GUID the OS already keeps (`IOPlatformUUID` on macOS, `MachineGuid` in the Windows registry, `machine-id` on Linux). The GUID itself never leaves the laptop. It's used as the key for an HMAC-SHA256 over the app name, which gives 64 hex characters that are stable for that laptop, useless to any other app, and can't be turned back into the GUID.
 
-The rest is a GenServer: activate once, heartbeat every five minutes, with the HTTP call in a Task so the UI still gets answers when the network is slow.
+Every activation and every heartbeat returns a signed licence token, and the app checks it offline. The local database is only a cache: the token is what decides whether Studio runs.
 
-And it will be slow, or just gone. A truck in a stadium car park is offline more often than not, so a failed heartbeat doesn't lock anything. The licence goes into a 72 hour grace period from the last good heartbeat, and the next good one clears it. A revoked seat or deactivated key is different: the server says so and it takes effect right away.
+The rest is a GenServer: activate once, heartbeat every five minutes, with the HTTP call in a supervised Task so the UI still gets answers when the network is slow.
+
+And it will be slow, or just gone. A truck in a stadium car park is offline more often than not, so a failed heartbeat doesn't lock anything. The licence goes into a 72 hour grace period, and the next good heartbeat clears it. A revoked seat or deactivated key is different: the server says so and it takes effect right away.
 
 ## The rule for foreign code
 
