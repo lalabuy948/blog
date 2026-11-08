@@ -23,7 +23,7 @@ unsafe = true
 
 [params]
 contentTypeName = "posts"
-defaultTheme = "light"
+defaultTheme = "dark"
 showMenuItems = 2
 showReadingTime = true
 summary_length = 50
