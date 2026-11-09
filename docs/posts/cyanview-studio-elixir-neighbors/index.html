@@ -18,7 +18,7 @@
 
 
         
-            <meta name="description" content="How a LiveView dashboard on an ARM32 camera panel became a color studio on three operating systems: Tauri and Burrito for the shell, a dirty C NIF for 3D LUT fan-out at 0.85 ms per box, Svelte as one island inside LiveView, WebGPU scopes, a C&#43;&#43; OpenFX host in Rust, and Zig to cross-compile it all from one Mac. Plus the rule for when foreign code goes in a Port, a NIF, or outside the VM."/>
+            <meta name="description" content="How a LiveView dashboard on an ARM32 camera panel became a desktop color studio: Tauri and Burrito, a dirty C NIF that builds a 3D LUT in 0.85 ms per box, one Svelte island inside LiveView, WebGPU scopes, a C&#43;&#43; OpenFX host and Zig cross-compiling. Plus when to use a Port, a NIF, or nothing in the VM at all."/>
         
 
 
@@ -41,13 +41,11 @@
 
 
 
-    <meta property="og:description" content="A few weeks ago I wrote down my talk on how one phone becomes a broadcast camera. This is the other end of that cable, from the second talk I gave this year, this time to an Elixir crowd at Goatmire.
-This isn&rsquo;t an Elixir pitch. It&rsquo;s the story of how a small dashboard on a camera control panel turned into a color studio, and how each time the problem got harder we put another language next to Elixir instead of rewriting anything.
-Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part, and honestly that&rsquo;s what I like about it.
+    <meta property="og:description" content="A few weeks ago I wrote down my CyanCamera talk. This is my second talk of the year, from Goatmire, this time for an Elixir crowd.
+Short version: we had a small LiveView dashboard on a camera control panel. It grew into a desktop color studio. Every time things got harder we put another language next to Elixir, and we never rewrote anything.
 ">
-    <meta property="twitter:description" content="A few weeks ago I wrote down my talk on how one phone becomes a broadcast camera. This is the other end of that cable, from the second talk I gave this year, this time to an Elixir crowd at Goatmire.
-This isn&rsquo;t an Elixir pitch. It&rsquo;s the story of how a small dashboard on a camera control panel turned into a color studio, and how each time the problem got harder we put another language next to Elixir instead of rewriting anything.
-Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part, and honestly that&rsquo;s what I like about it.
+    <meta property="twitter:description" content="A few weeks ago I wrote down my CyanCamera talk. This is my second talk of the year, from Goatmire, this time for an Elixir crowd.
+Short version: we had a small LiveView dashboard on a camera control panel. It grew into a desktop color studio. Every time things got harder we put another language next to Elixir, and we never rewrote anything.
 ">
 
 
@@ -206,7 +204,7 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
       
 
       
-        <span class="post-read-time">20 ☕️</span>
+        <span class="post-read-time">11 ☕️</span>
       
     </div>
 
@@ -230,27 +228,24 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
     
 
     <div class="post-content">
-      <p>A few weeks ago I wrote down my talk on <a href="/posts/cyancamera-turning-phone-into-broadcast-camera/">how one phone becomes a broadcast camera</a>. This is the other end of that cable, from the second talk I gave this year, this time to an Elixir crowd at <a href="https://2026.goatmire.com/">Goatmire</a>.</p>
-<p>This isn&rsquo;t an Elixir pitch. It&rsquo;s the story of how a small dashboard on a camera control panel turned into a color studio, and how each time the problem got harder we put another language next to Elixir instead of rewriting anything.</p>
-<p>Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part, and honestly that&rsquo;s what I like about it.</p>
-<p>Quick context if you&rsquo;re new here: I own the software side of <a href="https://www.cyanview.com/">CyanView</a>: the dashboard that speaks to every camera in the truck, the web studio with <a href="/posts/phoenix-liveview-webgl-color-scopes/">broadcast-grade scopes</a>, and the CyanCamera app. Before CyanView I spent years on zero-downtime migrations and systems with millions of users, a lot of it in Elixir.</p>
-<h2 id="previously-on-cyancamera">Previously, on CyanCamera</h2>
-<p><img src="/img/cyanview-studio-elixir-neighbors/pro-pipeline.svg" alt="Pro pipeline"></p>
-<p>The phone post ended with a 33-point cube in a Metal compute shader, converting Apple Log to Rec.709 live. Here&rsquo;s the same pipeline drawn for a whole truck.</p>
-<p>Light hits the sensor, and camera control (iris, ND, shutter, gain, white balance) shapes what it captures. The camera doesn&rsquo;t send a pretty picture. It sends log over SDI: fourteen stops squeezed into ten bits, flat and grey on purpose. Nobody watches log directly. A 3D LUT on a color box converts it, and the same LUT carries the look. After that it&rsquo;s the vision mixer and then air.</p>
-<p>On the phone there was one camera and the LUT ran on the device. This post is about who builds that LUT and how it gets to thirty boxes while the operator is still dragging the slider. The phone was Swift and Metal; this side is Elixir, with C, C++, Zig, Rust, Svelte and WebGPU around it.</p>
-<p>For years the two brackets on that diagram were two tools, and often two people. The bar across the top, one grade driving both, is what we built.</p>
-<h2 id="every-broadcast-is-a-zoo">Every broadcast is a zoo</h2>
-<p>Trucks, galleries and remote control rooms run gear from dozens of vendors who agree on basically nothing. We support 200+ camera models speaking 30+ control protocols. Video comes in over SDI, SRT, NDI or HDMI. Some cameras sit in the truck, some across the stadium, some on another continent. The look goes through color boxes: Flanders BoxIO, AJA ColorBox and FS-HDR, our VP4 and now the iVP. The newest animal isn&rsquo;t a box at all, it&rsquo;s color in software (DaVinci Resolve, OFX hosts, a virtual VP4), and that&rsquo;s where this post ends up.</p>
-<p>Operators don&rsquo;t care about any of it. They want the panel to feel the same whatever camera is behind it, and hiding the zoo is the RCP&rsquo;s whole job.</p>
-<h2 id="act-one-a-dashboard-on-an-arm32">Act one: a dashboard on an ARM32</h2>
+      <p>A few weeks ago I wrote down my <a href="/posts/cyancamera-turning-phone-into-broadcast-camera/">CyanCamera talk</a>. This is my second talk of the year, from <a href="https://2026.goatmire.com/">Goatmire</a>, this time for an Elixir crowd.</p>
+<p>Short version: we had a small LiveView dashboard on a camera control panel. It grew into a desktop color studio. Every time things got harder we put another language next to Elixir, and we never rewrote anything.</p>
+<h2 id="whats-the-plan">What&rsquo;s the plan?</h2>
+<ul>
+<li>Where it started: a dashboard on an ARM32 panel</li>
+<li>Why color made it hard</li>
+<li>Desktop app with Tauri and Burrito, same Elixir code inside</li>
+<li>The neighbors: C, Svelte, WebGPU, C++, Rust, Zig</li>
+<li>My rule for where foreign code goes</li>
+</ul>
+<h2 id="a-dashboard-on-an-arm32">A dashboard on an ARM32</h2>
 <p><img src="/img/cyanview-studio-elixir-neighbors/rcp-panel.jpg" alt="CyanView RCP panel"></p>
-<p>The RCP is a physical panel that drives many camera heads from different brands. Embedded people expected C. We picked Elixir on a small ARM board, because the panel can&rsquo;t go down during a show.</p>
+<p>The RCP is a physical panel that controls camera heads from many brands. We support 200+ camera models and 30+ control protocols, so hiding that mess from the operator is the whole job.</p>
+<p>Embedded people expected C. We picked Elixir on a small ARM board, because the panel can&rsquo;t go down during a show. This is all the VM tuning it needs (long version in <a href="/posts/elixir-beam-vm-embedded-optimisation/">the embedded memory post</a>):</p>
 <pre tabindex="0"><code>+S 1:1        one scheduler
 +P 50000      process limit
 +MBas aobf    return memory to the OS fast
-</code></pre><p>That&rsquo;s all the VM tuning the panel needs (the long version is in <a href="/posts/elixir-beam-vm-embedded-optimisation/">the embedded memory post</a>). Supervision trees and isolated processes did the rest.</p>
-<p>The dashboard started small: values from every camera in one browser tab, served by the panel itself. Cameras talk faster than people read, so we keep the latest value per <code>{camera, event}</code> and flush every 250 ms.</p>
+</code></pre><p>The dashboard is plain LiveView served by the panel itself. Cameras talk faster than people read, so we keep the latest value per <code>{camera, event}</code> and flush every 250 ms.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#1f2328">@batch_interval</span> <span style="color:#0550ae">250</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> handle_camera_event<span style="color:#1f2328">(</span>socket<span style="color:#1f2328">,</span> camera_id<span style="color:#1f2328">,</span> event<span style="color:#1f2328">,</span> value<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
@@ -258,110 +253,44 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 </span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
 </span></span></code></pre></div><p><img src="/img/cyanview-studio-elixir-neighbors/controls.webp" alt="Dashboard controls"></p>
-<p>It&rsquo;s plain LiveView on the panel&rsquo;s own Phoenix endpoint. The server already has the state, so letting it render the UI was the obvious choice.</p>
-<p>Then it grew. The panel has a fixed number of knobs and cameras have hundreds of functions, so everything that didn&rsquo;t fit on the panel ended up in the dashboard:</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: left">Beyond the panel</th>
-					<th style="text-align: left">What it means</th>
-					<th style="text-align: left">In the app</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: left">Custom camera functions</td>
-					<td style="text-align: left">every function a camera has, not only the ones with a knob</td>
-					<td style="text-align: left">73 control components: PTZ, lens, user matrix, color warper …</td>
-			</tr>
-			<tr>
-					<td style="text-align: left">New ways to control</td>
-					<td style="text-align: left">touch, mouse, keyboard, any browser on the network</td>
-					<td style="text-align: left">dashboard and control template editors, per show</td>
-			</tr>
-			<tr>
-					<td style="text-align: left">Macros</td>
-					<td style="text-align: left">one button, many cameras or groups at once</td>
-					<td style="text-align: left">macro editor, macro pad, raw MQTT escape hatch</td>
-			</tr>
-			<tr>
-					<td style="text-align: left">Automation</td>
-					<td style="text-align: left">the rundown drives the cameras</td>
-					<td style="text-align: left">OSC in, e.g. CuePilot: <code>/macro /camera /grade /lut</code></td>
-			</tr>
-			<tr>
-					<td style="text-align: left">Remote production</td>
-					<td style="text-align: left">operators far from the truck</td>
-					<td style="text-align: left">REMI sessions, one per scene</td>
-			</tr>
-	</tbody>
-</table>
-<p>At some point the dashboard stopped needing a person in front of it. Macros fire many cameras at once, and show automation like CuePilot sends OSC at the right moment in the rundown. It also left the truck: in remote productions the operator isn&rsquo;t even in the same building as the cameras.</p>
-<h2 id="act-two-then-color-got-serious">Act two: then color got serious</h2>
-<p>The iVP (our openGear successor to the VP4) and CyanCamera brought a lot more color science with them, and operators wanted camera values and looks in the same interface.</p>
-<p><img src="/img/cyanview-studio-elixir-neighbors/vp4.jpg" alt="CyanView VP4">
-<em>CyanView VP4</em></p>
-<p><img src="/img/cyanview-studio-elixir-neighbors/ivp.jpg" alt="CyanView iVP">
-<em>CyanView iVP, and a lot of other vendors&rsquo; boxes next to them</em></p>
-<h3 id="what-is-a-3d-lut">What is a 3D LUT</h3>
+<p>Then it grew. A panel has a fixed number of knobs and a camera has hundreds of functions, so everything else went into the dashboard: 73 control components, macros that fire many cameras at once, OSC from show automation like CuePilot, and remote sessions where the operator isn&rsquo;t even in the same building.</p>
+<h2 id="then-color-got-serious">Then color got serious</h2>
+<p>Our new color box, the iVP, and CyanCamera came with a lot more color science, and operators wanted camera control and looks in one place.</p>
+<p><img src="/img/cyanview-studio-elixir-neighbors/ivp.jpg" alt="CyanView iVP"></p>
 <p><img src="/img/cyanview-studio-elixir-neighbors/lut-cube.svg" alt="3D LUT cube"></p>
-<p>A quick detour on what we actually send to those boxes, since the rest of the post is about building it fast.</p>
-<p>Take every color a pixel can have and lay it out in space: red on one axis, green on another, blue on the third. Black sits where the axes meet, white in the far corner. A flat grey log pixel from the camera might be 0.42 red, 0.35 green, 0.30 blue. Read that way, the three numbers stop being a color and become an address.</p>
-<p>A 3D LUT stores a new color at regular points in that cube. At 33 points per axis that&rsquo;s 35,937 entries. The pixel lands inside a small cell with eight corners; you read the eight stored colors, blend them by distance, and that blend is the output pixel. Skin, sky and grass all go through the same lookup.</p>
-<p>There&rsquo;s no branching and no color science at runtime. The Rec.709 conversion and the creative look are both baked into the table, which is why a color box can do this for two million pixels fifty times a second. It also means changing the look is always the same job: build a new table and get it to the box.</p>
-<h3 id="three-problems-at-once">Three problems at once</h3>
-<p>First, fan-out: thirty or more color boxes, each with its own chain, each needing a fresh LUT on every slider tick. Second, the interface: node graphs, GPU scopes, color wheels and curves are a long way from forms. Third, we weren&rsquo;t going to rewrite the dashboard, with its 73 camera controls, MQTT plumbing and camera state.</p>
-<p>A single-scheduler ARM board was never going to run node graphs, GPU scopes and thirty LUTs per tick.</p>
-<p>So we tried a spike: a desktop app with the same Elixir app inside.</p>
-<h2 id="act-three-a-desktop-spike-with-tauri-and-burrito">Act three: a desktop spike with Tauri and Burrito</h2>
+<p>What we send to color boxes is a 3D LUT: a cube of 33×33×33 colors, 35,937 entries. Change the look, and you build a new cube and push it to the box. Easy for one box. We have three problems though:</p>
+<ol>
+<li>Fan-out: 30+ boxes, each with its own chain, each needs a fresh LUT on every slider tick.</li>
+<li>UI: node graphs, GPU scopes, color wheels. Far from forms.</li>
+<li>We&rsquo;re not going to rewrite the dashboard.</li>
+</ol>
+<p>A single-scheduler ARM board was never going to do that. So we tried a desktop app with the same Elixir app inside.</p>
+<h2 id="tauri--burrito">Tauri + Burrito</h2>
 <p><img src="/img/cyanview-studio-elixir-neighbors/holy-trinity.svg" alt="The holy trinity"></p>
-<p>Left side is camera control, where CyanView started. Right side is the color boxes, one LUT per feed. The middle is what the studio adds: one grade that drives both.</p>
-<video controls muted playsinline style="max-width: 100%; height: auto;">
-  <source src="/img/cyanview-studio-elixir-neighbors/studio-blender.mp4" type="video/mp4">
-</video>
-<h3 id="tauri-and-burrito">Tauri and Burrito</h3>
 <p><img src="/img/cyanview-studio-elixir-neighbors/desktop-architecture.svg" alt="Desktop architecture"></p>
-<p>The shell is <a href="https://tauri.app/">Tauri</a>: Rust, a native window, menus, updater and tray icon. <a href="https://github.com/burrito-elixir/burrito">Burrito</a> packs ERTS and our release into one binary per platform. The step-by-step is in <a href="/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary</a>, so I&rsquo;ll only sketch it here.</p>
-<p>Tauri launches that binary as a sidecar with a target and a port, polls localhost until Phoenix answers, and then points the webview at the LiveView.</p>
+<p><a href="https://tauri.app/">Tauri</a> is the shell: Rust, native window, menus, updater. <a href="https://github.com/burrito-elixir/burrito">Burrito</a> packs ERTS and our release into one binary per platform. I wrote the step by step in <a href="/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary</a>.</p>
+<p>Tauri starts that binary as a sidecar, waits until Phoenix answers on localhost and opens the webview.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>handle<span style="color:#1f2328">.</span>shell<span style="color:#1f2328">()</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">.</span>sidecar<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;cy_camera_companion_backend&#34;</span><span style="color:#1f2328">)</span><span style="color:#0550ae">?</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">.</span>env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;CY_COMPANION_PORT&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;4173&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#1f2328">.</span>env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;BURRITO_TARGET&#34;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;tauri&#34;</span><span style="color:#1f2328">)</span><span style="color:#fff">
-</span></span></span></code></pre></div><p>It polls <code>http://127.0.0.1:4173</code> once a second, up to 180 times, and then opens the webview on <code>/desktop</code>. Backend stdout goes to <code>backend.log</code> since the sidecar has no console on Windows. That&rsquo;s the whole Rust-to-Elixir integration.</p>
-<p>Three minutes sounds like a lot, but the first launch on Windows unpacks the entire release while Defender scans every file.</p>
-<p>The spike worked. Users see one app, and underneath it&rsquo;s the same RCP engine.</p>
-<h3 id="mix-targets">Mix targets</h3>
-<p>The desktop build isn&rsquo;t a fork, it&rsquo;s a Mix target. By default we compile the RCP modules, and one variable pulls the desktop directory in.</p>
+</span></span></span></code></pre></div><p>It polls once a second, up to 180 times. Three minutes sounds crazy, but on the first launch on Windows Burrito unpacks the whole release while Defender scans every file. That&rsquo;s all the Rust-to-Elixir integration we have.</p>
+<p>The desktop build isn&rsquo;t a fork, it&rsquo;s a Mix target:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defp</span> elixirc_paths<span style="color:#1f2328">(</span>_env<span style="color:#1f2328">,</span> <span style="color:#032f62">:desktop</span><span style="color:#1f2328">),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;lib&#34;</span><span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">defp</span> elixirc_paths<span style="color:#1f2328">(</span>_env<span style="color:#1f2328">,</span> _target<span style="color:#1f2328">),</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;lib/cy_camera_companion&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;lib/cy_camera_companion_web&#34;</span><span style="color:#1f2328">,</span> ...<span style="color:#1f2328">]</span>
-</span></span></code></pre></div><p>The supervision tree doesn&rsquo;t check a config flag. Each desktop child is guarded by &ldquo;is this module loaded?&rdquo;, so whatever wasn&rsquo;t compiled in never starts.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#57606a"># {gate, child_spec}: start only if the module was compiled in</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span><span style="color:#1f2328">Desktop.Services.MqttWorkerSupervisor</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">Desktop.Services.MqttWorkerSupervisor</span><span style="color:#1f2328">},</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span><span style="color:#0550ae">nil</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">{</span><span style="color:#1f2328">Registry</span><span style="color:#1f2328">,</span> <span style="color:#032f62">keys</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:unique</span><span style="color:#1f2328">,</span> <span style="color:#032f62">name</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">Desktop.Discovery.Registry</span><span style="color:#1f2328">}},</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Enum</span><span style="color:#0550ae">.</span>flat_map<span style="color:#1f2328">(</span><span style="color:#cf222e">fn</span> <span style="color:#1f2328">{</span>mod<span style="color:#1f2328">,</span> spec<span style="color:#1f2328">}</span> <span style="color:#0550ae">-&gt;</span>
+</span></span></code></pre></div><p>And the supervision tree starts a desktop child only if its module was compiled in:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#0550ae">|&gt;</span> <span style="color:#1f2328">Enum</span><span style="color:#0550ae">.</span>flat_map<span style="color:#1f2328">(</span><span style="color:#cf222e">fn</span> <span style="color:#1f2328">{</span>mod<span style="color:#1f2328">,</span> spec<span style="color:#1f2328">}</span> <span style="color:#0550ae">-&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#1f2328">Code</span><span style="color:#0550ae">.</span>ensure_loaded?<span style="color:#1f2328">(</span>mod<span style="color:#1f2328">),</span> <span style="color:#032f62">do</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">List</span><span style="color:#0550ae">.</span>wrap<span style="color:#1f2328">(</span>spec<span style="color:#1f2328">),</span> <span style="color:#032f62">else</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[]</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span><span style="color:#1f2328">)</span>
-</span></span></code></pre></div><h3 id="the-dashboard-comes-along">The dashboard comes along</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>scope <span style="color:#0a3069">&#34;/&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">CyCameraCompanionWeb</span> <span style="color:#cf222e">do</span>
-</span></span><span style="display:flex;"><span>  live <span style="color:#0a3069">&#34;/&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">HomeLive</span>                                   <span style="color:#57606a"># the RCP dashboard</span>
-</span></span><span style="display:flex;"><span>  live <span style="color:#0a3069">&#34;/scene/:scene_id/camera/:camera_id&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">CameraControlLive</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>scope <span style="color:#0a3069">&#34;/desktop&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">CyCameraCompanionWeb</span> <span style="color:#cf222e">do</span>
-</span></span><span style="display:flex;"><span>  live <span style="color:#0a3069">&#34;/projects/:project_id&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">StudioLive</span>             <span style="color:#57606a"># the new studio</span>
-</span></span><span style="display:flex;"><span>  live <span style="color:#0a3069">&#34;/projects/:project_id/feeds/:feed_id/scopes&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">ScopesFullscreenLive</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><p>Router, endpoint, MQTT workers and camera state are all shared. The studio doesn&rsquo;t import the dashboard, it just lives beside it in the same app. We solved &ldquo;reuse the dashboard&rdquo; by leaving it where it was.</p>
-<h2 id="act-four-then-we-kept-adding-neighbors">Act four: then we kept adding neighbors</h2>
-<p>Once the spike worked, we handled every hard problem the same way: find the right tool for it, run it next to Elixir, and keep the decisions in Elixir.</p>
+</span></span></code></pre></div><p>The old dashboard routes and the new studio routes live in the same router. &ldquo;Reuse the dashboard&rdquo; turned out to mean &ldquo;leave it where it is&rdquo;.</p>
+<h2 id="the-neighbors">The neighbors</h2>
 <table>
 	<thead>
 			<tr>
 					<th style="text-align: left">Problem</th>
 					<th style="text-align: left">Neighbor</th>
-					<th style="text-align: left">Mechanism</th>
+					<th style="text-align: left">How</th>
 			</tr>
 	</thead>
 	<tbody>
@@ -386,11 +315,6 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 					<td style="text-align: left">WGSL compute in the webview</td>
 			</tr>
 			<tr>
-					<td style="text-align: left">Users bring their own shaders</td>
-					<td style="text-align: left">C++</td>
-					<td style="text-align: left">compiled at runtime, run as a Port</td>
-			</tr>
-			<tr>
 					<td style="text-align: left">Live video effects at 1080p60</td>
 					<td style="text-align: left">C++ and Metal</td>
 					<td style="text-align: left">our own OpenFX host, in the Rust shell</td>
@@ -402,64 +326,8 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<h3 id="webgpu-scopes">WebGPU scopes</h3>
-<p>The colorist has to see what the grade does to the signal while dragging. That&rsquo;s millions of pixels per frame, so they never go near the server. The server does the maths and pushes the LUT, and the browser handles the pixels.</p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: left">Scope</th>
-					<th style="text-align: left">WebGPU pipeline</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: left">Histogram</td>
-					<td style="text-align: left">compute: count → compute: build vertices → render</td>
-			</tr>
-			<tr>
-					<td style="text-align: left">Waveform</td>
-					<td style="text-align: left">render into an <code>rgba16float</code> HDR texture, additive blend → tonemap</td>
-			</tr>
-			<tr>
-					<td style="text-align: left">Parade</td>
-					<td style="text-align: left">same HDR path, per channel</td>
-			</tr>
-			<tr>
-					<td style="text-align: left">Vectorscope</td>
-					<td style="text-align: left">same HDR path, chroma plane</td>
-			</tr>
-			<tr>
-					<td style="text-align: left">Preview</td>
-					<td style="text-align: left">the server&rsquo;s LUT as a 3D texture, applied in WGSL</td>
-			</tr>
-	</tbody>
-</table>
-<video controls muted playsinline style="max-width: 100%; height: auto;">
-  <source src="/img/cyanview-studio-elixir-neighbors/webgpu-scopes.mp4" type="video/mp4">
-</video>
-<p>Scopes can also open fullscreen in their own window, which is just another route. I covered the WebGL version in <a href="/posts/phoenix-liveview-webgl-color-scopes/">the scopes post</a>. With WebGPU we got compute shaders, so histogram counting moved off the CPU as well.</p>
-<h3 id="svelte-for-the-node-editor">Svelte for the node editor</h3>
-<p><img src="/img/cyanview-studio-elixir-neighbors/node-editor.jpg" alt="Node editor"></p>
-<p>Problem two. A grade is a chain (input transform → grading → DCTL → cube file → output transform), plus groups of those, linked or copied. Colorists want to drag boxes around, not fill in forms, and LiveView on its own isn&rsquo;t great at drag-and-drop graph editors.</p>
-<p>So there&rsquo;s exactly one Svelte component in the app. It takes nodes and edges as props and pushes nine events back.</p>
-<pre tabindex="0"><code class="language-heex" data-lang="heex">&lt;.svelte name=&#34;LutFlow&#34; id=&#34;LutFlow&#34;
-  props={%{nodes: @nodes, edges: @edges, chainIds: @chain_ids,
-           selectedNodeId: @selected_node_id, rcpActive: @rcp_active}}
-  ssr={false} class=&#34;absolute inset-0&#34; /&gt;
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#57606a">// LutFlow.svelte
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">props</span><span style="color:#1f2328">.</span><span style="color:#1f2328">live</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pushEvent</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;edge_added&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">{</span><span style="color:#1f2328">id</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">source</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">target</span><span style="color:#1f2328">})</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">def</span> handle_event<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;edge_added&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">%{</span><span style="color:#0a3069">&#34;source&#34;</span> <span style="color:#0550ae">=&gt;</span> s<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;target&#34;</span> <span style="color:#0550ae">=&gt;</span> t<span style="color:#1f2328">},</span> socket<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a"># re-validate: one root only, no cycles; then save (200 ms debounce),</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#57606a"># regenerate preview LUT (17³, max one per 16 ms), push it to WebGPU</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><p>The graph is xyflow-shaped JSON everywhere: in SQLite, in assigns, and in xyflow itself, so there&rsquo;s no translation layer. Elixir does the topological sort and sends the chain order back down as badges.</p>
-<p>Things that turned out to matter:</p>
-<ul>
-<li>Fixed component id, so xyflow&rsquo;s viewport and undo survive grade switches.</li>
-<li>The server re-validates every client edit. The client validates too, for feel.</li>
-<li>Build: mix runs bun, bun runs esbuild, esbuild runs the Svelte compiler. No Node.</li>
-</ul>
-<h3 id="lut-fan-out">LUT fan-out</h3>
+<h3 id="the-c-nif-or-how-a-port-lost">The C NIF, or how a Port lost</h3>
+<p>Building a LUT touches every entry, 35,937 of them, 30 times per slider tick, 60 ticks a second. Pure Elixir wasn&rsquo;t an option.</p>
 <table>
 	<thead>
 			<tr>
@@ -494,10 +362,7 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<p>On the phone this cube only had to run in a shader. Here we have to build it thirty times per slider tick. The operator drags a slider on a laptop, and every camera and color box on the venue network needs a fresh LUT of its own while the slider keeps moving.</p>
-<p>Doing that in pure Elixir wasn&rsquo;t realistic.</p>
-<h3 id="the-c-nif">The C NIF</h3>
-<p>This is the only place where C runs inside the VM.</p>
+<p>It started as a Port. Then we measured: generation took about 1 ms, and the 20 ms debounce in front of it was pure waiting. So we moved it to a dirty NIF and deleted the coordinator.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#cf222e">static</span> ErlNifFunc nif_funcs<span style="color:#1f2328">[]</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;generate_mixed_nif&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> generate_mixed_nif<span style="color:#1f2328">,</span> ERL_NIF_DIRTY_JOB_CPU_BOUND<span style="color:#1f2328">},</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;lerp_lut_nif&#34;</span><span style="color:#1f2328">,</span>       <span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> lerp_lut_nif<span style="color:#1f2328">,</span>       <span style="color:#0550ae">0</span><span style="color:#1f2328">},</span>
@@ -530,18 +395,13 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<p>The color science (CDL, curves, primaries, color space conversion) is plain C11, built by <code>elixir_make</code> during <code>mix compile</code>. Elixir packs the grade into a single binary with native-endian bitstrings and gets back one binary of size³ × 3 floats, without copying.</p>
-<p>It started life as a Port. Then we measured: generation took about a millisecond, and the twenty millisecond debounce in front of it was pure latency. We switched to a NIF and deleted the coordinator.</p>
-<p>The cost is that a NIF crash takes down the VM. The comment at the top of the C file says so: &ldquo;a NIF crash takes down the whole BEAM (the old port crash was isolated). Every <code>NEED()</code> bounds check from the former decoders is preserved, and size is capped before any allocation.&rdquo; <code>MAX_LUT_SIZE</code> is 129, <code>MAX_CHAIN</code> is 64 nodes. A failed load never fails <code>@on_load</code>; the app runs degraded and says so.</p>
-<p>We accepted that for one hot path in code we wrote ourselves. Everywhere else we use Ports, more on that at the end.</p>
-<h3 id="how-the-fan-out-runs">How the fan-out runs</h3>
+<p>The color science is plain C11, built by <code>elixir_make</code> during <code>mix compile</code>. Elixir packs the grade into one binary and gets back one binary of size³ × 3 floats, no copying.</p>
+<blockquote>
+<p>⚠️ A NIF crash takes down the whole BEAM, the Port crash was isolated. So every input is bounds-checked, size is capped before any allocation (<code>MAX_LUT_SIZE</code> 129, <code>MAX_CHAIN</code> 64), and if the NIF fails to load the app runs degraded and says so. We accept this for one hot path in our own code. Everything else stays in Ports.</p>
+</blockquote>
+<p>The fan-out is a GenServer with one job in flight. A newer request replaces the pending one, so a slider drag never queues up. Every box gets its own task in <code>Task.async_stream</code> and pushes its LUT as soon as the NIF returns.</p>
 <p><img src="/img/cyanview-studio-elixir-neighbors/lut-fanout.svg" alt="LUT fan-out"></p>
-<p>A GenServer keeps one job in flight. A newer request replaces whatever is pending, so a slider drag never queues up and the cameras end on the last value.</p>
-<p>Each box gets its own task under <code>Task.async_stream</code> (<code>max_concurrency</code> set to <code>schedulers_online</code>, unordered, killed on timeout). The task resolves the chain, calls the NIF and pushes to the device as soon as the NIF returns. Boxes don&rsquo;t wait for each other.</p>
-<p>Our first try was a batched NIF, one call instead of thirty, which looked faster on paper. In practice every box waited for the slowest LUT, so a DCTL box at 150 ms held up a grading box at 3 ms. GCD nests fine across concurrent NIF calls, so we went back to per-box tasks and let the BEAM schedule them. The revert deleted 120 lines of C and 70 of Elixir.</p>
-<h3 id="measured">Measured</h3>
-<p><img src="/img/cyanview-studio-elixir-neighbors/measured-pipeline.svg" alt="Measured pipeline"></p>
-<p>Full chain: IDT S-Log3 → grading → primaries → 3D LUT → ODT Rec.709. 10 warm-up calls, then 200 timed, average in ms, on a Mac with 10 schedulers.</p>
+<p>Funny part: our first version was a batched NIF, one call for all 30 boxes. On paper faster. In practice every box waited for the slowest one, so a DCTL box at 150 ms blocked a simple grading box at 3 ms. We went back to one task per box and let the BEAM schedule them. The revert deleted 120 lines of C and 70 lines of Elixir. Best kind of commit.</p>
 <table>
 	<thead>
 			<tr>
@@ -576,9 +436,9 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<p>Wall time grows with targets per scheduler rather than with the raw target count. Elixir&rsquo;s part of the critical path is about a quarter of a millisecond and stays flat as the cube grows. Device encoders are C NIFs too, at 1 to 9 percent of the generation cost.</p>
-<p>The one slow Elixir step, writing a <code>.cube</code> file (5 ms), runs as an async task off the critical path. Our rule of thumb: if it touches every LUT entry on the hot path, it&rsquo;s C. Per-target bookkeeping and anything off the critical path stays in Elixir.</p>
-<p>For a sense of scale, here&rsquo;s thirty boxes at 60 Hz in raw bytes:</p>
+<p><em>Full chain S-Log3 → grading → 3D LUT → Rec.709, Mac with 10 schedulers, 200 runs after warm-up.</em></p>
+<p>Elixir&rsquo;s part is about 0.25 ms and stays flat. The only slow Elixir step, writing a <code>.cube</code> file (5 ms), runs async, off the critical path. My rule of thumb: if it touches every LUT entry on the hot path, it&rsquo;s C. The rest stays in Elixir.</p>
+<p>For scale, 30 boxes at 60 Hz in raw bytes:</p>
 <table>
 	<thead>
 			<tr>
@@ -605,7 +465,7 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<h3 id="device-protocols">Device protocols</h3>
+<p>Each device has its own process under a DynamicSupervisor. Binaries over 64 bytes are reference counted, so sending the same LUT to 30 processes copies nothing.</p>
 <table>
 	<thead>
 			<tr>
@@ -654,15 +514,9 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<p>There&rsquo;s a DynamicSupervisor, a process per device and a Registry. The NIF result goes to each device process by cast, and since binaries over 64 bytes are reference counted, thirty casts don&rsquo;t copy anything.</p>
-<p>Six targets share four wire formats: RGBA floats for the phone, 16.16 fixed point for VP4 and Resolve, uint16 for both AJA boxes, and BoxIO&rsquo;s own framing.</p>
-<p>The last column is measured. Until recently two of those encoders were Elixir comprehensions taking about two milliseconds, longer than generating the LUT. Moving them to C made them roughly a hundred times cheaper.</p>
-<p>The first row is the phone from the previous post. The LUT in its Metal shader is built here and goes out through the same fan-out as a rack-mounted AJA box.</p>
-<h3 id="the-live-fade">The live fade</h3>
-<p>On air a look can&rsquo;t jump, because every viewer would see the snap. So any LUT push can crossfade, per feed and per device, while the operator keeps dragging.</p>
-<video controls muted playsinline style="max-width: 100%; height: auto;">
-  <source src="/img/cyanview-studio-elixir-neighbors/lut-fade.mp4" type="video/mp4">
-</video>
+<p>Two of those encoders used to be Elixir comprehensions taking ~2 ms, longer than building the LUT itself. In C they&rsquo;re about 100 times faster. And yes, the first row is the phone from the previous post: its Metal shader LUT goes out through the same fan-out as a rack-mounted AJA box.</p>
+<h3 id="fades-on-air">Fades on air</h3>
+<p>A look can&rsquo;t jump on air, every viewer would see it. So any push can crossfade, per device, even while the operator keeps dragging.</p>
 <table>
 	<thead>
 			<tr>
@@ -700,12 +554,58 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 </span></span><span style="display:flex;"><span>       <span style="color:#1f2328">{</span><span style="color:#032f62">:ok</span><span style="color:#1f2328">,</span> blend<span style="color:#1f2328">}</span> <span style="color:#0550ae">&lt;-</span> <span style="color:#1f2328">LutNif</span><span style="color:#0550ae">.</span>lerp_lut<span style="color:#1f2328">(</span>fade<span style="color:#0550ae">.</span>from<span style="color:#1f2328">,</span> fade<span style="color:#0550ae">.</span>to<span style="color:#1f2328">,</span> step <span style="color:#0550ae">/</span> frames<span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:fading</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">%{</span>fade <span style="color:#0550ae">|</span> <span style="color:#032f62">step</span><span style="color:#1f2328">:</span> step<span style="color:#1f2328">},</span> blend<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#cf222e">else</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">false</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">{</span><span style="color:#032f62">:settled</span><span style="color:#1f2328">,</span> fade<span style="color:#0550ae">.</span>to<span style="color:#1f2328">}</span>          <span style="color:#57606a"># last step: the exact target, not a blend</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:error</span><span style="color:#1f2328">,</span> _<span style="color:#1f2328">}</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">{</span><span style="color:#032f62">:settled</span><span style="color:#1f2328">,</span> fade<span style="color:#0550ae">.</span>to<span style="color:#1f2328">}</span>    <span style="color:#57606a"># a failed blend snaps, never drops</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">false</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">{</span><span style="color:#032f62">:settled</span><span style="color:#1f2328">,</span> fade<span style="color:#0550ae">.</span>to<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:error</span><span style="color:#1f2328">,</span> _<span style="color:#1f2328">}</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#1f2328">{</span><span style="color:#032f62">:settled</span><span style="color:#1f2328">,</span> fade<span style="color:#0550ae">.</span>to<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><p>It&rsquo;s one GenServer holding a map of fades keyed by device, with <code>Process.send_after</code> as the clock. Ticks are anchored to the fade start, so time spent blending and sending doesn&rsquo;t stretch the fade. Each retarget gets a fresh tick ref, which orphans the old timer, so there&rsquo;s nothing to cancel. A failed send on one device gets rescued and doesn&rsquo;t stop the other fades.</p>
-<p>It&rsquo;s 174 lines of Elixir and one C function sitting in front of every device send, and all four wire formats got fades from it at once.</p>
+</span></span></code></pre></div><p>One GenServer, a map of fades per device, <code>Process.send_after</code> as the clock. Ticks are anchored to the fade start, so time spent blending and sending doesn&rsquo;t stretch the fade. 174 lines of Elixir plus one C function, and all four wire formats got fades at once.</p>
+<video controls muted playsinline style="max-width: 100%; height: auto;">
+  <source src="/img/cyanview-studio-elixir-neighbors/lut-fade.mp4" type="video/mp4">
+</video>
+<h3 id="one-svelte-component">One Svelte component</h3>
+<p><img src="/img/cyanview-studio-elixir-neighbors/node-editor.jpg" alt="Node editor"></p>
+<p>Colorists want to drag nodes around, not fill forms, and LiveView alone isn&rsquo;t great at graph editors. So there is exactly one Svelte component in the whole app. Nodes and edges go in as props, events come back:</p>
+<pre tabindex="0"><code class="language-heex" data-lang="heex">&lt;.svelte name=&#34;LutFlow&#34; id=&#34;LutFlow&#34;
+  props={%{nodes: @nodes, edges: @edges, chainIds: @chain_ids,
+           selectedNodeId: @selected_node_id, rcpActive: @rcp_active}}
+  ssr={false} class=&#34;absolute inset-0&#34; /&gt;
+</code></pre><p>The graph is xyflow-shaped JSON everywhere (SQLite, assigns, the client), so no translation layer. The server re-validates every edit: one root, no cycles. And no Node in the build: mix runs bun, bun runs esbuild, esbuild runs the Svelte compiler.</p>
+<h3 id="webgpu-scopes">WebGPU scopes</h3>
+<p>The colorist needs to see the signal while dragging. That&rsquo;s millions of pixels per frame, so they never go to the server. The server builds the LUT and pushes it, the browser does the rest.</p>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: left">Scope</th>
+					<th style="text-align: left">WebGPU pipeline</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left">Histogram</td>
+					<td style="text-align: left">compute: count → compute: build vertices → render</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Waveform</td>
+					<td style="text-align: left">render into an <code>rgba16float</code> HDR texture, additive blend → tonemap</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Parade</td>
+					<td style="text-align: left">same HDR path, per channel</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Vectorscope</td>
+					<td style="text-align: left">same HDR path, chroma plane</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Preview</td>
+					<td style="text-align: left">the server&rsquo;s LUT as a 3D texture, applied in WGSL</td>
+			</tr>
+	</tbody>
+</table>
+<p>I did the WebGL version in <a href="/posts/phoenix-liveview-webgl-color-scopes/">the scopes post</a>, with WebGPU histogram counting moved to compute shaders too.</p>
+<video controls muted playsinline style="max-width: 100%; height: auto;">
+  <source src="/img/cyanview-studio-elixir-neighbors/webgpu-scopes.mp4" type="video/mp4">
+</video>
 <h3 id="openfx-on-live-sdi">OpenFX on live SDI</h3>
 <p>Next request: OpenFX plugins on the live feed.</p>
 <table>
@@ -734,51 +634,29 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<p>None of that should go through a garbage collected VM.</p>
-<h3 id="what-rust-does">What Rust does</h3>
-<p>Rust handles menus, the tray, window state and the updater. It loads the NDI SDK at runtime with <code>libloading</code>, runs the DeckLink capture and output threads, and binds the C++ OFX host. It has no business logic, doesn&rsquo;t touch the database and doesn&rsquo;t render UI.</p>
-<p>It only deals with Elixir at startup (spawn, poll, load the URL). After that the webview is the bridge, with the LiveView socket on one side and Tauri <code>invoke</code> on the other. We never built a direct Rust-to-Elixir channel and haven&rsquo;t missed it.</p>
-<h3 id="fxvp-our-openfx-engine">FXVP: our OpenFX engine</h3>
-<p><img src="/img/cyanview-studio-elixir-neighbors/fxvp-headless.svg" alt="FXVP headless"></p>
-<p>FXVP is the OpenFX engine we wrote for this. The first version runs inside the studio, hosted by the Rust shell, and the panel talks to it through Tauri invoke.</p>
-<p>A laptop has one DeckLink and one GPU, though, and a truck has a lot of feeds. So the same engine also ships as a daemon for a headless Mac mini with a DeckLink card. Each daemon runs one pipeline on one port, restores its last pipeline on boot and starts processing before anyone connects.</p>
-<p>The operator doesn&rsquo;t notice the difference. Elixir keeps a client per box, pushes the chain over HTTP and relays the box&rsquo;s events back to the panel over PubSub. Only the chain definition and a few floats go over the network, never video.</p>
+<p>None of that goes through a garbage collected VM.</p>
+<p>So we wrote FXVP, our own OpenFX host in C++ with a zero-copy Metal pipeline. Video goes DeckLink → Rust → C++ → SDI and the BEAM never sees a frame. Elixir only sends the chain definition and a few floats. The same engine also runs as a daemon on a headless Mac mini with a DeckLink card, because a laptop has one GPU and a truck has a lot of feeds.</p>
 <p><img src="/img/cyanview-studio-elixir-neighbors/ofx-video-path.svg" alt="OFX video path"></p>
-<p>The host is C++ on top of the official HostSupport library, with a zero-copy Metal pipeline on Apple Silicon. Tauri&rsquo;s build script compiles it with cmake and links it statically. Video goes from DeckLink to Rust to C++ and back out to SDI, and the BEAM never sees a frame.</p>
 <h3 id="cross-compiling-from-one-mac">Cross-compiling from one Mac</h3>
-<p><img src="/img/cyanview-studio-elixir-neighbors/build-pipeline.svg" alt="Build pipeline"></p>
-<p>Burrito&rsquo;s build step only recompiles NIFs in dependencies, not in your own app, so we added one step that rebuilds <code>c_src</code> with <code>zig cc</code> against the target&rsquo;s ERTS headers.</p>
+<p>Burrito only recompiles NIFs from dependencies, not from your own app. So we added a step that rebuilds <code>c_src</code> with <code>zig cc</code> for each target:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>cmd<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;make&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;all&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;--always-make&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;PRIV_DIR=</span><span style="color:#0a3069">#{</span>priv_native<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">],</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#032f62">cd</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;c_src&#34;</span><span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#032f62">env</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;CC&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;zig cc -target </span><span style="color:#0a3069">#{</span>triplet<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;ERTS_INCLUDE_DIR&#34;</span><span style="color:#1f2328">,</span> erts_include<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">])</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> context<span style="color:#0550ae">.</span>target<span style="color:#0550ae">.</span>os <span style="color:#0550ae">==</span> <span style="color:#032f62">:windows</span> <span style="color:#cf222e">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">File</span><span style="color:#0550ae">.</span>rename!<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;lut_nif.so&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;lut_nif.dll&#34;</span><span style="color:#1f2328">)</span>   <span style="color:#57606a"># load_nif resolves &lt;path&gt;.dll</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><p>The catch is that zig doesn&rsquo;t ship libomp, so cross-built LUT generation runs single-threaded. Windows gets built from Linux with cargo-xwin, and the Linux stage uses Ubuntu 22 for an older glibc. It all runs as one docker build on a Mac.</p>
-<h3 id="auto-update">Auto-update</h3>
-<p><img src="/img/cyanview-studio-elixir-neighbors/auto-update.svg" alt="Auto update"></p>
-<p>Three seconds after launch the webview asks Tauri&rsquo;s updater plugin to check. The plugin sends our server the target, architecture and current version, and if there&rsquo;s something newer it gets back a version, release notes, a download URL and a signature.</p>
-<p>The user gets a small banner with &ldquo;later&rdquo; and &ldquo;install&rdquo;. Install downloads the bundle with a progress bar, and the plugin checks the signature against the minisign public key compiled into the app, so unsigned bundles won&rsquo;t install.</p>
-<p>After that a single Rust command kills the BEAM sidecar and restarts the app. The new bundle boots like a first launch: Burrito unpacks the release, Phoenix comes up on localhost, the webview loads. Shell and sidecar ship in the same bundle, so their versions can&rsquo;t drift.</p>
-<p>Elixir isn&rsquo;t involved at all. No hot code upgrades, no appup files. The release is just cargo inside a signed bundle, which for a desktop app is all we wanted.</p>
+</span></span></code></pre></div><p>Catch: zig doesn&rsquo;t ship libomp, so cross-built LUT generation is single-threaded. On Windows <code>load_nif</code> wants <code>.dll</code>, so we rename the <code>.so</code>. It all runs as one docker build on a Mac.</p>
 <h3 id="licensing">Licensing</h3>
-<p><img src="/img/cyanview-studio-elixir-neighbors/licence-server.svg" alt="Licence server"></p>
-<p>Licences are sold per seat, and a seat is one laptop. Our first attempt used hostname plus MAC address, which changed whenever someone plugged into a dock, joined a VPN or renamed the machine. One laptop ended up eating several seats.</p>
-<p>Now we read the machine GUID the OS already keeps (<code>IOPlatformUUID</code> on macOS, <code>MachineGuid</code> in the Windows registry, <code>machine-id</code> on Linux). The GUID itself never leaves the laptop. It&rsquo;s used as the key for an HMAC-SHA256 over the app name, which gives 64 hex characters that are stable for that laptop, useless to any other app, and can&rsquo;t be turned back into the GUID.</p>
-<p>Every activation and every heartbeat returns a signed licence token, and the app checks it offline. The local database is only a cache: the token is what decides whether Studio runs.</p>
-<p>The rest is a GenServer: activate once, heartbeat every five minutes, with the HTTP call in a supervised Task so the UI still gets answers when the network is slow.</p>
-<p>And it will be slow, or just gone. A truck in a stadium car park is offline more often than not, so a failed heartbeat doesn&rsquo;t lock anything. The licence goes into a 72 hour grace period, and the next good heartbeat clears it. A revoked seat or deactivated key is different: the server says so and it takes effect right away.</p>
-<h2 id="the-rule-for-foreign-code">The rule for foreign code</h2>
+<p>Seats are per laptop. First version used hostname + MAC address. Then someone plugs into a dock, or joins a VPN, the MAC changes, and one laptop eats several seats 🙃</p>
+<p>Now we take the machine GUID the OS already has (<code>IOPlatformUUID</code>, <code>MachineGuid</code>, <code>machine-id</code>) and use it as the key for an HMAC over the app name. Stable per laptop, and the GUID never leaves the machine. The server returns a signed token that the app checks offline.</p>
+<p>A truck in a stadium car park is offline more often than online, so a failed heartbeat doesn&rsquo;t lock anything. You get 72 hours of grace. A revoked seat applies right away.</p>
+<h2 id="where-foreign-code-goes">Where foreign code goes</h2>
 <table>
 	<thead>
 			<tr>
 					<th style="text-align: left">Where</th>
 					<th style="text-align: left">When</th>
-					<th style="text-align: left">Examples here</th>
+					<th style="text-align: left">Examples</th>
 			</tr>
 	</thead>
 	<tbody>
@@ -789,7 +667,7 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 			<tr>
 					<td style="text-align: left">NIF</td>
-					<td style="text-align: left">after a measurement, our own code, every input bounds-checked</td>
+					<td style="text-align: left">after a benchmark, our own code, every input bounds-checked</td>
 					<td style="text-align: left">LUT generation and fades</td>
 			</tr>
 			<tr>
@@ -799,19 +677,20 @@ Elixir shows up in every part of it, but it&rsquo;s rarely the interesting part,
 			</tr>
 	</tbody>
 </table>
-<h2 id="if-you-are-considering-the-same-path">If you are considering the same path</h2>
-<ol>
-<li>The BEAM is a good fit for anything that has to stay up and talk to lots of other devices.</li>
-<li>Wrap other ecosystems instead of rewriting them. Start with Ports and only reach for a NIF after a benchmark says so.</li>
-<li>Keep frames, pixels and shaders out of the VM, and keep the decisions in it.</li>
-<li>Give each device its own process so one broken protocol doesn&rsquo;t take the others down.</li>
-<li>Use Mix targets instead of forks. We&rsquo;ve had one codebase the whole time and I&rsquo;d do it the same way again.</li>
-</ol>
+<p>If you go the same way:</p>
+<ul>
+<li>Start with a Port. Move to a NIF only when a benchmark says so.</li>
+<li>Keep pixels out of the VM, keep decisions in it.</li>
+<li>One process per device, so one broken protocol doesn&rsquo;t kill the rest.</li>
+<li>Mix targets instead of forks. We have one codebase the whole time and I&rsquo;d do it again.</li>
+</ul>
+<p>Elixir is in every part of this, but most of the time it&rsquo;s the boring part. I like it that way.</p>
+<p>Feel free to leave a comment.</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://tauri.app/">Tauri</a></li>
 <li><a href="https://github.com/burrito-elixir/burrito">Burrito</a></li>
-<li><a href="https://mrpopov.com/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary: building a desktop app with Tauri and Burrito</a></li>
+<li><a href="/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary</a></li>
 <li><a href="/posts/cyancamera-turning-phone-into-broadcast-camera/">CyanCamera: Turning an iPhone Into a Broadcast Camera</a></li>
 <li><a href="/posts/phoenix-liveview-webgl-color-scopes/">Broadcast Grade Color Scopes in Phoenix LiveView</a></li>
 <li><a href="/posts/elixir-beam-vm-embedded-optimisation/">How We Cut Phoenix Memory from 300MB to 120MB on Embedded</a></li>
