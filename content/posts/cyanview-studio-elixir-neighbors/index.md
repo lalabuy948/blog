@@ -40,7 +40,7 @@ Short version: we had a small LiveView dashboard on a camera control panel. It g
 
 ## A dashboard on an ARM32
 
-![CyanView RCP panel](/img/cyanview-studio-elixir-neighbors/rcp-panel.jpg)
+![CyanView RCP panel](/img/cyanview-studio-elixir-neighbors/rcp-panel.webp)
 
 The RCP is a physical panel that controls camera heads from many brands. We support 200+ camera models and 30+ control protocols, so hiding that mess from the operator is the whole job.
 
@@ -71,7 +71,7 @@ Then it grew. A panel has a fixed number of knobs and a camera has hundreds of f
 
 Our new color box, the iVP, and CyanCamera came with a lot more color science, and operators wanted camera control and looks in one place.
 
-![CyanView iVP](/img/cyanview-studio-elixir-neighbors/ivp.jpg)
+![CyanView iVP](/img/cyanview-studio-elixir-neighbors/ivp.webp)
 
 ![3D LUT cube](/img/cyanview-studio-elixir-neighbors/lut-cube.svg)
 
@@ -237,7 +237,7 @@ One GenServer, a map of fades per device, `Process.send_after` as the clock. Tic
 
 ### One Svelte component
 
-![Node editor](/img/cyanview-studio-elixir-neighbors/node-editor.jpg)
+![Node editor](/img/cyanview-studio-elixir-neighbors/node-editor.webp)
 
 Colorists want to drag nodes around, not fill forms, and LiveView alone isn't great at graph editors. So there is exactly one Svelte component in the whole app. Nodes and edges go in as props, events come back:
 

@@ -1,15 +1,49 @@
 {{ if .IsHome }}
 <script type="application/ld+json">
 	{
-		"@context": "http://schema.org",
+		"@context": "https://schema.org",
 		"@type": "Person",
+		"name": "Daniil Popov",
+		"url": "https://mrpopov.com/",
 		"familyName": "Popov",
 		"givenName": "Daniil",
-		"worksFor": "https://mrpopov.com/",
-		"jobTitle": "CEO & Founder",
+		"worksFor": {"@type": "Organization", "name": "1703 Group", "url": "https://1703.lu"},
+		"jobTitle": "Founder & CEO",
 		"image": "https://mrpopov.com/img/me.webp",
 		"gender": "http://schema.org/Male",
 		"sameAs": ["https://x.com/mrpopov_com","https://www.linkedin.com/in/mrpopov/","https://www.facebook.com/lalabuyInc","https://www.instagram.com/the_lalabuy","https://www.northdata.com/1703%20Group%20Sàrl-S,%20Bertrange/B281311"]
 	}
 </script>
+{{ end }}
+{{ if and .IsPage (eq .Type "posts") }}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "description" (partial "seo_desc.html" .)
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "image" ((.Params.cover | default "img/mrpopov1.webp") | absURL)
+  "mainEntityOfPage" .Permalink
+  "author" (dict "@type" "Person" "name" "Daniil Popov" "url" site.BaseURL)
+}}
+</script>
+{{ end }}
+{{ if in (slice "curated" "tools") .Section }}
+  {{ with resources.Get "css/curated.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+  <script>
+    // the build-time text goes stale between deploys
+    addEventListener('DOMContentLoaded', () => {
+      const now = new Date();
+      document.querySelectorAll('time.curated-owned').forEach((t) => {
+        const d = new Date(t.dateTime);
+        const m = (now.getFullYear() - d.getUTCFullYear()) * 12 + now.getMonth() - d.getUTCMonth() - (now.getDate() < d.getUTCDate() ? 1 : 0);
+        const dur = m >= 24 ? `${Math.floor(m / 12)} yrs` : m >= 12 ? (m % 12 ? `1 yr ${m % 12} mo` : '1 yr') : m >= 1 ? `${m} mo` : '';
+        t.querySelector('span').textContent = dur && ` · ${dur}`;
+      });
+    });
+  </script>
 {{ end }}

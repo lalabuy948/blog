@@ -1,5 +1,6 @@
 ---
 title: "How I Became Digital Nomad CTO"
+seo_description: "In June 2021 my CEO put an offer in front of me. I had to move to Luxembourg and build a dev team there. I went with one backpack and half a suitcase."
 date: 2021-07-17T10:28:05Z
 draft: false
 comments: true
@@ -13,9 +14,9 @@ seo:
   [CTO, startups, Luxembourg, digital nomad]
 ---
 
-# Or how I moved with one backpack and half suitcase.
+## Or how I moved with one backpack and half suitcase.
 
-## Foreword
+### Foreword
 
 This story has begun on 08.06 of 2021. The CEO of our company invited me to his office. 
 We discussed my half year review and etc, and he put an offer in front of me. 
@@ -24,14 +25,14 @@ I had to move to Luxembourg. We had some talks about that before, so I was moral
 Another country about which I didn't know anything, except it's 
 one of the most expensive countries to live in.
 
-## The Goal
+### The Goal
 
 Goal was and still is to establish new development team in Luxembourg. I have to say that we already
 operating and have 3 engineers plus me. We opened hiring process beginning of June, and I rushed into 
 interviews. Few days I had 3 interviews in a row, quite exhausting I must say. 
 Plus in addition to this I had to make sure that our office is ready to accommodate newcomers.
 
-## Back to the topic
+### Back to the topic
 
 And initial day of start used to be 21.07, which was in 2 weeks...
 I cancelled my apartments, moved all my unnecessary stuff to my parents and was ready to go with 

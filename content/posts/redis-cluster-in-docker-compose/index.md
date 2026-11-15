@@ -1,5 +1,6 @@
 ---
 title: "Redis Cluster in Docker Compose"
+seo_description: "How to add a second Redis node to a docker-compose setup. The redis.conf bind change, a network and the compose files."
 date: 2020-08-16T16:37:03+02:00
 draft: false
 comments: true

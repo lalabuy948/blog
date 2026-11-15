@@ -1,5 +1,6 @@
 ---
 title: "Must Play iOS Games"
+seo_description: "My favorite iPhone and iPad games, starting with the Alto series. Only games that run well on iOS, most of them playable without a controller."
 date: 2020-05-19T14:55:36+02:00
 draft: false
 comments: true

@@ -1,0 +1,16 @@
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+Personal blog of Daniil Popov. Posts about Elixir, Phoenix LiveView, broadcast tech, Go, engineering management and life. Every post has a plain markdown version at the same URL plus `index.md`.
+
+## Posts
+{{ range where site.RegularPages "Type" "posts" }}
+- [{{ .Title }}]({{ .Permalink }}index.md): {{ partial "seo_desc.html" . }} ({{ .Date.Format "2006-01-02" }})
+{{- end }}
+
+## About
+{{ range slice "/about" "/projects" "/consulting" "/showcase" }}{{ with site.GetPage . }}
+- [{{ .Title }}]({{ .Permalink }}index.md)
+{{- end }}{{ end }}
+- [RSS feed]({{ "index.xml" | absURL }})

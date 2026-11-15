@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watercolor Mixing Wheel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: an enamel pin on a paint tin. One column, wheel first, brass hairlines, colour only from pigment. */
+:root{
+  --bg:#EEEEE9; --surface:#FAFAF6; --ink:#1B1D21; --muted:#62666E; --line:#D5D4CC;
+  --brass:#86661B; --brass-soft:rgba(134,102,27,.13);
+  --display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+:root[data-mode="dark"]{
+  --bg:#101215; --surface:#191C20; --ink:#ECEAE3; --muted:#989BA2; --line:#2B2F35;
+  --brass:#D3AF63; --brass-soft:rgba(211,175,99,.14);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;padding:0 16px 92px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.app{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px}
+h1{font-family:var(--display);font-weight:400;font-size:30px;line-height:1;margin:0;letter-spacing:.2px}
+h1 i{color:var(--brass)}
+.theme{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.theme svg{width:20px;height:20px;stroke:var(--brass);fill:none;stroke-width:1.6;stroke-linecap:round}
+:root[data-mode="dark"] .theme .moon,:root:not([data-mode="dark"]) .theme .sun{display:none}
+h2{font-family:var(--display);font-weight:400;font-size:22px;margin:0;line-height:1.15;text-wrap:balance}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+p{margin:0}
+.note{color:var(--muted);font-size:13px}
+section.tab{display:flex;flex-direction:column;gap:18px}
+section.tab[hidden]{display:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px}
+
+/* wheel */
+.wheelwrap{width:100%;max-width:400px;margin:0 auto}
+#wheel{display:block;width:100%;height:auto;border-radius:50%}
+#wheel .seg{touch-action:none;cursor:pointer;transition:opacity .2s}
+#wheel .seg.dim{opacity:.2}
+#wheel .gap{stroke:var(--bg);stroke-width:1}
+#wheel .sel{fill:none;stroke:var(--brass);stroke-width:1.6;stroke-linejoin:round;pointer-events:none;opacity:0;transition:opacity .2s}
+#wheel .sel.on{opacity:1}
+#wheel .link{fill:none;stroke:var(--brass);stroke-width:.9;stroke-dasharray:2.2 2.2;stroke-linejoin:round;pointer-events:none}
+#wheel .hub{stroke:var(--brass);stroke-width:1.2;pointer-events:none}
+#wheel .pd{stroke:var(--bg);stroke-width:.7;pointer-events:none}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:500;color:var(--muted);white-space:nowrap}
+.chip[aria-pressed="true"]{border-color:var(--brass);color:var(--ink);background:var(--brass-soft)}
+.hrow{display:flex;gap:12px;align-items:flex-start}
+.pair{display:flex;flex:none;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.pair span{width:34px;height:56px;display:block}
+.hrow .txt{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.hrow .nm{font-weight:600;font-size:16px}
+.recipe{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;font-size:13.5px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;min-height:40px;width:100%}
+.recipe b{font-weight:600}
+.recipe small{color:var(--muted);display:block;font-size:12px}
+.recipe .go{color:var(--brass);font-size:12px;font-weight:600;flex:none}
+.rowsep{border-top:1px solid var(--line);padding-top:12px}
+.strip{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.strip span,.strip button{flex:1;height:44px;display:block;position:relative}
+.strip button[aria-pressed="true"]::after{content:"";position:absolute;inset:3px;border:2px solid #fff;border-radius:6px;box-shadow:0 0 0 1px rgba(0,0,0,.55)}
+.ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);gap:8px}
+
+/* mixer */
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.slot{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid var(--line);border-radius:12px;text-align:left;min-height:60px}
+.slot[aria-pressed="true"]{border-color:var(--brass);background:var(--brass-soft)}
+.slot .sw{width:40px;height:40px;border-radius:8px;flex:none;border:1px solid rgba(128,128,128,.35)}
+.slot .l{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.slot .n{font-size:13.5px;font-weight:600;line-height:1.2}
+.pans{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:8px}
+.pan{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;line-height:1.15;color:var(--muted);text-align:center;padding:2px 0}
+.pan i{display:block;width:100%;aspect-ratio:1.25;border-radius:7px;border:1px solid rgba(128,128,128,.4);box-shadow:inset 0 0 0 2px rgba(0,0,0,.12)}
+.pan.on{color:var(--ink)}
+.pan.on i{outline:2px solid var(--brass);outline-offset:2px}
+.result{display:flex;gap:14px;align-items:center}
+.blob{width:96px;height:96px;flex:none;border-radius:47% 53% 50% 50% / 52% 48% 54% 46%;box-shadow:inset 0 0 0 3px rgba(0,0,0,.10),inset 0 0 18px rgba(0,0,0,.10);transition:background .15s}
+.result .d{font-family:var(--display);font-size:24px;line-height:1.1}
+label.lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);gap:8px}
+label.lbl b{color:var(--ink);font-weight:600}
+input[type=range]{width:100%;accent-color:var(--brass);height:32px;margin:0}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{min-height:42px;padding:0 14px;border:1px solid var(--brass);border-radius:10px;color:var(--brass);font-weight:600;font-size:13.5px}
+
+/* chart */
+.chartscroll{overflow-x:auto;padding-bottom:4px}
+.chart{display:grid;gap:2px}
+.chart button,.chart span{aspect-ratio:1;display:block;border-radius:3px;min-width:0}
+.chart .h{border-radius:50%;transform:scale(.72);border:1px solid rgba(128,128,128,.45)}
+.chart button.on{outline:2px solid var(--ink);outline-offset:1px;position:relative;z-index:1}
+
+/* palette */
+.plist{display:flex;flex-direction:column}
+.prow{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line);text-align:left;width:100%;min-height:60px}
+.prow:first-child{border-top:0}
+.prow .sw{width:54px;height:38px;border-radius:7px;flex:none;border:1px solid rgba(128,128,128,.4)}
+.prow .t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.prow .n{font-weight:600}
+.prow .c{color:var(--muted);font-size:12px}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-size:10.5px;border:1px solid var(--line);border-radius:999px;padding:1px 7px;color:var(--muted)}
+.tick{width:26px;height:26px;border-radius:7px;border:1.5px solid var(--line);flex:none;display:grid;place-items:center}
+.prow[aria-pressed="true"] .tick{background:var(--brass);border-color:var(--brass)}
+.prow[aria-pressed="true"] .tick::after{content:"";width:11px;height:6px;border-left:2px solid var(--bg);border-bottom:2px solid var(--bg);transform:rotate(-45deg) translateY(-1px)}
+.prow[aria-pressed="false"] .sw,.prow[aria-pressed="false"] .t{opacity:.45}
+
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:5}
+nav div{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
+nav button{height:60px;font-size:12px;font-weight:600;color:var(--muted);position:relative}
+nav button[aria-selected="true"]{color:var(--ink)}
+nav button[aria-selected="true"]::before{content:"";position:absolute;top:-1px;left:22%;right:22%;height:2px;background:var(--brass)}
+/* match + layers */
+.vh{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.vh:focus-visible+label{outline:2px solid var(--brass);outline-offset:2px}
+.filebtn{display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.byhand{display:flex;align-items:center;gap:8px}
+input[type=color]{width:44px;height:40px;padding:0;border:1px solid var(--line);border-radius:8px;background:none}
+.photo{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);line-height:0}
+.photo[hidden]{display:none}
+.photo canvas{width:100%;height:auto;display:block;touch-action:none;cursor:crosshair}
+.photo .mark{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(0,0,0,.7);pointer-events:none}
+.bigsw{width:64px;height:64px;border-radius:12px;border:1px solid rgba(128,128,128,.4);flex:none}
+.q{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13.5px;margin:4px 0 0}
+.q dt{color:var(--muted)}.q dd{margin:0}
+.sphere{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;border-radius:12px}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:11px;line-height:1.2;color:var(--muted);text-align:center}
+.four i{display:block;aspect-ratio:1;border-radius:8px;border:1px solid rgba(128,128,128,.4);margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Watercolor <i>Wheel</i></h1>
+    <button class="theme" id="themeBtn" aria-label="Switch between dark and light theme">
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    </button>
+  </header>
+
+  <section class="tab" id="tab-wheel">
+    <div class="wheelwrap">
+      <svg id="wheel" viewBox="-100 -100 200 200" tabindex="0" role="group" aria-label="Colour wheel. Tap or drag a segment, or use the arrow keys, to pick the base colour."></svg>
+    </div>
+    <p class="note" style="text-align:center">Tap or drag around the wheel. Rings go from full strength to a pale wash. Rim dots are your paints.</p>
+    <div class="chips" id="harmonyChips" role="group" aria-label="Harmony"></div>
+    <div class="card" id="harmonyCard"></div>
+    <div class="card">
+      <div><div class="eyebrow">Complements mixed</div><h2 id="neutralTitle"></h2></div>
+      <div class="strip" id="neutralStrip"></div>
+      <div class="ends"><span id="neutralA"></span><span>neutral</span><span id="neutralB"></span></div>
+      <p class="note">A touch of the opposite colour mutes a hue without making it muddy. Near equal amounts give greys and browns that are good for shadows.</p>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-match" hidden>
+    <div><div class="eyebrow">Match a colour</div><h2>Tap a photo, get a recipe</h2></div>
+    <div class="card">
+      <div class="btns" style="align-items:center">
+        <input class="vh" type="file" id="photoFile" accept="image/*"><label class="btn filebtn" for="photoFile">Choose a photo</label>
+        <label class="note byhand" for="targetPick">or pick by hand <input type="color" id="targetPick"></label>
+      </div>
+      <div class="photo" id="photoBox" hidden><canvas id="photo"></canvas><div class="mark" id="mark"></div></div>
+      <p class="note" id="photoNote">The photo stays on your device. Tap or drag on it to sample a colour.</p>
+    </div>
+    <div class="card" id="matchCard"></div>
+  </section>
+
+  <section class="tab" id="tab-mix" hidden>
+    <div class="card">
+      <div class="result">
+        <div class="blob" id="blob"></div>
+        <div><div class="eyebrow">Result</div><div class="d" id="mixDesc"></div><p class="note" id="mixParts"></p></div>
+      </div>
+      <div class="strip" id="washRamp" aria-label="The mix from thick to very diluted"></div>
+      <div class="ends"><span>thick</span><span>more water</span></div>
+    </div>
+    <div class="card">
+      <div class="slots">
+        <button class="slot" id="slotA"><span class="sw"></span><span><span class="l">Paint A</span><br><span class="n"></span></span></button>
+        <button class="slot" id="slotB"><span class="sw"></span><span><span class="l">Paint B</span><br><span class="n"></span></span></button>
+      </div>
+      <div class="pans" id="mixPans"></div>
+      <div>
+        <label class="lbl"><span>Proportion</span><b id="ratioLbl"></b></label>
+        <div class="strip" id="ratioStrip" role="group" aria-label="Proportion of paint A to paint B" style="margin-top:6px"></div>
+        <div class="ends" style="margin-top:4px"><span>mostly A</span><span>mostly B</span></div>
+      </div>
+      <div>
+        <label class="lbl" for="water"><span>Water</span><b id="waterLbl"></b></label>
+        <input type="range" id="water" min="0" max="100" value="14">
+      </div>
+      <div class="btns">
+        <button class="btn" id="neutraliseBtn">Find the paint that greys A</button>
+        <button class="btn" id="swapBtn">Swap A and B</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-layers" hidden>
+    <div><div class="eyebrow">Layers</div><h2>Underpainting, then a glaze</h2></div>
+    <div class="chips" id="layerPresets" role="group" aria-label="Layering examples"></div>
+    <div class="card">
+      <canvas class="sphere" id="sphere" width="260" height="240" role="img" aria-label="A sphere painted with the two layers"></canvas>
+      <div class="four" id="layerFour"></div>
+      <p class="note" id="layerHint"></p>
+    </div>
+    <div class="card">
+      <div class="slots">
+        <button class="slot" id="slotU"><span class="sw"></span><span><span class="l">First layer</span><br><span class="n"></span></span></button>
+        <button class="slot" id="slotT"><span class="sw"></span><span><span class="l">Glaze on top</span><br><span class="n"></span></span></button>
+      </div>
+      <div class="pans" id="layerPans"></div>
+      <div class="chips" id="layerMode" role="group" aria-label="What the first layer does"></div>
+      <div>
+        <label class="lbl" for="lwU"><span>First layer water</span><b id="lwULbl"></b></label>
+        <input type="range" id="lwU" min="0" max="100">
+      </div>
+      <div>
+        <label class="lbl" for="lwT"><span>Glaze water</span><b id="lwTLbl"></b></label>
+        <input type="range" id="lwT" min="0" max="100">
+      </div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-chart" hidden>
+    <div><div class="eyebrow">Mixing chart</div><h2>Every pair in your palette</h2></div>
+    <div class="card">
+      <div class="chartscroll"><div class="chart" id="chart"></div></div>
+      <p class="note">Above the diagonal: equal parts at full strength. Below: the same mix as a diluted wash. Tap a square.</p>
+      <div class="hrow rowsep" id="chartInfo"></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-palette" hidden>
+    <div><div class="eyebrow">Your palette</div><h2 id="panCount"></h2></div>
+    <div class="chips" id="presetChips" role="group" aria-label="Palette size"></div>
+    <div class="card"><div class="plist" id="plist"></div></div>
+    <p class="note">Colours are screen approximations of typical artist-grade paints and vary by brand. Mixes use a pigment model that accounts for tinting strength, so strong paints like the phthalos dominate, as they do on paper. Swatch your own paints to confirm.</p>
+  </section>
+</div>
+
+<nav><div role="tablist">
+  <button role="tab" data-tab="wheel">Wheel</button>
+  <button role="tab" data-tab="match">Match</button>
+  <button role="tab" data-tab="mix">Mix</button>
+  <button role="tab" data-tab="layers">Layers</button>
+  <button role="tab" data-tab="chart">Chart</button>
+  <button role="tab" data-tab="palette">Palette</button>
+</div></nav>
+
+<script>
+const WHEEL=[['Yellow','#F7E017'],['Yellow-Green','#A9CF2C'],['Green','#2E9E48'],['Blue-Green','#128F93'],['Blue','#1F55B5'],['Blue-Violet','#3F2F9E'],['Violet','#6B2A93'],['Red-Violet','#A8236E'],['Red','#D4232B'],['Red-Orange','#E4502A'],['Orange','#EE7F1D'],['Yellow-Orange','#F5B21A']];
+// name, pigment, hex, transparency, staining, granulating, tinting strength
+const PAINTS=[
+['Lemon Yellow','PY175','#F2E22B','ST',0,0,.8],['Hansa Yellow Deep','PY65','#F6B51E','ST',0,0,1],
+['Yellow Ochre','PY43','#C8952F','SO',0,0,.7],['Raw Sienna','PBr7','#B77F30','T',0,1,.7],
+['Pyrrol Orange','PO73','#EC5B1E','ST',1,0,1.2],['Pyrrol Scarlet','PR255','#DC3222','ST',1,0,1.2],
+['Cadmium Red','PR108','#CF2B25','O',0,0,1.1],['Alizarin Crimson','PR83','#A21C35','T',1,0,1.3],
+['Quinacridone Rose','PV19','#D12C64','T',1,0,1.2],['Quinacridone Magenta','PR122','#B52472','T',1,0,1.2],
+['Dioxazine Violet','PV23','#42247A','T',1,0,2],['Ultramarine Blue','PB29','#2A3AA8','T',0,1,.9],
+['Cobalt Blue','PB28','#2C5DBA','ST',0,1,.7],['Phthalo Blue','PB15:3','#0E4B9E','T',1,0,2.2],
+['Cerulean Blue','PB35','#3A8EC3','SO',0,1,.6],['Prussian Blue','PB27','#15355E','T',1,0,1.8],
+['Cobalt Teal','PG50','#20A6A0','SO',0,1,.6],['Phthalo Green','PG7','#0A7B5E','T',1,0,2.2],
+['Viridian','PG18','#2B8369','T',0,1,.6],['Sap Green','PG7 + PY150','#5D7B23','T',0,0,1],
+['Burnt Sienna','PBr7','#9B4A23','T',0,1,.9],['Burnt Umber','PBr7','#5B3522','ST',0,1,1],
+["Payne's Gray",'PB29 + PBk9','#2E3540','ST',0,0,1.4],['Sepia','PBr7 + PBk9','#3A2A21','SO',0,0,1.3]
+].map((p,i)=>({i,name:p[0],code:p[1],hex:p[2],t:p[3],st:p[4],g:p[5],s:p[6]}));
+const PRESETS=[
+ {n:6,label:'6 · Split primary',ids:[0,1,5,8,11,13]},
+ {n:12,label:'12 · Classic',ids:[0,1,2,5,8,11,13,14,17,19,20,22]},
+ {n:18,label:'18 · Studio',ids:[0,1,2,3,4,5,7,8,10,11,12,13,14,17,19,20,21,22]},
+ {n:24,label:'24 · Full tin',ids:PAINTS.map(p=>p.i)}];
+const HARM={complementary:['Complementary',[0,6],['Base','Complement']],split:['Split complementary',[0,5,7],['Base','Split','Split']],analogous:['Analogous',[11,0,1],['Neighbour','Base','Neighbour']],triadic:['Triadic',[0,4,8],['Base','Triad','Triad']],tetradic:['Tetradic',[0,3,6,9],['Base','Square','Complement','Square']],mono:['Monochromatic',[0],['Base']]};
+const RATIOS=[[5,1],[4,1],[3,1],[2,1],[1,1],[1,2],[1,3],[1,4],[1,5]];
+const TR={T:'Transparent',ST:'Semi-transparent',SO:'Semi-opaque',O:'Opaque'};
+
+/* colour maths: Kubelka-Munk style mixing on linear RGB, dilution scales K/S toward white paper */
+const lin=v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)};
+const unlin=v=>{v=Math.min(1,Math.max(0,v));return Math.round(255*(v<=.0031308?12.92*v:1.055*Math.pow(v,1/2.4)-.055))};
+const hexLin=h=>{const n=parseInt(h.slice(1),16);return[lin(n>>16),lin(n>>8&255),lin(n&255)]};
+const ksOf=rgb=>rgb.map(r=>{r=Math.min(.985,Math.max(.012,r));return(1-r)*(1-r)/(2*r)});
+function mix(parts,c){let tw=0;const k=[0,0,0];for(const[ks,w]of parts){tw+=w;k[0]+=ks[0]*w;k[1]+=ks[1]*w;k[2]+=ks[2]*w}
+  return k.map(v=>{v=v/tw*c;return 1+v-Math.sqrt(v*v+2*v)})}
+const toHex=rgb=>'#'+rgb.map(v=>unlin(v).toString(16).padStart(2,'0')).join('');
+function oklab([r,g,b]){const l=Math.cbrt(.4122214708*r+.5363325363*g+.0514459929*b),m=Math.cbrt(.2119034982*r+.6806995451*g+.1073969566*b),s=Math.cbrt(.0883024619*r+.2817188376*g+.6299787005*b);
+  return[.2104542553*l+.793617785*m-.0040720468*s,1.9779984951*l-2.428592205*m+.4505937099*s,.0259040371*l+.7827717662*m-.808675766*s]}
+const chroma=l=>Math.hypot(l[1],l[2]);
+const hueDeg=l=>(Math.atan2(l[2],l[1])*180/Math.PI+360)%360;
+
+PAINTS.forEach(p=>{p.ks=ksOf(hexLin(p.hex));p.lab=oklab(hexLin(p.hex))});
+const W=WHEEL.map(([name,hex])=>{const l=hexLin(hex);return{name,hex,ks:ksOf(l),lab:oklab(l)}});
+const WH=[];W.forEach((w,i)=>{let h=hueDeg(w.lab);while(i&&h<WH[i-1])h+=360;WH.push(h)});WH.push(WH[0]+360);
+function wheelPos(h){while(h<WH[0])h+=360;while(h>=WH[12])h-=360;for(let i=0;i<12;i++)if(h<WH[i+1])return i+(h-WH[i])/(WH[i+1]-WH[i]);return 0}
+function describe(rgb){const l=oklab(rgb),c=chroma(l),L=l[0];
+  if(c<.035)return L>.85?'Almost paper white':L>.62?'Pale neutral grey':L>.33?'Neutral grey':'Near black';
+  const idx=Math.round(wheelPos(hueDeg(l)))%12;let n=W[idx].name;
+  if([8,9,10,11].includes(idx)&&c<.11&&L<.62)n='Brown';
+  const pre=L>.84?'Pale ':L<.36?'Deep ':c<.085?'Muted ':'';
+  return pre?pre+n.toLowerCase():n}
+const cFromV=v=>1.6*Math.pow(.05/1.6,v/100), vFromC=c=>Math.round(100*Math.log(c/1.6)/Math.log(.05/1.6));
+const waterWord=c=>c>=1.2?'Thick, little water':c>=.8?'Normal strength':c>=.45?'Medium wash':c>=.18?'Light wash':'Very pale wash';
+
+/* state */
+const S={base:4,harm:'complementary',active:PRESETS[1].ids.slice(),a:11,b:20,ratio:4,water:14,slot:'a',tab:'wheel',cell:null,mode:'dark',target:'#7c8f6a',lu:11,lt:1,luw:30,ltw:35,lmode:'shade',lslot:'u'};
+try{Object.assign(S,JSON.parse(localStorage.getItem('wcw1')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('wcw1',JSON.stringify(S))}catch(e){}};
+const $=id=>document.getElementById(id);
+const el=(tag,attrs,html)=>{const e=document.createElement(tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(html!=null)e.innerHTML=html;return e};
+const paintsOn=()=>S.active.slice().sort((x,y)=>x-y).map(i=>PAINTS[i]);
+
+/* recipes: closest one or two paint mixes from the palette for each wheel hue */
+let MIXES=[],RECIPES=[];
+function rebuild(){
+  const ps=paintsOn(),CS=[1.3,1,.7,.45];MIXES=[];
+  for(const p of ps)for(const c of CS){const rgb=mix([[p.ks,1]],c);MIXES.push({a:p.i,b:-1,c,lab:oklab(rgb),hex:toHex(rgb)})}
+  for(let x=0;x<ps.length;x++)for(let y=x+1;y<ps.length;y++)RATIOS.forEach((r,ri)=>{for(const c of CS){
+    const rgb=mix([[ps[x].ks,r[0]*ps[x].s],[ps[y].ks,r[1]*ps[y].s]],c);MIXES.push({a:ps[x].i,b:ps[y].i,ri,c,lab:oklab(rgb),hex:toHex(rgb)})}});
+  RECIPES=W.map(w=>{const best=new Map();
+    for(const m of MIXES){const d=Math.hypot(.5*(m.lab[0]-w.lab[0]),m.lab[1]-w.lab[1],m.lab[2]-w.lab[2])+(m.b<0?0:.008),k=m.a+'_'+m.b,cur=best.get(k);
+      if(!cur||d<cur.d)best.set(k,{...m,d})}
+    return[...best.values()].sort((p,q)=>p.d-q.d).slice(0,2)});
+  if(!S.active.includes(S.a))S.a=ps[0].i;
+  if(!S.active.includes(S.b))S.b=(ps.find(p=>p.i!==S.a)||ps[0]).i;
+  if(!S.active.includes(S.lu))S.lu=nearestPaint(5);
+  if(!S.active.includes(S.lt))S.lt=nearestPaint(11);
+}
+function nearestPaint(wi){let b=null;for(const p of paintsOn()){if(chroma(p.lab)<.08)continue;let d=Math.abs(wheelPos(hueDeg(p.lab))-wi);d=Math.min(d,12-d);if(!b||d<b.d)b={d,i:p.i}}return b?b.i:paintsOn()[0].i}
+const recipeText=m=>m.b<0?`<b>${PAINTS[m.a].name}</b> on its own`:`<b>${RATIOS[m.ri][0]}</b> ${PAINTS[m.a].name} + <b>${RATIOS[m.ri][1]}</b> ${PAINTS[m.b].name}`;
+const fit=d=>d<.05?'close match':d<.1?'near match':'approximate, this palette cannot quite reach it';
+
+/* wheel */
+const pt=(r,deg)=>{const a=deg*Math.PI/180;return[(r*Math.sin(a)).toFixed(2),(-r*Math.cos(a)).toFixed(2)]};
+const sector=(r0,r1,a0,a1)=>`M${pt(r1,a0)}A${r1} ${r1} 0 0 1 ${pt(r1,a1)}L${pt(r0,a1)}A${r0} ${r0} 0 0 0 ${pt(r0,a0)}Z`;
+const RINGS=[[66,91,1],[48,66,.35],[34,48,.1]];
+function buildWheel(){
+  let h='';
+  W.forEach((w,i)=>{h+=`<g class="seg" data-i="${i}">`;
+    for(const[r0,r1,c]of RINGS)h+=`<path class="gap" d="${sector(r0,r1,i*30-15,i*30+15)}" fill="${toHex(mix([[w.ks,1]],c))}"/>`;
+    h+='</g>'});
+  W.forEach((w,i)=>{h+=`<path class="sel" data-s="${i}" d="${sector(34,91,i*30-15,i*30+15)}"/>`});
+  h+='<g id="links"></g><g id="pdots"></g>';
+  $('wheel').innerHTML=h;
+}
+const harmIdx=()=>HARM[S.harm][1].map(o=>(S.base+o)%12);
+function renderWheel(){
+  const sel=harmIdx();
+  document.querySelectorAll('#wheel .seg').forEach(g=>g.classList.toggle('dim',!sel.includes(+g.dataset.i)));
+  document.querySelectorAll('#wheel .sel').forEach(p=>p.classList.toggle('on',sel.includes(+p.dataset.s)));
+  let h='';const order=sel.slice().sort((x,y)=>x-y);
+  if(order.length>1)h+=`<polygon class="link" points="${order.map(i=>pt(27,i*30).join(',')).join(' ')}"/>`;
+  for(const i of order)h+=`<circle class="hub" cx="${pt(27,i*30)[0]}" cy="${pt(27,i*30)[1]}" r="${i===S.base?4.2:3}" fill="${W[i].hex}"/>`;
+  if(order.length===1)h+=`<circle class="hub" r="12" fill="${W[S.base].hex}"/>`;
+  $('links').innerHTML=h;
+  $('pdots').innerHTML=paintsOn().filter(p=>chroma(p.lab)>.05).map(p=>`<circle class="pd" cx="${pt(96,wheelPos(hueDeg(p.lab))*30)[0]}" cy="${pt(96,wheelPos(hueDeg(p.lab))*30)[1]}" r="2.6" fill="${p.hex}"><title>${p.name}</title></circle>`).join('');
+}
+function renderHarmony(){
+  $('harmonyChips').innerHTML='';
+  for(const k in HARM){const b=el('button',{class:'chip','aria-pressed':S.harm===k},HARM[k][0]);b.onclick=()=>{S.harm=k;update()};$('harmonyChips').append(b)}
+  const card=$('harmonyCard');card.innerHTML=`<div><div class="eyebrow">${HARM[S.harm][0]} from ${W[S.base].name}</div><h2>Mix these from your ${S.active.length} paints</h2></div>`;
+  HARM[S.harm][1].forEach((o,n)=>{const i=(S.base+o)%12,recs=RECIPES[i];
+    const row=el('div',{class:'hrow rowsep'},`<div class="pair" title="Left: target hue. Right: best mix from your palette."><span style="background:${W[i].hex}"></span><span style="background:${recs[0].hex}"></span></div><div class="txt"><span class="eyebrow">${HARM[S.harm][2][n]}</span><span class="nm">${W[i].name}</span></div>`);
+    const txt=row.querySelector('.txt');
+    recs.forEach(m=>{const b=el('button',{class:'recipe'},`<span>${recipeText(m)}<small>${waterWord(m.c)}, ${fit(m.d)}</small></span><span class="go">Open</span>`);
+      b.onclick=()=>{S.a=m.a;if(m.b<0){S.b=m.a;S.ratio=4}else{S.b=m.b;S.ratio=m.ri}S.water=vFromC(m.c);S.tab='mix';update();scrollTo(0,0)};txt.append(b)});
+    card.append(row)});
+  if(S.harm==='mono')card.append(el('p',{class:'note'},'One hue only: vary it with water for lighter values, and add a little of its complement for darker, quieter ones.'));
+  const a=W[S.base],b=W[(S.base+6)%12];
+  $('neutralTitle').textContent=`${a.name} into ${b.name}`;$('neutralA').textContent=a.name;$('neutralB').textContent=b.name;
+  $('neutralStrip').innerHTML=[0,1,2,3,4,5,6].map(n=>`<span style="background:${toHex(mix([[a.ks,6-n],[b.ks,n]],1))}"></span>`).join('');
+}
+
+/* mixer */
+function currentMix(c){const A=PAINTS[S.a],B=PAINTS[S.b],r=RATIOS[S.ratio];return mix([[A.ks,r[0]*A.s],[B.ks,r[1]*B.s]],c)}
+function renderMix(){
+  const A=PAINTS[S.a],B=PAINTS[S.b],c=cFromV(S.water),r=RATIOS[S.ratio],rgb=currentMix(c);
+  for(const[k,p]of[['A',A],['B',B]]){const s=$('slot'+k);s.querySelector('.sw').style.background=p.hex;s.querySelector('.n').textContent=p.name;s.setAttribute('aria-pressed',S.slot===k.toLowerCase())}
+  $('blob').style.background=toHex(rgb);$('mixDesc').textContent=describe(rgb);
+  $('mixParts').textContent=S.a===S.b?`${A.name} on its own`:`${r[0]} part${r[0]>1?'s':''} ${A.name}, ${r[1]} part${r[1]>1?'s':''} ${B.name}`;
+  $('washRamp').innerHTML=[1.6,1,.5,.22,.08].map(x=>`<span style="background:${toHex(currentMix(x))}"></span>`).join('');
+  $('ratioLbl').textContent=`${r[0]} : ${r[1]}`;$('waterLbl').textContent=waterWord(c);$('water').value=S.water;
+  $('ratioStrip').innerHTML='';
+  RATIOS.forEach((q,n)=>{const b=el('button',{'aria-pressed':n===S.ratio,'aria-label':`${q[0]} parts A to ${q[1]} parts B`,style:`background:${toHex(mix([[A.ks,q[0]*A.s],[B.ks,q[1]*B.s]],c))}`});b.onclick=()=>{S.ratio=n;update()};$('ratioStrip').append(b)});
+  $('mixPans').innerHTML='';
+  paintsOn().forEach(p=>{const cur=S.slot==='a'?S.a:S.b;const b=el('button',{class:'pan'+(p.i===cur?' on':'')},`<i style="background:${p.hex}"></i>${p.name}`);b.onclick=()=>{S[S.slot]=p.i;update()};$('mixPans').append(b)});
+}
+function neutralise(){const A=PAINTS[S.a];let best=null;
+  for(const B of paintsOn()){if(B.i===A.i)continue;RATIOS.forEach((r,ri)=>{const ch=chroma(oklab(mix([[A.ks,r[0]*A.s],[B.ks,r[1]*B.s]],1)));if(!best||ch<best.ch)best={ch,b:B.i,ri}})}
+  if(best){S.b=best.b;S.ratio=best.ri;update()}}
+
+/* chart */
+function renderChart(){
+  const ps=paintsOn(),n=ps.length,g=$('chart');
+  g.style.gridTemplateColumns=`repeat(${n+1},1fr)`;g.style.minWidth=(n+1)*24+'px';g.innerHTML='';
+  g.append(el('span'));ps.forEach(p=>g.append(el('span',{class:'h',style:`background:${p.hex}`,title:p.name})));
+  ps.forEach((r,y)=>{g.append(el('span',{class:'h',style:`background:${r.hex}`,title:r.name}));
+    ps.forEach((c,x)=>{const k=r.i+'_'+c.i,rgb=mix([[r.ks,r.s],[c.ks,c.s]],x>=y?1:.3);
+      const b=el('button',{class:S.cell===k?'on':'','aria-label':`${r.name} with ${c.name}`,style:`background:${toHex(rgb)}`});
+      b.onclick=()=>{S.cell=k;update()};g.append(b)})});
+  const info=$('chartInfo');
+  let pr=(S.cell||'').split('_').map(Number);if(pr.length!==2||!pr.every(i=>S.active.includes(i)))pr=[ps[0].i,ps[Math.min(1,n-1)].i];
+  const A=PAINTS[pr[0]],B=PAINTS[pr[1]],full=mix([[A.ks,A.s],[B.ks,B.s]],1),pale=mix([[A.ks,A.s],[B.ks,B.s]],.3);
+  info.innerHTML=`<div class="pair"><span style="background:${toHex(full)}"></span><span style="background:${toHex(pale)}"></span></div><div class="txt"><span class="eyebrow">${A.i===B.i?A.code:'Equal parts'}</span><span class="nm">${A.i===B.i?A.name:A.name+' + '+B.name}</span><span class="note">${describe(full)}</span></div>`;
+  const b=el('button',{class:'btn'},'Open in mixer');b.onclick=()=>{S.a=A.i;S.b=B.i;S.ratio=4;S.water=14;S.tab='mix';update();scrollTo(0,0)};info.querySelector('.txt').append(b);
+}
+
+/* palette */
+function renderPalette(){
+  $('panCount').textContent=`${S.active.length} paints in the tin`;
+  $('presetChips').innerHTML='';
+  PRESETS.forEach(p=>{const on=p.ids.length===S.active.length&&p.ids.every(i=>S.active.includes(i));
+    const b=el('button',{class:'chip','aria-pressed':on},p.label);b.onclick=()=>{S.active=p.ids.slice();rebuild();update()};$('presetChips').append(b)});
+  $('plist').innerHTML='';
+  PAINTS.forEach(p=>{const on=S.active.includes(p.i);
+    const tags=[TR[p.t],p.st?'Staining':'Lifts',p.g?'Granulating':'',p.s>=1.8?'Strong tinter':p.s<=.7?'Weak tinter':''].filter(Boolean).map(t=>`<span class="tag">${t}</span>`).join('');
+    const b=el('button',{class:'prow','aria-pressed':on},`<span class="sw" style="background:linear-gradient(90deg,${p.hex} 45%,${toHex(mix([[p.ks,1]],.15))})"></span><span class="t"><span class="n">${p.name}</span><span class="c">${p.code}</span><span class="tags">${tags}</span></span><span class="tick"></span>`);
+    b.onclick=()=>{if(on){if(S.active.length<=2)return;S.active=S.active.filter(i=>i!==p.i)}else S.active.push(p.i);rebuild();update()};
+    $('plist').append(b)});
+}
+
+/* match: closest mix of up to three paints for any colour */
+const CG=[1.6,1.2,.9,.65,.45,.3,.2,.13,.08,.05,.03,.018,.01];
+function fitMix(parts,t){let tw=0;const k=[0,0,0];for(const[ks,w]of parts){tw+=w;for(let j=0;j<3;j++)k[j]+=ks[j]*w}
+  let best=null;for(const c of CG){const rgb=k.map(v=>{v=v/tw*c;return 1+v-Math.sqrt(v*v+2*v)}),l=oklab(rgb),d=Math.hypot(l[0]-t[0],l[1]-t[1],l[2]-t[2]);if(!best||d<best.d)best={c,d,rgb}}return best}
+function matchRecipes(t){
+  const ps=paintsOn(),out=[],pb=new Map();
+  for(const p of ps)out.push({ids:[p.i],...fitMix([[p.ks,1]],t)});
+  for(let x=0;x<ps.length;x++)for(let y=x+1;y<ps.length;y++)RATIOS.forEach((r,ri)=>{const f=fitMix([[ps[x].ks,r[0]*ps[x].s],[ps[y].ks,r[1]*ps[y].s]],t),k=x+'_'+y,cur=pb.get(k);if(!cur||f.d<cur.d)pb.set(k,{ids:[ps[x].i,ps[y].i],ri,...f})});
+  const pairs=[...pb.values()].sort((a,b)=>a.d-b.d).slice(0,6);
+  for(const pr of pairs){const A=PAINTS[pr.ids[0]],B=PAINTS[pr.ids[1]],r=RATIOS[pr.ri];let bt=null;
+    for(const C of ps){if(pr.ids.includes(C.i))continue;for(const fr of[.12,.25,.45]){const f=fitMix([[A.ks,r[0]*A.s],[B.ks,r[1]*B.s],[C.ks,fr*(r[0]+r[1])*C.s]],t);if(!bt||f.d<bt.d)bt={ids:[A.i,B.i,C.i],ri:pr.ri,fr,...f}}}
+    if(bt)out.push(bt)}
+  out.push(...pairs);
+  return out.map(m=>({...m,score:m.d+.006*(m.ids.length-1),hex:toHex(m.rgb)})).sort((a,b)=>a.score-b.score).slice(0,3)}
+function matchText(m){const n=i=>PAINTS[i].name;if(m.ids.length===1)return`<b>${n(m.ids[0])}</b> on its own`;const r=RATIOS[m.ri];
+  let s=`<b>${r[0]}</b> ${n(m.ids[0])} + <b>${r[1]}</b> ${n(m.ids[1])}`;if(m.ids.length===3)s+=`, plus ${m.fr<.2?'a touch of':m.fr<.3?'a little':'some'} <b>${n(m.ids[2])}</b>`;return s}
+function renderMatch(){
+  const rgb=hexLin(S.target),l=oklab(rgb),c=chroma(l),L=l[0],idx=Math.round(wheelPos(hueDeg(l)))%12,comp=W[(idx+6)%12].name.toLowerCase();
+  const hue=c<.03?'No clear hue, it is a grey':W[idx].name;
+  const light=L>.8?'Light. Use a lot of water':L>.55?'Mid value. A medium wash':L>.35?'Fairly dark. Go easy on the water':'Dark. Thick paint, or a second layer';
+  const grey=c<.03?'Neutral. Two complements in near equal amounts':c<.08?`Quite grey. Dull it with ${comp}`:c<.14?`Slightly muted. A touch of ${comp}`:'Vivid. Keep it clean, two paints at most';
+  const card=$('matchCard');
+  card.innerHTML=`<div class="hrow"><span class="bigsw" style="background:${S.target}"></span><div class="txt"><span class="eyebrow">Target</span><span class="nm">${describe(rgb)}</span><dl class="q"><dt>Hue</dt><dd>${hue}</dd><dt>Value</dt><dd>${light}</dd><dt>Greyness</dt><dd>${grey}</dd></dl></div></div>`;
+  matchRecipes(l).forEach(m=>{
+    const row=el('div',{class:'hrow rowsep'},`<div class="pair" title="Left: target. Right: this mix."><span style="background:${S.target}"></span><span style="background:${m.hex}"></span></div><div class="txt"></div>`);
+    const two=m.ids.length<3,b=el(two?'button':'div',{class:'recipe'},`<span>${matchText(m)}<small>${waterWord(m.c)}, ${fit(m.d)}</small></span>${two?'<span class="go">Open</span>':''}`);
+    if(two)b.onclick=()=>{S.a=m.ids[0];if(m.ids.length===1){S.b=m.ids[0];S.ratio=4}else{S.b=m.ids[1];S.ratio=m.ri}S.water=vFromC(m.c);S.tab='mix';update();scrollTo(0,0)};
+    row.querySelector('.txt').append(b);card.append(row)});
+  $('targetPick').value=S.target;
+}
+
+/* layers: a glaze filters the light that the first layer reflects */
+const OP={T:0,ST:.15,SO:.4,O:.65},PAPER=[.93,.91,.86];
+const LUT=new Uint8ClampedArray(4097);for(let i=0;i<=4096;i++)LUT[i]=unlin(i/4096);
+const refl=(ks,c)=>ks.map(v=>{v*=c;return 1+v-Math.sqrt(v*v+2*v)});
+const LPRE=[['Shadows first',5,10,'shade',30,35],['Warm glow',11,4,'flat',55,35],['Complement under',8,2,'flat',50,30]];
+function drawSphere(){
+  const cv=$('sphere'),ctx=cv.getContext('2d'),Wd=cv.width,Hd=cv.height,im=ctx.createImageData(Wd,Hd),d=im.data;
+  const U=PAINTS[S.lu],T=PAINTS[S.lt],cu=cFromV(S.luw),ct=cFromV(S.ltw),flat=S.lmode==='flat',o=OP[T.t],cx=Wd/2,cy=108,R=88;
+  for(let y=0;y<Hd;y++)for(let x=0;x<Wd;x++){
+    const dx=(x-cx)/R,dy=(y-cy)/R,q=dx*dx+dy*dy,cov=Math.min(1,Math.max(0,(1-Math.sqrt(q))*R+.5));
+    const ex=(x-cx-14)/96,ey=(y-204)/15,cast=Math.min(1,Math.max(0,1-(ex*ex+ey*ey))*1.6);
+    let a=flat?cu:cu*cast*.9,b=flat?ct*cast*.7:0;
+    if(cov>0){const nz=Math.sqrt(Math.max(0,1-q)),sh=Math.pow(1-Math.max(0,-.5*dx-.62*dy+.6*nz),1.7);
+      a=(flat?cu:cu*sh*1.5)*cov+a*(1-cov);b=(flat?ct*(.3+1.3*sh):ct)*cov+b*(1-cov)}
+    const oo=o*Math.min(1,b),i=(y*Wd+x)*4;
+    for(let j=0;j<3;j++){let u=U.ks[j]*a;u=1+u-Math.sqrt(u*u+2*u);let t=T.ks[j]*b;t=1+t-Math.sqrt(t*t+2*t);d[i+j]=LUT[Math.round(PAPER[j]*t*(u+(1-u)*oo)*4096)]}
+    d[i+3]=255}
+  ctx.putImageData(im,0,0)}
+function renderLayers(){
+  const U=PAINTS[S.lu],T=PAINTS[S.lt],cu=cFromV(S.luw),ct=cFromV(S.ltw);
+  for(const[k,p]of[['U',U],['T',T]]){const s=$('slot'+k);s.querySelector('.sw').style.background=p.hex;s.querySelector('.n').textContent=p.name;s.setAttribute('aria-pressed',S.lslot===k.toLowerCase())}
+  $('layerPresets').innerHTML='';
+  LPRE.forEach(p=>{const b=el('button',{class:'chip','aria-pressed':false},p[0]);b.onclick=()=>{S.lu=nearestPaint(p[1]);S.lt=nearestPaint(p[2]);S.lmode=p[3];S.luw=p[4];S.ltw=p[5];update()};$('layerPresets').append(b)});
+  $('layerMode').innerHTML='';
+  [['shade','First layer paints the shadows'],['flat','First layer is a flat wash']].forEach(([k,t])=>{const b=el('button',{class:'chip','aria-pressed':S.lmode===k},t);b.onclick=()=>{S.lmode=k;update()};$('layerMode').append(b)});
+  $('layerPans').innerHTML='';
+  paintsOn().forEach(p=>{const cur=S.lslot==='u'?S.lu:S.lt,b=el('button',{class:'pan'+(p.i===cur?' on':'')},`<i style="background:${p.hex}"></i>${p.name}`);b.onclick=()=>{S[S.lslot==='u'?'lu':'lt']=p.i;update()};$('layerPans').append(b)});
+  $('lwU').value=S.luw;$('lwT').value=S.ltw;$('lwULbl').textContent=waterWord(cu);$('lwTLbl').textContent=waterWord(ct);
+  const ru=refl(U.ks,cu),rt=refl(T.ks,ct),oo=OP[T.t]*Math.min(1,ct),lay=ru.map((v,j)=>rt[j]*(v+(1-v)*oo)),mixed=refl(U.ks.map((v,j)=>v*cu+T.ks[j]*ct),1);
+  $('layerFour').innerHTML=[['First layer',ru],['Glaze alone',rt],['Glazed over',lay],['Mixed on the palette',mixed]].map(([n,c])=>`<span><i style="background:${toHex(c)}"></i>${n}</span>`).join('');
+  const h=[S.lmode==='shade'?'The first layer paints only the shadows. The glaze adds the colour, and the form is already there.':'The first layer is a flat wash over the whole sheet. It shows through the glaze and ties the colours together.'];
+  if(OP[T.t]>=.4)h.push(`${T.name} is ${TR[T.t].toLowerCase()}, so it covers part of the first layer. A transparent paint glazes cleaner.`);
+  h.push(U.st?`${U.name} stains the paper, so it stays put under a glaze.`:`${U.name} lifts easily: let it dry fully and lay the glaze in one pass, no scrubbing.`);
+  $('layerHint').textContent=h.join(' ');
+  drawSphere();
+}
+
+function update(){
+  document.documentElement.dataset.mode=S.mode;
+  document.querySelectorAll('section.tab').forEach(s=>s.hidden=s.id!=='tab-'+S.tab);
+  document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===S.tab));
+  renderWheel();renderHarmony();renderMatch();renderMix();renderLayers();renderChart();renderPalette();save();
+}
+
+/* events */
+const wheel=$('wheel');
+function pick(e){const r=wheel.getBoundingClientRect(),dx=e.clientX-r.left-r.width/2,dy=e.clientY-r.top-r.height/2;
+  const i=((Math.round(Math.atan2(dx,-dy)*180/Math.PI/30)%12)+12)%12;if(i!==S.base){S.base=i;update()}}
+let dragging=false;
+wheel.addEventListener('pointerdown',e=>{if(!e.target.closest('.seg'))return;dragging=true;try{wheel.setPointerCapture(e.pointerId)}catch(x){}pick(e)});
+wheel.addEventListener('pointermove',e=>{if(dragging)pick(e)});
+['pointerup','pointercancel'].forEach(t=>wheel.addEventListener(t,()=>dragging=false));
+wheel.addEventListener('keydown',e=>{const d={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(d){e.preventDefault();S.base=(S.base+d+12)%12;update()}});
+$('themeBtn').onclick=()=>{S.mode=S.mode==='dark'?'light':'dark';update()};
+$('slotA').onclick=()=>{S.slot='a';update()};$('slotB').onclick=()=>{S.slot='b';update()};
+$('water').oninput=e=>{S.water=+e.target.value;renderMix();save()};
+$('swapBtn').onclick=()=>{[S.a,S.b]=[S.b,S.a];S.ratio=8-S.ratio;update()};
+$('neutraliseBtn').onclick=neutralise;
+$('slotU').onclick=()=>{S.lslot='u';update()};$('slotT').onclick=()=>{S.lslot='t';update()};
+$('lwU').oninput=e=>{S.luw=+e.target.value;renderLayers();save()};
+$('lwT').oninput=e=>{S.ltw=+e.target.value;renderLayers();save()};
+const photo=$('photo'),pctx=photo.getContext('2d',{willReadFrequently:true});
+$('photoFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const url=URL.createObjectURL(f),img=new Image();
+  img.onload=()=>{const w=Math.min(900,img.naturalWidth),sc=w/img.naturalWidth;let h=Math.round(img.naturalHeight*sc),sy=0,sh=img.naturalHeight;
+    if(h>1.25*w){h=Math.round(1.25*w);sh=h/sc;sy=(img.naturalHeight-sh)/2}
+    photo.width=w;photo.height=h;pctx.drawImage(img,0,sy,img.naturalWidth,sh,0,0,w,h);URL.revokeObjectURL(url);$('photoBox').hidden=false;
+    $('photoNote').textContent='The photo stays on your device. Tap or drag on it to sample a colour.';sample(.5,.5)};
+  img.onerror=()=>{$('photoNote').textContent='That file could not be read as an image. Try a JPEG or PNG.'};img.src=url};
+function sample(fx,fy){const x=Math.round(fx*(photo.width-1)),y=Math.round(fy*(photo.height-1)),x0=Math.max(0,x-3),y0=Math.max(0,y-3),w=Math.min(photo.width-x0,7),h=Math.min(photo.height-y0,7);
+  const d=pctx.getImageData(x0,y0,w,h).data;let r=0,g=0,b=0;const n=d.length/4;for(let i=0;i<d.length;i+=4){r+=d[i];g+=d[i+1];b+=d[i+2]}
+  S.target='#'+[r,g,b].map(v=>Math.round(v/n).toString(16).padStart(2,'0')).join('');$('mark').style.left=fx*100+'%';$('mark').style.top=fy*100+'%';renderMatch();save()}
+let pdrag=false;const psamp=e=>{const r=photo.getBoundingClientRect();sample(Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)),Math.min(1,Math.max(0,(e.clientY-r.top)/r.height)))};
+photo.addEventListener('pointerdown',e=>{pdrag=true;try{photo.setPointerCapture(e.pointerId)}catch(x){}psamp(e)});
+photo.addEventListener('pointermove',e=>{if(pdrag)psamp(e)});
+['pointerup','pointercancel'].forEach(t=>photo.addEventListener(t,()=>pdrag=false));
+$('targetPick').oninput=e=>{S.target=e.target.value;renderMatch();save()};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.tab;update();scrollTo(0,0)});
+
+if(!HARM[S.harm])S.harm='complementary';if(!/^#[0-9a-f]{6}$/i.test(S.target))S.target='#7c8f6a';
+S.active=(S.active||[]).filter(i=>PAINTS[i]);if(S.active.length<2)S.active=PRESETS[1].ids.slice();
+buildWheel();rebuild();update();
+</script>
+</body>
+</html>

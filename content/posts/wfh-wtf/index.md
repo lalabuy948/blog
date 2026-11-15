@@ -1,5 +1,6 @@
 ---
 title: "Wfh Wtf"
+seo_description: "Small and medium companies split into two camps. One wants 40h in the office, the other doesn't care where you are, just bring results. My take on WFH."
 date: 2022-06-10T10:00:00Z
 draft: false
 comments: true
@@ -12,7 +13,7 @@ seo:
   [wfh, work from home, Luxembourg]
 ---
 
-# Wfh - wtf?
+## Wfh - wtf?
 
 Working from home is post fake-pandemic trend which seems to make life of corpos even harder than paying higher taxes than others and feeding others because they became bigger and more successful than others, this is normal behavior of our undeveloped society and non-discipline minds. 
 

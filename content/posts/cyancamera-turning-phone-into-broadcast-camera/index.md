@@ -3,7 +3,7 @@ title: "CyanCamera: Turning an iPhone Into a Broadcast Camera"
 date: 2026-09-21T09:00:00+02:00
 draft: false
 comments: true
-cover: "/img/cyancamera-turning-phone-into-broadcast-camera/preview.jpg"
+cover: "/img/cyancamera-turning-phone-into-broadcast-camera/preview.webp"
 tags:
     - tutorial
     - broadcast
@@ -38,7 +38,7 @@ A camera sensor gives you RGB. Broadcast almost never sends RGB, it sends YCbCr:
 
 If you tag a stream BT.709 but encode it with the BT.2020 matrix, skin tones and whites come out wrong. Nothing downstream will tell you why. So CyanCamera picks the matrix from the active color space and tags the stream with it: BT.2020 for HLG and Apple Log, BT.709 for everything else.
 
-![Gamut comparison](/img/cyancamera-turning-phone-into-broadcast-camera/CIE1931xy_gamut_comparison_of_sRGB_P3_Rec2020.png)
+![Gamut comparison](/img/cyancamera-turning-phone-into-broadcast-camera/CIE1931xy_gamut_comparison_of_sRGB_P3_Rec2020.webp)
 
 Color is also stored at lower resolution than brightness, because your eye sees brightness much sharper than color. That's chroma subsampling, and 4:2:0 is what H.264, H.265 and most phone video do.
 
@@ -71,7 +71,7 @@ A sensor sees about 14 stops of light, and 10 bits gives you 1024 values for the
 
 The price is a flat grey picture. Nobody watches log, you always convert it first.
 
-![Log vs linear curves](/img/cyancamera-turning-phone-into-broadcast-camera/log-vs-linear.png)
+![Log vs linear curves](/img/cyancamera-turning-phone-into-broadcast-camera/log-vs-linear.webp)
 *Linear and Rec.709 clip 2.5 stops above grey. Apple Log keeps going to +6 stops and lifts black to code 154 so the noise below black survives.*
 
 CyanCamera has three transfer functions on the device, both directions: Rec.709 (most trucks still deliver in it), Apple Log (iPhone 15 Pro and later) and HLG (HDR broadcast). Converting log back is again just a LUT, so "Apple Log to Rec.709" is one more `.cube` file.

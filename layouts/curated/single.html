@@ -1,0 +1,43 @@
+{{ define "title" }}
+  <title>{{ $.Site.Params.Title }} :: {{ with .Params.brand }}{{ . }} {{ end }}{{ .Title }}</title>
+{{ end }}
+
+{{ define "main" }}
+  <article class="curated">
+    <a class="curated-back" href="{{ .Parent.RelPermalink }}">← {{ .Parent.Title }}</a>
+
+    <div class="curated-hero">
+      {{ partial "curated/cover.html" (dict "page" .) }}
+      <div>
+        <span class="curated-brand">{{ .Params.brand }}</span>
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.verdict }}<p class="curated-verdict">{{ . }}</p>{{ end }}
+
+        <dl class="curated-facts">
+          {{ with .Params.category }}
+            <dt>Category</dt>
+            <dd><a href="{{ $.Parent.RelPermalink }}?c={{ . | urlize }}">{{ . }}</a></dd>
+          {{ end }}
+          {{ with partial "curated/price.html" . }}
+            <dt>Price</dt>
+            <dd>{{ . }}</dd>
+          {{ end }}
+          {{ with partial "curated/owned.html" . }}
+            <dt>Owned</dt>
+            <dd>{{ . }}</dd>
+          {{ end }}
+        </dl>
+
+        {{ with .Params.links }}
+          <div class="curated-links">
+            {{ range . }}
+              <a class="button" href="{{ .url }}" target="_blank" rel="noopener">{{ .shop }} →</a>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    </div>
+
+    {{ with .Content }}<div class="post-content curated-body">{{ . }}</div>{{ end }}
+  </article>
+{{ end }}

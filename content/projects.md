@@ -17,7 +17,7 @@ I love making games and elixir/phoenix, so this is perfect match for my weekend 
 
 Simple SaaS to collect customers feedback from any site. 
 
-[![feedbackx screenshot](/img/projects/feedbackx.png)](https://feedbackx.app/)
+[![feedbackx screenshot](/img/projects/feedbackx.webp)](https://feedbackx.app/)
 
 ## [AliasX](https://aliasx.app/)
 
@@ -46,7 +46,7 @@ My nutrionist said that AI was lying +- 50% in total calories, so completelly un
 
 Up to now, my most successful open source attempt.
 
-[![](https://raw.githubusercontent.com/lalabuy948/PhoenixAnalytics/master/github/hero.png)](https://github.com/lalabuy948/PhoenixAnalytics)
+[![PhoenixAnalytics screenshot](https://raw.githubusercontent.com/lalabuy948/PhoenixAnalytics/master/github/hero.png)](https://github.com/lalabuy948/PhoenixAnalytics)
 
 ## The Inidie Stack
 
@@ -54,13 +54,13 @@ I wanted to create simple listing for indie hackers to publish their product and
 
 (looks like no one care, even tho I got thousands of views on X)
 
-![](/img/projects/theindiestack.jpg)
+![theindiestack screenshot](/img/projects/theindiestack.webp)
 
 ## [Emj.sh](https://github.com/lalabuy948/EmjSh)
 
 Inspired by [https://🏹.to](https://🏹.to), written in Elixie using Mnesia.
 
-[![](https://github.com/lalabuy948/EmjSh/raw/master/github/preview.png)](https://github.com/lalabuy948/EmjSh)
+[![EmjSh screenshot](https://github.com/lalabuy948/EmjSh/raw/master/github/preview.png)](https://github.com/lalabuy948/EmjSh)
 
 ## [The World Line](https://github.com/lalabuy948/TheWorldLine)
 
@@ -68,7 +68,7 @@ Small app to demostrate Elixir Phoenix PubSub + LiveView capabilities.
 
 Self distructable distributed chat.
 
-[![](https://github.com/lalabuy948/TheWorldLine/raw/master/github/sreenshot.png)](https://github.com/lalabuy948/TheWorldLine)
+[![TheWorldLine screenshot](https://github.com/lalabuy948/TheWorldLine/raw/master/github/sreenshot.png)](https://github.com/lalabuy948/TheWorldLine)
 
 ## [IT Leadership - Ultimate Bundle](https://store.1703.lu/l/ultimate-it-bundle)
 

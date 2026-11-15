@@ -1,5 +1,6 @@
 ---
 title: "Recursive blog post or Github Codespaces"
+seo_description: "I got beta access to GitHub Codespaces and moved this Hugo blog there first. The .devcontainer setup with devcontainer.json and a Dockerfile."
 date: 2021-02-25T21:19:26+02:00
 draft: false
 comments: true

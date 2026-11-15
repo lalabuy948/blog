@@ -1,0 +1,36 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "img/favicon_io/apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "img/favicon_io/favicon-32x32.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "img/favicon_io/favicon-16x16.png" | absURL }}">
+<link rel="manifest" href="{{ "img/favicon_io/site.webmanifest" | absURL }}">
+
+{{ with partial "seo_desc.html" . }}<meta name="description" content="{{ . }}"/>{{ end }}
+
+{{if isset .Params "apple" }}
+    <meta name="apple-itunes-app" content="app-id={{ .Params.apple}}" />
+{{end}}
+
+<!-- head custom -->
+{{- partial "prepended_head.html" . }}
+
+<link rel="preload" href="{{ "assets/style.css" | absURL }}" as="style">
+<link rel="preload" href="{{ "style.css" | absURL }}" as="style">
+<link rel="preload" href="{{ "assets/main.js" | absURL }}" as="script">
+<link rel="preload" href="{{ "assets/prism.js" | absURL }}" as="script">
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="{{ "assets/style.css" | absURL }}">
+
+<!-- Custom CSS to override theme properties (/static/style.css) -->
+<link rel="stylesheet" href="{{ "style.css" | absURL }}">
+
+<!-- RSS | JSON -->
+{{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+
+<!-- head custom -->
+{{- partial "extended_head.html" . }}

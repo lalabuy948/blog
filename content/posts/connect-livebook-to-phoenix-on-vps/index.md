@@ -120,5 +120,5 @@ server {
 
 Once `livebook.service` and `phoenix.service` are running, you can connect to your phoenix app from Livebook.
 
-![](/img/connect-livebook-to-phoenix-on-vps/screenshot1.png)
-![](/img/connect-livebook-to-phoenix-on-vps/screenshot.png)
+![Livebook runtime settings, attached node with name and cookie](/img/connect-livebook-to-phoenix-on-vps/screenshot1.webp)
+![Livebook attached to the Phoenix node, running Cachex.clear](/img/connect-livebook-to-phoenix-on-vps/screenshot.webp)

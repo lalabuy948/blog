@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Broadcast Grade Color Scopes in Phoenix LiveView</title>
+      <title>Broadcast Grade Color Scopes in Phoenix LiveView :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,48 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="How we shipped real broadcast style color scopes, waveform, RGB parade, vectorscope and histogram, as a Phoenix LiveView hook backed by WebGL. No React, no separate frontend, Elixir stayed in its lane."/>
-        
-
-
-
-    <meta name="keywords" content="phoenix liveview webgl, liveview canvas hook, video scopes webgl, waveform vectorscope browser, elixir extend frontend, " />
+<meta name="description" content="How we shipped real broadcast style color scopes, waveform, RGB parade, vectorscope and histogram, as a Phoenix LiveView hook backed by WebGL. No React, no separate frontend, Elixir stayed in its lane."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.png">
-    <meta property="twitter:image" content="https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.png">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Broadcast Grade Color Scopes in Phoenix LiveView">
-    <meta property="twitter:title" content="Mr.Popov :: Broadcast Grade Color Scopes in Phoenix LiveView">
-
-
-
-    <meta property="og:description" content="Broadcast grade color scopes, inside a LiveView A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.
-I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on a separate frontend&rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.
-">
-    <meta property="twitter:description" content="Broadcast grade color scopes, inside a LiveView A few months ago we needed real video scopes inside our Phoenix app. Not toy histograms. The actual four you see in DaVinci Resolve, Baselight, Nuke: waveform, RGB parade, vectorscope, histogram. Colorists grade with these. If yours are off, people stop trusting the tool within about ten seconds.
-I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on a separate frontend&rdquo;. Turns out no. A LiveView hook and about 900 lines of WebGL later, the scopes were running at 30 fps next to the grading controls, and the Elixir side was basically asleep.
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Broadcast Grade Color Scopes in Phoenix LiveView">
+<meta property="og:description" content="How we shipped real broadcast style color scopes, waveform, RGB parade, vectorscope and histogram, as a Phoenix LiveView hook backed by WebGL. No React, no separate frontend, Elixir stayed in its lane.">
+<meta property="og:image" content="https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/">
+<meta property="article:published_time" content="2026-04-19T12:00:00&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Broadcast Grade Color Scopes in Phoenix LiveView">
+<meta name="twitter:description" content="How we shipped real broadcast style color scopes, waveform, RGB parade, vectorscope and histogram, as a Phoenix LiveView hook backed by WebGL. No React, no separate frontend, Elixir stayed in its lane.">
+<meta name="twitter:image" content="https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -70,15 +46,12 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2026-04-19T12:00:00+02:00","datePublished":"2026-04-19T12:00:00+02:00","description":"How we shipped real broadcast style color scopes, waveform, RGB parade, vectorscope and histogram, as a Phoenix LiveView hook backed by WebGL. No React, no separate frontend, Elixir stayed in its lane.","headline":"Broadcast Grade Color Scopes in Phoenix LiveView","image":"https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.webp","mainEntityOfPage":"https://mrpopov.com/posts/phoenix-liveview-webgl-color-scopes/"}
+</script>
 
 
 
@@ -113,7 +86,11 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -129,11 +106,15 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -153,15 +134,23 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -191,10 +180,10 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/phoenix-liveview-webgl-color-scopes/">Broadcast Grade Color Scopes in Phoenix LiveView</a></h2>
+    <h1 class="post-title"><a href="/posts/phoenix-liveview-webgl-color-scopes/">Broadcast Grade Color Scopes in Phoenix LiveView</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -223,7 +212,7 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
     
       
         
-        <img alt="Broadcast Grade Color Scopes in Phoenix LiveView" src="https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.png" class="post-cover" />
+        <img alt="Broadcast Grade Color Scopes in Phoenix LiveView" src="https://mrpopov.com/img/phoenix-liveview-webgl-color-scopes/preview.webp" class="post-cover" />
       
     
 
@@ -234,7 +223,7 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
 <p>This post is about how that went, and why I keep finding the Phoenix stack stretches further than people expect.</p>
 <h3 id="why-scopes-in-the-first-place">Why scopes in the first place</h3>
 <p>If you have never seen one: waveform shows per column luminance. Parade splits R, G and B side by side. Vectorscope plots chroma on a hue/saturation wheel. Histogram counts pixels per intensity bin. Together they tell you whether your image is actually blue or just vibes.</p>
-<p><img src="/img/phoenix-liveview-webgl-color-scopes/wave.png" alt="Waveform scope"></p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/wave.webp" alt="Waveform scope" loading="lazy" decoding="async"></p>
 <p>For us they sit next to the LUT preview. The server renders a preview frame through the current grading chain, pushes it to a <code>&lt;canvas&gt;</code>, and the scopes read from that canvas. That is the full contract between Elixir and WebGL: one canvas in, four scopes out.</p>
 <h3 id="why-liveview-was-a-fine-host">Why LiveView was a fine host</h3>
 <p>People reach for React the moment WebGL shows up. I get why, I have done it. But a LiveView hook is a perfectly normal place to own a canvas. You get a real DOM node with <code>mounted</code>, <code>updated</code>, <code>destroyed</code>. You get <code>pushEvent</code> / <code>handleEvent</code> for the cheap messages (save alpha, switch scope mode, change resolution). And the rest of the app is still rendered by Phoenix, so there is no dual state to babysit.</p>
@@ -295,10 +284,10 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">float</span> Cr <span style="color:#0550ae">=</span>  <span style="color:#0550ae">0.5</span>    <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>r <span style="color:#0550ae">-</span> <span style="color:#0550ae">0.4542</span> <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>g <span style="color:#0550ae">-</span> <span style="color:#0550ae">0.0458</span> <span style="color:#0550ae">*</span> c<span style="color:#1f2328">.</span>b<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>gl_Position <span style="color:#0550ae">=</span> <span style="color:#cf222e">vec4</span><span style="color:#1f2328">(</span>Cb <span style="color:#0550ae">*</span> <span style="color:#0550ae">2.0</span> <span style="color:#0550ae">*</span> u_aspect<span style="color:#1f2328">.</span>x<span style="color:#1f2328">,</span> Cr <span style="color:#0550ae">*</span> <span style="color:#0550ae">2.0</span> <span style="color:#0550ae">*</span> u_aspect<span style="color:#1f2328">.</span>y<span style="color:#1f2328">,</span> <span style="color:#0550ae">0.0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1.0</span><span style="color:#1f2328">);</span>
 </span></span></code></pre></div><p>That is Rec.709 YCbCr, projected straight onto the canvas. The pixel keeps its own hue so the scope lights up in the color of the image instead of a uniform green. A broadcast engineer from the 70s would recognise it.</p>
-<p><img src="/img/phoenix-liveview-webgl-color-scopes/vector.png" alt="Vectorscope"></p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/vector.webp" alt="Vectorscope" loading="lazy" decoding="async"></p>
 <p>Waveform and parade draw as line strips between adjacent source pixels, which gives smooth traces instead of dotty clouds. Histogram is CPU side, 256 bin counts per channel rendered as triangle strips. Each scope has its own brightness multiplier, because line density per pixel is very different between them and I spent an embarrassing afternoon getting the ratios right.</p>
-<p><img src="/img/phoenix-liveview-webgl-color-scopes/parade.png" alt="RGB parade"></p>
-<p><img src="/img/phoenix-liveview-webgl-color-scopes/hist.png" alt="Histogram"></p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/parade.webp" alt="RGB parade" loading="lazy" decoding="async"></p>
+<p><img src="/img/phoenix-liveview-webgl-color-scopes/hist.webp" alt="Histogram" loading="lazy" decoding="async"></p>
 <h3 id="hdr-accumulation-with-a-polite-fallback">HDR accumulation, with a polite fallback</h3>
 <p>On WebGL2 plus <code>EXT_color_buffer_float</code>, we render the scopes additively into an <code>RGBA16F</code> framebuffer, then tone map with <code>1 - exp(-gain * x)</code> and a gamma curve. That gives you the soft, photographic traces you see in expensive scope hardware instead of clipped white mush.</p>
 <p>On WebGL1, or on browsers without the float blend extension, we render additively straight to the canvas and live with a slightly harsher look. The detection is boring:</p>
@@ -414,7 +403,7 @@ I looked at the ticket and thought, &ldquo;ok, this is where we finally bolt on 
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

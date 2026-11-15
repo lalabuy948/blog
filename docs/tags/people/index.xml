@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>People on </title>
+    <title>People on MrPopov</title>
     <link>https://mrpopov.com/tags/people/</link>
-    <description>Recent content in People on </description>
+    <description>Recent content in People on MrPopov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
@@ -59,7 +59,7 @@
       <pubDate>Tue, 04 Apr 2023 19:30:45 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/start-using-ai-immediately/</guid>
-      <description>&lt;h1 id=&#34;why-you-need-to-start-using-ai-as-soon-as-possible&#34;&gt;Why you need to start using AI as soon as possible&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;why-you-need-to-start-using-ai-as-soon-as-possible&#34;&gt;Why you need to start using AI as soon as possible&lt;/h2&gt;
 &lt;p&gt;Hey there, today we are talking why you need to start using AI now. Artificial Intelligence has been around for quite some time, and it&amp;rsquo;s no longer a concept of the future. Many businesses are already leveraging AI to improve their operations and stay ahead of the competition.&lt;/p&gt;
 &lt;p&gt;In this post, I&amp;rsquo;ll talk about the need for AI implementation, the benefits of AI, and why you should not afraid of it. So, let&amp;rsquo;s dive right in.&lt;/p&gt;</description>
     </item>
@@ -91,7 +91,7 @@
       <pubDate>Fri, 10 Jun 2022 10:00:00 +0000</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/wfh-wtf/</guid>
-      <description>&lt;h1 id=&#34;wfh---wtf&#34;&gt;Wfh - wtf?&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;wfh---wtf&#34;&gt;Wfh - wtf?&lt;/h2&gt;
 &lt;p&gt;Working from home is post fake-pandemic trend which seems to make life of corpos even harder than paying higher taxes than others and feeding others because they became bigger and more successful than others, this is normal behavior of our undeveloped society and non-discipline minds. &lt;/p&gt;
 &lt;p&gt;But what happened with small to medium bizes founded by entrepreneurs, who are real people and humans? This camp was divided into two extremes. One says that only office and at least 40h in the office and others say “we don’t care where are you - home, office or Maldives, see you in zoom” just bring the results. And to be honest second camp is much smaller on the market. &lt;/p&gt;</description>
     </item>
@@ -102,8 +102,8 @@
       <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/how-i-became-digital-nomad-cto/</guid>
-      <description>&lt;h1 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h1&gt;
-&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h2&gt;
+&lt;h3 id=&#34;foreword&#34;&gt;Foreword&lt;/h3&gt;
 &lt;p&gt;This story has begun on 08.06 of 2021. The CEO of our company invited me to his office.
 We discussed my half year review and etc, and he put an offer in front of me.
 I went through, and I have to admit it was a nice package. But here is a small thing,
@@ -118,7 +118,7 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/basicbb/</guid>
-      <description>&lt;h1 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h2&gt;
 &lt;p&gt;My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called &lt;a href=&#34;https://basicbb.com&#34;&gt;basicbb - Basic Building Blocks&lt;/a&gt;. And &lt;a href=&#34;https://mrpopov.com/tech-scaling/&#34;&gt;#TechScaling&lt;/a&gt; but that&amp;rsquo;s a story for the next post.&lt;/p&gt;</description>
     </item>
@@ -138,8 +138,8 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
-      <description>&lt;h1 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;forewords&#34;&gt;Forewords&lt;/h3&gt;
 &lt;p&gt;This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.&lt;/p&gt;
 &lt;p&gt;But after few days I received tests assignment from them. I was a bit confused, because for that kind of positions there is no test assignment usually. I was busy and working 24/7 in another company and had a business trip for 3 days (two days of the trip were weekend) that week and I told them about it.&lt;/p&gt;</description>
     </item>

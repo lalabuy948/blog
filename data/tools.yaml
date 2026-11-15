@@ -1,0 +1,18 @@
+- slug: watercolor-wheel
+  title: Watercolor Mixing Wheel
+  description: Interactive color wheel with harmonies, pigment mixing and palette presets for watercolor
+  date: 2026-11-14
+  tags: [watercolor, color]
+  cover: cover.svg
+- slug: glass-to-glass
+  title: Glass to Glass
+  description: Millisecond timer to measure camera to monitor latency. Film the screen, take one photo of both, read the delay in ms and frames
+  date: 2026-09-15
+  tags: [video, latency]
+  cover: cover.svg
+- slug: colorchecker-spaces
+  title: ColorChecker Spaces
+  description: ColorChecker 24 chart on screen in sRGB, Display P3, Adobe RGB, Rec.2020 or Rec.709, with patch values and out of gamut marks
+  date: 2026-09-15
+  tags: [video, color]
+  cover: cover.svg

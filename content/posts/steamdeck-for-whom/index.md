@@ -1,5 +1,6 @@
 ---
 title: "Steamdeck for Whom?"
+seo_description: "I tried to game on flights with an iPad and an Asus ROG Flow Z13. Then I got a Steam Deck. Who is it for, from a manager who plays games."
 date: 2022-11-24T11:20:02+01:00
 draft: false
 comments: true

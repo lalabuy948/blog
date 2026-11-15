@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tutorial on </title>
+    <title>Tutorial on MrPopov</title>
     <link>https://mrpopov.com/tags/tutorial/</link>
-    <description>Recent content in Tutorial on </description>
+    <description>Recent content in Tutorial on MrPopov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
@@ -89,7 +89,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <description>&lt;h2 id=&#34;meet-phonenixplayground&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
 &lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -105,11 +105,11 @@ I have few apps running on my VPS and sometimes I would like to run some functio
 &lt;ol&gt;
 &lt;li&gt;Create a private github repo&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Go to actions tab and click on &lt;code&gt;set up a workflow yourself -&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -118,8 +118,8 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/flexible-env-in-go-v2/</guid>
-      <description>&lt;h1 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;
 &lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;https://mrpopov.com/posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; &lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;github.com/lalabuy948/genvutils&lt;/a&gt;&lt;/p&gt;</description>
     </item>
@@ -130,9 +130,9 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
-      <description>&lt;h1 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h2&gt;
 &lt;p&gt;I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂&lt;/p&gt;
-&lt;h2 id=&#34;pre-requirements&#34;&gt;Pre Requirements&lt;/h2&gt;
+&lt;h3 id=&#34;pre-requirements&#34;&gt;Pre Requirements&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Installed vault&lt;/li&gt;
 &lt;li&gt;Finish setup instructions&lt;/li&gt;

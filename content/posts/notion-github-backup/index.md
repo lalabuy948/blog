@@ -1,5 +1,6 @@
 ---
 title: "Notion Github Backup"
+seo_description: "Automated Notion backup to a private GitHub repo with one GitHub Actions workflow. Step by step, including where to get spaceId and token_v2."
 date: 2021-03-11T17:11:54+01:00
 draft: false
 comments: true

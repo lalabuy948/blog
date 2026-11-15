@@ -1,5 +1,6 @@
 ---
 title: "Don’t go to IT or even go out"
+seo_description: "Friends keep asking me how to become a developer and make millions. I tell them not to go to IT if money is the only reason."
 date: 2020-05-14T16:58:31+02:00
 draft: false
 comments: false

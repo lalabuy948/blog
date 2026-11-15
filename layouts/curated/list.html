@@ -1,0 +1,52 @@
+{{ define "main" }}
+  {{ $items := sort .RegularPages.ByTitle "Params.brand" }}
+  <div class="curated">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="curated-intro">{{ . }}</div>{{ end }}
+
+    <nav class="curated-chips" aria-label="Filter by category">
+      <a href="{{ .RelPermalink }}" data-c="" aria-current="true">All <span>{{ len $items }}</span></a>
+      {{ range (where $items "Params.category" "!=" nil).GroupByParam "category" }}
+        <a href="{{ $.RelPermalink }}?c={{ .Key | urlize }}" data-c="{{ .Key | urlize }}">{{ .Key }} <span>{{ len .Pages }}</span></a>
+      {{ end }}
+    </nav>
+
+    <ul class="curated-grid">
+      {{ range $items }}
+        <li data-c="{{ .Params.category | urlize }}">
+          <a class="curated-card" href="{{ .RelPermalink }}">
+            {{ partial "curated/cover.html" (dict "page" . "card" true) }}
+            <span class="curated-row">
+              <span class="curated-brand">{{ .Params.brand }}</span>
+              {{ with partial "curated/price.html" . }}<span>{{ . }}</span>{{ end }}
+            </span>
+            <h2 class="curated-name">{{ .Title }}</h2>
+            {{ with .Params.verdict }}<p class="curated-verdict">{{ . }}</p>{{ end }}
+            <span class="curated-row">
+              <span>{{ .Params.category }}</span>
+              <span>{{ partial "curated/owned.html" . }}</span>
+            </span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <script>
+    (() => {
+      const chips = [...document.querySelectorAll('.curated-chips a')];
+      const cards = document.querySelectorAll('.curated-grid > li');
+      const show = (c) => {
+        if (!chips.some((a) => a.dataset.c === c)) c = '';
+        chips.forEach((a) => a.setAttribute('aria-current', a.dataset.c === c));
+        cards.forEach((li) => { li.hidden = c !== '' && li.dataset.c !== c; });
+      };
+      chips.forEach((a) => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.replaceState(null, '', a.href);
+        show(a.dataset.c);
+      }));
+      show(new URLSearchParams(location.search).get('c') || '');
+    })();
+  </script>
+{{ end }}

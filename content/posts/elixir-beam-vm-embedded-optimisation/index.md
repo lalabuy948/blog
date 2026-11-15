@@ -3,7 +3,7 @@ title: "How We Cut Phoenix Memory from 300MB to 120MB on Embedded"
 date: 2026-03-05T10:00:00+01:00
 draft: false
 comments: true
-cover: "/img/elixir-beam-vm-embedded-optimisation/preview.png"
+cover: "/img/elixir-beam-vm-embedded-optimisation/preview.webp"
 tags:
   - code
   - elixir

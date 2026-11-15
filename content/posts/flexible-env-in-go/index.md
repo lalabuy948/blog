@@ -1,5 +1,6 @@
 ---
 title: "Flexible Env in Go"
+seo_description: "How to keep one .env file for a Go app and docker-compose, parse it with caarlos0/env and set default values."
 date: 2020-03-07T09:00:59+01:00
 draft: false
 comments: true

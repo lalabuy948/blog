@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lifestyle on </title>
+    <title>Lifestyle on MrPopov</title>
     <link>https://mrpopov.com/tags/lifestyle/</link>
-    <description>Recent content in Lifestyle on </description>
+    <description>Recent content in Lifestyle on MrPopov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
@@ -102,8 +102,8 @@
       <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/how-i-became-digital-nomad-cto/</guid>
-      <description>&lt;h1 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h1&gt;
-&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h2&gt;
+&lt;h3 id=&#34;foreword&#34;&gt;Foreword&lt;/h3&gt;
 &lt;p&gt;This story has begun on 08.06 of 2021. The CEO of our company invited me to his office.
 We discussed my half year review and etc, and he put an offer in front of me.
 I went through, and I have to admit it was a nice package. But here is a small thing,
@@ -125,11 +125,11 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
 &lt;ol&gt;
 &lt;li&gt;Create a private github repo&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Go to actions tab and click on &lt;code&gt;set up a workflow yourself -&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -147,7 +147,7 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/basicbb/</guid>
-      <description>&lt;h1 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h2&gt;
 &lt;p&gt;My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called &lt;a href=&#34;https://basicbb.com&#34;&gt;basicbb - Basic Building Blocks&lt;/a&gt;. And &lt;a href=&#34;https://mrpopov.com/tech-scaling/&#34;&gt;#TechScaling&lt;/a&gt; but that&amp;rsquo;s a story for the next post.&lt;/p&gt;</description>
     </item>
@@ -197,8 +197,8 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
-      <description>&lt;h1 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;forewords&#34;&gt;Forewords&lt;/h3&gt;
 &lt;p&gt;This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.&lt;/p&gt;
 &lt;p&gt;But after few days I received tests assignment from them. I was a bit confused, because for that kind of positions there is no test assignment usually. I was busy and working 24/7 in another company and had a business trip for 3 days (two days of the trip were weekend) that week and I told them about it.&lt;/p&gt;</description>
     </item>

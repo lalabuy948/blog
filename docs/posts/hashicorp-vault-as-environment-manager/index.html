@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Hashicorp Vault as Environment Manager</title>
+      <title>Hashicorp Vault as Environment Manager :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,50 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
-"/>
-        
-
-
-
-    <meta name="keywords" content="hashicorp, vault, dotenv, how to, " />
+<meta name="description" content="How to use HashiCorp Vault as a dotenv manager. A KV engine, one JSON file per environment and a small bash script to pull the secrets."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png">
-    <meta property="twitter:image" content="https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Hashicorp Vault as Environment Manager">
-    <meta property="twitter:title" content="Mr.Popov :: Hashicorp Vault as Environment Manager">
-
-
-
-    <meta property="og:description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
-">
-    <meta property="twitter:description" content="How to use Hashicorp Vault as dot environment manager? I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
-Pre Requirements Installed vault Finish setup instructions You can find nicely described steps here: Getting started
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Hashicorp Vault as Environment Manager">
+<meta property="og:description" content="How to use HashiCorp Vault as a dotenv manager. A KV engine, one JSON file per environment and a small bash script to pull the secrets.">
+<meta property="og:image" content="https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/">
+<meta property="article:published_time" content="2020-06-20T20:09:43&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hashicorp Vault as Environment Manager">
+<meta name="twitter:description" content="How to use HashiCorp Vault as a dotenv manager. A KV engine, one JSON file per environment and a small bash script to pull the secrets.">
+<meta name="twitter:image" content="https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -72,15 +46,12 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2020-06-20T20:09:43+02:00","datePublished":"2020-06-20T20:09:43+02:00","description":"How to use HashiCorp Vault as a dotenv manager. A KV engine, one JSON file per environment and a small bash script to pull the secrets.","headline":"Hashicorp Vault as Environment Manager","image":"https://mrpopov.com/img/hashicorp-vault-as-environment-manager/vault.png","mainEntityOfPage":"https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/"}
+</script>
 
 
 
@@ -115,7 +86,11 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -131,11 +106,15 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -155,15 +134,23 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -193,10 +180,10 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/hashicorp-vault-as-environment-manager/">Hashicorp Vault as Environment Manager</a></h2>
+    <h1 class="post-title"><a href="/posts/hashicorp-vault-as-environment-manager/">Hashicorp Vault as Environment Manager</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -232,28 +219,28 @@ Pre Requirements Installed vault Finish setup instructions You can find nicely d
     
 
     <div class="post-content">
-      <h1 id="how-to-use-hashicorp-vault-as-dot-environment-manager">How to use Hashicorp Vault as dot environment manager?</h1>
+      <h2 id="how-to-use-hashicorp-vault-as-dot-environment-manager">How to use Hashicorp Vault as dot environment manager?</h2>
 <p>I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂</p>
-<h2 id="pre-requirements">Pre Requirements</h2>
+<h3 id="pre-requirements">Pre Requirements</h3>
 <ul>
 <li>Installed vault</li>
 <li>Finish setup instructions</li>
 </ul>
 <p>You can find nicely described steps here: <a href="https://learn.hashicorp.com/vault/getting-started/install">Getting started</a></p>
-<h2 id="1-lets-add-kv-engine">#1 Let&rsquo;s add KV engine</h2>
-<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot.webp" alt="Create KV secret engine"></p>
+<h3 id="1-lets-add-kv-engine">#1 Let&rsquo;s add KV engine</h3>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot.webp" alt="Create KV secret engine" loading="lazy" decoding="async"></p>
 <p>In my case I will name it service. After you added your Key Value engine, you should see something like this:</p>
-<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-0.webp" alt="Added KV secret engine"></p>
-<h2 id="2-add-secrets-json-files">#2 Add secrets (json files)</h2>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-0.webp" alt="Added KV secret engine" loading="lazy" decoding="async"></p>
+<h3 id="2-add-secrets-json-files">#2 Add secrets (json files)</h3>
 <p>In my case I created development, staging and production. This files will store actual key value pairs, which in our case dot environment pairs.</p>
-<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-1.webp" alt="Create new secret engine"></p>
-<h2 id="3-add-key-value-pairs">#3 Add key value pairs</h2>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-1.webp" alt="Create new secret engine" loading="lazy" decoding="async"></p>
+<h3 id="3-add-key-value-pairs">#3 Add key value pairs</h3>
 <p>Fill your secrets (json files) with your secrets.</p>
 <p><code>db_host localhost</code> for example</p>
-<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-2.webp" alt="Create new secret engine"></p>
-<h2 id="4-pull-key-value">#4 Pull key value</h2>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-2.webp" alt="Create new secret engine" loading="lazy" decoding="async"></p>
+<h3 id="4-pull-key-value">#4 Pull key value</h3>
 <p>First of all you need token. In the right corner you will see profile icon and copy token button when you toggle the first one.</p>
-<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-3.webp" alt="Create new secret engine"></p>
+<p><img src="/img/hashicorp-vault-as-environment-manager/vault-screenshot-3.webp" alt="Create new secret engine" loading="lazy" decoding="async"></p>
 <p>In my project I added this make file:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span><span style="color:#57606a"># Makefile
 </span></span></span><span style="display:flex;"><span>
@@ -354,7 +341,7 @@ Picture from <a href="https://www.instana.com/blog/hashicorp-vault-monitoring/">
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

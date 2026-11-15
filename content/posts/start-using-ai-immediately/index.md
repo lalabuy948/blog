@@ -18,13 +18,13 @@ seo_description:
 
 ---
 
-# Why you need to start using AI as soon as possible
+## Why you need to start using AI as soon as possible
 
 Hey there, today we are talking why you need to start using AI now. Artificial Intelligence has been around for quite some time, and it's no longer a concept of the future. Many businesses are already leveraging AI to improve their operations and stay ahead of the competition.
 
 In this post, I'll talk about the need for AI implementation, the benefits of AI, and why you should not afraid of it. So, let's dive right in.
 
-## Why AI is Necessary
+### Why AI is Necessary
 
 > 💾 IBM Watson 2010 - uses natural language processing (NLP) to help your **attorneys** and controls specialists automate searches of large volumes of documents and public data.
 > Had a huge ROI internally and it was more efficient to use this knowhow internally. 
@@ -39,7 +39,7 @@ Moreover, AI can automate mundane tasks that take up a lot of time and resources
 
 All in all, amount of information is exponentially growing and to process it with given brain becoming harder and harder, almost impossible. 
 
-## Benefits of AI
+### Benefits of AI
 
 Learning how to use AI can bring numerous benefits. 
 
@@ -49,11 +49,11 @@ Another benefit of AI is increased efficiency. AI-powered automation can help yo
 
 If we talk about chatGPT or any other alternatives to it, this AI works as a multiplier for your brain. When you stuck with some ideas, or need to rephrase your thoughts, make your story shorter or more detailed and of course check your grammar and writing. It does writing way fast than you do, and there was already a similar story in the past. 
 
-## Rejection
+### Rejection
 
 [ChatGPT banned in Italy over privacy concerns](https://www.bbc.com/news/technology-65139406)
 ]
-![Math Teachers on Protests in 1988](/img/start-using-ai-immediately/math_teachers.jpeg)
+![Math Teachers on Protests in 1988](/img/start-using-ai-immediately/math_teachers.webp)
 
 Protests by some math teachers in the United States against the use of calculators in the classroom, specifically graphing calculators, in 1988.
 
@@ -65,7 +65,7 @@ However, over time, the use of calculators has become more accepted in the class
 
 > Same going to happen with AI, faster you accept this fact is better. 
 
-## Conclusion
+### Conclusion
 
 In conclusion, AI is no longer a miracle or a dream but a necessity. The benefits of AI are vast and can help you and your business stay with the competition. By identifying the areas where AI can bring the most significant benefits, choosing the right tools, and having the right talent in place, you can start reaping the rewards of AI today.
 

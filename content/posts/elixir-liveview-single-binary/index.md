@@ -3,7 +3,7 @@ title: "Elixir LiveView Single Binary [UPD]"
 date: 2025-10-06T21:55:18+02:00
 draft: false
 comments: true
-cover: "img/elixir-liveview-single-binary/screenshot.png"
+cover: "img/elixir-liveview-single-binary/screenshot.webp"
 tags:
   - code
   - elixir
@@ -29,18 +29,18 @@ We had two repos of Elixir, seventy-five LiveView components, five sheets of hig
 The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we'd get into that rotten stuff pretty soon.
 
 
-# or Building a Cross-Platform Desktop App from Phoenix LiveView with Tauri
+## or Building a Cross-Platform Desktop App from Phoenix LiveView with Tauri
 
 This guide shows how to package a Phoenix LiveView application as a standalone cross-platform desktop application using Tauri and Burrito, based on the CyCameraCompanion implementation.
 
-## Architecture Overview
+### Architecture Overview
 
 The desktop app uses a **sidecar architecture**:
 - **Tauri (Rust)**: Native window wrapper and process manager
 - **Phoenix Backend**: Bundled as a standalone executable via Burrito
 - **Communication**: Phoenix runs on localhost:4000, Tauri webview connects to it
 
-## Prerequisites
+### Prerequisites
 
 - Elixir 1.17+ / Erlang OTP 27+ with a Phoenix application (working locally)
 - Rust 1.92+ and Cargo installed
@@ -50,11 +50,11 @@ The desktop app uses a **sidecar architecture**:
   - `cargo-xwin` (`cargo install cargo-xwin`)
   - Zig 0.15+ installed via [ZVM](https://github.com/tristanisham/zvm) (Zig Version Manager)
 
-## Step 1: Add Burrito for Standalone Phoenix Executables
+### Step 1: Add Burrito for Standalone Phoenix Executables
 
 Burrito wraps Phoenix releases into single executables with embedded ERTS (Erlang Runtime System).
 
-### 1.1 Add Burrito Dependency
+#### 1.1 Add Burrito Dependency
 
 Add to `mix.exs`:
 
@@ -67,7 +67,7 @@ defp deps do
 end
 ```
 
-### 1.2 Configure Releases
+#### 1.2 Configure Releases
 
 Add release configuration in `mix.exs`:
 
@@ -95,7 +95,7 @@ def releases() do
 end
 ```
 
-### 1.3 Configure Runtime for Production
+#### 1.3 Configure Runtime for Production
 
 Update `config/runtime.exs` for production:
 
@@ -124,7 +124,7 @@ if config_env() == :prod do
 end
 ```
 
-### 1.4 Skip Migrations in Burrito Context
+#### 1.4 Skip Migrations in Burrito Context
 
 Update `lib/cy_camera_companion/application.ex`:
 
@@ -143,7 +143,7 @@ defp skip_migrations?() do
 end
 ```
 
-### 1.5 Create Release Module for Migrations
+#### 1.5 Create Release Module for Migrations
 
 Create `lib/cy_camera_companion/release.ex`:
 
@@ -178,7 +178,7 @@ defmodule CyCameraCompanion.Release do
 end
 ```
 
-### 1.6 Update .gitignore
+#### 1.6 Update .gitignore
 
 Add to `.gitignore`:
 
@@ -186,16 +186,16 @@ Add to `.gitignore`:
 burrito_out/*
 ```
 
-## Step 2: Initialize Tauri Project
+### Step 2: Initialize Tauri Project
 
-### 2.1 Create Tauri Directory Structure
+#### 2.1 Create Tauri Directory Structure
 
 ```bash
 mkdir -p tauri/src-tauri/binaries
 cd tauri
 ```
 
-### 2.2 Initialize Tauri Project
+#### 2.2 Initialize Tauri Project
 
 ```bash
 npm create tauri-app@latest
@@ -204,7 +204,7 @@ npm create tauri-app@latest
 # Skip frontend setup (we'll use our own)
 ```
 
-### 2.3 Configure Tauri
+#### 2.3 Configure Tauri
 
 Update `tauri/src-tauri/Cargo.toml`:
 
@@ -237,7 +237,7 @@ tokio = { version = "1", features = ["time"] }
 reqwest = { version = "0.11", features = ["blocking"] }
 ```
 
-### 2.4 Configure Tauri Settings
+#### 2.4 Configure Tauri Settings
 
 Update `tauri/src-tauri/tauri.conf.json`:
 
@@ -279,7 +279,7 @@ Update `tauri/src-tauri/tauri.conf.json`:
 }
 ```
 
-### 2.5 Create Tauri Main Logic
+#### 2.5 Create Tauri Main Logic
 
 Update `tauri/src-tauri/src/lib.rs`:
 
@@ -372,7 +372,7 @@ async fn start_backend(handle: &tauri::AppHandle) -> Result<(), Box<dyn std::err
 }
 ```
 
-### 2.6 Create Loading Page
+#### 2.6 Create Loading Page
 
 Create `tauri/src/index.html`:
 
@@ -456,9 +456,9 @@ Create `tauri/src/index.html`:
 </html>
 ```
 
-## Step 3: Build Process
+### Step 3: Build Process
 
-### 3.1 Build Phoenix Release with Burrito
+#### 3.1 Build Phoenix Release with Burrito
 
 Build the standalone Phoenix executable for each platform:
 
@@ -472,7 +472,7 @@ This creates binaries in `burrito_out/`:
 - `cy_camera_companion_desktop_macos` (macOS ARM64)
 - `cy_camera_companion_desktop_windows.exe` (Windows x86_64)
 
-### 3.2 Link Binaries to Tauri
+#### 3.2 Link Binaries to Tauri
 
 Create symlinks from Tauri directory to Burrito output binaries with platform-specific naming:
 
@@ -499,16 +499,16 @@ cd ../..
 
 **Why symlinks?** Using symlinks instead of copying means you don't need to manually copy files after each Phoenix release build - the Tauri build will automatically use the latest Burrito output.
 
-### 3.3 Build Tauri Application
+#### 3.3 Build Tauri Application
 
-#### For Native Platform
+##### For Native Platform
 
 ```bash
 cd tauri
 cargo tauri build
 ```
 
-#### Cross-Compile for Windows from Linux
+##### Cross-Compile for Windows from Linux
 
 Install required tools:
 
@@ -541,20 +541,20 @@ The built applications will be in:
 - Windows: `tauri/src-tauri/target/x86_64-pc-windows-msvc/release/bundle/`
 - macOS: `tauri/src-tauri/target/release/bundle/`
 
-## Step 4: Key Implementation Details
+### Step 4: Key Implementation Details
 
-### Database Persistence
+#### Database Persistence
 
 The app stores the SQLite database in the user's home directory:
 ```elixir
 Path.join([System.user_home() || ".", ".cy_camera_companion", "cy_camera_companion.db"])
 ```
 
-### Migration Strategy
+#### Migration Strategy
 
 Migrations are skipped when running in Burrito/Tauri context (detected via `BURRITO_TARGET` env var). You can run migrations manually if needed via the Release module.
 
-### Process Communication
+#### Process Communication
 
 1. Tauri launches the Phoenix backend as a sidecar process
 2. Backend starts on `localhost:4000`
@@ -562,45 +562,45 @@ Migrations are skipped when running in Burrito/Tauri context (detected via `BURR
 4. Tauri opens a webview window pointing to `localhost:4000`
 5. Phoenix LiveView handles all UI interactions
 
-### Environment Variables
+#### Environment Variables
 
 Key environment variables passed to the backend:
 - `CY_COMPANION_PORT`: HTTP port (default: 4000)
 - `MIX_ENV`: Set to "prod"
 - `BURRITO_TARGET`: Signals running in bundled mode
 
-## Platform-Specific Considerations
+### Platform-Specific Considerations
 
-### Windows
+#### Windows
 - Binary must have `.exe` extension
 - Use `cargo-xwin` for cross-compilation from Linux
 - Target triple: `x86_64-pc-windows-msvc`
 
-### macOS
+#### macOS
 - Target triple: `aarch64-apple-darwin` (Apple Silicon)
 - Code signing may be required for distribution
 
-### Linux
+#### Linux
 - Target triple: `x86_64-unknown-linux-gnu`
 - May need to bundle system libraries
 
-## Troubleshooting
+### Troubleshooting
 
-### Backend Fails to Start
+#### Backend Fails to Start
 - Check logs in Tauri dev tools console
 - Verify binary permissions (must be executable)
 - Ensure all dependencies are bundled in Burrito release
 
-### Window Opens Before Backend Ready
+#### Window Opens Before Backend Ready
 - Increase polling timeout in `lib.rs`
 - Add more detailed logging to debug startup timing
 
-### Database Issues
+#### Database Issues
 - Ensure database directory has write permissions
 - Check that migrations are handled correctly
 - Verify database path resolution in production
 
-## Complete Build Commands Reference
+### Complete Build Commands Reference
 
 ```bash
 # Step 1: Build Phoenix releases with Burrito
@@ -626,7 +626,7 @@ cargo tauri build
 cargo tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc
 ```
 
-## Result
+### Result
 
 You now have:
 - ✅ Single-binary desktop applications for Linux, macOS, and Windows
@@ -637,7 +637,7 @@ You now have:
 
 The final application is completely self-contained - users simply download and run the executable.
 
-## Check out
+### Check out
 
 - [www.cyanview.com](https://www.cyanview.com/)
 - [CyanView - From Super Bowl to Olympics](https://youtu.be/CUzarY3ry2M?si=KYfJy8Ef1ZQL4vCU)

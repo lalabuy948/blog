@@ -11,7 +11,7 @@ seo_description: "Real-world migration from Python/React microservices to Elixir
 
 Due to an NDA we can't go into specific business details, but here's the gist: we inherited a SaaS platform in the accounting and document processing space. The system handled document ingestion, automated data extraction, workflow orchestration, and multi-tenant reporting a fairly typical B2B back-office tool. The original stack was maintained by a team of two backend engineers and one frontend developer. What follows is a breakdown of what the migration to Elixir/Phoenix looked like by the numbers.
 
-## Migration Approach
+### Migration Approach
 
 Rather than attempting a gradual, service-by-service port, we took a clean-slate approach. We analyzed the existing MySQL schema to identify the core domain entities (files, accounting entries, companies, users, banks, VAT rates) and their relationships, then scaffolded a fresh Phoenix 1.8 project with `phx.new` and `phx.gen.auth`. DaisyUI and Tailwind v4 gave us a polished UI foundation out of the box. With the data model mapped and auth in place, we had a working MVP with file upload, document processing pipeline, and basic accounting views in under a week.
 
@@ -19,9 +19,9 @@ The following two weeks were spent reaching feature parity: porting the Zeebee B
 
 Let's dive into raw numbers comparison
 
-# Migration Analysis: Numbers
+## Migration Analysis: Numbers
 
-## Architecture Overview
+### Architecture Overview
 
 | | **Old Stack** | **New Stack** |
 |---|---|---|
@@ -37,7 +37,7 @@ Let's dive into raw numbers comparison
 
 ---
 
-## 1. Lines of Code Reduction
+### 1. Lines of Code Reduction
 
 | Metric | Old | New | Reduction |
 |---|---|---|---|
@@ -52,7 +52,7 @@ Let's dive into raw numbers comparison
 
 ---
 
-## 2. Source File Reduction
+### 2. Source File Reduction
 
 | Metric | Old | New | Reduction |
 |---|---|---|---|
@@ -63,7 +63,7 @@ Let's dive into raw numbers comparison
 
 ---
 
-## 3. Dependency Reduction
+### 3. Dependency Reduction
 
 | Metric | Old | New | Reduction |
 |---|---|---|---|
@@ -75,7 +75,7 @@ Let's dive into raw numbers comparison
 
 ---
 
-## 4. Infrastructure Simplification
+### 4. Infrastructure Simplification
 
 | Metric | Old | New | Reduction |
 |---|---|---|---|
@@ -87,7 +87,7 @@ Let's dive into raw numbers comparison
 
 ---
 
-## 5. Language & Cognitive Complexity
+### 5. Language & Cognitive Complexity
 
 | Metric | Old | New |
 |---|---|---|
@@ -102,7 +102,7 @@ Let's dive into raw numbers comparison
 
 ---
 
-## 6. Eliminated Entire Technology Layers
+### 6. Eliminated Entire Technology Layers
 
 The migration **completely removed** these systems:
 
@@ -118,7 +118,7 @@ The migration **completely removed** these systems:
 
 ---
 
-## 7. Developer Experience Benefits
+### 7. Developer Experience Benefits
 
 | Area | Old | New |
 |---|---|---|
@@ -132,7 +132,7 @@ The migration **completely removed** these systems:
 
 ---
 
-## 8. Operational Benefits
+### 8. Operational Benefits
 
 | Area | Old | New |
 |---|---|---|
@@ -145,7 +145,7 @@ The migration **completely removed** these systems:
 
 ---
 
-## Summary Scorecard
+### Summary Scorecard
 
 | Dimension | Improvement |
 |---|---|

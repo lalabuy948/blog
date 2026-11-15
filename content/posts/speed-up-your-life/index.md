@@ -53,15 +53,15 @@ Each time when you will think to spend your spare time on useless time waste lik
 
 Since ProgressBar was not updated to M1 processors I switched to: [Day Progress](https://sindresorhus.com/day-progress)
 
-![Day Progress screenshot](/img/speed-up-your-life/dayprogress.jpg)
+![Day Progress screenshot](/img/speed-up-your-life/dayprogress.webp)
 
 ## Comprehension
 
 [6 Important Life Graphs](https://medium.com/change-your-mind/6-important-life-graphs-youve-never-seen-718faf7f6e69)
 
-![](/img/speed-up-your-life/1.webp)
-![](/img/speed-up-your-life/2.webp)
-![](/img/speed-up-your-life/3.webp)
-![](/img/speed-up-your-life/4.webp)
-![](/img/speed-up-your-life/5.webp)
-![](/img/speed-up-your-life/6.webp)
+![Hours per day spent with parents, siblings and family, by age](/img/speed-up-your-life/1.webp)
+![Hours per day spent with co-workers, by age](/img/speed-up-your-life/2.webp)
+![Hours per day spent with friends, by age](/img/speed-up-your-life/3.webp)
+![Hours per day spent with children, by age](/img/speed-up-your-life/4.webp)
+![Hours per day spent with a partner, by age](/img/speed-up-your-life/5.webp)
+![Hours per day spent alone, by age](/img/speed-up-your-life/6.webp)

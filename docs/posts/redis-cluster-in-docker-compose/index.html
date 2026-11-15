@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Redis Cluster in Docker Compose</title>
+      <title>Redis Cluster in Docker Compose :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/redis-cluster-in-docker-compose/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,50 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content=" x: Why would you do this?
-y: Because one not enough?
-"/>
-        
-
-
-
-    <meta name="keywords" content="redis cluster, docker compose, docker, redis, " />
+<meta name="description" content="How to add a second Redis node to a docker-compose setup. The redis.conf bind change, a network and the compose files."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/redis-cluster-in-docker-compose/redis-docker.webp">
-    <meta property="twitter:image" content="https://mrpopov.com/img/redis-cluster-in-docker-compose/redis-docker.webp">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Redis Cluster in Docker Compose">
-    <meta property="twitter:title" content="Mr.Popov :: Redis Cluster in Docker Compose">
-
-
-
-    <meta property="og:description" content=" x: Why would you do this?
-y: Because one not enough?
-">
-    <meta property="twitter:description" content=" x: Why would you do this?
-y: Because one not enough?
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Redis Cluster in Docker Compose">
+<meta property="og:description" content="How to add a second Redis node to a docker-compose setup. The redis.conf bind change, a network and the compose files.">
+<meta property="og:image" content="https://mrpopov.com/img/redis-cluster-in-docker-compose/redis-docker.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/redis-cluster-in-docker-compose/">
+<meta property="article:published_time" content="2020-08-16T16:37:03&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/redis-cluster-in-docker-compose/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Redis Cluster in Docker Compose">
+<meta name="twitter:description" content="How to add a second Redis node to a docker-compose setup. The redis.conf bind change, a network and the compose files.">
+<meta name="twitter:image" content="https://mrpopov.com/img/redis-cluster-in-docker-compose/redis-docker.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -72,15 +46,12 @@ y: Because one not enough?
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/redis-cluster-in-docker-compose/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2020-08-16T16:37:03+02:00","datePublished":"2020-08-16T16:37:03+02:00","description":"How to add a second Redis node to a docker-compose setup. The redis.conf bind change, a network and the compose files.","headline":"Redis Cluster in Docker Compose","image":"https://mrpopov.com/img/redis-cluster-in-docker-compose/redis-docker.webp","mainEntityOfPage":"https://mrpopov.com/posts/redis-cluster-in-docker-compose/"}
+</script>
 
 
 
@@ -115,7 +86,11 @@ y: Because one not enough?
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -131,11 +106,15 @@ y: Because one not enough?
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -155,15 +134,23 @@ y: Because one not enough?
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -193,10 +180,10 @@ y: Because one not enough?
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/redis-cluster-in-docker-compose/">Redis Cluster in Docker Compose</a></h2>
+    <h1 class="post-title"><a href="/posts/redis-cluster-in-docker-compose/">Redis Cluster in Docker Compose</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -371,7 +358,7 @@ Redis will be accessible by this url <code>redis:6379</code>.</p>
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

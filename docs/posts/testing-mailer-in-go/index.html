@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Testing Mailer in Go</title>
+      <title>Testing Mailer in Go :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/testing-mailer-in-go/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,55 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
-I was looking on few popular tools across the Internet:
-https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/ What I found My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.
-"/>
-        
-
-
-
-    
-         <meta name="keywords" content="" />
-    
+<meta name="description" content="I needed to test email confirmation locally. Mailtrap, mailcow and the others were too heavy, so I run MailHog in Docker. Here is the setup."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/testing-mailer-in-go/LazyGopher.png">
-    <meta property="twitter:image" content="https://mrpopov.com/img/testing-mailer-in-go/LazyGopher.png">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Testing Mailer in Go">
-    <meta property="twitter:title" content="Mr.Popov :: Testing Mailer in Go">
-
-
-
-    <meta property="og:description" content="Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
-I was looking on few popular tools across the Internet:
-https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/ What I found My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.
-">
-    <meta property="twitter:description" content="Forewords I needed a way to test mail confirmation. When you are dealing with deb authentication you would like to be sure that this email exist. And usually I use is_email_confirmed column next to user credentials in the database table. Once user hits siging endpoint as last step I send an email with confirmation token.
-I was looking on few popular tools across the Internet:
-https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.io/ What I found My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Testing Mailer in Go">
+<meta property="og:description" content="I needed to test email confirmation locally. Mailtrap, mailcow and the others were too heavy, so I run MailHog in Docker. Here is the setup.">
+<meta property="og:image" content="https://mrpopov.com/img/testing-mailer-in-go/LazyGopher.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/testing-mailer-in-go/">
+<meta property="article:published_time" content="2020-03-08T19:23:14&#43;01:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/testing-mailer-in-go/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Testing Mailer in Go">
+<meta name="twitter:description" content="I needed to test email confirmation locally. Mailtrap, mailcow and the others were too heavy, so I run MailHog in Docker. Here is the setup.">
+<meta name="twitter:image" content="https://mrpopov.com/img/testing-mailer-in-go/LazyGopher.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -77,15 +46,12 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/testing-mailer-in-go/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2020-03-08T19:23:14+01:00","datePublished":"2020-03-08T19:23:14+01:00","description":"I needed to test email confirmation locally. Mailtrap, mailcow and the others were too heavy, so I run MailHog in Docker. Here is the setup.","headline":"Testing Mailer in Go","image":"https://mrpopov.com/img/testing-mailer-in-go/LazyGopher.webp","mainEntityOfPage":"https://mrpopov.com/posts/testing-mailer-in-go/"}
+</script>
 
 
 
@@ -120,7 +86,11 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -136,11 +106,15 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -160,15 +134,23 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -198,10 +180,10 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/testing-mailer-in-go/">Testing Mailer in Go</a></h2>
+    <h1 class="post-title"><a href="/posts/testing-mailer-in-go/">Testing Mailer in Go</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -232,7 +214,7 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
     
       
         
-        <img alt="Testing Mailer in Go" src="https://mrpopov.com/img/testing-mailer-in-go/LazyGopher.png" class="post-cover" />
+        <img alt="Testing Mailer in Go" src="https://mrpopov.com/img/testing-mailer-in-go/LazyGopher.webp" class="post-cover" />
       
     
 
@@ -248,7 +230,7 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
 </ul>
 <h2 id="what-i-found">What I found</h2>
 <p>My requirements were: run in docker, easy to config, basic functionality to render email. All things above quite heavy apps with complex configuration. After that I found found nice and lightweight way how to test it locally.</p>
-<p>-&gt; <a href="https://github.com/mailhog/MailHog">https://github.com/mailhog/MailHog</a> <img src="https://img.shields.io/github/stars/mailhog/MailHog?style=plastic" alt="stars"></p>
+<p>-&gt; <a href="https://github.com/mailhog/MailHog">https://github.com/mailhog/MailHog</a> <img src="https://img.shields.io/github/stars/mailhog/MailHog?style=plastic" alt="stars" loading="lazy" decoding="async"></p>
 <h2 id="setup">Setup</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#57606a"># docker-compose.dev.yml</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#24292e">...</span><span style="color:#fff">
@@ -372,7 +354,7 @@ https://mailtrap.io/ https://mailcow.email/ https://mailu.io/1.7/ https://poste.
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ColorChecker Spaces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;800&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* single-theme on purpose: the chart needs a neutral dark surround for judging colour */
+:root{--bg:#141414;--frame:#000;--ink:#f2f2f2;--dim:#8f8f8f;--panel:#1f1f1f;--line:#333;--amber:#f2b23a;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.4 "IBM Plex Sans",system-ui,sans-serif;padding-inline:16px;padding-block:10px;display:flex;flex-direction:column;gap:10px;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+header h1{font:800 15px "Azeret Mono",ui-monospace,monospace;margin:0;letter-spacing:.02em;flex:1}
+select,button{padding:9px 12px;font:600 14px "IBM Plex Sans",system-ui,sans-serif;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+main{flex:1;min-height:0;display:flex}
+#chart{flex:1;background:var(--frame);padding:2.5%;display:grid;gap:2%;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr);cursor:pointer}
+@media (orientation:portrait){#chart{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(6,1fr);grid-auto-flow:column}}
+.p{position:relative;display:flex;align-items:flex-end;padding:4px 6px;font:500 clamp(9px,1.6vmin,13px)/1.25 "Azeret Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;overflow:hidden}
+.p span{display:none;white-space:pre}
+#chart.vals .p span{display:block}
+.p.light{color:#000}.p.dark{color:#fff}
+.p.clip::after{content:"";position:absolute;top:0;right:0;border:7px solid transparent;border-top-color:var(--amber);border-right-color:var(--amber)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dim);font:500 12px "Azeret Mono",ui-monospace,monospace}
+footer b{color:var(--amber);font-weight:500}
+</style>
+</head>
+<body>
+<header>
+  <h1>ColorChecker 24</h1>
+  <select id="space" aria-label="Colour space">
+    <option value="lab">Lab (browser maps)</option>
+    <option value="srgb" selected>sRGB</option>
+    <option value="p3">Display P3</option>
+    <option value="a98">Adobe RGB (1998)</option>
+    <option value="rec2020">Rec.2020</option>
+    <option value="rec709">Rec.709 code values</option>
+  </select>
+  <button id="vals" aria-pressed="false">Values</button>
+  <button id="full">Fullscreen</button>
+</header>
+<main><div id="chart" title="Tap to toggle values"></div></main>
+<footer><div id="note"></div><div>X-Rite 2014 L*a*b* D50 · 8-bit full range · <b>▲</b> = outside gamut, clipped</div></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const NAMES=["dark skin","light skin","blue sky","foliage","blue flower","bluish green","orange","purplish blue","moderate red","purple","yellow green","orange yellow","blue","green","red","yellow","magenta","cyan","white 9.5","neutral 8","neutral 6.5","neutral 5","neutral 3.5","black 2"];
+const LAB=[[37.54,14.37,14.92],[64.66,19.27,17.5],[49.32,-3.82,-22.54],[43.46,-12.74,22.72],[54.94,9.61,-24.79],[70.48,-32.26,-.37],[62.73,35.83,56.5],[39.43,10.75,-45.17],[50.57,48.64,16.67],[30.1,22.54,-20.87],[71.77,-24.13,58.19],[71.51,18.24,67.37],[28.37,15.42,-49.8],[54.38,-39.72,32.27],[42.43,51.05,28.62],[81.8,2.67,80.41],[50.63,51.28,-14.12],[49.57,-29.71,-28.32],[95.19,-1.03,2.93],[81.29,-.57,.44],[66.89,-.75,-.06],[50.76,-.13,.14],[35.63,-.46,-.48],[20.64,.07,-.46]];
+
+// Lab (D50) -> XYZ D50 -> Bradford -> XYZ D65
+function labToXYZ([L,a,b]){
+  const fy=(L+16)/116,fx=fy+a/500,fz=fy-b/200,f=t=>t**3>.008856?t**3:(116*t-16)/903.3;
+  const x=.9642*f(fx),y=f(fy),z=.8251*f(fz);
+  return [.9555766*x-.0230393*y+.0631636*z,-.0282895*x+1.0099416*y+.0210077*z,.0122982*x-.020483*y+1.3299098*z];
+}
+const srgbT=v=>v<=.0031308?12.92*v:1.055*v**(1/2.4)-.055;
+const btT=v=>v<.018053968510807?4.5*v:1.09929682680944*v**.45-.09929682680944;
+const SP={
+  srgb:{css:"srgb",m:[3.2404542,-1.5371385,-.4985314,-.969266,1.8760108,.041556,.0556434,-.2040259,1.0572252],t:srgbT},
+  p3:{css:"display-p3",m:[2.4934969,-.9313836,-.4027108,-.829489,1.7626641,.0236247,.0358458,-.0761724,.9568845],t:srgbT},
+  a98:{css:"a98-rgb",m:[2.0415879,-.565007,-.3447314,-.9692436,1.8759675,.0415551,.0134443,-.1183624,1.015175],t:v=>v**(1/2.19921875)},
+  rec2020:{css:"rec2020",m:[1.7166512,-.3556708,-.2533663,-.6666844,1.6164812,.0157685,.0176399,-.0427706,.9421031],t:btT},
+  rec709:{css:"srgb",m:null,t:btT,note:"BT.709 OETF values, rendered through sRGB (looks slightly lifted on purpose)"}
+};
+SP.rec709.m=SP.srgb.m;
+function toRGB(lab,sp){
+  const [X,Y,Z]=labToXYZ(lab),m=sp.m,lin=[m[0]*X+m[1]*Y+m[2]*Z,m[3]*X+m[4]*Y+m[5]*Z,m[6]*X+m[7]*Y+m[8]*Z];
+  const clip=lin.some(v=>v<-1e-4||v>1+1e-4);
+  return{rgb:lin.map(v=>sp.t(Math.min(1,Math.max(0,v)))),clip};
+}
+const chart=$('#chart');
+LAB.forEach((lab,i)=>{const d=document.createElement('div');d.className='p '+(lab[0]>55?'light':'dark');d.title=(i+1)+' '+NAMES[i];d.innerHTML='<span></span>';chart.appendChild(d)});
+function render(){
+  const key=$('#space').value,note=$('#note');
+  let supported=true;
+  [...chart.children].forEach((d,i)=>{
+    const lab=LAB[i];let css,txt,clip=false;
+    if(key==='lab'){css=`lab(${lab[0]} ${lab[1]} ${lab[2]})`;txt=`L ${lab[0]}\na ${lab[1]}\nb ${lab[2]}`}
+    else{
+      const sp=SP[key],r=toRGB(lab,sp);clip=r.clip;
+      const b8=r.rgb.map(v=>Math.round(v*255));
+      css=`color(${sp.css} ${r.rgb.map(v=>v.toFixed(4)).join(' ')})`;
+      txt=b8.join(' ')+'\n#'+b8.map(v=>v.toString(16).padStart(2,'0')).join('');
+    }
+    if(!CSS.supports('color',css)){supported=false;const r=toRGB(lab,SP.srgb);css='rgb('+r.rgb.map(v=>Math.round(v*255)).join(' ')+')'}
+    d.style.background=css;d.classList.toggle('clip',clip);d.firstChild.textContent=(i+1)+' '+NAMES[i]+'\n'+txt;
+  });
+  note.textContent=!supported?'Browser has no CSS '+key+' support, showing sRGB fallback':(SP[key]?.note||'');
+}
+$('#space').onchange=render;
+chart.onclick=$('#vals').onclick=()=>{const on=chart.classList.toggle('vals');$('#vals').setAttribute('aria-pressed',on)};
+if(document.documentElement.requestFullscreen)$('#full').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();else $('#full').hidden=true;
+navigator.wakeLock?.request('screen').catch(()=>{});
+render();
+</script>
+</body>
+</html>

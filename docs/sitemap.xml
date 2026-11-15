@@ -3,9 +3,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mrpopov.com/</loc>
-    <lastmod>2026-10-01T09:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://mrpopov.com/tags/broadcast/</loc>
     <lastmod>2026-10-01T09:00:00+02:00</lastmod>
   </url><url>
@@ -13,6 +10,9 @@
     <lastmod>2026-10-01T09:00:00+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/tags/elixir/</loc>
+    <lastmod>2026-10-01T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://mrpopov.com/</loc>
     <lastmod>2026-10-01T09:00:00+02:00</lastmod>
   </url><url>
     <loc>https://mrpopov.com/posts/</loc>
@@ -231,28 +231,42 @@
     <loc>https://mrpopov.com/posts/flexible-env-in-go/</loc>
     <lastmod>2020-03-07T09:00:59+01:00</lastmod>
   </url><url>
-    <loc>https://mrpopov.com/cv/</loc>
-  </url><url>
     <loc>https://mrpopov.com/about/</loc>
   </url><url>
     <loc>https://mrpopov.com/apple/</loc>
   </url><url>
-    <loc>https://mrpopov.com/case-studies/</loc>
+    <loc>https://mrpopov.com/curated/dakine-backpack/</loc>
   </url><url>
-    <loc>https://mrpopov.com/categories/</loc>
+    <loc>https://mrpopov.com/case-studies/</loc>
   </url><url>
     <loc>https://mrpopov.com/consulting/</loc>
   </url><url>
     <loc>https://mrpopov.com/cookie-policy/</loc>
   </url><url>
+    <loc>https://mrpopov.com/curated/</loc>
+  </url><url>
+    <loc>https://mrpopov.com/curated/casio-edifice/</loc>
+  </url><url>
+    <loc>https://mrpopov.com/curated/bellroy-lite-tech-kit/</loc>
+  </url><url>
     <loc>https://mrpopov.com/apple/msj/</loc>
+  </url><url>
+    <loc>https://mrpopov.com/curated/montblanc-travel-pouch/</loc>
+  </url><url>
+    <loc>https://mrpopov.com/curated/uniqlo-trousers/</loc>
   </url><url>
     <loc>https://mrpopov.com/projects/</loc>
   </url><url>
     <loc>https://mrpopov.com/showcase/</loc>
   </url><url>
+    <loc>https://mrpopov.com/curated/bellroy-tech-kit/</loc>
+  </url><url>
     <loc>https://mrpopov.com/tech-scaling/</loc>
   </url><url>
     <loc>https://mrpopov.com/tags/tech-scaling/</loc>
+  </url><url>
+    <loc>https://mrpopov.com/tools/</loc>
+  </url><url>
+    <loc>https://mrpopov.com/curated/bellroy-travel-wallet/</loc>
   </url>
 </urlset>

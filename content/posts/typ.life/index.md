@@ -1,5 +1,6 @@
 ---
 title: "https://typ.life"
+seo_description: "Quarantine got me hooked on mechanical keyboards and r/mk. So I built typ.life, a small typing app with real-world examples."
 date: 2020-08-21T13:19:54+02:00
 draft: false
 comments: true

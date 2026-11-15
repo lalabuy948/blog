@@ -1,0 +1,8 @@
+{{- $p := .page -}}
+{{- with $p.Resources.GetMatch "cover.*" -}}
+  {{- $img := . -}}
+  {{- if $.card }}{{ $img = .Fill "600x600 Center webp" }}{{ else }}{{ $img = .Fit "1200x1200 webp" }}{{ end -}}
+  <img class="curated-cover" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $p.Params.brand }} {{ $p.Title }}"{{ if $.card }} loading="lazy" decoding="async"{{ end }}>
+{{- else -}}
+  <div class="curated-cover curated-cover--empty" aria-hidden="true">{{ substr ($p.Params.brand | default $p.Title) 0 1 | upper }}</div>
+{{- end -}}

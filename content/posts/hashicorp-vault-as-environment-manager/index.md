@@ -1,5 +1,6 @@
 ---
 title: "Hashicorp Vault as Environment Manager"
+seo_description: "How to use HashiCorp Vault as a dotenv manager. A KV engine, one JSON file per environment and a small bash script to pull the secrets."
 date: 2020-06-20T20:09:43+02:00
 draft: false
 comments: true
@@ -14,18 +15,18 @@ seo:
   [hashicorp, vault, dotenv, how to]
 ---
 
-# How to use Hashicorp Vault as dot environment manager?
+## How to use Hashicorp Vault as dot environment manager?
 
 I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂
 
-## Pre Requirements
+### Pre Requirements
 
 - Installed vault
 - Finish setup instructions
 
 You can find nicely described steps here: [Getting started](https://learn.hashicorp.com/vault/getting-started/install)
 
-## #1 Let's add KV engine
+### #1 Let's add KV engine
 
 ![Create KV secret engine](/img/hashicorp-vault-as-environment-manager/vault-screenshot.webp)
 
@@ -33,13 +34,13 @@ In my case I will name it service. After you added your Key Value engine, you sh
 
 ![Added KV secret engine](/img/hashicorp-vault-as-environment-manager/vault-screenshot-0.webp)
 
-## #2 Add secrets (json files)
+### #2 Add secrets (json files)
 
 In my case I created development, staging and production. This files will store actual key value pairs, which in our case dot environment pairs.
 
 ![Create new secret engine](/img/hashicorp-vault-as-environment-manager/vault-screenshot-1.webp)
 
-## #3 Add key value pairs
+### #3 Add key value pairs
 
 Fill your secrets (json files) with your secrets.
 
@@ -47,7 +48,7 @@ Fill your secrets (json files) with your secrets.
 
 ![Create new secret engine](/img/hashicorp-vault-as-environment-manager/vault-screenshot-2.webp)
 
-## #4 Pull key value
+### #4 Pull key value
 
 First of all you need token. In the right corner you will see profile icon and copy token button when you toggle the first one.
 

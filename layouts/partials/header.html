@@ -1,6 +1,6 @@
 <header class="header">
   <span class="header__inner">
-    {{ partial "logo.html" . }}
+    {{ if and .IsNode (ne .Kind "taxonomy") (not (in (slice "curated" "tools") .Section)) }}<h1 style="all: unset">{{ partial "logo.html" . }}</h1>{{ else }}{{ partial "logo.html" . }}{{ end }}
     <span>
       <a href="/episodes/" style="text-decoration:none">🎙️</a>
     </span>

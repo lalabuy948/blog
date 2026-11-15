@@ -1,5 +1,6 @@
 ---
 title: "BasicBB"
+seo_description: "Why my blog and GitHub went quiet. I spend my spare time on basicbb (Basic Building Blocks), our family project about more affordable homes."
 date: 2020-10-11T19:40:59+02:00
 draft: false
 comments: true
@@ -13,7 +14,7 @@ seo:
   [basicbb, basic building blocks, modular housing]
 ---
 
-# Basic Building Blocks
+## Basic Building Blocks
 
 My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success. 
 

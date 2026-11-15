@@ -3,7 +3,7 @@ title: "Elixir Liveview Socket Reconnect"
 date: 2025-10-22T18:22:33+02:00
 draft: false
 comments: true
-cover: "/img/elixir-liveview-socket-reconnect/phase_VH.jpg"
+cover: "/img/elixir-liveview-socket-reconnect/phase_VH.webp"
 tags:
     - elixir
     - code

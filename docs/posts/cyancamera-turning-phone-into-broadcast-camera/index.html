@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: CyanCamera: Turning an iPhone Into a Broadcast Camera</title>
+      <title>CyanCamera: Turning an iPhone Into a Broadcast Camera :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,46 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="How CyanCamera turns an iPhone into a broadcast camera: BT.709 vs BT.2020, 8-bit vs 10-bit, 3D LUTs, Apple Log, and a Metal shader that runs two chained LUTs per frame at 10-bit."/>
-        
-
-
-
-    <meta name="keywords" content="color science for engineers, RGB vs YCbCr explained, 3D LUT explained, apple log vs rec 709, chroma subsampling 4:2:0, broadcast camera color pipeline, iphone apple log ios, metal shader color grading, " />
+<meta name="description" content="How CyanCamera turns an iPhone into a broadcast camera: BT.709 vs BT.2020, 8-bit vs 10-bit, 3D LUTs, Apple Log, and a Metal shader that runs two chained LUTs per frame at 10-bit."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/cyancamera-turning-phone-into-broadcast-camera/preview.jpg">
-    <meta property="twitter:image" content="https://mrpopov.com/img/cyancamera-turning-phone-into-broadcast-camera/preview.jpg">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: CyanCamera: Turning an iPhone Into a Broadcast Camera">
-    <meta property="twitter:title" content="Mr.Popov :: CyanCamera: Turning an iPhone Into a Broadcast Camera">
-
-
-
-    <meta property="og:description" content="This year I gave a 20 minute talk at RTCON by Software Mansion about the color science behind CyanCamera. It&rsquo;s the app we built at CyanView so an iPhone can stand next to a Sony Venice or an ARRI Alexa in a live broadcast truck. Here is the talk, written down and a bit shorter.
-">
-    <meta property="twitter:description" content="This year I gave a 20 minute talk at RTCON by Software Mansion about the color science behind CyanCamera. It&rsquo;s the app we built at CyanView so an iPhone can stand next to a Sony Venice or an ARRI Alexa in a live broadcast truck. Here is the talk, written down and a bit shorter.
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="CyanCamera: Turning an iPhone Into a Broadcast Camera">
+<meta property="og:description" content="How CyanCamera turns an iPhone into a broadcast camera: BT.709 vs BT.2020, 8-bit vs 10-bit, 3D LUTs, Apple Log, and a Metal shader that runs two chained LUTs per frame at 10-bit.">
+<meta property="og:image" content="https://mrpopov.com/img/cyancamera-turning-phone-into-broadcast-camera/preview.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/">
+<meta property="article:published_time" content="2026-09-21T09:00:00&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CyanCamera: Turning an iPhone Into a Broadcast Camera">
+<meta name="twitter:description" content="How CyanCamera turns an iPhone into a broadcast camera: BT.709 vs BT.2020, 8-bit vs 10-bit, 3D LUTs, Apple Log, and a Metal shader that runs two chained LUTs per frame at 10-bit.">
+<meta name="twitter:image" content="https://mrpopov.com/img/cyancamera-turning-phone-into-broadcast-camera/preview.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -68,15 +46,12 @@
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2026-09-21T09:00:00+02:00","datePublished":"2026-09-21T09:00:00+02:00","description":"How CyanCamera turns an iPhone into a broadcast camera: BT.709 vs BT.2020, 8-bit vs 10-bit, 3D LUTs, Apple Log, and a Metal shader that runs two chained LUTs per frame at 10-bit.","headline":"CyanCamera: Turning an iPhone Into a Broadcast Camera","image":"https://mrpopov.com/img/cyancamera-turning-phone-into-broadcast-camera/preview.webp","mainEntityOfPage":"https://mrpopov.com/posts/cyancamera-turning-phone-into-broadcast-camera/"}
+</script>
 
 
 
@@ -111,7 +86,11 @@
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -127,11 +106,15 @@
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -151,15 +134,23 @@
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -189,10 +180,10 @@
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/cyancamera-turning-phone-into-broadcast-camera/">CyanCamera: Turning an iPhone Into a Broadcast Camera</a></h2>
+    <h1 class="post-title"><a href="/posts/cyancamera-turning-phone-into-broadcast-camera/">CyanCamera: Turning an iPhone Into a Broadcast Camera</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -219,7 +210,7 @@
     
       
         
-        <img alt="CyanCamera: Turning an iPhone Into a Broadcast Camera" src="https://mrpopov.com/img/cyancamera-turning-phone-into-broadcast-camera/preview.jpg" class="post-cover" />
+        <img alt="CyanCamera: Turning an iPhone Into a Broadcast Camera" src="https://mrpopov.com/img/cyancamera-turning-phone-into-broadcast-camera/preview.webp" class="post-cover" />
       
     
 
@@ -253,25 +244,25 @@
 	</tbody>
 </table>
 <p>If you tag a stream BT.709 but encode it with the BT.2020 matrix, skin tones and whites come out wrong. Nothing downstream will tell you why. So CyanCamera picks the matrix from the active color space and tags the stream with it: BT.2020 for HLG and Apple Log, BT.709 for everything else.</p>
-<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/CIE1931xy_gamut_comparison_of_sRGB_P3_Rec2020.png" alt="Gamut comparison"></p>
+<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/CIE1931xy_gamut_comparison_of_sRGB_P3_Rec2020.webp" alt="Gamut comparison" loading="lazy" decoding="async"></p>
 <p>Color is also stored at lower resolution than brightness, because your eye sees brightness much sharper than color. That&rsquo;s chroma subsampling, and 4:2:0 is what H.264, H.265 and most phone video do.</p>
-<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/chroma-subsampling.png" alt="Chroma subsampling">
+<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/chroma-subsampling.png" alt="Chroma subsampling" loading="lazy" decoding="async">
 <em>4:4:4 keeps all chroma. 4:2:2 halves it horizontally. 4:2:0 halves both axes.</em></p>
 <h2 id="8-bit-vs-10-bit">8-bit vs 10-bit</h2>
 <p>8-bit is 256 steps per channel, 10-bit is 1024. On 8-bit, lift the shadows a bit and your sunset becomes pink stripes. 10-bit has 4 times more steps, so it stays smooth.</p>
-<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/banding-8bit-vs-10bit.png" alt="8-bit vs 10-bit banding">
+<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/banding-8bit-vs-10bit.png" alt="8-bit vs 10-bit banding" loading="lazy" decoding="async">
 <em>The same dark sky at 8-bit and 10-bit, lifted 3 stops. 8-bit had 28 red levels to work with, 10-bit had 112.</em></p>
 <p>Most phone camera apps drop to 8-bit before anything touches the frame. We don&rsquo;t. Apple Log goes into half-float, the LUTs run on that, and only the final stream is quantized. 10-bit from sensor to encoder.</p>
 <h2 id="3d-lut-in-one-minute">3D LUT in one minute</h2>
 <p>A 3D LUT is a grid. Every cell says &ldquo;this RGB becomes that RGB&rdquo;. It moves all three channels together, so you can shift any color anywhere. Real LUTs keep 17, 33 or 65 points per axis and interpolate between them. 33³ is 35,937 entries, and that&rsquo;s enough for a full camera look.</p>
 <p>Color space conversion, log decoding, matching camera A to camera B, the DP&rsquo;s look: you can bake all of it into one <code>.cube</code> file. On the GPU it&rsquo;s one texture lookup per pixel.</p>
-<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/lut-identity-vs-applelog.png" alt="LUT identity vs Apple Log">
+<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/lut-identity-vs-applelog.png" alt="LUT identity vs Apple Log" loading="lazy" decoding="async">
 <em>Slices of a 33-point cube. Top: identity. Bottom: the Apple Log to Rec.709 cube CyanCamera ships.</em></p>
 <h2 id="why-log-looks-flat">Why log looks flat</h2>
 <p>A sensor sees about 14 stops of light, and 10 bits gives you 1024 values for them. Store light linearly and the top stop eats half of the values while the shadows get one or two. Store the log of the light and every stop gets roughly the same share, so all 14 fit.</p>
-<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/codes-per-stop.png" alt="Code values per stop"></p>
+<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/codes-per-stop.png" alt="Code values per stop" loading="lazy" decoding="async"></p>
 <p>The price is a flat grey picture. Nobody watches log, you always convert it first.</p>
-<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/log-vs-linear.png" alt="Log vs linear curves">
+<p><img src="/img/cyancamera-turning-phone-into-broadcast-camera/log-vs-linear.webp" alt="Log vs linear curves" loading="lazy" decoding="async">
 <em>Linear and Rec.709 clip 2.5 stops above grey. Apple Log keeps going to +6 stops and lifts black to code 154 so the noise below black survives.</em></p>
 <p>CyanCamera has three transfer functions on the device, both directions: Rec.709 (most trucks still deliver in it), Apple Log (iPhone 15 Pro and later) and HLG (HDR broadcast). Converting log back is again just a LUT, so &ldquo;Apple Log to Rec.709&rdquo; is one more <code>.cube</code> file.</p>
 <video controls muted playsinline style="max-width: 100%; height: auto;">
@@ -406,7 +397,7 @@ combined(color) = FileLUT( GeneratedLUT(color) )
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Glass to Glass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;800&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* single-theme on purpose: this page is a camera target, so pure black / pure white for contrast */
+:root{--bg:#000;--ink:#fff;--dim:#8a8f98;--panel:#111318;--line:#262a32;--tally:#e5322d;--amber:#f2b23a;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.4 "IBM Plex Sans",system-ui,sans-serif;padding-inline:16px;padding-block:10px;display:flex;flex-direction:column;gap:10px;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+header{display:flex;justify-content:space-between;align-items:center;font-variant-numeric:tabular-nums;color:var(--dim);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.state{display:flex;align-items:center;gap:8px;font-weight:600}
+.state i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.on .state{color:var(--ink)}.on .state i{background:var(--tally);box-shadow:0 0 12px var(--tally)}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:4vh;cursor:pointer;min-height:0}
+#clock{font:800 min(16vw,26vh)/1 "Azeret Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;text-align:center;letter-spacing:-.02em;white-space:nowrap}
+#clock small{font-weight:500;color:var(--dim);font-size:.5em}
+.track{height:min(7vh,48px);background:var(--panel);border:1px solid var(--line);position:relative;overflow:hidden}
+#sweep{position:absolute;top:0;bottom:0;left:0;width:4%;background:var(--ink);will-change:transform}
+.blocks{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.blocks b{aspect-ratio:1;background:var(--panel);border:1px solid var(--line)}
+.blocks b.lit{background:var(--ink)}
+.meta{display:flex;justify-content:space-between;color:var(--dim);font:500 13px "Azeret Mono",monospace;font-variant-numeric:tabular-nums}
+.meta span{color:var(--ink)}
+.row{display:flex;gap:8px}
+button{flex:1;padding:14px 8px;font:600 15px "IBM Plex Sans",system-ui,sans-serif;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+#toggle{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.on #toggle{background:var(--tally);border-color:var(--tally);color:var(--ink)}
+fieldset{border:1px solid var(--line);border-radius:6px;padding:10px 12px 12px;margin:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px 10px;align-items:end}
+legend{color:var(--dim);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:0 6px}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--dim)}
+input,select{width:100%;padding:8px;font:500 15px "Azeret Mono",monospace;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;font-variant-numeric:tabular-nums}
+#delta{grid-column:1/-1;font:800 clamp(22px,7vw,32px)/1.2 "Azeret Mono",monospace;font-variant-numeric:tabular-nums}
+#delta small{font:500 13px "Azeret Mono",monospace;color:var(--dim);display:block}
+</style>
+</head>
+<body>
+<header>
+  <div class="state"><i></i><span id="stateTxt">Stopped · tap to start</span></div>
+  <div><span id="fps">—</span> fps</div>
+</header>
+
+<main id="stage" aria-label="Timer, tap to start or stop">
+  <div id="clock">00:00<small>.000</small></div>
+  <div class="track"><div id="sweep"></div></div>
+  <div class="blocks" id="blocks"></div>
+  <div class="meta"><div>frame <span id="frame">0</span></div><div>sweep 1 s · block per frame</div></div>
+</main>
+
+<div class="row">
+  <button id="toggle">Start</button>
+  <button id="reset">Reset</button>
+  <button id="full">Fullscreen</button>
+</div>
+
+<fieldset>
+  <legend>Photo readout</legend>
+  <label>Source ms<input id="src" type="number" inputmode="numeric" placeholder="phone"></label>
+  <label>Display ms<input id="dst" type="number" inputmode="numeric" placeholder="monitor"></label>
+  <label>Rate<select id="rate">
+    <option>23.976</option><option>24</option><option>25</option><option>29.97</option><option>30</option>
+    <option selected>50</option><option>59.94</option><option>60</option>
+  </select></label>
+  <div id="delta">— ms<small>enter both readings from one photo</small></div>
+</fieldset>
+
+<script>
+const $=s=>document.querySelector(s);
+const blocks=$('#blocks');for(let i=0;i<12;i++)blocks.appendChild(document.createElement('b'));
+const B=blocks.children;
+let running=false,startAt=0,elapsed=0,frame=0,lastT=0,fps=0,lock=null;
+const pad=(n,w)=>String(n).padStart(w,'0');
+function render(){
+  const ms=Math.floor(elapsed);
+  $('#clock').innerHTML=pad(Math.floor(ms/60000),2)+':'+pad(Math.floor(ms/1000)%60,2)+'<small>.'+pad(ms%1000,3)+'</small>';
+  $('#sweep').style.transform='translateX('+((ms%1000)/1000*2400)+'%)';
+  for(let i=0;i<12;i++)B[i].classList.toggle('lit',i===frame%12);
+  $('#frame').textContent=frame;
+}
+function tick(now){
+  if(!running)return;
+  elapsed=now-startAt;frame++;
+  if(lastT){const f=1000/(now-lastT);fps=fps?fps*.9+f*.1:f;$('#fps').textContent=fps.toFixed(1)}
+  lastT=now;render();requestAnimationFrame(tick);
+}
+async function wake(){try{lock=await navigator.wakeLock?.request('screen')}catch(e){}}
+function setRunning(on){
+  running=on;document.body.classList.toggle('on',on);
+  $('#toggle').textContent=on?'Stop':'Start';
+  $('#stateTxt').textContent=on?'Running':'Stopped · tap to start';
+  if(on){startAt=performance.now()-elapsed;lastT=0;wake();requestAnimationFrame(tick)}
+  else{lock?.release();lock=null}
+}
+$('#stage').onclick=$('#toggle').onclick=()=>setRunning(!running);
+$('#reset').onclick=()=>{elapsed=0;frame=0;render()};
+document.onkeydown=e=>{if(e.code==='Space'&&e.target.tagName!=='INPUT'){e.preventDefault();setRunning(!running)}};
+document.addEventListener('visibilitychange',()=>{if(running&&!document.hidden)wake()});
+if(document.documentElement.requestFullscreen)$('#full').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
+else $('#full').hidden=true;
+function delta(){
+  const a=$('#src').valueAsNumber,b=$('#dst').valueAsNumber,r=+$('#rate').value;
+  if(isNaN(a)||isNaN(b)){$('#delta').innerHTML='— ms<small>enter both readings from one photo</small>';return}
+  const d=a-b;
+  $('#delta').innerHTML=d+' ms<small>≈ '+(d*r/1000).toFixed(1)+' frames @ '+r+' fps</small>';
+}
+$('#src').oninput=$('#dst').oninput=$('#rate').onchange=delta;
+render();
+</script>
+</body>
+</html>

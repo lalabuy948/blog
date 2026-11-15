@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Flexible Env in Go V2</title>
+      <title>Flexible Env in Go V2 :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/flexible-env-in-go-v2/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,50 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
-After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; github.com/lalabuy948/genvutils
-"/>
-        
-
-
-
-    <meta name="keywords" content="dotenv, open source, golang, github actions, " />
+<meta name="description" content="I merged two env helper packages into genvutils, my own Go library for dotenv and environment variables. Why I built it and how to use it."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/flexible-env-in-go-v2/Unicorn_Gopher.png">
-    <meta property="twitter:image" content="https://mrpopov.com/img/flexible-env-in-go-v2/Unicorn_Gopher.png">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Flexible Env in Go V2">
-    <meta property="twitter:title" content="Mr.Popov :: Flexible Env in Go V2">
-
-
-
-    <meta property="og:description" content="lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
-After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; github.com/lalabuy948/genvutils
-">
-    <meta property="twitter:description" content="lalabuy948/genvutils Motivation As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it there
-After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; github.com/lalabuy948/genvutils
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Flexible Env in Go V2">
+<meta property="og:description" content="I merged two env helper packages into genvutils, my own Go library for dotenv and environment variables. Why I built it and how to use it.">
+<meta property="og:image" content="https://mrpopov.com/img/flexible-env-in-go-v2/Unicorn_Gopher.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/flexible-env-in-go-v2/">
+<meta property="article:published_time" content="2020-09-25T10:07:13&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/flexible-env-in-go-v2/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Flexible Env in Go V2">
+<meta name="twitter:description" content="I merged two env helper packages into genvutils, my own Go library for dotenv and environment variables. Why I built it and how to use it.">
+<meta name="twitter:image" content="https://mrpopov.com/img/flexible-env-in-go-v2/Unicorn_Gopher.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -72,15 +46,12 @@ After some time I decided to create another open-source library for the world an
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/flexible-env-in-go-v2/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2020-09-25T10:07:13+02:00","datePublished":"2020-09-25T10:07:13+02:00","description":"I merged two env helper packages into genvutils, my own Go library for dotenv and environment variables. Why I built it and how to use it.","headline":"Flexible Env in Go V2","image":"https://mrpopov.com/img/flexible-env-in-go-v2/Unicorn_Gopher.webp","mainEntityOfPage":"https://mrpopov.com/posts/flexible-env-in-go-v2/"}
+</script>
 
 
 
@@ -115,7 +86,11 @@ After some time I decided to create another open-source library for the world an
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -131,11 +106,15 @@ After some time I decided to create another open-source library for the world an
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -155,15 +134,23 @@ After some time I decided to create another open-source library for the world an
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -193,10 +180,10 @@ After some time I decided to create another open-source library for the world an
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/flexible-env-in-go-v2/">Flexible Env in Go V2</a></h2>
+    <h1 class="post-title"><a href="/posts/flexible-env-in-go-v2/">Flexible Env in Go V2</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -227,20 +214,20 @@ After some time I decided to create another open-source library for the world an
     
       
         
-        <img alt="Flexible Env in Go V2" src="https://mrpopov.com/img/flexible-env-in-go-v2/Unicorn_Gopher.png" class="post-cover" />
+        <img alt="Flexible Env in Go V2" src="https://mrpopov.com/img/flexible-env-in-go-v2/Unicorn_Gopher.webp" class="post-cover" />
       
     
 
     <div class="post-content">
-      <h1 id="lalabuy948genvutils"><a href="https://github.com/lalabuy948/genvutils">lalabuy948/genvutils</a></h1>
-<h2 id="motivation">Motivation</h2>
+      <h2 id="lalabuy948genvutils"><a href="https://github.com/lalabuy948/genvutils">lalabuy948/genvutils</a></h2>
+<h3 id="motivation">Motivation</h3>
 <p>As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it <a href="/posts/flexible-env-in-go/">there</a></p>
 <p>After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&gt; <a href="https://github.com/lalabuy948/genvutils">github.com/lalabuy948/genvutils</a></p>
 <p>I wanted to have control of the dependency which I use in quite a few personal projects. Adding features when I need them and share a piece of mine with others, which makes me super happy and feel useful for the golang community. In the first week, GitHub insights were showing that I had over 1k downloads.</p>
-<h2 id="functionality">Functionality</h2>
+<h3 id="functionality">Functionality</h3>
 <p>As simple as possible. The main feature is loading dot environment file by priority and if exists. Dumping your environment variables into a typed structure. And this is it.</p>
 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Flalabuy948%2Fgenvutils%2Fblob%2Fmaster%2Fexamples%2Fsimple.go&style=github"></script>
-<h2 id="github-actions">Github Actions</h2>
+<h3 id="github-actions">Github Actions</h3>
 <p>I would like to mention <a href="https://github.com/features/actions">Github Actions</a> here as well. If you didn&rsquo;t use it I recommend you to try it! It&rsquo;s simple cozy and fast. For such a small library that I&rsquo;ve done I automated laterally everything with a small YAML file. Which contains: linter, tests and hash sum update for <a href="https://pkg.go.dev">pkg.go.dev</a>.</p>
 <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Flalabuy948%2Fgenvutils%2Fblob%2Fmaster%2F.github%2Fworkflows%2Fci.yml&style=github"></script>
 <p>Btw I&rsquo;m really proud of my bash skill to do the last thing in one line 😂</p>
@@ -320,7 +307,7 @@ After some time I decided to create another open-source library for the world an
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

@@ -17,13 +17,13 @@ seo_description: "Unlock the potential of your business with our Ultimate Tech S
 
 [➡️ Download as PDF ⬅️](UltimateTechScalingGuide.pdf)
 
-# About me
+## About me
 
 {{< image src="/img/me.webp" alt="Daniil Popov" position="center" style="width: 250px;border-radius: 50%;" >}}
 
 I’m fractional CTO, Software engineer and hands-on engineering manager. I was always passioned about building highly scalable, secure and robust applications.
 
-## What this guide will cover
+### What this guide will cover
 
 - Why do you need to scale?
 - What do you need to scale?
@@ -32,7 +32,7 @@ I’m fractional CTO, Software engineer and hands-on engineering manager. I was 
 - Design few apps together
 
 ---
-## Why scaling?
+### Why scaling?
 
 Your business is growing, and there are so many users on your site that things are starting to slow down. The amount of data your business needs to store is increasing, and servers cannot handle the load.
 
@@ -59,7 +59,7 @@ You need to keep everything running and ensure the user experience is fast and s
 
 ---
 
-## What do you need to scale?
+### What do you need to scale?
 
 From the top overview it’s always about CPU, Memory or I/O because all apps or services live on hardware. In the cloud or your server room.
 
@@ -69,11 +69,11 @@ You tweaked all possible components in your code and server settings but it's st
 
 > Further on we will talk concepts, no technology specifics, no tooling, pure fundamental concepts which can be implemented in any system.
 
-{{< image src="media/typical_architecture.png" alt="Typical architecture illustration" position="center" style="width: 450px;" >}}
+{{< image src="media/typical_architecture.webp" alt="Typical architecture illustration" position="center" style="width: 450px;" >}}
 
 ---
 
-{{< image src="1.png" alt="Scaling directions 1" position="center" >}}
+{{< image src="1.webp" alt="Scaling directions 1" position="center" >}}
 
 ---
 The cube of scalability is our Holy Grail. It nicely and simply describes how to achieve “nirvana” - infinite scaling. But it covers mostly application level. Based on that I split all techniques in 3 parts. Application level, Auxiliary level and Data level.
@@ -86,11 +86,11 @@ Data level - usually holds the state of your program/application which might be 
 
 Let’s go through a complete list of techniques which covers all aspects of scaling cube and even more. ➡️
 
-{{< image src="media/scaling_cube.png" alt="Scaling cube illustration" position="center" style="width: 450px;" >}}
+{{< image src="media/scaling_cube.webp" alt="Scaling cube illustration" position="center" style="width: 450px;" >}}
 
 ---
 
-## Vertical scaling
+### Vertical scaling
 
 Vertical scaling - commonly used and the most simple technique. Just add more power to your machines.
 
@@ -104,7 +104,7 @@ Implications of this technique are temporary. But it easily allows you to win so
 
 ---
 
-## Horizontal scaling
+### Horizontal scaling
 
 Horizontal scaling means to run your logic on multiple machines with load balancer on top of that. It will allow you to gain extra power.
 
@@ -123,7 +123,7 @@ Try to eliminate shared components between multiple servers. Otherwise it will a
 
 ---
 
-## Postponed execution
+### Postponed execution
 
 Postponed execution - is a really nice and elegant technique with entry level.
 
@@ -139,7 +139,7 @@ This technique will allow you to offload non critical functionality to be able p
 
 ---
 
-## Asynchronous processing
+### Asynchronous processing
 
 Similar to postponed execution but done in parallel. Same task split across several machines.
 
@@ -147,12 +147,12 @@ Send 5mln notifications or send millions of emails, just split the task and send
 
 This technique requires some modification to your infrastructure and you will have to be very careful few failures. From my experience even a simple task might have invisible bugs which might collapse something. Once I sent 8 emails instead of 1 to a few users because of a uid collision.
 
-{{< image src="media/asynchronous_processing.png" alt="Asynchronous processing illustration" position="center" style="width: 750px;" >}}
+{{< image src="media/asynchronous_processing.webp" alt="Asynchronous processing illustration" position="center" style="width: 750px;" >}}
 
 ---
 
 
-## Functional separation
+### Functional separation
 
 Functional separation involves isolating different functionalities onto separate machines, allowing each to be optimised independently. This technique enhances maintainability, performance, and fault tolerance. It also supports concurrent development by enabling teams to work on different parts of the system simultaneously.
 
@@ -161,11 +161,11 @@ Functional separation involves isolating different functionalities onto separate
 3. **Recommendation Service**: Provides personalised user recommendations.
 
 
-{{< image src="media/functional_separation.png" alt="Functional separation illustration" position="center" style="width: 450px;" >}}
+{{< image src="media/functional_separation.webp" alt="Functional separation illustration" position="center" style="width: 450px;" >}}
 
 ---
 
-## Service-oriented architecture
+### Service-oriented architecture
 
 This is one of the most powerful architectures. The entry level is a bit higher than previous options, but it offers a lot of flexibility in development, deployment, and testing.
 
@@ -185,7 +185,7 @@ However, if your team lacks experience with SOA, it's better to seek advice from
 
 ---
 
-## Parallel execution
+### Parallel execution
 
 This is rocket science. This technique is similar to asynchronous queue but done in real time by splitting request and processing it on several machines.
 
@@ -193,15 +193,15 @@ I know not more than 2-3 companies that use it in the business logic layer. Goog
 
 If anyone used map reduce you probably know what I was talking about. If you know how to bake this do it, if not think about other options.
 
-{{< image src="media/parallel_execution.png" alt="Parallel execution illustration" position="center" style="width: 650px;" >}}
+{{< image src="media/parallel_execution.webp" alt="Parallel execution illustration" position="center" style="width: 650px;" >}}
 
 ---
 
-{{< image src="2.png" alt="Scaling directions 2" position="center" >}}
+{{< image src="2.webp" alt="Scaling directions 2" position="center" >}}
 
 ---
 
-## Fat client
+### Fat client
 
 So we covered possible ways to scale your application level, let’s talk about your clients. Fat client - simply means to move as much as possible to the client side.
 
@@ -213,7 +213,7 @@ You can even move the load balancer to the client side, as I know ~~twitter~~ X 
 
 ---
 
-## Caching
+### Caching
 
 Everyone knows about caching. I will just add a few words about it.
 
@@ -223,15 +223,15 @@ Always calculate the hit rate. And your system should work without cache, if it 
 
 We already covered application level, auxiliary level
 
-{{< image src="media/caching.png" alt="Caching illustration" position="center" style="width: 650px;" >}}
+{{< image src="media/caching.webp" alt="Caching illustration" position="center" style="width: 650px;" >}}
 
 ---
 
-{{< image src="3.png" alt="Scaling directions 3" position="center" >}}
+{{< image src="3.webp" alt="Scaling directions 3" position="center" >}}
 
 ---
 
-## Sharding
+### Sharding
 
 Sharding - in a way horizontal scaling of the database.
 
@@ -239,11 +239,11 @@ Let’s say we have a database where we store subscribers to our newsletters. 10
 
 But from time to time you will have to do manual migration and likely freeze your system for some time. To be more prepared you can have a look on virtual sharding.
 
-{{< image src="media/sharding.png" alt="Sharding illustration" position="center" style="width: 650px;" >}}
+{{< image src="media/sharding.webp" alt="Sharding illustration" position="center" style="width: 650px;" >}}
 
 ---
 
-## Sharding :: Virtual sharding
+### Sharding :: Virtual sharding
 
 The idea of this technique is to prepare your system for high load. As we talked at the beginning even lost consent might be a critical issue for the business.
 
@@ -254,7 +254,7 @@ Let’s say we are building a social network, messenger or dating app. You know 
 
 ---
 
-## Sharding :: Central dispatcher
+### Sharding :: Central dispatcher
 
 This pattern allows you to control your shards. In a way it works as a proxy between your app and databases.
 
@@ -263,11 +263,11 @@ For example, on one of your shards you spotted 1mln bots or scam accounts and tr
 Central dispatcher adds quite some complexity and coupling to one component, but if you have a specific need - why not.
 
 
-{{< image src="media/sharding_dispatcher.png" alt="Central dispatcher illustration" position="center" style="width: 650px;" >}}
+{{< image src="media/sharding_dispatcher.webp" alt="Central dispatcher illustration" position="center" style="width: 650px;" >}}
 
 ---
 
-## Replication
+### Replication
 
 We’ve talked about heavy write and storing data, but usually web projects have much more read queries than write. The well known approach - replication.
 
@@ -275,11 +275,11 @@ There are a lot of cases, let’s take the simple one. You publish an article, s
 
 A lot of databases have native instruments which you can use. Principe is next: you have the main database (master) and slaves (replications). Write queries go to master and read to slaves.
 
-{{< image src="media/replication.png" alt="Replication illustration" position="center" style="width: 650px;" >}}
+{{< image src="media/replication.webp" alt="Replication illustration" position="center" style="width: 650px;" >}}
 
 ---
 
-## Partitioning
+### Partitioning
 
 Functional or logic separation of your data.
 
@@ -287,11 +287,11 @@ Or as some people from micro services world call it "Polyglot Persistence".
 
 Articles are stored in database 1 and comments are stored in database 2. And as well this pattern allows you to choose best fitted technology for each use case.
 
-{{< image src="media/partitioning.png" alt="Partitioning illustration" position="center" style="width: 450px;" >}}
+{{< image src="media/partitioning.webp" alt="Partitioning illustration" position="center" style="width: 450px;" >}}
 
 ---
 
-## Denormalisation
+### Denormalisation
 
 This technique is heavily used in our system. It does not require introducing any new tools or services. Denormalisation of database is a normal process in any web project.
 
@@ -306,7 +306,7 @@ You are reading 10 times more than writing, optimise your data to read it much m
 
 ---
 
-## Redundancy
+### Redundancy
 
 Redundancy is similar to the denormalisation process except you do not change the form of data.
 
@@ -316,11 +316,11 @@ Let’s say you have the latest articles which always have a high volume of view
 
 ---
 
-{{< image src="4.png" alt="Scaling directions 4" position="center" >}}
+{{< image src="4.webp" alt="Scaling directions 4" position="center" >}}
 
 ---
 
-## How to design?
+### How to design?
 
 1. BUSINESS LOGIC
 We describe the business logic of the future system, including potential ways of developing the system. Outlining key features and functionalities.
@@ -339,13 +339,13 @@ We are designing a data storage scheme.
 
 ---
 
-# Let's design some apps
+## Let's design some apps
 
 ---
 
-## Job applications
+### Job applications
 
-### Requirements
+#### Requirements
 
 1. Business logic
   - Read fresh vacancies
@@ -365,7 +365,7 @@ We are designing a data storage scheme.
   - A lot of views goes to latest vacancies
   - Majority views goes to vacancies from last week
 
-### Design
+#### Design
 
 1. Sharding?
   - Data not equal
@@ -381,9 +381,9 @@ We are designing a data storage scheme.
 
 ---
 
-## Dating app
+### Dating app
 
-### Requirements
+#### Requirements
 
 1. Business logic
   - Fill profile (profiles have common structure)
@@ -405,7 +405,7 @@ We are designing a data storage scheme.
   - No leaders
 
 
-### Design
+#### Design
 1. Caching?
   - No leaders - caching will be useless
   - No
@@ -422,9 +422,9 @@ We are designing a data storage scheme.
 
 ---
 
-## Friend feed (aka X)
+### Friend feed (aka X)
 
-### Requirements
+#### Requirements
 
 1. Business logic:
 - Unlimited amount of friends or follows
@@ -445,7 +445,7 @@ We are designing a data storage scheme.
 - 99% goes to fresh posts
 - Users with million friends or followers
 
-### Design
+#### Design
 
 - How to store posts?
   - Sharding
@@ -459,7 +459,7 @@ We are designing a data storage scheme.
 
 ---
 
-{{< image src="5.png" alt="Thank you slide" position="center" >}}
+{{< image src="5.webp" alt="Thank you slide" position="center" >}}
 
 - [Let's connect](https://www.linkedin.com/in/mrpopov/)
 - [mrpopov.com](https://mrpopov.com)

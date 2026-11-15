@@ -1,5 +1,6 @@
 ---
 title: "Best Opportunity of Your Life"
+seo_description: "A job offer you can't refuse. Modern stack of PHP 5.4 and Perl, hybrid mode after 40h in the office and a young team with just one fight this year."
 date: 2022-11-26T19:59:00+01:00
 draft: false
 comments: true

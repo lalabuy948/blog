@@ -3,7 +3,7 @@ title: "Elixir Phoenix Optimisations iPhone Safari"
 date: 2026-02-14T16:07:30+01:00
 draft: false
 comments: true
-cover: "/img/elixir-phoenix-optimisations-iphone-safari/image.png"
+cover: "/img/elixir-phoenix-optimisations-iphone-safari/image.webp"
 tags:
   - code
   - elixir

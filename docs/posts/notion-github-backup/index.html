@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Notion Github Backup</title>
+      <title>Notion Github Backup :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/notion-github-backup/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,50 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="Data is expensive I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..
-Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; "/>
-        
-
-
-
-    <meta name="keywords" content="notion, github, action, backup, " />
+<meta name="description" content="Automated Notion backup to a private GitHub repo with one GitHub Actions workflow. Step by step, including where to get spaceId and token_v2."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/notion-github-backup/notion_github.webp">
-    <meta property="twitter:image" content="https://mrpopov.com/img/notion-github-backup/notion_github.webp">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Notion Github Backup">
-    <meta property="twitter:title" content="Mr.Popov :: Notion Github Backup">
-
-
-
-    <meta property="og:description" content="Data is expensive I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..
-Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; ">
-    <meta property="twitter:description" content="Data is expensive I write around 2-3 important notes a day. And don&rsquo;t actually worry if my laptop will be stolen, but the data on it..
-Since Im heavy notion user I was looking for automated backup solution. Not that I don&rsquo;t trust notion, trust but verify, right?
-Backup Create a private github repo Go to actions tab and click on set up a workflow yourself -&gt; ">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Notion Github Backup">
+<meta property="og:description" content="Automated Notion backup to a private GitHub repo with one GitHub Actions workflow. Step by step, including where to get spaceId and token_v2.">
+<meta property="og:image" content="https://mrpopov.com/img/notion-github-backup/notion_github.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/notion-github-backup/">
+<meta property="article:published_time" content="2021-03-11T17:11:54&#43;01:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/notion-github-backup/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notion Github Backup">
+<meta name="twitter:description" content="Automated Notion backup to a private GitHub repo with one GitHub Actions workflow. Step by step, including where to get spaceId and token_v2.">
+<meta name="twitter:image" content="https://mrpopov.com/img/notion-github-backup/notion_github.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -72,15 +46,12 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/notion-github-backup/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2021-03-11T17:11:54+01:00","datePublished":"2021-03-11T17:11:54+01:00","description":"Automated Notion backup to a private GitHub repo with one GitHub Actions workflow. Step by step, including where to get spaceId and token_v2.","headline":"Notion Github Backup","image":"https://mrpopov.com/img/notion-github-backup/notion_github.webp","mainEntityOfPage":"https://mrpopov.com/posts/notion-github-backup/"}
+</script>
 
 
 
@@ -115,7 +86,11 @@ Backup Create a private github repo Go to actions tab and click on set up a work
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -131,11 +106,15 @@ Backup Create a private github repo Go to actions tab and click on set up a work
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -155,15 +134,23 @@ Backup Create a private github repo Go to actions tab and click on set up a work
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -193,10 +180,10 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/notion-github-backup/">Notion Github Backup</a></h2>
+    <h1 class="post-title"><a href="/posts/notion-github-backup/">Notion Github Backup</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -239,11 +226,11 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 <ol>
 <li>Create a private github repo</li>
 </ol>
-<p><img src="/img/notion-github-backup/private_repo.webp" alt="create private repo"></p>
+<p><img src="/img/notion-github-backup/private_repo.webp" alt="create private repo" loading="lazy" decoding="async"></p>
 <ol start="2">
 <li>Go to actions tab and click on <code>set up a workflow yourself -&gt;</code></li>
 </ol>
-<p><img src="/img/notion-github-backup/setup_workflow.webp" alt="set up workflow"></p>
+<p><img src="/img/notion-github-backup/setup_workflow.webp" alt="set up workflow" loading="lazy" decoding="async"></p>
 <ol start="3">
 <li>Paste this yml file</li>
 </ol>
@@ -293,14 +280,14 @@ Backup Create a private github repo Go to actions tab and click on set up a work
 </ol>
 </li>
 </ol>
-<p><img src="/img/notion-github-backup/space_id.webp" alt="notion space id">
-<img src="/img/notion-github-backup/token_v2.webp" alt="notion token v2"></p>
+<p><img src="/img/notion-github-backup/space_id.webp" alt="notion space id" loading="lazy" decoding="async">
+<img src="/img/notion-github-backup/token_v2.webp" alt="notion token v2" loading="lazy" decoding="async"></p>
 <ol start="5">
 <li>Add secrete keys</li>
 </ol>
 <p>where <code>NOTION_SPACE_ID</code> is your <code>spaceId</code> from step above</p>
 <p>and <code>NOTION_TOKEN</code> is your <code>token_v2</code> from step above</p>
-<p><img src="/img/notion-github-backup/secrets.webp" alt="add secrete keys"></p>
+<p><img src="/img/notion-github-backup/secrets.webp" alt="add secrete keys" loading="lazy" decoding="async"></p>
 <h2 id="here-we-go">Here we go</h2>
 <p>Now you have fully automated backup of your entire notion workspace in private github repo.</p>
 
@@ -377,7 +364,7 @@ Backup Create a private github repo Go to actions tab and click on set up a work
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

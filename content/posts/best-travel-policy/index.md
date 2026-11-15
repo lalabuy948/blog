@@ -1,5 +1,6 @@
 ---
 title: "Best Travel Policy"
+seo_description: "A satirical company travel policy. Hostels and couch-surfing for business trips, and the provider has to pay us for promoting them on TikTok."
 date: 2023-03-05T12:11:49+01:00
 draft: false
 comments: true

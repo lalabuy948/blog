@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on </title>
+    <title>Posts on MrPopov</title>
     <link>https://mrpopov.com/posts/</link>
-    <description>Recent content in Posts on </description>
+    <description>Recent content in Posts on MrPopov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lalabuy9948@gmail.com (Daniil Popov)</managingEditor>
@@ -160,7 +160,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <description>&lt;h2 id=&#34;meet-phonenixplayground&#34;&gt;Meet &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind &lt;a href=&#34;https://hexdocs.pm/phoenix_playground/readme.html&#34;&gt;PhonenixPlayground&lt;/a&gt; made both of my wishes come true!&lt;/p&gt;
 &lt;p&gt;If you would like jump straight into the code:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd&#34;&gt;&lt;img src=&#34;https://livebook.dev/badge/v1/pink.svg&#34; alt=&#34;Run in Livebook&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -181,18 +181,14 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/top-self-help-books/</guid>
       <description>&lt;h2 id=&#34;mark-manson---the-subtle-art-of-not-giving-a-fck&#34;&gt;Mark Manson - The Subtle Art of Not Giving a F*ck&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1465761302i/28257707.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1465761302i/28257707.jpg&#34; alt=&#34;Mark Manson - The Subtle Art of Not Giving a F*ck book cover&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;james-clear---atomic-habits&#34;&gt;James Clear - Atomic Habits&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/40121378-atomic-habits&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655988385i/40121378.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/40121378-atomic-habits&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655988385i/40121378.jpg&#34; alt=&#34;James Clear - Atomic Habits book cover&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://aliabdaal.com/book-notes/atomic-habits-summary/&#34;&gt;https://aliabdaal.com/book-notes/atomic-habits-summary/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;kelly-mcgonigal---the-upside-of-stress&#34;&gt;Kelly McGonigal - The Upside of Stress&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/23281639-the-upside-of-stress&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1413129464i/23281639.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/23281639-the-upside-of-stress&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1413129464i/23281639.jpg&#34; alt=&#34;Kelly McGonigal - The Upside of Stress book cover&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;jordan-b-peterson---12-rules-for-life-an-antidote-to-chaos&#34;&gt;Jordan B. Peterson - 12 Rules for Life: An Antidote to Chaos&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/30257963-12-rules-for-life&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1512705866i/30257963.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;jason-fried---it-doesnt-have-to-be-crazy-at-work&#34;&gt;Jason Fried - It Doesn&amp;rsquo;t Have to Be Crazy at Work&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/38900866-it-doesn-t-have-to-be-crazy-at-work&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1526057292i/38900866.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;gary-john-bishop---wise-as-fuk&#34;&gt;Gary John Bishop - Wise as Fu*k&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/50496881-wise-as-fu-k&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1601938076i/50496881.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/30257963-12-rules-for-life&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1512705866i/30257963.jpg&#34; alt=&#34;Jordan B. Peterson - 12 Rules for Life: An Antidote to Chaos book cover&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -265,7 +261,7 @@ I have few apps running on my VPS and sometimes I would like to run some functio
       <pubDate>Tue, 04 Apr 2023 19:30:45 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/start-using-ai-immediately/</guid>
-      <description>&lt;h1 id=&#34;why-you-need-to-start-using-ai-as-soon-as-possible&#34;&gt;Why you need to start using AI as soon as possible&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;why-you-need-to-start-using-ai-as-soon-as-possible&#34;&gt;Why you need to start using AI as soon as possible&lt;/h2&gt;
 &lt;p&gt;Hey there, today we are talking why you need to start using AI now. Artificial Intelligence has been around for quite some time, and it&amp;rsquo;s no longer a concept of the future. Many businesses are already leveraging AI to improve their operations and stay ahead of the competition.&lt;/p&gt;
 &lt;p&gt;In this post, I&amp;rsquo;ll talk about the need for AI implementation, the benefits of AI, and why you should not afraid of it. So, let&amp;rsquo;s dive right in.&lt;/p&gt;</description>
     </item>
@@ -354,7 +350,7 @@ no matter how great, fast, experienced you are. There is always a team and more 
       <pubDate>Fri, 10 Jun 2022 10:00:00 +0000</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/wfh-wtf/</guid>
-      <description>&lt;h1 id=&#34;wfh---wtf&#34;&gt;Wfh - wtf?&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;wfh---wtf&#34;&gt;Wfh - wtf?&lt;/h2&gt;
 &lt;p&gt;Working from home is post fake-pandemic trend which seems to make life of corpos even harder than paying higher taxes than others and feeding others because they became bigger and more successful than others, this is normal behavior of our undeveloped society and non-discipline minds. &lt;/p&gt;
 &lt;p&gt;But what happened with small to medium bizes founded by entrepreneurs, who are real people and humans? This camp was divided into two extremes. One says that only office and at least 40h in the office and others say “we don’t care where are you - home, office or Maldives, see you in zoom” just bring the results. And to be honest second camp is much smaller on the market. &lt;/p&gt;</description>
     </item>
@@ -365,8 +361,8 @@ no matter how great, fast, experienced you are. There is always a team and more 
       <pubDate>Sat, 17 Jul 2021 10:28:05 +0000</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/how-i-became-digital-nomad-cto/</guid>
-      <description>&lt;h1 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h1&gt;
-&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;or-how-i-moved-with-one-backpack-and-half-suitcase&#34;&gt;Or how I moved with one backpack and half suitcase.&lt;/h2&gt;
+&lt;h3 id=&#34;foreword&#34;&gt;Foreword&lt;/h3&gt;
 &lt;p&gt;This story has begun on 08.06 of 2021. The CEO of our company invited me to his office.
 We discussed my half year review and etc, and he put an offer in front of me.
 I went through, and I have to admit it was a nice package. But here is a small thing,
@@ -388,11 +384,11 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
 &lt;ol&gt;
 &lt;li&gt;Create a private github repo&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/private_repo.webp&#34; alt=&#34;create private repo&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;Go to actions tab and click on &lt;code&gt;set up a workflow yourself -&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://mrpopov.com/img/notion-github-backup/setup_workflow.webp&#34; alt=&#34;set up workflow&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -410,7 +406,7 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Sun, 11 Oct 2020 19:40:59 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/basicbb/</guid>
-      <description>&lt;h1 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;basic-building-blocks&#34;&gt;Basic Building Blocks&lt;/h2&gt;
 &lt;p&gt;My blog and GitHub slightly empty in the past few months. I started spending less time on coding itself. I guess this happened to me naturally. I was a software engineer for the past five years and I was building amazing things in good teams and companies. I started to feel that I would like to help other people more than being focus on personal success.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s why I started spending much more of my spare time on our family project which is called &lt;a href=&#34;https://basicbb.com&#34;&gt;basicbb - Basic Building Blocks&lt;/a&gt;. And &lt;a href=&#34;https://mrpopov.com/tech-scaling/&#34;&gt;#TechScaling&lt;/a&gt; but that&amp;rsquo;s a story for the next post.&lt;/p&gt;</description>
     </item>
@@ -421,8 +417,8 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Fri, 25 Sep 2020 10:07:13 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/flexible-env-in-go-v2/</guid>
-      <description>&lt;h1 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;lalabuy948genvutils&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;lalabuy948/genvutils&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;
 &lt;p&gt;As you probably saw my founding of two nice libraries that allow you beauty and easy abstraction on dot and just environment variables. You can check it &lt;a href=&#34;https://mrpopov.com/posts/flexible-env-in-go/&#34;&gt;there&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After some time I decided to create another open-source library for the world and I merged the functionality of packages which you can find in the article above. I started from scratch and you are more than welcome to have look on it on my GitHub -&amp;gt; &lt;a href=&#34;https://github.com/lalabuy948/genvutils&#34;&gt;github.com/lalabuy948/genvutils&lt;/a&gt;&lt;/p&gt;</description>
     </item>
@@ -457,9 +453,9 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Sat, 20 Jun 2020 20:09:43 +0200</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/hashicorp-vault-as-environment-manager/</guid>
-      <description>&lt;h1 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;how-to-use-hashicorp-vault-as-dot-environment-manager&#34;&gt;How to use Hashicorp Vault as dot environment manager?&lt;/h2&gt;
 &lt;p&gt;I decided to share this because I was looking for small, simple and easy to use tool where I would store dotenv secrets for my apps. And I found this nice and elegant solution which will allow you to control your application secrets with small bash script. 🙂&lt;/p&gt;
-&lt;h2 id=&#34;pre-requirements&#34;&gt;Pre Requirements&lt;/h2&gt;
+&lt;h3 id=&#34;pre-requirements&#34;&gt;Pre Requirements&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Installed vault&lt;/li&gt;
 &lt;li&gt;Finish setup instructions&lt;/li&gt;
@@ -502,8 +498,8 @@ one of the most expensive countries to live in.&lt;/p&gt;</description>
       <pubDate>Sat, 28 Mar 2020 16:03:07 +0100</pubDate>
       <author>lalabuy9948@gmail.com (Daniil Popov)</author>
       <guid>https://mrpopov.com/posts/bad-hr-experience-or-how-new-repo-was-born/</guid>
-      <description>&lt;h1 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;forewords&#34;&gt;Forewords&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;logektor-&#34;&gt;&lt;a href=&#34;https://github.com/lalabuy948/logektor&#34;&gt;Logektor ⚡️&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;forewords&#34;&gt;Forewords&lt;/h3&gt;
 &lt;p&gt;This repo has some background, let me tell about it. Once, quite some time ago, I came to the company on the interview, for quite good and interesting position. We were talking about what they need and what I will need to do on this position. Meeting it self was good and I was so excited about that position.&lt;/p&gt;
 &lt;p&gt;But after few days I received tests assignment from them. I was a bit confused, because for that kind of positions there is no test assignment usually. I was busy and working 24/7 in another company and had a business trip for 3 days (two days of the trip were weekend) that week and I told them about it.&lt;/p&gt;</description>
     </item>

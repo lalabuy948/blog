@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Elixir LiveView Single Binary [UPD]</title>
+      <title>Elixir LiveView Single Binary [UPD] :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/elixir-liveview-single-binary/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,48 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="Learn how to build a cross-platform desktop application from Phoenix LiveView using Tauri and Burrito. This comprehensive guide covers packaging Phoenix as a standalone executable with embedded ERTS, creating native desktop apps for Linux, macOS, and Windows, and implementing a sidecar architecture for seamless integration."/>
-        
-
-
-
-    <meta name="keywords" content="phoenix liveview desktop app, tauri elixir, cross-platform elixir, phoenix standalone executable, burrito elixir, elixir desktop application, phoenix tauri integration, sidecar architecture, " />
+<meta name="description" content="Learn how to build a cross-platform desktop application from Phoenix LiveView using Tauri and Burrito. This comprehensive guide covers packaging Phoenix as a standalone executable with embedded ERTS, creating native desktop apps for Linux, macOS, and Windows, and implementing a sidecar architecture for seamless integration."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.png">
-    <meta property="twitter:image" content="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.png">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Elixir LiveView Single Binary [UPD]">
-    <meta property="twitter:title" content="Mr.Popov :: Elixir LiveView Single Binary [UPD]">
-
-
-
-    <meta property="og:description" content="We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
-The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.
-">
-    <meta property="twitter:description" content="We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.
-The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Elixir LiveView Single Binary [UPD]">
+<meta property="og:description" content="Learn how to build a cross-platform desktop application from Phoenix LiveView using Tauri and Burrito. This comprehensive guide covers packaging Phoenix as a standalone executable with embedded ERTS, creating native desktop apps for Linux, macOS, and Windows, and implementing a sidecar architecture for seamless integration.">
+<meta property="og:image" content="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/elixir-liveview-single-binary/">
+<meta property="article:published_time" content="2025-10-06T21:55:18&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/elixir-liveview-single-binary/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elixir LiveView Single Binary [UPD]">
+<meta name="twitter:description" content="Learn how to build a cross-platform desktop application from Phoenix LiveView using Tauri and Burrito. This comprehensive guide covers packaging Phoenix as a standalone executable with embedded ERTS, creating native desktop apps for Linux, macOS, and Windows, and implementing a sidecar architecture for seamless integration.">
+<meta name="twitter:image" content="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -70,15 +46,12 @@ The only thing that really worried me was the WebView. There is nothing in the w
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/elixir-liveview-single-binary/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2025-10-06T21:55:18+02:00","datePublished":"2025-10-06T21:55:18+02:00","description":"Learn how to build a cross-platform desktop application from Phoenix LiveView using Tauri and Burrito. This comprehensive guide covers packaging Phoenix as a standalone executable with embedded ERTS, creating native desktop apps for Linux, macOS, and Windows, and implementing a sidecar architecture for seamless integration.","headline":"Elixir LiveView Single Binary [UPD]","image":"https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.webp","mainEntityOfPage":"https://mrpopov.com/posts/elixir-liveview-single-binary/"}
+</script>
 
 
 
@@ -113,7 +86,11 @@ The only thing that really worried me was the WebView. There is nothing in the w
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -129,11 +106,15 @@ The only thing that really worried me was the WebView. There is nothing in the w
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -153,15 +134,23 @@ The only thing that really worried me was the WebView. There is nothing in the w
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -191,10 +180,10 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary [UPD]</a></h2>
+    <h1 class="post-title"><a href="/posts/elixir-liveview-single-binary/">Elixir LiveView Single Binary [UPD]</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -223,23 +212,23 @@ The only thing that really worried me was the WebView. There is nothing in the w
     
       
         
-        <img alt="Elixir LiveView Single Binary [UPD]" src="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.png" class="post-cover" />
+        <img alt="Elixir LiveView Single Binary [UPD]" src="https://mrpopov.com/img/elixir-liveview-single-binary/screenshot.webp" class="post-cover" />
       
     
 
     <div class="post-content">
       <p>We had two repos of Elixir, seventy-five LiveView components, five sheets of high-powered Phoenix channels, a saltshaker half-full of SQLite databases, and a whole multicolored collection of Burrito deployables, Tauri binaries, WebView wrappers, hot-reloaders&hellip; Also, a quart of WebSockets, a quart of GenServers, a case of Ecto queries, a pint of raw BEAM bytecode, and two dozen supervisors.</p>
 <p>The only thing that really worried me was the WebView. There is nothing in the world more helpless and irresponsible and depraved than a developer in the depths of a cross-platform binge, and I knew we&rsquo;d get into that rotten stuff pretty soon.</p>
-<h1 id="or-building-a-cross-platform-desktop-app-from-phoenix-liveview-with-tauri">or Building a Cross-Platform Desktop App from Phoenix LiveView with Tauri</h1>
+<h2 id="or-building-a-cross-platform-desktop-app-from-phoenix-liveview-with-tauri">or Building a Cross-Platform Desktop App from Phoenix LiveView with Tauri</h2>
 <p>This guide shows how to package a Phoenix LiveView application as a standalone cross-platform desktop application using Tauri and Burrito, based on the CyCameraCompanion implementation.</p>
-<h2 id="architecture-overview">Architecture Overview</h2>
+<h3 id="architecture-overview">Architecture Overview</h3>
 <p>The desktop app uses a <strong>sidecar architecture</strong>:</p>
 <ul>
 <li><strong>Tauri (Rust)</strong>: Native window wrapper and process manager</li>
 <li><strong>Phoenix Backend</strong>: Bundled as a standalone executable via Burrito</li>
 <li><strong>Communication</strong>: Phoenix runs on localhost:4000, Tauri webview connects to it</li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li>Elixir 1.17+ / Erlang OTP 27+ with a Phoenix application (working locally)</li>
 <li>Rust 1.92+ and Cargo installed</li>
@@ -252,9 +241,9 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </ul>
 </li>
 </ul>
-<h2 id="step-1-add-burrito-for-standalone-phoenix-executables">Step 1: Add Burrito for Standalone Phoenix Executables</h2>
+<h3 id="step-1-add-burrito-for-standalone-phoenix-executables">Step 1: Add Burrito for Standalone Phoenix Executables</h3>
 <p>Burrito wraps Phoenix releases into single executables with embedded ERTS (Erlang Runtime System).</p>
-<h3 id="11-add-burrito-dependency">1.1 Add Burrito Dependency</h3>
+<h4 id="11-add-burrito-dependency">1.1 Add Burrito Dependency</h4>
 <p>Add to <code>mix.exs</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defp</span> deps <span style="color:#cf222e">do</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">[</span>
@@ -262,7 +251,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#032f62">:burrito</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;~&gt; 1.5&#34;</span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><h3 id="12-configure-releases">1.2 Configure Releases</h3>
+</span></span></code></pre></div><h4 id="12-configure-releases">1.2 Configure Releases</h4>
 <p>Add release configuration in <code>mix.exs</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">def</span> releases<span style="color:#1f2328">()</span> <span style="color:#cf222e">do</span>
 </span></span><span style="display:flex;"><span>  erts_path <span style="color:#0550ae">=</span> <span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;MIX_ERTS_PATH&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">||</span> <span style="color:#1f2328">Mix</span><span style="color:#0550ae">.</span>env<span style="color:#1f2328">()</span> <span style="color:#0550ae">==</span> <span style="color:#032f62">:prod</span>
@@ -285,7 +274,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><h3 id="13-configure-runtime-for-production">1.3 Configure Runtime for Production</h3>
+</span></span></code></pre></div><h4 id="13-configure-runtime-for-production">1.3 Configure Runtime for Production</h4>
 <p>Update <code>config/runtime.exs</code> for production:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">if</span> config_env<span style="color:#1f2328">()</span> <span style="color:#0550ae">==</span> <span style="color:#032f62">:prod</span> <span style="color:#cf222e">do</span>
 </span></span><span style="display:flex;"><span>  database_path <span style="color:#0550ae">=</span>
@@ -309,7 +298,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>    <span style="color:#032f62">server</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">true</span><span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#032f62">check_origin</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">false</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><h3 id="14-skip-migrations-in-burrito-context">1.4 Skip Migrations in Burrito Context</h3>
+</span></span></code></pre></div><h4 id="14-skip-migrations-in-burrito-context">1.4 Skip Migrations in Burrito Context</h4>
 <p>Update <code>lib/cy_camera_companion/application.ex</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>children <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#57606a"># ... other children</span>
@@ -323,7 +312,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;BURRITO_TARGET&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">!=</span> <span style="color:#0550ae">nil</span> <span style="color:#0550ae">or</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">Application</span><span style="color:#0550ae">.</span>get_env<span style="color:#1f2328">(</span><span style="color:#032f62">:cy_camera_companion</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:skip_migrations</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">false</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><h3 id="15-create-release-module-for-migrations">1.5 Create Release Module for Migrations</h3>
+</span></span></code></pre></div><h4 id="15-create-release-module-for-migrations">1.5 Create Release Module for Migrations</h4>
 <p>Create <code>lib/cy_camera_companion/release.ex</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#cf222e">defmodule</span> <span style="color:#1f2328">CyCameraCompanion.Release</span> <span style="color:#cf222e">do</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">@moduledoc</span> <span style="color:#0a3069">&#34;&#34;&#34;
@@ -353,19 +342,19 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Application</span><span style="color:#0550ae">.</span>load<span style="color:#1f2328">(</span><span style="color:#1f2328">@app</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
-</span></span></code></pre></div><h3 id="16-update-gitignore">1.6 Update .gitignore</h3>
+</span></span></code></pre></div><h4 id="16-update-gitignore">1.6 Update .gitignore</h4>
 <p>Add to <code>.gitignore</code>:</p>
 <pre tabindex="0"><code>burrito_out/*
-</code></pre><h2 id="step-2-initialize-tauri-project">Step 2: Initialize Tauri Project</h2>
-<h3 id="21-create-tauri-directory-structure">2.1 Create Tauri Directory Structure</h3>
+</code></pre><h3 id="step-2-initialize-tauri-project">Step 2: Initialize Tauri Project</h3>
+<h4 id="21-create-tauri-directory-structure">2.1 Create Tauri Directory Structure</h4>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p tauri/src-tauri/binaries
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri
-</span></span></code></pre></div><h3 id="22-initialize-tauri-project">2.2 Initialize Tauri Project</h3>
+</span></span></code></pre></div><h4 id="22-initialize-tauri-project">2.2 Initialize Tauri Project</h4>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create tauri-app@latest
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Select: src-tauri as the folder name</span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Select: Vanilla (no framework)</span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Skip frontend setup (we&#39;ll use our own)</span>
-</span></span></code></pre></div><h3 id="23-configure-tauri">2.3 Configure Tauri</h3>
+</span></span></code></pre></div><h4 id="23-configure-tauri">2.3 Configure Tauri</h4>
 <p>Update <code>tauri/src-tauri/Cargo.toml</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#1f2328">[</span><span style="color:#1f2328">package</span><span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">name</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;camera_companion&#34;</span>
@@ -393,7 +382,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">serde_json</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;1&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">tokio</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;1&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">features</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;time&#34;</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">reqwest</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">version</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;0.11&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">features</span> <span style="color:#1f2328">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;blocking&#34;</span><span style="color:#1f2328">]</span> <span style="color:#1f2328">}</span>
-</span></span></code></pre></div><h3 id="24-configure-tauri-settings">2.4 Configure Tauri Settings</h3>
+</span></span></code></pre></div><h4 id="24-configure-tauri-settings">2.4 Configure Tauri Settings</h4>
 <p>Update <code>tauri/src-tauri/tauri.conf.json</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;$schema&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;https://schema.tauri.app/config/2&#34;</span><span style="color:#1f2328">,</span>
@@ -430,7 +419,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></div><h3 id="25-create-tauri-main-logic">2.5 Create Tauri Main Logic</h3>
+</span></span></code></pre></div><h4 id="25-create-tauri-main-logic">2.5 Create Tauri Main Logic</h4>
 <p>Update <code>tauri/src-tauri/src/lib.rs</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#cf222e">use</span><span style="color:#fff"> </span>tauri::<span style="color:#1f2328">{</span>WebviewUrl<span style="color:#1f2328">,</span><span style="color:#fff"> </span>WebviewWindowBuilder<span style="color:#1f2328">};</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">
@@ -518,7 +507,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#6639ba">Ok</span><span style="color:#1f2328">(())</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span><span style="color:#fff">
-</span></span></span></code></pre></div><h3 id="26-create-loading-page">2.6 Create Loading Page</h3>
+</span></span></span></code></pre></div><h4 id="26-create-loading-page">2.6 Create Loading Page</h4>
 <p>Create <code>tauri/src/index.html</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#57606a">&lt;!DOCTYPE html&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">html</span><span style="color:#1f2328">&gt;</span>
@@ -597,8 +586,8 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">script</span><span style="color:#1f2328">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">body</span><span style="color:#1f2328">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;/</span><span style="color:#0550ae">html</span><span style="color:#1f2328">&gt;</span>
-</span></span></code></pre></div><h2 id="step-3-build-process">Step 3: Build Process</h2>
-<h3 id="31-build-phoenix-release-with-burrito">3.1 Build Phoenix Release with Burrito</h3>
+</span></span></code></pre></div><h3 id="step-3-build-process">Step 3: Build Process</h3>
+<h4 id="31-build-phoenix-release-with-burrito">3.1 Build Phoenix Release with Burrito</h4>
 <p>Build the standalone Phoenix executable for each platform:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># From the Phoenix app root directory</span>
 </span></span><span style="display:flex;"><span><span style="color:#953800">MIX_ENV</span><span style="color:#0550ae">=</span>prod mix release cy_camera_companion_desktop
@@ -608,7 +597,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 <li><code>cy_camera_companion_desktop_macos</code> (macOS ARM64)</li>
 <li><code>cy_camera_companion_desktop_windows.exe</code> (Windows x86_64)</li>
 </ul>
-<h3 id="32-link-binaries-to-tauri">3.2 Link Binaries to Tauri</h3>
+<h4 id="32-link-binaries-to-tauri">3.2 Link Binaries to Tauri</h4>
 <p>Create symlinks from Tauri directory to Burrito output binaries with platform-specific naming:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create symlinks (one-time setup)</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri/src-tauri
@@ -628,11 +617,11 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../..
 </span></span></code></pre></div><p><strong>Important</strong>: Tauri expects binaries named with the pattern: <code>{name}-{target-triple}</code> or <code>{name}-{target-triple}.exe</code> for Windows.</p>
 <p><strong>Why symlinks?</strong> Using symlinks instead of copying means you don&rsquo;t need to manually copy files after each Phoenix release build - the Tauri build will automatically use the latest Burrito output.</p>
-<h3 id="33-build-tauri-application">3.3 Build Tauri Application</h3>
-<h4 id="for-native-platform">For Native Platform</h4>
+<h4 id="33-build-tauri-application">3.3 Build Tauri Application</h4>
+<h5 id="for-native-platform">For Native Platform</h5>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tauri
 </span></span><span style="display:flex;"><span>cargo tauri build
-</span></span></code></pre></div><h4 id="cross-compile-for-windows-from-linux">Cross-Compile for Windows from Linux</h4>
+</span></span></code></pre></div><h5 id="cross-compile-for-windows-from-linux">Cross-Compile for Windows from Linux</h5>
 <p>Install required tools:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Install ZVM (Zig Version Manager) - https://github.com/tristanisham/zvm</span>
 </span></span><span style="display:flex;"><span>curl https://raw.githubusercontent.com/tristanisham/zvm/master/install.sh <span style="color:#1f2328">|</span> bash
@@ -656,13 +645,13 @@ The only thing that really worried me was the WebView. There is nothing in the w
 <li>Windows: <code>tauri/src-tauri/target/x86_64-pc-windows-msvc/release/bundle/</code></li>
 <li>macOS: <code>tauri/src-tauri/target/release/bundle/</code></li>
 </ul>
-<h2 id="step-4-key-implementation-details">Step 4: Key Implementation Details</h2>
-<h3 id="database-persistence">Database Persistence</h3>
+<h3 id="step-4-key-implementation-details">Step 4: Key Implementation Details</h3>
+<h4 id="database-persistence">Database Persistence</h4>
 <p>The app stores the SQLite database in the user&rsquo;s home directory:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#1f2328">Path</span><span style="color:#0550ae">.</span>join<span style="color:#1f2328">([</span><span style="color:#1f2328">System</span><span style="color:#0550ae">.</span>user_home<span style="color:#1f2328">()</span> <span style="color:#0550ae">||</span> <span style="color:#0a3069">&#34;.&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;.cy_camera_companion&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;cy_camera_companion.db&#34;</span><span style="color:#1f2328">])</span>
-</span></span></code></pre></div><h3 id="migration-strategy">Migration Strategy</h3>
+</span></span></code></pre></div><h4 id="migration-strategy">Migration Strategy</h4>
 <p>Migrations are skipped when running in Burrito/Tauri context (detected via <code>BURRITO_TARGET</code> env var). You can run migrations manually if needed via the Release module.</p>
-<h3 id="process-communication">Process Communication</h3>
+<h4 id="process-communication">Process Communication</h4>
 <ol>
 <li>Tauri launches the Phoenix backend as a sidecar process</li>
 <li>Backend starts on <code>localhost:4000</code></li>
@@ -670,49 +659,49 @@ The only thing that really worried me was the WebView. There is nothing in the w
 <li>Tauri opens a webview window pointing to <code>localhost:4000</code></li>
 <li>Phoenix LiveView handles all UI interactions</li>
 </ol>
-<h3 id="environment-variables">Environment Variables</h3>
+<h4 id="environment-variables">Environment Variables</h4>
 <p>Key environment variables passed to the backend:</p>
 <ul>
 <li><code>CY_COMPANION_PORT</code>: HTTP port (default: 4000)</li>
 <li><code>MIX_ENV</code>: Set to &ldquo;prod&rdquo;</li>
 <li><code>BURRITO_TARGET</code>: Signals running in bundled mode</li>
 </ul>
-<h2 id="platform-specific-considerations">Platform-Specific Considerations</h2>
-<h3 id="windows">Windows</h3>
+<h3 id="platform-specific-considerations">Platform-Specific Considerations</h3>
+<h4 id="windows">Windows</h4>
 <ul>
 <li>Binary must have <code>.exe</code> extension</li>
 <li>Use <code>cargo-xwin</code> for cross-compilation from Linux</li>
 <li>Target triple: <code>x86_64-pc-windows-msvc</code></li>
 </ul>
-<h3 id="macos">macOS</h3>
+<h4 id="macos">macOS</h4>
 <ul>
 <li>Target triple: <code>aarch64-apple-darwin</code> (Apple Silicon)</li>
 <li>Code signing may be required for distribution</li>
 </ul>
-<h3 id="linux">Linux</h3>
+<h4 id="linux">Linux</h4>
 <ul>
 <li>Target triple: <code>x86_64-unknown-linux-gnu</code></li>
 <li>May need to bundle system libraries</li>
 </ul>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="backend-fails-to-start">Backend Fails to Start</h3>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<h4 id="backend-fails-to-start">Backend Fails to Start</h4>
 <ul>
 <li>Check logs in Tauri dev tools console</li>
 <li>Verify binary permissions (must be executable)</li>
 <li>Ensure all dependencies are bundled in Burrito release</li>
 </ul>
-<h3 id="window-opens-before-backend-ready">Window Opens Before Backend Ready</h3>
+<h4 id="window-opens-before-backend-ready">Window Opens Before Backend Ready</h4>
 <ul>
 <li>Increase polling timeout in <code>lib.rs</code></li>
 <li>Add more detailed logging to debug startup timing</li>
 </ul>
-<h3 id="database-issues">Database Issues</h3>
+<h4 id="database-issues">Database Issues</h4>
 <ul>
 <li>Ensure database directory has write permissions</li>
 <li>Check that migrations are handled correctly</li>
 <li>Verify database path resolution in production</li>
 </ul>
-<h2 id="complete-build-commands-reference">Complete Build Commands Reference</h2>
+<h3 id="complete-build-commands-reference">Complete Build Commands Reference</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Step 1: Build Phoenix releases with Burrito</span>
 </span></span><span style="display:flex;"><span><span style="color:#953800">MIX_ENV</span><span style="color:#0550ae">=</span>prod mix release cy_camera_companion_desktop
 </span></span><span style="display:flex;"><span>
@@ -734,7 +723,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Windows cross-compile from Linux</span>
 </span></span><span style="display:flex;"><span>cargo tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc
-</span></span></code></pre></div><h2 id="result">Result</h2>
+</span></span></code></pre></div><h3 id="result">Result</h3>
 <p>You now have:</p>
 <ul>
 <li>✅ Single-binary desktop applications for Linux, macOS, and Windows</li>
@@ -744,7 +733,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
 <li>✅ Cross-platform builds from a single development machine</li>
 </ul>
 <p>The final application is completely self-contained - users simply download and run the executable.</p>
-<h2 id="check-out">Check out</h2>
+<h3 id="check-out">Check out</h3>
 <ul>
 <li><a href="https://www.cyanview.com/">www.cyanview.com</a></li>
 <li><a href="https://youtu.be/CUzarY3ry2M?si=KYfJy8Ef1ZQL4vCU">CyanView - From Super Bowl to Olympics</a></li>
@@ -825,7 +814,7 @@ The only thing that really worried me was the WebView. There is nothing in the w
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

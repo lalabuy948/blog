@@ -1,0 +1,12 @@
+{{- with .Params.bought -}}
+  {{- $d := time.AsTime . -}}
+  {{- $months := sub (add (mul (sub now.Year $d.Year) 12) (int (now.Format "1"))) (int ($d.Format "1")) -}}
+  {{- if lt now.Day $d.Day }}{{ $months = sub $months 1 }}{{ end -}}
+  {{- $rest := mod $months 12 -}}
+  {{- $dur := "" -}}
+  {{- if ge $months 24 }}{{ $dur = printf "%d yrs" (div $months 12) -}}
+  {{- else if and (ge $months 12) $rest }}{{ $dur = printf "1 yr %d mo" $rest -}}
+  {{- else if ge $months 12 }}{{ $dur = "1 yr" -}}
+  {{- else if ge $months 1 }}{{ $dur = printf "%d mo" $months }}{{ end -}}
+  <time class="curated-owned" datetime="{{ $d.Format "2006-01-02" }}">since {{ $d.Format "Jan 2006" }}<span>{{ with $dur }} · {{ . }}{{ end }}</span></time>
+{{- end -}}

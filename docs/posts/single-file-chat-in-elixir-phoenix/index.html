@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Single File Chat in Elixir Phoenix</title>
+      <title>Single File Chat in Elixir Phoenix :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,48 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="Learn how to create a single-file chat application in Elixir Phoenix with real-time messaging using GenServer and Phoenix.PubSub. This tutorial walks you through setting up message storage, handling updates, and integrating LiveView for seamless user experiences. Perfect for developers looking to enhance their Elixir and Phoenix skills."/>
-        
-
-
-
-    <meta name="keywords" content="Elixir, Phoenix, LiveView, Chat Application, Real-time Messaging, GenServer, Phoenix.PubSub, Web Development, LiveBook, Elixir Tutorial, " />
+<meta name="description" content="Learn how to create a single-file chat application in Elixir Phoenix with real-time messaging using GenServer and Phoenix.PubSub. This tutorial walks you through setting up message storage, handling updates, and integrating LiveView for seamless user experiences. Perfect for developers looking to enhance their Elixir and Phoenix skills."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp">
-    <meta property="twitter:image" content="https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Single File Chat in Elixir Phoenix">
-    <meta property="twitter:title" content="Mr.Popov :: Single File Chat in Elixir Phoenix">
-
-
-
-    <meta property="og:description" content="Meet PhonenixPlayground I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind PhonenixPlayground made both of my wishes come true!
-If you would like jump straight into the code:
-">
-    <meta property="twitter:description" content="Meet PhonenixPlayground I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind PhonenixPlayground made both of my wishes come true!
-If you would like jump straight into the code:
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Single File Chat in Elixir Phoenix">
+<meta property="og:description" content="Learn how to create a single-file chat application in Elixir Phoenix with real-time messaging using GenServer and Phoenix.PubSub. This tutorial walks you through setting up message storage, handling updates, and integrating LiveView for seamless user experiences. Perfect for developers looking to enhance their Elixir and Phoenix skills.">
+<meta property="og:image" content="https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/">
+<meta property="article:published_time" content="2024-07-12T23:46:53&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Single File Chat in Elixir Phoenix">
+<meta name="twitter:description" content="Learn how to create a single-file chat application in Elixir Phoenix with real-time messaging using GenServer and Phoenix.PubSub. This tutorial walks you through setting up message storage, handling updates, and integrating LiveView for seamless user experiences. Perfect for developers looking to enhance their Elixir and Phoenix skills.">
+<meta name="twitter:image" content="https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -70,15 +46,12 @@ If you would like jump straight into the code:
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2024-07-12T23:46:53+02:00","datePublished":"2024-07-12T23:46:53+02:00","description":"Learn how to create a single-file chat application in Elixir Phoenix with real-time messaging using GenServer and Phoenix.PubSub. This tutorial walks you through setting up message storage, handling updates, and integrating LiveView for seamless user experiences. Perfect for developers looking to enhance their Elixir and Phoenix skills.","headline":"Single File Chat in Elixir Phoenix","image":"https://mrpopov.com/img/single-file-chat-in-elixir-phoenix/Hero.webp","mainEntityOfPage":"https://mrpopov.com/posts/single-file-chat-in-elixir-phoenix/"}
+</script>
 
 
 
@@ -113,7 +86,11 @@ If you would like jump straight into the code:
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -129,11 +106,15 @@ If you would like jump straight into the code:
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -153,15 +134,23 @@ If you would like jump straight into the code:
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -191,10 +180,10 @@ If you would like jump straight into the code:
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/single-file-chat-in-elixir-phoenix/">Single File Chat in Elixir Phoenix</a></h2>
+    <h1 class="post-title"><a href="/posts/single-file-chat-in-elixir-phoenix/">Single File Chat in Elixir Phoenix</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -231,7 +220,7 @@ If you would like jump straight into the code:
       <h2 id="meet-phonenixplayground">Meet <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a></h2>
 <p>I found this library on github suggestions and I always wanted to have something simple and quick to test out LiveView prototypes. What can be quicker than opening Livebook and trying something there? Folks behind <a href="https://hexdocs.pm/phoenix_playground/readme.html">PhonenixPlayground</a> made both of my wishes come true!</p>
 <p>If you would like jump straight into the code:</p>
-<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/pink.svg" alt="Run in Livebook"></a></p>
+<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/pink.svg" alt="Run in Livebook" loading="lazy" decoding="async"></a></p>
 <h2 id="whats-the-plan">What&rsquo;s the plan?</h2>
 <ul>
 <li>Have chat with exchanging messages between clients in real time</li>
@@ -502,7 +491,7 @@ I simply added two css libraries as otherwise it would look completely boring an
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">PhoenixPlayground</span><span style="color:#0550ae">.</span>start<span style="color:#1f2328">(</span><span style="color:#032f62">live</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">DemoTest</span><span style="color:#1f2328">,</span> <span style="color:#032f62">child_specs</span><span style="color:#1f2328">:</span> children<span style="color:#1f2328">)</span>
 </span></span></code></pre></div><p>You can run it and test yourself:</p>
-<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/blue.svg" alt="Run in Livebook"></a></p>
+<p><a href="https://livebook.dev/run?url=https%3A%2F%2Fmrpopov.com%2Fposts%2Fsingle-file-chat-in-elixir-phoenix%2Fphoenix-dirty-chat.livemd"><img src="https://livebook.dev/badge/v1/blue.svg" alt="Run in Livebook" loading="lazy" decoding="async"></a></p>
     </div>
     
       
@@ -576,7 +565,7 @@ I simply added two css libraries as otherwise it would look completely boring an
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

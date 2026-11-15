@@ -1,5 +1,6 @@
 ---
 title: "iPad - Do You Need It?"
+seo_description: "For years I thought the iPad is a useless device next to a MacBook and an iPhone. Then I bought an iPad Pro. Thoughts from a programmer and manager."
 date: 2020-04-21T10:51:42+02:00
 draft: false
 comments: true

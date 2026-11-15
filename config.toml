@@ -1,10 +1,14 @@
 baseurl = "https://mrpopov.com"
+title = "MrPopov"
 locale = "en-us"
 theme = "hello-friend"
 publishDir = "docs"
 rssFullText = true
 rssImage = "image/url/here"
 enableRobotsTXT = false
+
+[taxonomies]
+tag = "tags"
 
 [pagination]
 pagerSize = 5
@@ -23,11 +27,12 @@ unsafe = true
 
 [params]
 contentTypeName = "posts"
+mainSections = ["posts"]
 defaultTheme = "dark"
-showMenuItems = 2
+showMenuItems = 3
 showReadingTime = true
 summary_length = 50
-twitter = "lalabuy948"
+twitter = "mrpopov_com"
 
 [params.feed]
 copyright = "Copyright 203"
@@ -47,7 +52,7 @@ explicit = false
 [languages.en]
 [languages.en.params]
 title = "MrPopov"
-description = "Daniil Popov - Result oriented fractional CTO with proven track record. Over decade of experience in technology, product building, people management and processes establishment. Based in Luxembourg, operate remotely."
+description = "Daniil Popov, founder of 1703 Group in Luxembourg. I build real-time, scalable systems on Elixir/BEAM for broadcast, embedded and more, and write about it here."
 keywords = "daniil popov, mrpopov, popov com, daniil, mr popov, senior, procrastinator, fractional CTO, CTO as a Service"
 copyright = "Daniil Popov"
 menuMore = "More 👇"
@@ -66,22 +71,47 @@ logoHomeLink = "/"
 
 [languages.en.menu]
 [[languages.en.menu.main]]
+weight = 1
 identifier = "1703"
 name = "1703"
 url = "https://1703.lu"
 [[languages.en.menu.main]]
+weight = 2
+identifier = "curated"
+name = "Curated"
+url = "/curated/"
+[[languages.en.menu.main]]
+weight = 3
+identifier = "tools"
+name = "Tools"
+url = "/tools/"
+[[languages.en.menu.main]]
+weight = 4
 identifier = "about"
 name = "About"
 url = "/about"
 [[languages.en.menu.main]]
+weight = 5
 identifier = "linkedin"
 name = "Me on linkedin"
 url = "https://www.linkedin.com/in/mrpopov/"
 [[languages.en.menu.main]]
+weight = 6
 identifier = "github"
 name = "Me on github"
 url = "https://github.com/lalabuy948"
 [[languages.en.menu.main]]
+weight = 7
 identifier = "pexels"
 name = "Me on pexels"
 url = "https://www.pexels.com/@daniil-popov-1864765"
+
+[outputFormats.llms]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
+notAlternative = true
+
+[outputs]
+home = ["HTML", "RSS", "llms"]
+page = ["HTML", "markdown"]

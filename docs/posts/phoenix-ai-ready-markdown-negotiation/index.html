@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     
-      <title>MrPopov :: Make Your Phoenix Website AI Ready in Seconds</title>
+      <title>Make Your Phoenix Website AI Ready in Seconds :: MrPopov</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-<meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://mrpopov.com/posts/phoenix-ai-ready-markdown-negotiation/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://mrpopov.com/img/favicon_io/apple-touch-icon.png">
@@ -14,50 +13,25 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://mrpopov.com/img/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://mrpopov.com/img/favicon_io/site.webmanifest">
 
-
-
-
-        
-            <meta name="description" content="A tiny Phoenix Plug that returns text/markdown when an AI agent asks for it. Same URL, two representations, browsers see HTML, agents see clean markdown. Validated by isitagentready.com."/>
-        
-
-
-
-    <meta name="keywords" content="phoenix ai ready, markdown content negotiation, llms.txt phoenix, agent skills phoenix, text/markdown accept header, isitagentready, " />
+<meta name="description" content="A tiny Phoenix Plug that returns text/markdown when an AI agent asks for it. Same URL, two representations, browsers see HTML, agents see clean markdown. Validated by isitagentready.com."/>
 
 
 
 
 
-
-
-    <meta property="og:image" content="https://mrpopov.com/img/phoenix-ai-ready-markdown-negotiation/preview.png">
-    <meta property="twitter:image" content="https://mrpopov.com/img/phoenix-ai-ready-markdown-negotiation/preview.png">
-
-
-
-    <meta property="og:title" content="Mr.Popov :: Make Your Phoenix Website AI Ready in Seconds">
-    <meta property="twitter:title" content="Mr.Popov :: Make Your Phoenix Website AI Ready in Seconds">
-
-
-
-    <meta property="og:description" content="AI agents are starting to crawl the web the same way browsers do, except they do not need your CSS, your hero animations, or your tracking pixels. They need text. Clean, structured, semantic text. If your site only speaks HTML, the agent has to render, parse, and guess. If your site speaks markdown when asked, the agent gets exactly what it needs in a fraction of the tokens.
-isitagentready.com is a small validator that checks your site against a growing set of &ldquo;agent skills&rdquo;. One of the most useful checks is markdown content negotiation: when a client sends Accept: text/markdown, your server should respond with markdown instead of HTML, on the same URL.
-This post shows the exact Plug we use on this Phoenix app to pass that check, in well under a hundred lines of code.
-">
-    <meta property="twitter:description" content="AI agents are starting to crawl the web the same way browsers do, except they do not need your CSS, your hero animations, or your tracking pixels. They need text. Clean, structured, semantic text. If your site only speaks HTML, the agent has to render, parse, and guess. If your site speaks markdown when asked, the agent gets exactly what it needs in a fraction of the tokens.
-isitagentready.com is a small validator that checks your site against a growing set of &ldquo;agent skills&rdquo;. One of the most useful checks is markdown content negotiation: when a client sends Accept: text/markdown, your server should respond with markdown instead of HTML, on the same URL.
-This post shows the exact Plug we use on this Phoenix app to pass that check, in well under a hundred lines of code.
-">
-
-
-
-<meta property="og:type" content="website">
+<meta property="og:site_name" content="MrPopov">
+<meta property="og:title" content="Make Your Phoenix Website AI Ready in Seconds">
+<meta property="og:description" content="A tiny Phoenix Plug that returns text/markdown when an AI agent asks for it. Same URL, two representations, browsers see HTML, agents see clean markdown. Validated by isitagentready.com.">
+<meta property="og:image" content="https://mrpopov.com/img/phoenix-ai-ready-markdown-negotiation/preview.webp">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://mrpopov.com/posts/phoenix-ai-ready-markdown-negotiation/">
+<meta property="article:published_time" content="2026-04-29T12:00:00&#43;02:00">
 
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://mrpopov.com/posts/phoenix-ai-ready-markdown-negotiation/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Make Your Phoenix Website AI Ready in Seconds">
+<meta name="twitter:description" content="A tiny Phoenix Plug that returns text/markdown when an AI agent asks for it. Same URL, two representations, browsers see HTML, agents see clean markdown. Validated by isitagentready.com.">
+<meta name="twitter:image" content="https://mrpopov.com/img/phoenix-ai-ready-markdown-negotiation/preview.webp">
+<meta name="twitter:creator" content="@mrpopov_com">
 
 
 <link rel="preload" href="https://mrpopov.com/assets/style.css" as="style">
@@ -72,15 +46,12 @@ This post shows the exact Plug we use on this Phoenix app to pass that check, in
 <link rel="stylesheet" href="https://mrpopov.com/style.css">
 
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://mrpopov.com/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="https://mrpopov.com/img/favicon.png">
+<link rel="alternate" type="text/markdown" href="https://mrpopov.com/posts/phoenix-ai-ready-markdown-negotiation/index.md" title="MrPopov" />
 
 
-
-
-
-
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniil Popov","url":"https://mrpopov.com/"},"dateModified":"2026-04-29T12:00:00+02:00","datePublished":"2026-04-29T12:00:00+02:00","description":"A tiny Phoenix Plug that returns text/markdown when an AI agent asks for it. Same URL, two representations, browsers see HTML, agents see clean markdown. Validated by isitagentready.com.","headline":"Make Your Phoenix Website AI Ready in Seconds","image":"https://mrpopov.com/img/phoenix-ai-ready-markdown-negotiation/preview.webp","mainEntityOfPage":"https://mrpopov.com/posts/phoenix-ai-ready-markdown-negotiation/"}
+</script>
 
 
 
@@ -115,7 +86,11 @@ This post shows the exact Plug we use on this Phoenix app to pass that check, in
         
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/curated/">Curated</a></li>
+        
+      
+        
+          <li><a href="/tools/">Tools</a></li>
         
       
       
@@ -131,11 +106,15 @@ This post shows the exact Plug we use on this Phoenix app to pass that check, in
           <ul class="menu__sub-inner-more hidden">
             
               
-                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+                <li><a href="/about">About</a></li>
               
             
               
                 <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+              
+            
+              
+                <li><a href="https://github.com/lalabuy948">Me on github</a></li>
               
             
               
@@ -155,15 +134,23 @@ This post shows the exact Plug we use on this Phoenix app to pass that check, in
       
     
       
+        <li><a href="/curated/">Curated</a></li>
+      
+    
+      
+        <li><a href="/tools/">Tools</a></li>
+      
+    
+      
         <li><a href="/about">About</a></li>
       
     
       
-        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
+        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
       
     
       
-        <li><a href="https://www.linkedin.com/in/mrpopov/">Me on linkedin</a></li>
+        <li><a href="https://github.com/lalabuy948">Me on github</a></li>
       
     
       
@@ -193,10 +180,10 @@ This post shows the exact Plug we use on this Phoenix app to pass that check, in
 </header>
 
 
-      <div class="content">
+      <main class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/posts/phoenix-ai-ready-markdown-negotiation/">Make Your Phoenix Website AI Ready in Seconds</a></h2>
+    <h1 class="post-title"><a href="/posts/phoenix-ai-ready-markdown-negotiation/">Make Your Phoenix Website AI Ready in Seconds</a></h1>
     <div class="post-meta">
       
         <span class="post-date">
@@ -225,7 +212,7 @@ This post shows the exact Plug we use on this Phoenix app to pass that check, in
     
       
         
-        <img alt="Make Your Phoenix Website AI Ready in Seconds" src="https://mrpopov.com/img/phoenix-ai-ready-markdown-negotiation/preview.png" class="post-cover" />
+        <img alt="Make Your Phoenix Website AI Ready in Seconds" src="https://mrpopov.com/img/phoenix-ai-ready-markdown-negotiation/preview.webp" class="post-cover" />
       
     
 
@@ -479,7 +466,7 @@ This post shows the exact Plug we use on this Phoenix app to pass that check, in
     
 
 
-      </div>
+      </main>
 
       
         <footer class="footer">

@@ -1,5 +1,6 @@
 ---
 title: "Mini Space Journey"
+seo_description: "Mini Space Journey is my Apple Watch game where you fly through space with the Digital Crown. It's finally released on the App Store."
 date: 2023-01-22T12:59:55+01:00
 draft: false
 comments: false

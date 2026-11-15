@@ -3,7 +3,7 @@ title: "Broadcast Grade Color Scopes in Phoenix LiveView"
 date: 2026-04-19T12:00:00+02:00
 draft: false
 comments: true
-cover: "/img/phoenix-liveview-webgl-color-scopes/preview.png"
+cover: "/img/phoenix-liveview-webgl-color-scopes/preview.webp"
 tags:
     - elixir
     - code
@@ -32,7 +32,7 @@ This post is about how that went, and why I keep finding the Phoenix stack stret
 
 If you have never seen one: waveform shows per column luminance. Parade splits R, G and B side by side. Vectorscope plots chroma on a hue/saturation wheel. Histogram counts pixels per intensity bin. Together they tell you whether your image is actually blue or just vibes.
 
-![Waveform scope](/img/phoenix-liveview-webgl-color-scopes/wave.png)
+![Waveform scope](/img/phoenix-liveview-webgl-color-scopes/wave.webp)
 
 For us they sit next to the LUT preview. The server renders a preview frame through the current grading chain, pushes it to a `<canvas>`, and the scopes read from that canvas. That is the full contract between Elixir and WebGL: one canvas in, four scopes out.
 
@@ -115,13 +115,13 @@ gl_Position = vec4(Cb * 2.0 * u_aspect.x, Cr * 2.0 * u_aspect.y, 0.0, 1.0);
 
 That is Rec.709 YCbCr, projected straight onto the canvas. The pixel keeps its own hue so the scope lights up in the color of the image instead of a uniform green. A broadcast engineer from the 70s would recognise it.
 
-![Vectorscope](/img/phoenix-liveview-webgl-color-scopes/vector.png)
+![Vectorscope](/img/phoenix-liveview-webgl-color-scopes/vector.webp)
 
 Waveform and parade draw as line strips between adjacent source pixels, which gives smooth traces instead of dotty clouds. Histogram is CPU side, 256 bin counts per channel rendered as triangle strips. Each scope has its own brightness multiplier, because line density per pixel is very different between them and I spent an embarrassing afternoon getting the ratios right.
 
-![RGB parade](/img/phoenix-liveview-webgl-color-scopes/parade.png)
+![RGB parade](/img/phoenix-liveview-webgl-color-scopes/parade.webp)
 
-![Histogram](/img/phoenix-liveview-webgl-color-scopes/hist.png)
+![Histogram](/img/phoenix-liveview-webgl-color-scopes/hist.webp)
 
 ### HDR accumulation, with a polite fallback
 

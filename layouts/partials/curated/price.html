@@ -1,0 +1,6 @@
+{{- $s := "" -}}
+{{- with .Params.price -}}
+  {{- $n := float . -}}
+  {{- $s = printf "%s%s" ($.Params.currency | default "€") (cond (eq $n (math.Round $n)) (printf "%.0f" $n) (printf "%.2f" $n)) -}}
+{{- end -}}
+{{- return $s -}}

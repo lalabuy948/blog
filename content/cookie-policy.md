@@ -6,17 +6,17 @@ unsafe: true
 cover: "img/cookie-policy/christina-branco-7P-wc2Z2Ujs-unsplash.webp"
 ---
 
-# Cookie Policy for Mr Popov
+## Cookie Policy for Mr Popov
 
 This is the Cookie Policy for Mr Popov, accessible from mrpopov.com
 
-### What Are Cookies
+#### What Are Cookies
 
 A cookie is a delicious sweet treat that you can eat. It's a small, round, and flat baked goodie that is often made with flour, sugar, eggs, and butter. Cookies come in many different shapes, sizes, and flavors. Some cookies are crispy and crunchy, while others are soft and chewy. Some have chocolate chips, nuts, or raisins in them, while others are decorated with frosting or sprinkles. People enjoy cookies as a snack or as a dessert, and they are often shared with friends and family.
 
 For more general information on cookies, please read ["What Are Cookies"](https://www.cookieconsent.com/what-are-cookies/).
 
-### How We Use Cookies
+#### How We Use Cookies
 
 Cookies are a fun and familiar treat that many kids have grown up enjoying, whether it's as an after-school snack, a special dessert, or a treat to share with friends. Here are a few reasons why kids might love cookies:
 
@@ -24,7 +24,7 @@ Cookies are a fun and familiar treat that many kids have grown up enjoying, whet
 - Variety of flavors: Cookies come in many different flavors, from classic chocolate chip to peanut butter to oatmeal raisin. This variety allows kids to find a cookie that they truly enjoy.
 - Easy to eat: Cookies are often bite-sized or small enough to hold in your hand, making them easy for kids to eat and enjoy.
 
-### Disabling Cookies
+#### Disabling Cookies
 
 Cookies can be unhealthy if they are eaten in excess, as they are often high in sugar, fat, and calories. Here are a few reasons why eating too many cookies on a regular basis can be unhealthy and you might consider disabling some amount of cookies from your ration:
 
@@ -34,7 +34,7 @@ Cookies can be unhealthy if they are eaten in excess, as they are often high in 
 
 However, it's important to note that it's okay to enjoy cookies in moderation as part of a balanced diet. If you choose to indulge in cookies occasionally, it's a good idea to pair them with healthier foods like fruits and vegetables, and to pay attention to portion sizes to avoid overconsumption.
 
-### The Cookies We Set
+#### The Cookies We Set
 
 Preheat your oven to the temperature specified in your recipe.
 Gather your ingredients, including flour, sugar, eggs, butter, and any other additions you'd like to include, such as chocolate chips or nuts.
@@ -49,7 +49,7 @@ Remove the cookies from the oven and let them cool on the baking sheet for a few
 But if you really interested in cookies used on this website: 
 - Third Party Cookies - to track amount of visitors, nothing else 
 
-### More Information
+#### More Information
 
 Here is more information about cookies and fun facts: 
 

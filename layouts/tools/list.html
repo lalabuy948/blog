@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <div class="curated">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="curated-intro">{{ . }}</div>{{ end }}
+
+    <ul class="curated-grid tools-grid" style="margin-top: 32px">
+      {{ range sort (hugo.Data.tools | default slice) "date" "desc" }}
+        <li>
+          <a class="curated-card" href="/tools/{{ .slug }}/">
+            {{ $slug := .slug }}
+            {{ with .cover }}
+              <img class="curated-cover" src="/tools/{{ $slug }}/{{ . }}" width="600" height="600" alt="" loading="lazy">
+            {{ else }}
+              <div class="curated-cover curated-cover--empty" aria-hidden="true">{{ substr .title 0 1 | upper }}</div>
+            {{ end }}
+            <h2 class="curated-name" style="margin-top: 10px">{{ .title }}</h2>
+            <p class="curated-verdict">{{ .description }}</p>
+            <span class="curated-row">
+              <span>{{ delimit (.tags | default slice) " · " }}</span>
+              {{ with .date }}<span>{{ time.Format ($.Site.Params.DateFormatList | default "2006-01-02") . }}</span>{{ end }}
+            </span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

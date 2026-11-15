@@ -1,9 +1,10 @@
 ---
 title: "Testing Mailer in Go"
+seo_description: "I needed to test email confirmation locally. Mailtrap, mailcow and the others were too heavy, so I run MailHog in Docker. Here is the setup."
 date: 2020-03-08T19:23:14+01:00
 draft: false
 comments: true
-cover: "img/testing-mailer-in-go/LazyGopher.png"
+cover: "img/testing-mailer-in-go/LazyGopher.webp"
 tags:
   - go
   - docker
