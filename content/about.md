@@ -20,7 +20,8 @@ Based in Luxembourg · Operate Remote · Open to on-site visits
 
 
 
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/) [![X](https://img.shields.io/badge/x-%23000000.svg?style=for-the-badge&logo=x&logoColor=white)](https://x.com/mrpopov_com)
+<a href="https://www.linkedin.com/in/mrpopov/"><img style="display:inline-block" alt="LinkedIn" src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+<a href="https://x.com/mrpopov_com"><img style="display:inline-block" alt="X.com" src="https://img.shields.io/badge/x.com-%23000000.svg?style=for-the-badge&logo=x&logoColor=white"></a>
 
 ### Companies I contributed to
 
