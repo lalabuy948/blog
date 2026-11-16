@@ -39,6 +39,7 @@ p{margin:0}
 .note{color:var(--muted);font-size:13px}
 section.tab{display:flex;flex-direction:column;gap:18px}
 section.tab[hidden]{display:none}
+.col{display:flex;flex-direction:column;gap:18px;min-width:0}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px}
 
 /* wheel */
@@ -51,7 +52,14 @@ section.tab[hidden]{display:none}
 #wheel .sel.on{opacity:1}
 #wheel .link{fill:none;stroke:var(--brass);stroke-width:.9;stroke-dasharray:2.2 2.2;stroke-linejoin:round;pointer-events:none}
 #wheel .hub{stroke:var(--brass);stroke-width:1.2;pointer-events:none}
-#wheel .pd{stroke:var(--bg);stroke-width:.7;pointer-events:none}
+#wheel .pd{stroke:var(--bg);stroke-width:.7;pointer-events:none;transition:r .15s}
+#wheel .pd.hot{r:5.5px;stroke:var(--ink);stroke-width:1.4}
+.plegend{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 10px}
+.pl{display:flex;align-items:center;gap:9px;text-align:left;padding:6px;border-radius:9px;min-height:44px}
+.pl:hover,.pl.hot{background:var(--brass-soft)}
+.pl i{width:18px;height:18px;border-radius:50%;flex:none;border:1px solid rgba(128,128,128,.5)}
+.pl b{display:block;font-weight:600;font-size:13.5px;line-height:1.2}
+.pl small{display:block;color:var(--muted);font-size:12px;line-height:1.2}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:500;color:var(--muted);white-space:nowrap}
@@ -69,6 +77,7 @@ section.tab[hidden]{display:none}
 .strip{display:flex;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
 .strip span,.strip button{flex:1;height:44px;display:block;position:relative}
 .strip button[aria-pressed="true"]::after{content:"";position:absolute;inset:3px;border:2px solid #fff;border-radius:6px;box-shadow:0 0 0 1px rgba(0,0,0,.55)}
+.strip span.n{box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3.5px rgba(0,0,0,.55)}
 .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);gap:8px}
 
 /* mixer */
@@ -137,7 +146,7 @@ input[type=color]{width:44px;height:40px;padding:0;border:1px solid var(--line);
 .four i{display:block;aspect-ratio:1;border-radius:8px;border:1px solid rgba(128,128,128,.4);margin-bottom:4px}
 @media (min-width:1000px){
   body{padding:0 32px 48px}
-  .app{max-width:1180px;gap:22px}
+  .app{max-width:1360px;gap:22px}
   h1{font-size:36px}h2{font-size:25px}
   nav{position:sticky;top:0;border-top:0;border-bottom:1px solid var(--line);background:var(--bg)}
   nav div{max-width:none;margin:0;display:flex;gap:4px}
@@ -145,12 +154,9 @@ input[type=color]{width:44px;height:40px;padding:0;border:1px solid var(--line);
   nav button[aria-selected="true"]::before{top:auto;bottom:-1px;left:12px;right:12px}
   section.tab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 28px;align-items:start}
   .tab>div:not([class]),.tab>.chips,.tab>.note,#tab-chart>.card,#tab-palette>.card{grid-column:1/-1}
-  #tab-wheel{grid-template-rows:auto auto auto auto 1fr}
-  #tab-wheel>.wheelwrap{grid-column:1;grid-row:1;max-width:500px}
-  #tab-wheel>.note{grid-column:1;grid-row:2}
-  #tab-wheel>.chips{grid-column:1;grid-row:3;flex-wrap:wrap;justify-content:center}
-  #tab-wheel>.card:last-child{grid-column:1;grid-row:4}
-  #harmonyCard{grid-column:2;grid-row:1/-1}
+  #tab-wheel>.col:first-child{position:sticky;top:64px}
+  #tab-wheel .wheelwrap{max-width:540px}
+  #tab-wheel .chips{flex-wrap:wrap;justify-content:center}
   #tab-mix>.card:first-child,#tab-layers>.card:nth-child(3){position:sticky;top:64px}
   .blob{width:150px;height:150px}
   .result .d{font-size:32px}
@@ -182,17 +188,26 @@ input[type=color]{width:44px;height:40px;padding:0;border:1px solid var(--line);
 </div></nav>
 
   <section class="tab" id="tab-wheel">
+    <div class="col">
     <div class="wheelwrap">
       <svg id="wheel" viewBox="-100 -100 200 200" tabindex="0" role="group" aria-label="Colour wheel. Tap or drag a segment, or use the arrow keys, to pick the base colour."></svg>
     </div>
     <p class="note" style="text-align:center">The wheel is painted with your palette: each segment is the closest mix your paints can make, from full strength to a pale wash. The thin outer band is the ideal hue, rim dots are your paints.</p>
     <div class="chips" id="harmonyChips" role="group" aria-label="Harmony"></div>
+    </div>
+    <div class="col">
     <div class="card" id="harmonyCard"></div>
     <div class="card">
-      <div><div class="eyebrow">Complements mixed</div><h2 id="neutralTitle"></h2></div>
+      <div><div class="eyebrow">Muting the base colour</div><h2 id="neutralTitle"></h2></div>
       <div class="strip" id="neutralStrip"></div>
-      <div class="ends"><span id="neutralA"></span><span>neutral</span><span id="neutralB"></span></div>
-      <p class="note">A touch of the opposite colour mutes a hue without making it muddy. Near equal amounts give greys and browns that are good for shadows.</p>
+      <div class="ends"><span id="neutralA"></span><span id="neutralMid"></span><span id="neutralB"></span></div>
+      <p class="note">This is the paint in your palette closest to the base colour, and the paint that greys it best. A touch mutes the colour without making it muddy. The outlined step is the most neutral mix, good for shadows.</p>
+    </div>
+    <div class="card">
+      <div><div class="eyebrow">Rim dots</div><h2>Where your paints sit on the wheel</h2></div>
+      <div class="plegend" id="paintLegend"></div>
+      <p class="note">Each dot on the rim is one of your paints, placed at its hue. A stretch of rim with no dots is a hue you have to mix, and it will come out duller.</p>
+    </div>
     </div>
   </section>
 
@@ -307,7 +322,7 @@ const PRESETS=[
  {n:12,label:'12 · Classic',ids:[0,1,2,5,8,11,13,14,17,19,20,22]},
  {n:18,label:'18 · Studio',ids:[0,1,2,3,4,5,7,8,10,11,12,13,14,17,19,20,21,22]},
  {n:24,label:'24 · Full tin',ids:PAINTS.map(p=>p.i)}];
-const HARM={complementary:['Complementary',[0,6],['Base','Complement']],split:['Split complementary',[0,5,7],['Base','Split','Split']],analogous:['Analogous',[11,0,1],['Neighbour','Base','Neighbour']],triadic:['Triadic',[0,4,8],['Base','Triad','Triad']],tetradic:['Tetradic',[0,3,6,9],['Base','Square','Complement','Square']],mono:['Monochromatic',[0],['Base']]};
+const HARM={none:['Full wheel',[],[]],complementary:['Complementary',[0,6],['Base','Complement']],split:['Split complementary',[0,5,7],['Base','Split','Split']],analogous:['Analogous',[11,0,1],['Neighbour','Base','Neighbour']],triadic:['Triadic',[0,4,8],['Base','Triad','Triad']],tetradic:['Tetradic',[0,3,6,9],['Base','Square','Complement','Square']],mono:['Monochromatic',[0],['Base']]};
 const RATIOS=[[5,1],[4,1],[3,1],[2,1],[1,1],[1,2],[1,3],[1,4],[1,5]];
 const TR={T:'Transparent',ST:'Semi-transparent',SO:'Semi-opaque',O:'Opaque'};
 
@@ -385,29 +400,41 @@ function renderWheel(){
   // each segment is painted with the closest mix the current palette can make
   document.querySelectorAll('#wheel .seg').forEach(g=>{const i=+g.dataset.i,m=RECIPES[i][0],A=PAINTS[m.a],r=RATIOS[m.ri]||[1,0];
     const comps=m.b<0?[[A.ks,1]]:[[A.ks,r[0]*A.s],[PAINTS[m.b].ks,r[1]*PAINTS[m.b].s]];
-    [...g.children].forEach((p,k)=>p.setAttribute('fill',toHex(mix(comps,m.c*RINGS[k][2]))));g.classList.toggle('dim',!sel.includes(i))});
+    [...g.children].forEach((p,k)=>p.setAttribute('fill',toHex(mix(comps,m.c*RINGS[k][2]))));g.classList.toggle('dim',S.harm!=='none'&&!sel.includes(i))});
   document.querySelectorAll('#wheel .sel').forEach(p=>p.classList.toggle('on',sel.includes(+p.dataset.s)));
   let h='';const order=sel.slice().sort((x,y)=>x-y);
   if(order.length>1)h+=`<polygon class="link" points="${order.map(i=>pt(27,i*30).join(',')).join(' ')}"/>`;
   for(const i of order)h+=`<circle class="hub" cx="${pt(27,i*30)[0]}" cy="${pt(27,i*30)[1]}" r="${i===S.base?4.2:3}" fill="${W[i].hex}"/>`;
   if(order.length===1)h+=`<circle class="hub" r="12" fill="${W[S.base].hex}"/>`;
   $('links').innerHTML=h;
-  $('pdots').innerHTML=paintsOn().filter(p=>chroma(p.lab)>.05).map(p=>`<circle class="pd" cx="${pt(96,wheelPos(hueDeg(p.lab))*30)[0]}" cy="${pt(96,wheelPos(hueDeg(p.lab))*30)[1]}" r="2.6" fill="${p.hex}"><title>${p.name}</title></circle>`).join('');
+  $('pdots').innerHTML=paintsOn().filter(p=>chroma(p.lab)>.05).map(p=>`<circle class="pd" cx="${pt(96,wheelPos(hueDeg(p.lab))*30)[0]}" cy="${pt(96,wheelPos(hueDeg(p.lab))*30)[1]}" r="3.1" data-p="${p.i}" fill="${p.hex}"><title>${p.name}</title></circle>`).join('');
+}
+function renderLegend(){
+  const box=$('paintLegend');box.innerHTML='';
+  const rows=paintsOn().map(p=>{const c=chroma(p.lab),on=c>.05,pos=on?wheelPos(hueDeg(p.lab)):99;return{p,pos,sub:on?`in ${W[Math.round(pos)%12].name}${c<.12?', muted':''}`:'neutral, not on the wheel'}}).sort((a,b)=>a.pos-b.pos);
+  for(const r of rows){const b=el('button',{class:'pl'},`<i style="background:${r.p.hex}"></i><span><b>${r.p.name}</b><small>${r.sub}</small></span>`);
+    const hot=on=>{const d=document.querySelector(`#wheel .pd[data-p="${r.p.i}"]`);if(d)d.classList.toggle('hot',on);b.classList.toggle('hot',on)};
+    b.onpointerenter=()=>hot(true);b.onpointerleave=()=>hot(false);b.onfocus=()=>hot(true);b.onblur=()=>hot(false);box.append(b)}
 }
 function renderHarmony(){
   $('harmonyChips').innerHTML='';
   for(const k in HARM){const b=el('button',{class:'chip','aria-pressed':S.harm===k},HARM[k][0]);b.onclick=()=>{S.harm=k;update()};$('harmonyChips').append(b)}
-  const card=$('harmonyCard');card.innerHTML=`<div><div class="eyebrow">${HARM[S.harm][0]} from ${W[S.base].name}</div><h2>Mix these from your ${S.active.length} paints</h2></div>`;
-  HARM[S.harm][1].forEach((o,n)=>{const i=(S.base+o)%12,recs=RECIPES[i];
-    const row=el('div',{class:'hrow rowsep'},`<div class="pair" title="Left: target hue. Right: best mix from your palette."><span style="background:${W[i].hex}"></span><span style="background:${recs[0].hex}"></span></div><div class="txt"><span class="eyebrow">${HARM[S.harm][2][n]}</span><span class="nm">${W[i].name}</span></div>`);
+  const card=$('harmonyCard');const none=S.harm==='none';
+  card.innerHTML=`<div><div class="eyebrow">${none?'Full wheel, all twelve hues':HARM[S.harm][0]+' from '+W[S.base].name}</div><h2>Mix these from your ${S.active.length} paints</h2></div>`;
+  (none?[0,1,2,3,4,5,6,7,8,9,10,11]:HARM[S.harm][1]).forEach((o,n)=>{const i=none?o:(S.base+o)%12,recs=none?RECIPES[i].slice(0,1):RECIPES[i];
+    const row=el('div',{class:'hrow rowsep'},`<div class="pair" title="Left: target hue. Right: best mix from your palette."><span style="background:${W[i].hex}"></span><span style="background:${recs[0].hex}"></span></div><div class="txt"><span class="eyebrow">${HARM[S.harm][2][n]||''}</span><span class="nm">${W[i].name}</span></div>`);
     const txt=row.querySelector('.txt');
     recs.forEach(m=>{const b=el('button',{class:'recipe'},`<span>${recipeText(m)}<small>${waterWord(m.c)}, ${fit(m.d)}</small></span><span class="go">Open</span>`);
       b.onclick=()=>{S.a=m.a;if(m.b<0){S.b=m.a;S.ratio=4}else{S.b=m.b;S.ratio=m.ri}S.water=vFromC(m.c);S.tab='mix';update();scrollTo(0,0)};txt.append(b)});
     card.append(row)});
   if(S.harm==='mono')card.append(el('p',{class:'note'},'One hue only: vary it with water for lighter values, and add a little of its complement for darker, quieter ones.'));
-  const a=W[S.base],b=W[(S.base+6)%12];
-  $('neutralTitle').textContent=`${a.name} into ${b.name}`;$('neutralA').textContent=a.name;$('neutralB').textContent=b.name;
-  $('neutralStrip').innerHTML=[0,1,2,3,4,5,6].map(n=>`<span style="background:${toHex(mix([[a.ks,6-n],[b.ks,n]],1))}"></span>`).join('');
+  // real paints, not ideal hues: the palette paint closest to the base and the paint that greys it best
+  const A=PAINTS[nearestPaint(S.base)];let best=null;
+  const cand=paintsOn().filter(p=>p.i!==A.i),chromatic=cand.filter(p=>chroma(p.lab)>=.08);
+  for(const B of chromatic.length?chromatic:cand)RATIOS.forEach((r,ri)=>{const ch=chroma(oklab(mix([[A.ks,r[0]*A.s],[B.ks,r[1]*B.s]],1)));if(!best||ch<best.ch)best={ch,B,ri}});
+  const B=best.B,r=RATIOS[best.ri];
+  $('neutralTitle').textContent=`${A.name} greyed with ${B.name}`;$('neutralA').textContent=A.name;$('neutralB').textContent=B.name;$('neutralMid').textContent=`greyest at ${r[0]} : ${r[1]}`;
+  $('neutralStrip').innerHTML=`<span style="background:${A.hex}"></span>`+RATIOS.map((q,n)=>`<span class="${n===best.ri?'n':''}" style="background:${toHex(mix([[A.ks,q[0]*A.s],[B.ks,q[1]*B.s]],1))}"></span>`).join('')+`<span style="background:${B.hex}"></span>`;
 }
 
 /* mixer */
@@ -530,7 +557,7 @@ function update(){
   document.documentElement.dataset.mode=S.mode;
   document.querySelectorAll('section.tab').forEach(s=>s.hidden=s.id!=='tab-'+S.tab);
   document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===S.tab));
-  renderWheel();renderHarmony();renderMatch();renderMix();renderLayers();renderChart();renderPalette();save();
+  renderWheel();renderLegend();renderHarmony();renderMatch();renderMix();renderLayers();renderChart();renderPalette();save();
 }
 
 /* events */
