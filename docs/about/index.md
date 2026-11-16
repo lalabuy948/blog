@@ -17,11 +17,12 @@ Recent work is in broadcast. I worked on [CyanCamera](/posts/cyancamera-turning-
 Over 10 years leading critical projects: zero-downtime ERP migrations, live system integrations serving millions of users, cross-department transformations. Delivered 2x engineering efficiency in 6 months and 45% tech debt reduction in 1.5 years.
 
 Keynote at Code BEAM Europe 2025: [CyanView & Elixir in Broadcasts](https://www.youtube.com/watch?v=CseWOnKuk7o), with David Bourgeois. Speaker at [RTCON](/posts/cyancamera-turning-phone-into-broadcast-camera/) and [Goatmire](/posts/cyanview-studio-elixir-neighbors/) (2026). Author of [PhoenixAnalytics](https://github.com/lalabuy948/PhoenixAnalytics).
+
 Based in Luxembourg · Operate Remote · Open to on-site visits
 
 
 
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/)
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mrpopov/) [![X](https://img.shields.io/badge/x-%23000000.svg?style=for-the-badge&logo=x&logoColor=white)](https://x.com/mrpopov_com)
 
 ### Companies I contributed to
 
