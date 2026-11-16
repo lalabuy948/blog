@@ -135,6 +135,31 @@ input[type=color]{width:44px;height:40px;padding:0;border:1px solid var(--line);
 .sphere{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;border-radius:12px}
 .four{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:11px;line-height:1.2;color:var(--muted);text-align:center}
 .four i{display:block;aspect-ratio:1;border-radius:8px;border:1px solid rgba(128,128,128,.4);margin-bottom:4px}
+@media (min-width:1000px){
+  body{padding:0 32px 48px}
+  .app{max-width:1180px;gap:22px}
+  h1{font-size:36px}h2{font-size:25px}
+  nav{position:sticky;top:0;border-top:0;border-bottom:1px solid var(--line);background:var(--bg)}
+  nav div{max-width:none;margin:0;display:flex;gap:4px}
+  nav button{height:48px;padding:0 18px;font-size:14px}
+  nav button[aria-selected="true"]::before{top:auto;bottom:-1px;left:12px;right:12px}
+  section.tab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 28px;align-items:start}
+  .tab>div:not([class]),.tab>.chips,.tab>.note,#tab-chart>.card,#tab-palette>.card{grid-column:1/-1}
+  #tab-wheel{grid-template-rows:auto auto auto auto 1fr}
+  #tab-wheel>.wheelwrap{grid-column:1;grid-row:1;max-width:500px}
+  #tab-wheel>.note{grid-column:1;grid-row:2}
+  #tab-wheel>.chips{grid-column:1;grid-row:3;flex-wrap:wrap;justify-content:center}
+  #tab-wheel>.card:last-child{grid-column:1;grid-row:4}
+  #harmonyCard{grid-column:2;grid-row:1/-1}
+  #tab-mix>.card:first-child,#tab-layers>.card:nth-child(3){position:sticky;top:64px}
+  .blob{width:150px;height:150px}
+  .result .d{font-size:32px}
+  .strip span,.strip button{height:56px}
+  .sphere{max-width:400px}
+  .chart{margin:0 auto}
+  .plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+  .prow,.prow:first-child{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -147,12 +172,20 @@ input[type=color]{width:44px;height:40px;padding:0;border:1px solid var(--line);
       <svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
     </button>
   </header>
+  <nav><div role="tablist">
+  <button role="tab" data-tab="wheel">Wheel</button>
+  <button role="tab" data-tab="match">Match</button>
+  <button role="tab" data-tab="mix">Mix</button>
+  <button role="tab" data-tab="layers">Layers</button>
+  <button role="tab" data-tab="chart">Chart</button>
+  <button role="tab" data-tab="palette">Palette</button>
+</div></nav>
 
   <section class="tab" id="tab-wheel">
     <div class="wheelwrap">
       <svg id="wheel" viewBox="-100 -100 200 200" tabindex="0" role="group" aria-label="Colour wheel. Tap or drag a segment, or use the arrow keys, to pick the base colour."></svg>
     </div>
-    <p class="note" style="text-align:center">Tap or drag around the wheel. Rings go from full strength to a pale wash. Rim dots are your paints.</p>
+    <p class="note" style="text-align:center">The wheel is painted with your palette: each segment is the closest mix your paints can make, from full strength to a pale wash. The thin outer band is the ideal hue, rim dots are your paints.</p>
     <div class="chips" id="harmonyChips" role="group" aria-label="Harmony"></div>
     <div class="card" id="harmonyCard"></div>
     <div class="card">
@@ -250,14 +283,7 @@ input[type=color]{width:44px;height:40px;padding:0;border:1px solid var(--line);
   </section>
 </div>
 
-<nav><div role="tablist">
-  <button role="tab" data-tab="wheel">Wheel</button>
-  <button role="tab" data-tab="match">Match</button>
-  <button role="tab" data-tab="mix">Mix</button>
-  <button role="tab" data-tab="layers">Layers</button>
-  <button role="tab" data-tab="chart">Chart</button>
-  <button role="tab" data-tab="palette">Palette</button>
-</div></nav>
+
 
 <script>
 const WHEEL=[['Yellow','#F7E017'],['Yellow-Green','#A9CF2C'],['Green','#2E9E48'],['Blue-Green','#128F93'],['Blue','#1F55B5'],['Blue-Violet','#3F2F9E'],['Violet','#6B2A93'],['Red-Violet','#A8236E'],['Red','#D4232B'],['Red-Orange','#E4502A'],['Orange','#EE7F1D'],['Yellow-Orange','#F5B21A']];
@@ -342,20 +368,24 @@ const fit=d=>d<.05?'close match':d<.1?'near match':'approximate, this palette ca
 /* wheel */
 const pt=(r,deg)=>{const a=deg*Math.PI/180;return[(r*Math.sin(a)).toFixed(2),(-r*Math.cos(a)).toFixed(2)]};
 const sector=(r0,r1,a0,a1)=>`M${pt(r1,a0)}A${r1} ${r1} 0 0 1 ${pt(r1,a1)}L${pt(r0,a1)}A${r0} ${r0} 0 0 0 ${pt(r0,a0)}Z`;
-const RINGS=[[66,91,1],[48,66,.35],[34,48,.1]];
+const RINGS=[[66,88,1],[48,66,.35],[34,48,.1]];
 function buildWheel(){
   let h='';
   W.forEach((w,i)=>{h+=`<g class="seg" data-i="${i}">`;
-    for(const[r0,r1,c]of RINGS)h+=`<path class="gap" d="${sector(r0,r1,i*30-15,i*30+15)}" fill="${toHex(mix([[w.ks,1]],c))}"/>`;
+    for(const[r0,r1]of RINGS)h+=`<path class="gap" d="${sector(r0,r1,i*30-15,i*30+15)}"/>`;
     h+='</g>'});
-  W.forEach((w,i)=>{h+=`<path class="sel" data-s="${i}" d="${sector(34,91,i*30-15,i*30+15)}"/>`});
+  W.forEach((w,i)=>{h+=`<path class="gap" style="pointer-events:none" d="${sector(89.5,92.5,i*30-15,i*30+15)}" fill="${w.hex}"/>`});
+  W.forEach((w,i)=>{h+=`<path class="sel" data-s="${i}" d="${sector(34,88,i*30-15,i*30+15)}"/>`});
   h+='<g id="links"></g><g id="pdots"></g>';
   $('wheel').innerHTML=h;
 }
 const harmIdx=()=>HARM[S.harm][1].map(o=>(S.base+o)%12);
 function renderWheel(){
   const sel=harmIdx();
-  document.querySelectorAll('#wheel .seg').forEach(g=>g.classList.toggle('dim',!sel.includes(+g.dataset.i)));
+  // each segment is painted with the closest mix the current palette can make
+  document.querySelectorAll('#wheel .seg').forEach(g=>{const i=+g.dataset.i,m=RECIPES[i][0],A=PAINTS[m.a],r=RATIOS[m.ri]||[1,0];
+    const comps=m.b<0?[[A.ks,1]]:[[A.ks,r[0]*A.s],[PAINTS[m.b].ks,r[1]*PAINTS[m.b].s]];
+    [...g.children].forEach((p,k)=>p.setAttribute('fill',toHex(mix(comps,m.c*RINGS[k][2]))));g.classList.toggle('dim',!sel.includes(i))});
   document.querySelectorAll('#wheel .sel').forEach(p=>p.classList.toggle('on',sel.includes(+p.dataset.s)));
   let h='';const order=sel.slice().sort((x,y)=>x-y);
   if(order.length>1)h+=`<polygon class="link" points="${order.map(i=>pt(27,i*30).join(',')).join(' ')}"/>`;
@@ -401,7 +431,7 @@ function neutralise(){const A=PAINTS[S.a];let best=null;
 /* chart */
 function renderChart(){
   const ps=paintsOn(),n=ps.length,g=$('chart');
-  g.style.gridTemplateColumns=`repeat(${n+1},1fr)`;g.style.minWidth=(n+1)*24+'px';g.innerHTML='';
+  g.style.gridTemplateColumns=`repeat(${n+1},1fr)`;g.style.minWidth=(n+1)*24+'px';g.style.maxWidth=(n+1)*46+'px';g.innerHTML='';
   g.append(el('span'));ps.forEach(p=>g.append(el('span',{class:'h',style:`background:${p.hex}`,title:p.name})));
   ps.forEach((r,y)=>{g.append(el('span',{class:'h',style:`background:${r.hex}`,title:r.name}));
     ps.forEach((c,x)=>{const k=r.i+'_'+c.i,rgb=mix([[r.ks,r.s],[c.ks,c.s]],x>=y?1:.3);
